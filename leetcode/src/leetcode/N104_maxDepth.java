@@ -1,4 +1,5 @@
 package leetcode;
+import leetcode.N0_data_strcture.*;
 
 // 316 ms  87%
 public class N104_maxDepth {

@@ -1,5 +1,6 @@
 package leetcode;
 import java.util.*;
+import leetcode.N0_data_strcture.*;
 
 public class N160_IntersectionofTwoLinkedLists {
 	public int get_ListNode_length(ListNode node){

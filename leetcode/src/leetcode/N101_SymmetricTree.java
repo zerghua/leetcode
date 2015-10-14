@@ -1,6 +1,7 @@
 package leetcode;
 import java.util.LinkedList;
 import java.util.Queue;
+import leetcode.N0_data_strcture.*;
 
 public class N101_SymmetricTree {
 	//340 ms  37%

@@ -1,4 +1,5 @@
 package leetcode;
+import leetcode.N0_data_strcture.*;
 
 public class N111_MinimumDepthofBinaryTree {
 	//1 ms

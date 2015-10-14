@@ -1,5 +1,5 @@
 package leetcode;
-
+import leetcode.N0_data_strcture.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
 

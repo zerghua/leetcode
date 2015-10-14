@@ -1,5 +1,5 @@
 package leetcode;
-
+import leetcode.N0_data_strcture.*;
 
 public class N110_BalancedBinaryTree {
 	/*  this is special case only compares depth difference from root, should consider every node
