@@ -8,7 +8,7 @@ public class N144_BinaryTreePreorderTraversal {
 	//iterative 2 ms
     public List<Integer> preorderTraversal2(TreeNode root) {
     	List<Integer> ret = new LinkedList<Integer>();
-    	if(root == null) return null;
+    	if(root == null) return ret;
     	Stack<TreeNode> s = new Stack<TreeNode>();
     	s.push(root);
     	while(!s.isEmpty()){
