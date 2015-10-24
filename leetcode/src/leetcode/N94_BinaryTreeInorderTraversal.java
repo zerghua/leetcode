@@ -1,6 +1,5 @@
 package leetcode;
 import java.util.*;
-
 import leetcode.N0_data_strcture.*;
 
 public class N94_BinaryTreeInorderTraversal {
