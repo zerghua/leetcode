@@ -15,6 +15,14 @@ public class N0_data_strcture {
 		TreeNode right;
 		TreeNode(int x) { val = x; }
 	}
-	
+
+	public class TreeLinkNode {
+		int val;
+		TreeLinkNode left, right, next;
+
+		TreeLinkNode(int x) {
+			val = x;
+		}
+	}
 	// add a comment
 }
