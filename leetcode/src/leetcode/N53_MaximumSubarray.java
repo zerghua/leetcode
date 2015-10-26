@@ -10,7 +10,7 @@ public class N53_MaximumSubarray {
     //1 ms
     public int maxSubArray(int[] nums) {
         int ret=Integer.MIN_VALUE, local_max=0;
-        for(int i=0;i<nums.length;i++){
+        for(int i : nums){
             local_max += nums[i];
             if(local_max > ret) ret = local_max;
             if(local_max < 0) local_max=0;
