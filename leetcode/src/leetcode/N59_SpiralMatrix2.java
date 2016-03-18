@@ -1,4 +1,4 @@
-public class Solution {
+public class N59_SpiralMatrix2 {
     //0 ms 14.9%
     public int[][] generateMatrix(int n) {
         if(n<1) return new int[0][0];
