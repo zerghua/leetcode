@@ -15,6 +15,7 @@ public class N199_BinaryTreeRightSideView {
 
         while(q.size() > 0){
 
+            //use current queue size as level indicator
             int current_size = q.size();
             for(int i=0; i<current_size; i++){
                 TreeNode node = q.pop();
