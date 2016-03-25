@@ -33,6 +33,14 @@ public class N40_CombinationSum2 {
 
         Arrays.sort(candidates); //for OJ to compare results
         combinationSum_helper_better(candidates, 0, target, list, ret);
+
+
+        /* remove duplicate using hashset
+        HashSet<ArrayList<Integer>> set = new HashSet<ArrayList<Integer>>(result);
+        //remove duplicate lists
+        result.clear();
+        result.addAll(set);
+        */
         return ret;
     }
 }
