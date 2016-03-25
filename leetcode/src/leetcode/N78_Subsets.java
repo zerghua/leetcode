@@ -77,4 +77,33 @@ public class N78_Subsets {
         return ret;
     }
 
+
+    public void subsets3_backtracking_helper(int[] nums, int start,
+                                                            LinkedList<Integer> list,
+                                                            List<List<Integer>> ret) {
+        for(int i=start; i<nums.length; i++){
+            list.add(nums[i]);
+
+            // in Java needs to have a new list
+            LinkedList<Integer> ret_list = new LinkedList<>();
+            for(int e: list) ret_list.add(e);
+
+            ret.add(ret_list);
+            subsets3_backtracking_helper(nums, i+1, list, ret);
+            list.removeLast();
+        }
+    }
+
+
+    public List<List<Integer>> subsets3_backtracking(int[] nums) {
+        List<List<Integer>> ret = new LinkedList<List<Integer>>();
+        LinkedList<Integer> list = new LinkedList<>();
+        ret.add(list);
+        if(nums == null) return ret;
+
+        Arrays.sort(nums); //for OJ to compare results
+        subsets3_backtracking_helper(nums, 0, list, ret);
+        return ret;
+    }
+
 }
