@@ -42,6 +42,41 @@ public class N131_PalindromePartitioning {
         return true;
     }
 
+    //8 ms
+    public List<List<String>> partition2(String s) {
+        List<List<String>> ret = new LinkedList<List<String>>();
+        LinkedList<String> list = new LinkedList<>();
+
+        //pre-fill isPal[][] array
+        boolean[][] isPal = new boolean[s.length()][s.length()];
+        for(int i=s.length()-1; i>=0; i--){
+            for(int j=i; j<s.length(); j++){
+                if(s.charAt(i) == s.charAt(j) && (j-i<=1 || isPal[i+1][j-1])){
+                    isPal[i][j] = true;
+                }
+            }
+        }
+        partition2(s, 0, isPal, list, ret);
+        return ret;
+    }
+
+    private void partition2(String s, int start, boolean[][] isPal,
+                            LinkedList<String> list, List<List<String>> ret) {
+        if(start == s.length()){
+            ret.add(new LinkedList<>(list));
+            return;
+        }
+
+        for(int i=start; i<s.length();i++){
+            if(isPal[start][i]) {
+                list.add(s.substring(start, i+1));
+                partition2(s, i+1, isPal, list,ret);
+                list.removeLast();
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
         String s = "abba";
 
