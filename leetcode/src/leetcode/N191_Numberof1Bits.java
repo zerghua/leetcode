@@ -27,13 +27,23 @@ public class N191_Numberof1Bits {
         return count;
     }
 
+    //https://en.wikipedia.org/wiki/Two's_complement
     public static void main(String[] args) {
         N191_Numberof1Bits x = new N191_Numberof1Bits();
         System.out.println(x.hammingWeight(11));
 
         int a = -2;
+        System.out.println(a);  // -4
+        System.out.println(Integer.toBinaryString(a)); //    11111111111111111111111111111110
         System.out.println(a<<1);  // -4
+        System.out.println(Integer.toBinaryString(a<<1)); // 11111111111111111111111111111100
         System.out.println(a>>1);  // -1
+        System.out.println(Integer.toBinaryString(a>>1)); // 11111111111111111111111111111111
         System.out.println(a>>>1); // 2147483647
+        System.out.println(Integer.toBinaryString(a>>>1));// 1111111111111111111111111111111
+
+        int b = 2;
+        System.out.println(b);  // -4
+        System.out.println(Integer.toBinaryString(b)); //10
     }
 }
