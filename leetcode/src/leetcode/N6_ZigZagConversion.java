@@ -39,4 +39,26 @@ public class N6_ZigZagConversion {
         }
         return sb.toString();
     }
+
+    // follow the pattern, use offset number to update position
+    // 10 ms
+    public String convert2(String s, int numRows) {
+        if(numRows<=1)return s;
+        StringBuilder[] sb = new StringBuilder[numRows];
+        for(int i=0;i<numRows;i++) sb[i] = new StringBuilder();
+
+        int index=0, offset=1;
+        for(char c: s.toCharArray()){
+            sb[index].append(c);
+            if(index == 0) offset = 1;
+            else if(index == numRows-1) offset = -1;
+            index += offset;
+        }
+
+        StringBuilder ret = new StringBuilder();
+        for(int i=0;i<numRows;i++) ret.append(sb[i]);
+        return ret.toString();
+    }
+
+
 }
