@@ -33,17 +33,31 @@ corner case:
  1.  [9]    3     return 0
  2.  [1,9]  3     return 1
 
+Performance/Memory follow up:
+ 1. [1000000, 20000000, 3000000]   80000000
+
 
  */
 public class N377_CombinationSum {
-    // 6 ms
-    // DP
+    // 6 ms  DP  o(n)
     public int combinationSum4(int[] nums, int target) {
         int[] dp = new int[target+1];
         for(int n: nums) if(n<= target) dp[n] = 1;
         for(int i=0;i<=target;i++){
             for(int n: nums){
                 if(n+i<=target) dp[n+i] += dp[i];
+            }
+        }
+        return dp[target];
+    }
+
+    // 7 ms
+    public int combinationSum4_2(int[] nums, int target) {
+        int[] dp = new int[target+1];
+        dp[0] = 1;  //base case
+        for(int i=1;i<=target;i++){
+            for(int n: nums){
+                dp[i] += i - n >=0? dp[i-n] : 0;
             }
         }
         return dp[target];
