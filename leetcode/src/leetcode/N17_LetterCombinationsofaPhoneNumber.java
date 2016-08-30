@@ -37,6 +37,8 @@ public class N17_LetterCombinationsofaPhoneNumber {
 
     public List<String> letterCombinations(String digits) {
         HashMap<Character, String> hm = new HashMap<>();
+        hm.put('0', "");
+        hm.put('1', "*");
         hm.put('2', "abc");
         hm.put('3', "def");
         hm.put('4', "ghi");
@@ -71,7 +73,7 @@ public class N17_LetterCombinationsofaPhoneNumber {
     }
 
     public List<String> letterCombinations2(String digits) {
-        String[] hm = {"", "", "abc",
+        String[] hm = {"", "*", "abc",
                 "def", "ghi", "jkl",
                 "mno", "pqrs", "tuv","wxyz"};
 
