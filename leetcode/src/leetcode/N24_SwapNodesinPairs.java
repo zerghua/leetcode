@@ -22,6 +22,13 @@ public class N24_SwapNodesinPairs {
         return head;
     }
 
+    // below comment added on 8/31/2016
+    //  pre -->  cur --> next  --> next.next
+    //  1.  pre/cur --> next --> next.next
+    //  2.  pre --> next    cur --> next.next
+    //  3.  pre --> next --> cur --> next.next
+    //  key is to use dummy node and operate on THREE links.
+
     //0 ms
     public ListNode swapPairs2(ListNode head) {
         if(head == null || head.next == null) return head;
@@ -30,9 +37,9 @@ public class N24_SwapNodesinPairs {
         ListNode cur = head, pre = dummy;
         while(cur != null && cur.next!=null){
             ListNode nextNode = cur.next;
-            pre.next = nextNode;
-            cur.next = nextNode.next;
-            nextNode.next = cur;
+            pre.next = nextNode;        // 1. pre   --->  next       (pre points its next'next)
+            cur.next = nextNode.next;   // 2. cur   --->  next.next  (cur points its next'next)
+            nextNode.next = cur;        // 3. next  --->  cur        (next points to cur) swap
             pre = cur;
             cur = cur.next;
         }
