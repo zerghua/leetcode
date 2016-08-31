@@ -1,5 +1,11 @@
 package leetcode;
 import leetcode.N0_data_strcture.*;
+/*
+
+Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+
+problem description added on 8/31/2016
+ */
 
 public class N21_mergeTwoLists {
 	//280 ms 99%
