@@ -32,7 +32,7 @@ Given a string containing just the characters '(', ')', '{', '}', '[' and ']', d
 The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
 
 
-version 2 added on 8/31/2016
+version 2,3 added on 8/31/2016
 
  */
 
@@ -77,7 +77,22 @@ public class N20_ValidParentheses {
         return stack.isEmpty();
     }
 
-
+    // 1 ms
+    public boolean isValid3(String s) {
+        if(s==null || s.length()==0) return true;
+        Stack<Character> stack = new Stack<Character>();
+        for(char c: s.toCharArray()){
+            if(c == '(' || c=='{' || c=='[') stack.push(c);
+            else if (!stack.isEmpty()){
+                if (c == ')' && stack.peek() == '(') stack.pop();
+                else if (c == ']'  && stack.peek() == '[') stack.pop();
+                else if (c == '}'  && stack.peek() == '{') stack.pop();
+                else return false;
+            }
+            else return false;
+        }
+        return stack.isEmpty();
+    }
 
 
 
