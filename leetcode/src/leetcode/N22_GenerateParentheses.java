@@ -1,5 +1,4 @@
 package leetcode;
-
 import java.util.*;
 
 /**
@@ -8,7 +7,15 @@ import java.util.*;
  For example, given n = 3, a solution set is:
 
  "((()))", "(()())", "(())()", "()(())", "()()()"
+
+ I guess the hard part is how to define well-formed parentheses.
+
+ comments add on 8/31/2016
+
  */
+
+
+// DFS on number of remaining left and right parentheses.
 public class N22_GenerateParentheses {
     public List<String> generateParenthesis(int n) {
         List<String>  ret = new ArrayList<String>();
