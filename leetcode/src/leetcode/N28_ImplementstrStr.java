@@ -1,5 +1,12 @@
 package leetcode;
+/*
 
+Implement strStr().
+
+Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+version 2 and 3 adds on 9/1/2016
+*/
 public class N28_ImplementstrStr {
 	//5 ms
     public int strStr(String haystack, String needle) {   
@@ -26,10 +33,84 @@ public class N28_ImplementstrStr {
         }
     	return ret_index;
     }
-    
-    
-    //kmp
-    
-    
+
+
+
+    // String match brute force
+    // 3 ms  72 / 72 test cases passed.
+    public int strStr2(String haystack, String needle) {
+        if(haystack==null || needle ==null) return -1;
+        if(needle.length()==0 ) return 0;
+        if(haystack.length()==0 ) return -1;
+        int i=0, j=0;
+        char[] t = haystack.toCharArray();
+        char[] p = needle.toCharArray();
+        while(i<t.length && j<p.length){
+            if(t[i] == p[j]){
+                i++;
+                j++;
+            }else{
+                i = i-j+1;
+                j = 0;
+            }
+        }
+        int ret = -1;
+        if(j==p.length) ret = i-j;
+        return ret;
+    }
+
+
+
+    // String match KMP
+    public int strStr3(String haystack, String needle) {
+        if(haystack==null || needle ==null) return -1;
+        if(needle.length()==0 ) return 0;
+        if(haystack.length()==0 ) return -1;
+        int i=0, j=0;
+        char[] t = haystack.toCharArray();
+        char[] p = needle.toCharArray();
+        int[] next = getNext(p);
+        while(i<t.length && j<p.length){
+            if(j==-1 || t[i] == p[j]){
+                i++;j++;
+            }else j = next[j];
+        }
+        int ret= -1;
+        if(j==p.length) ret = i-j;
+        return ret;
+    }
+
+    // 4 ms  72 / 72 test cases passed.
+    // next[j] == k    and   k=next[k] recursive
+    public int[] getNext(char[] p){
+        int[] next = new int[p.length];
+        next[0] = -1;
+        int j=0, k=-1;
+        while(j<p.length-1){   // length -1
+            if(k == -1 || p[j] == p[k]) {
+                j++;k++;
+                next[j] = k;
+            }
+            else k = next[k];
+        }
+        return next;
+    }
+
+    // 5 ms
+    public int[] getNext2(char[] p){
+        int[] next = new int[p.length];
+        next[0] = -1;
+        int j=0, k=-1;
+        while(j<p.length-1){   // length -1
+            if(k == -1 || p[j] == p[k]) {
+                j++;k++;
+                if(p[j] == p[k]) next[j] = next[k];  // optimize for case like "abab"
+                else next[j] = k;
+            }
+            else k = next[k];
+        }
+        return next;
+    }
+
     
 }
