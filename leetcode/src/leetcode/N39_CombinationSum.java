@@ -6,8 +6,29 @@ import java.util.List;
 
 /**
  * Created by Hua on 3/25/2016.
+
+ Given a set of candidate numbers (C) and a target number (T), find all unique combinations in C
+ where the candidate numbers sums to T.
+
+ The same repeated number may be chosen from C unlimited number of times.
+
+ Note:
+
+ All numbers (including target) will be positive integers.
+ The solution set must not contain duplicate combinations.
+
+ For example, given candidate set [2, 3, 6, 7] and target 7,
+ A solution set is:
+
+ [
+     [7],
+     [2, 2, 3]
+ ]
+
+
  */
 public class N39_CombinationSum {
+    //  7 ms
     public void combinationSum_helper(int[] candidates, int start, int last_sum, int target,
                                       LinkedList<Integer> list, List<List<Integer>> ret){
         for(int i=start;i<candidates.length;i++){
@@ -29,6 +50,7 @@ public class N39_CombinationSum {
     }
 
 
+    // 6 ms   168 / 168 test cases passed.
     public void combinationSum_helper_better(int[] candidates, int start, int target,
                                       LinkedList<Integer> list, List<List<Integer>> ret){
         if(0 == target) {
@@ -38,7 +60,7 @@ public class N39_CombinationSum {
 
         for(int i=start;i<candidates.length;i++){
             if(candidates[i] > target) return;
-
+            if(i>start && candidates[i-1] == candidates[i]) continue; // to skip duplicate, OJ missed this test case.
             list.add(candidates[i]);
             combinationSum_helper_better(candidates, i,target-candidates[i],list,ret);
             list.removeLast();
