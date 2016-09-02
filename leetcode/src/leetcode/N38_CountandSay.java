@@ -12,14 +12,16 @@ package leetcode;
 
  Given an integer n, generate the nth sequence.
 
- 1£º1
- 2£º11
- 3£º21
- 4£º1211
- 5£º111221
- 6£º312211
- 7£º13112221
+ 1-->1
+ 2-->11
+ 3-->21
+ 4-->1211
+ 5-->111221
+ 6-->312211
+ 7-->13112221
 
+
+ this one is hard on how to understand the problem and translate it to code.
 
  */
 public class N38_CountandSay {
