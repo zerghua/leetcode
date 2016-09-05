@@ -13,8 +13,9 @@ import java.math.BigInteger;
  Converting the input string to integer is NOT allowed.
  You should NOT use internal library such as BigInteger.
 
-
-
+ version 2 added on 9/4/2016
+ the hard part is to understand the problem and code it.
+ be careful with carry and leading zeros.
  */
 public class N43_MultiplyStrings {
     //21 ms
@@ -26,7 +27,6 @@ public class N43_MultiplyStrings {
 
     // 9 ms
     // the solution OJ wants
-    // the hard part is to understand the problem and code it.
     public String multiply2(String num1, String num2) {
         int n = num1.length() + num2.length();
         int[] ret = new int[n];
