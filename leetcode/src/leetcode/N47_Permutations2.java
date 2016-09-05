@@ -3,7 +3,19 @@ package leetcode;
 import java.util.*;
 
 /**
- * Created by zhanhua on 3/31/2016.
+ * Created by Hua on 3/31/2016.
+
+ Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+
+ For example,
+ [1,1,2] have the following unique permutations:
+
+ [
+     [1,1,2],
+     [1,2,1],
+     [2,1,1]
+ ]
+
  */
 public class N47_Permutations2 {
     //make ret unique, TLE
@@ -14,6 +26,7 @@ public class N47_Permutations2 {
 
 
     // 6ms
+    // DFS + backtracking with boolean array to store visited node
     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> ret = new LinkedList<List<Integer>>();
         if(nums == null || nums.length==0) return ret;
