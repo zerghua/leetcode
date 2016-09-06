@@ -3,6 +3,20 @@ import java.util.*;
 
 /**
  * Created by Hua on 4/2/2016.
+
+ Given a string s, partition s such that every substring of the partition is a palindrome.
+
+ Return all possible palindrome partitioning of s.
+
+ For example, given s = "aab",
+ Return
+
+ [
+     ["aa","b"],
+     ["a","a","b"]
+ ]
+
+
  */
 
     // java substring, start is inclusive, end is exclusive
@@ -84,4 +98,47 @@ public class N131_PalindromePartitioning {
         System.out.println(x.partition(s));
 
     }
+
+
+
+
+    // version 3 added on 9/6/2016
+    // 5 ms   22 / 22 test cases passed.
+    // DFS + backtracking + DP. see the classic way to pre-check palindrome of all sub strings.
+    public class Solution {
+        public List<List<String>> partition(String s) {
+            // o(n^2) check palindrome for all substring
+            boolean[][]  isPal = new boolean[s.length()][s.length()];
+            for(int j=0;j<s.length();j++){
+                for(int i=0;i<=j;i++){
+                    if(s.charAt(i) == s.charAt(j) && (j-i<=1 || isPal[i+1][j-1])) isPal[i][j] = true;
+                }
+            }
+
+            List<List<String>> ret = new ArrayList<>();
+            dfs(ret, s, isPal, new ArrayList<>(), 0);
+            return ret;
+        }
+
+        public void dfs(List<List<String>> ret, String s, boolean[][] isPal, List<String> cur_list, int start){
+            if(start == s.length()){
+                ret.add(new ArrayList<>(cur_list));
+                return;
+            }
+
+            for(int i=start; i<s.length();i++){
+                if(isPal[start][i]){
+                    cur_list.add(s.substring(start,i+1));
+                    dfs(ret, s, isPal, cur_list, i+1);
+                    cur_list.remove(cur_list.size()-1);
+                }
+            }
+        }
+    }
+
+
+
+
+
+
 }
