@@ -2,10 +2,31 @@ package leetcode;
 import java.util.*;
 /**
  * Created by Hua on 3/22/2016.
+
+
+ Given a set of distinct integers, nums, return all possible subsets.
+
+ Note: The solution set must not contain duplicate subsets.
+
+ For example,
+ If nums = [1,2,3], a solution is:
+
+ [
+     [3],
+     [1],
+     [2],
+     [1,2,3],
+     [1,3],
+     [2,3],
+     [1,2],
+     []
+ ]
+
  */
 
 
 public class N78_Subsets {
+
     public void get_subsets(int[] nums, int start,  List<List<Integer>> ret){
         if(start > nums.length-1) return;
 
@@ -27,8 +48,7 @@ public class N78_Subsets {
         get_subsets(nums, start+1, ret);
     }
 
-
-
+    // version 1
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> ret = new LinkedList<List<Integer>>();
 
@@ -45,7 +65,7 @@ public class N78_Subsets {
         return ret;
     }
 
-
+    // version 2
     public List<List<Integer>> subsets2(int[] nums) {
         List<List<Integer>> ret = new LinkedList<List<Integer>>();
 
@@ -77,7 +97,7 @@ public class N78_Subsets {
         return ret;
     }
 
-
+    // version 3
     public void subsets3_backtracking_helper(int[] nums, int start,
                                                             LinkedList<Integer> list,
                                                             List<List<Integer>> ret) {
@@ -104,6 +124,31 @@ public class N78_Subsets {
         Arrays.sort(nums); //for OJ to compare results
         subsets3_backtracking_helper(nums, 0, list, ret);
         return ret;
+    }
+
+
+
+    // version 4,  on 9/6/2016
+    // 3 ms   10 / 10 test cases passed.
+    // DFS + backtracking.
+    public class Solution {
+        public void dfs(List<List<Integer>> ret, int[] nums, List<Integer> cur_list, int start){
+            for(int i=start;i<nums.length;i++){
+                cur_list.add(nums[i]);
+                ret.add(new ArrayList<>(cur_list));
+                dfs(ret, nums, cur_list, i+1);
+                cur_list.remove(cur_list.size()-1);
+            }
+        }
+
+        public List<List<Integer>> subsets(int[] nums) {
+            List<Integer> cur_list = new ArrayList<>();
+            List<List<Integer>> ret = new ArrayList<>();
+            ret.add(cur_list);
+            if (nums == null || nums.length == 0) return ret;
+            dfs(ret, nums, cur_list, 0);
+            return ret;
+        }
     }
 
 }
