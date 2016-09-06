@@ -40,7 +40,7 @@ public class N77_Combinations {
             ret_list.removeLast();
         }
     }
-
+    // version 1
     public List<List<Integer>> combine(int n, int k) {
         // contruct 1 to n numbers
         LinkedList<Integer> list_of_numbers = new LinkedList<Integer>();
@@ -53,4 +53,29 @@ public class N77_Combinations {
 
         return ret;
     }
+
+    // version 2, no need of list_of_numbers array. added on 9/6/2016
+    // 80 ms  27 / 27 test cases passed.
+    // DFS + backtracking. similar to permutation and subset problem.
+    public class Solution {
+        public void dfs(List<List<Integer>> ret, int n, int k, ArrayList<Integer> cur_list, int start){
+            if(cur_list.size() == k){
+                ret.add(new ArrayList<>(cur_list));
+                return;
+            }
+
+            for(int i=start; i<=n; i++){
+                cur_list.add(i);
+                dfs(ret, n, k, cur_list, i+1);
+                cur_list.remove(cur_list.size()-1);
+            }
+        }
+
+        public List<List<Integer>> combine(int n, int k) {
+            List<List<Integer>> ret = new ArrayList<>();
+            dfs(ret, n, k, new ArrayList<>(), 1);
+            return ret;
+        }
+    }
+
 }
