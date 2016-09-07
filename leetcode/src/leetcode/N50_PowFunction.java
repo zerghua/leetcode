@@ -65,4 +65,21 @@ public class N50_PowFunction {
         else return ret*ret*x;
     }
 
+    // iterative  added on 9/6/2016
+    // https://discuss.leetcode.com/topic/40546/iterative-log-n-solution-with-clear-explanation
+    // 1 ms  300 / 300 test cases passed.
+    public class Solution {
+        public double myPow(double x, int n) {
+            long abs_n = Math.abs((long)n);
+            double ret = 1;
+            while(abs_n >0){
+                if((abs_n & 1) == 1) ret *= x;
+                abs_n >>= 1;
+                x *=x;
+            }
+            return n>0? ret: 1/ret;
+        }
+    }
+
+
 }
