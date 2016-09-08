@@ -2,6 +2,13 @@ package leetcode;
 import leetcode.N0_data_strcture.*;
 /**
  * Created by Hua on 4/10/2016.
+
+ Given a list, rotate the list to the right by k places, where k is non-negative.
+
+ For example:
+ Given 1->2->3->4->5->NULL and k = 2,
+ return 4->5->1->2->3->NULL.
+
  */
 public class N61_RotateList {
     //1 ms
