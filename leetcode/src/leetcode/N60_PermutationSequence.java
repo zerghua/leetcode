@@ -23,7 +23,7 @@ import java.util.*;
  */
 public class N60_PermutationSequence {
     //4 ms, had to use hard-coded factorial, or will TLE
-    //math, mod
+    //math, mod,  k / (n - 1)! for current  and k % (n - 1)! for next iteration
     public String getPermutation(int n, int k) {
         String ret = "";
         //int[] factorial = new int[n];
