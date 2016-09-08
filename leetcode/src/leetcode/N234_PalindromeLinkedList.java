@@ -1,6 +1,12 @@
 package leetcode;
 import leetcode.N0_data_strcture.*;
 import java.util.*;
+/*
+Given a singly linked list, determine if it is a palindrome.
+
+Follow up:
+Could you do it in O(n) time and O(1) space?
+ */
 
 public class N234_PalindromeLinkedList {
 	//7 ms
