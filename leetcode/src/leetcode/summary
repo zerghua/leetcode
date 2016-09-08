@@ -28,3 +28,9 @@ https://leetcode.com/articles/longest-palindromic-substring/#approach-5-manacher
 Anagram(words group like: cat, act)
 49	Group Anagrams                                [medium] sorted string in hashtable, hm<String, List<>>, or Arrays.hashCode(int[])  [TODO]
 242	Valid Anagram                                 [easy] hashtable or sort string.  [TODO]
+
+
+
+
+Linked List
+61. Rotate List                                   [easy-medium] count node, tail -> head, move n - k steps, head = tail.next, tail.next = null  [TODO]
