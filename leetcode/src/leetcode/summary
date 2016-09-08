@@ -1,0 +1,30 @@
+DFS + backtracking:
+46  Permutations
+47  Permutations II (contains duplicates)
+78  Subsets
+90  Subsets II (contains duplicates)
+39  Combination Sum
+40  Combination Sum II (can't reuse same element)
+216 Combination Sum III
+377 Combination Sum IV
+77  Combinations
+
+
+
+Palindrome(DFS + backtracking or DP)
+https://leetcode.com/articles/longest-palindromic-substring/#approach-5-manachers-algorithm-accepted    Manacher's Algorithm
+5	Longest Palindromic Substring
+9	Palindrome Number                             [easy-medium], create div the same digits as number, use it to get left digit
+125	Valid Palindrome                              [easy-medium], consider case and special chars.
+131 Palindrome Partitioning                       [medium-hard] DP to find all palindrome of sub-strings + DFS+backtracking.
+132 Palindrome Partitioning II                    [hard] DP cut[j] = min(cut[j], cut[i-1] + 1) inside a[i] == a[j] condition.  [TODO]
+214	Shortest Palindrome                           [hard] String, recursive. prefix, suffix and middle. [TODO]
+234	Palindrome Linked List                        [easy] o(n) space,  [medium] o(1) space. reverse first half list. [TODO]
+266	Palindrome Permutation    (locked)
+267	Palindrome Permutation II (locked)
+336	Palindrome Pairs                              [hard] hashtable + divide conquer. split each words str1 and str2, and check if isPal(str2) and reversed(str2) in map. [TODO]
+
+
+Anagram(words group like: cat, act)
+49	Group Anagrams                                [medium] sorted string in hashtable, hm<String, List<>>, or Arrays.hashCode(int[])  [TODO]
+242	Valid Anagram                                 [easy] hashtable or sort string.  [TODO]
