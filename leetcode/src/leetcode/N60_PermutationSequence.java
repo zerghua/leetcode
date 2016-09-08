@@ -44,4 +44,24 @@ public class N60_PermutationSequence {
 
         return ret.toString();
     }
+
+    // version 2, more concise
+    // 3 ms  200 / 200 test cases passed.
+    // math and pattern finding.
+    public class Solution {
+        public String getPermutation(int n, int k) {
+            ArrayList<Integer> list = new ArrayList<>();
+            for(int i=1;i<10;i++) list.add(i);
+            int factorial = 1;
+            for(int i=2;i<=n;i++) factorial *= i;
+
+            StringBuilder sb = new StringBuilder();
+            for(k--; n>0; n--){
+                factorial /= n;
+                sb.append(list.remove(k/factorial));
+                k %= factorial;
+            }
+            return sb.toString();
+        }
+    }
 }
