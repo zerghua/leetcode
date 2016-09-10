@@ -52,15 +52,25 @@ DFS + backtracking
 ---------------------------------------------------
 46  Permutations
 47  Permutations II (contains duplicates)
-78  Subsets
+
+78  Subsets(distinct numbers)
+[medium] add all cur_list to ret in loop, cur_list as backtrack.
+
 90  Subsets II (contains duplicates)
+[medium] add all cur_list to ret in loop, sort and skip duplicate when i>start && num[i-1]=num[i]
+
+
 39  Combination Sum
 40  Combination Sum II (can't reuse same element)
 216 Combination Sum III
 377 Combination Sum IV
+
 77  Combinations
+[medium] return when size==k. return part of the subsets problem. cur_list as backtrack.
 
 
+79. Word Search (Is a word in matrix)
+[medium] 4 recursive calls inside one function. need visited[][] as backtrack, conditional and boundary check.
 
 
 
@@ -147,3 +157,17 @@ String
 67. Add Binary
 [easy-medium]  two pointers in one loop, while they >=0
 
+
+
+---------------------------------------------------
+Two pointers(or Three pointers)
+---------------------------------------------------
+75. Sort Colors
+[easy-medium] three pointers. if 0, swap(i++,left++), if 2, swap(i,right--), else i++; while(i<=right)
+
+26. Remove Duplicates from Sorted Array
+[easy-medium] i as the end of array, compare it with num[j], if equal continue j and skipped num[j],
+else num[++i] = nums[j],  return i+1
+
+80. Remove Duplicates from Sorted Array II
+[easy-medium] similar to 26, compare with num[i-1] rather than num[i]. j starts from 2.
