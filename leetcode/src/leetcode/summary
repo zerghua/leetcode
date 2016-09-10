@@ -1,4 +1,55 @@
-DFS + backtracking:
+---------------------------------------------------
+Anagram(words group like: cat, act)
+---------------------------------------------------
+49	Group Anagrams
+[medium] sorted string in hashtable, hm<String, List<>>, or Arrays.hashCode(int[])  [TODO]
+
+242	Valid Anagram
+[easy] hashtable or sort string.  [TODO]
+
+
+
+
+---------------------------------------------------
+Array
+---------------------------------------------------
+53	Maximum Subarray,  max continous subarray.  condition on if local_max >0.
+[easy]
+
+54	Spiral Matrix.  4 loops of top,right,bottom and left side.
+[medium to code]
+
+55. Jump Game.  array operation. o(n), scan each item and exit early if possible.
+[easy]
+
+58, Length of Last Word. String operation. scan from last. o(n)
+[very easy]
+
+59, Spiral Matrix 2. 4 loops of top,right,bottom and left side.
+[medium to code]
+
+66. Plus One
+[easy-medium]  find pattern. test case, 199, 999, 288, create new array only when like 999
+
+73. Set Matrix Zeroes
+[medium] o(1) space.  1. record if the first row/col should should set to 0, 2. then use them to store this row/col should be set to 0, 3. set every cell, 4. set first row/col according to step 1.
+
+
+
+---------------------------------------------------
+Binary search
+---------------------------------------------------
+69. Sqrt(x)
+[easy-medium] return left bound. negative number has not sqrt, use Long to handle overflow.
+
+74. Search a 2D Matrix
+[easy-medium] val = matrix[mid/col][mid%col]
+
+
+
+---------------------------------------------------
+DFS + backtracking
+---------------------------------------------------
 46  Permutations
 47  Permutations II (contains duplicates)
 78  Subsets
@@ -11,26 +62,88 @@ DFS + backtracking:
 
 
 
+
+
+---------------------------------------------------
+DP
+---------------------------------------------------
+62. Unique Paths
+[easy] dp[i][j] = dp[i-1][j] + dp[i][j-1]
+
+63. Unique Paths II
+[easy-medium]  rolling array.  dp[j] += d[j-1]  when j>0
+
+64. Minimum Path Sum
+[easy]  dp[j] = min(dp[j-1], dp[j]) + grid[i][j].  similar to 62, but use rolling array(o(m) space).
+
+70, climb stairs. (either 1 step or 2 steps)
+[easy-medium]   dp[i] = dp[i-2] + dp[i-1].  or c= a+b, a=b, b=c
+
+
+
+
+
+---------------------------------------------------
+Linked List
+---------------------------------------------------
+61. Rotate List
+[easy-medium] count node, tail -> head, move n - k steps, head = tail.next, tail.next = null  [TODO]
+
+
+
+---------------------------------------------------
+Math
+---------------------------------------------------
+60, Permutation Sequence.
+[medium to hard] math, k / (n-1)! for current number,  k%(n-1)! for next iteration.
+
+
+
+
+---------------------------------------------------
 Palindrome(DFS + backtracking or DP)
+---------------------------------------------------
 https://leetcode.com/articles/longest-palindromic-substring/#approach-5-manachers-algorithm-accepted    Manacher's Algorithm
 5	Longest Palindromic Substring
-9	Palindrome Number                             [easy-medium], create div the same digits as number, use it to get left digit
-125	Valid Palindrome                              [easy-medium], consider case and special chars.
-131 Palindrome Partitioning                       [medium-hard] DP to find all palindrome of sub-strings + DFS+backtracking.
-132 Palindrome Partitioning II                    [hard] DP cut[j] = min(cut[j], cut[i-1] + 1) inside a[i] == a[j] condition.  [TODO]
-214	Shortest Palindrome                           [hard] String, recursive. prefix, suffix and middle. [TODO]
-234	Palindrome Linked List                        [easy] o(n) space,  [medium] o(1) space. reverse first half list. [TODO]
+
+9	Palindrome Number
+[easy-medium], create div the same digits as number, use it to get left digit
+
+125	Valid Palindrome
+[easy-medium], consider case and special chars.
+
+131 Palindrome Partitioning
+[medium-hard] DP to find all palindrome of sub-strings + DFS+backtracking.
+
+132 Palindrome Partitioning II
+[hard] DP cut[j] = min(cut[j], cut[i-1] + 1) inside a[i] == a[j] condition.  [TODO]
+
+214	Shortest Palindrome
+[hard] String, recursive. prefix, suffix and middle. [TODO]
+
+234	Palindrome Linked List
+[easy] o(n) space,  [medium] o(1) space. reverse first half list. [TODO]
+
 266	Palindrome Permutation    (locked)
 267	Palindrome Permutation II (locked)
-336	Palindrome Pairs                              [hard] hashtable + divide conquer. split each words str1 and str2, and check if isPal(str2) and reversed(str2) in map. [TODO]
 
-
-Anagram(words group like: cat, act)
-49	Group Anagrams                                [medium] sorted string in hashtable, hm<String, List<>>, or Arrays.hashCode(int[])  [TODO]
-242	Valid Anagram                                 [easy] hashtable or sort string.  [TODO]
+336	Palindrome Pairs
+[hard] hashtable + divide conquer. split each words str1 and str2, and check if isPal(str2) and reversed(str2) in map. [TODO]
 
 
 
 
-Linked List
-61. Rotate List                                   [easy-medium] count node, tail -> head, move n - k steps, head = tail.next, tail.next = null  [TODO]
+---------------------------------------------------
+Stack
+---------------------------------------------------
+71. Simplify Path
+[medium] pop if it's "..", continue if it's '.', else push
+
+
+
+---------------------------------------------------
+String
+---------------------------------------------------
+67. Add Binary
+[easy-medium]  two pointers in one loop, while they >=0
+
