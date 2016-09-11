@@ -1,5 +1,16 @@
 package leetcode;
 import leetcode.N0_data_strcture.*;
+/*
+Reverse a singly linked list.
+
+click to show more hints.
+Hint:
+
+A linked list can be reversed either iteratively or recursively. Could you implement both?
+
+
+ */
+
 public class N206_reverseList {
 	//308 ms 44%
     public ListNode reverseList(ListNode head) {
