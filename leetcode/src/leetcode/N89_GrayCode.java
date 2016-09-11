@@ -19,7 +19,8 @@ The gray code is a binary numeral system where two successive values differ in o
  *
  */
 public class N89_GrayCode {
-    //1 ms
+    // 1 ms
+    // f(n) += reverse(f(n-1)) + 2^(n-1)
     public List<Integer> grayCode(int n) {
         List<Integer> ret = new ArrayList<Integer>();
         ret.add(0);
