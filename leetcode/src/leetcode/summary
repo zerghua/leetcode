@@ -99,6 +99,11 @@ Linked List
 61. Rotate List
 [easy-medium] count node, tail -> head, move n - k steps, head = tail.next, tail.next = null  [TODO]
 
+83. Remove Duplicates from Sorted List
+[easy] skip next if equals. if ==, cur.next=cur.next.next, else cur = cur.next.
+
+82. Remove Duplicates from Sorted List II
+[medium] need dummy node to skip the first one. store duplicate value by checking cur.next.val == cur.next.next.val , and skip all duplicate if equals duplicate value.
 
 
 ---------------------------------------------------
@@ -171,3 +176,4 @@ else num[++i] = nums[j],  return i+1
 
 80. Remove Duplicates from Sorted Array II
 [easy-medium] similar to 26, compare with num[i-1] rather than num[i]. j starts from 2.
+
