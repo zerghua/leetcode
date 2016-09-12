@@ -34,6 +34,9 @@ Array
 73. Set Matrix Zeroes
 [medium] o(1) space.  1. record if the first row/col should should set to 0, 2. then use them to store this row/col should be set to 0, 3. set every cell, 4. set first row/col according to step 1.
 
+88. Merge Sorted Array
+[easy] fill from the end of array.
+
 
 
 ---------------------------------------------------
@@ -44,6 +47,45 @@ Binary search
 
 74. Search a 2D Matrix
 [easy-medium] val = matrix[mid/col][mid%col]
+
+33. Search in Rotated Sorted Array
+[hard] 4 if conditions, compare num[mid] with num[left], and further compare target to num[left] and num[mid].
+
+81. Search in Rotated Sorted Array II (duplicate in array)
+[hard] similar to 33, left++ if num[left] = num[mid]. worst case o(n)
+
+
+
+---------------------------------------------------
+Binary Tree
+---------------------------------------------------
+94. Binary Tree Inorder Traversal
+[easy-medium] left-root-right. iterative, use stack. push p to stack if p is not null then p=p.left,  else if p==null, store stack.pop().val, and then p = p.right. while(p!=null || !s.isEmpty)
+
+100. Same Tree
+[easy] DFS. return true if p == null && q==null, false if p==null || q==null, if p.val == q.val return dfs(p.left, q.left) && dfs(p.right, q.right) else return false
+
+
+---------------------------------------------------
+Binary Search Tree
+---------------------------------------------------
+96. Unique Binary Search Trees
+[medium-hard] DP. catalan number. f(n) = f(0)*f(n-1) + f(1)*f(n-2) + ... + f(n-1)f(0)
+
+95. Unique Binary Search Trees II
+[medium-hard] DFS. foreach(start,n), left = (start,i-1), right=(i+1,n).
+
+98. Validate Binary Search Tree
+[easy-medium] DFS. pass along min, max value to validate. return false if root.val>=max || root.val <= min. then return dfs(root.left,min, root.val) && dfs(root.right,root.val, max).
+
+
+
+---------------------------------------------------
+Bit Manipulation
+---------------------------------------------------
+89. Gray Code
+[medium] f(n) += reverse(f(n-1)) + 2^(n-1), use list to represent f(n)
+
 
 
 
@@ -72,6 +114,11 @@ DFS + backtracking
 79. Word Search (Is a word in matrix)
 [medium] 4 recursive calls inside one function. need visited[][] as backtrack, conditional and boundary check.
 
+93. Restore IP Addresses
+[medium] extra in level parameter to record which level we are in, use it for termination. pruning code for IP address like 00, 01, early break.
+
+
+
 
 
 ---------------------------------------------------
@@ -89,6 +136,10 @@ DP
 70, climb stairs. (either 1 step or 2 steps)
 [easy-medium]   dp[i] = dp[i-2] + dp[i-1].  or c= a+b, a=b, b=c
 
+91. Decode Ways
+[medium] dp[i] = dp[i-1] + dp[i-2] if substring(i-1,i) and substring(i-2,i) is valid dp[0]=dp[1]=1
+
+
 
 
 
@@ -104,6 +155,16 @@ Linked List
 
 82. Remove Duplicates from Sorted List II
 [medium] need dummy node to skip the first one. store duplicate value by checking cur.next.val == cur.next.next.val , and skip all duplicate if equals duplicate value.
+
+86. Partition List
+[medium] two dummy nodes as the start of each list, two p pointers points to current node will end up to the tail of each list.
+
+206. Reverse Linked List
+[easy-medium] iterative one. need pre, cur, next.
+
+92. Reverse Linked List II
+[medium] dummy node to solve first node issue. need extra pre_m, m_node to link head and tail. pre_m.next = pre, m_node.next=cur.  pre, cur, next for reversing node. m-- >1; n-- >1
+
 
 
 ---------------------------------------------------
