@@ -29,6 +29,15 @@ i=4, count[4]=count[0]*count[3] // 1 is root
             + count[2]*count[1] // 3 is root
             + count[3]*count[0] // 4 is root
 
+i=1
+catalan[0] = 1
+catalan[1] = catalan[0] * catalan[0]  === 1
+catalan[2] = catalan[0] * catalan[1] + catalan[1] * catalan[0]  === 2
+catalan[3] = catalan[0] * catalan[2] + catalan[1] * catalan[1] + catalan[2] * catalan[0] === 5
+catalan[3] = catalan[0] * catalan[3] +
+             catalan[1] * catalan[2] +
+             catalan[2] * catalan[1] +
+             catalan[3] * catalan[0]   === 5 + 2 + 2 + 5 = 14
  */
 
 
@@ -43,7 +52,6 @@ public class N96_UniqueBinarySearchTrees {
         		catalan[i] += catalan[j] * catalan[i-j-1];
         	}
         }
-    	
     	return catalan[n];
     }
 }
