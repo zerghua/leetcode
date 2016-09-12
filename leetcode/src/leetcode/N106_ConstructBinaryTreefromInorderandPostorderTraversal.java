@@ -3,6 +3,11 @@ import leetcode.N0_data_strcture.*;
 
 /**
  * Created by Hua on 3/28/2016.
+
+ Given inorder and postorder traversal of a tree, construct the binary tree.
+
+ Note:
+ You may assume that duplicates do not exist in the tree.
  */
 public class N106_ConstructBinaryTreefromInorderandPostorderTraversal {
     public TreeNode buildTree(int[] inorder, int inorder_start, int inorder_end,
