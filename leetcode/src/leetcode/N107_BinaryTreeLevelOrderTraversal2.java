@@ -69,4 +69,27 @@ public class N107_BinaryTreeLevelOrderTraversal2 {
     	
     	return reversed_ret;
     }
+
+	// version 3  added on 9/12/2016
+    // 4 ms 34 / 34 test cases passed.
+    // BFS with queue and store size of each level.
+	public class Solution {
+		public List<List<Integer>> levelOrderBottom(TreeNode root) {
+            List<List<Integer>> ret = new ArrayList<>();
+            Queue<TreeNode> q = new LinkedList<>();
+            if(root != null) q.add(root);
+            while(!q.isEmpty()){
+                int size = q.size();
+                List<Integer> level_list = new ArrayList<>();
+                for(int i=0;i<size;i++){
+                    TreeNode node = q.remove();
+                    level_list.add(node.val);
+                    if(node.left != null) q.add(node.left);
+                    if(node.right != null) q.add(node.right);
+                }
+                ret.add(0, level_list); // only difference from 102, add to the front.
+            }
+            return ret;
+		}
+	}
 }
