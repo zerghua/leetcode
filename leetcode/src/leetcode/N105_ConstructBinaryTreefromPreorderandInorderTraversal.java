@@ -1,9 +1,14 @@
 package leetcode;
 import leetcode.N0_data_strcture.*;
 
-
 /**
  * Created by Hua on 3/28/2016.
+
+ Given preorder and inorder traversal of a tree, construct the binary tree.
+
+ Note:
+ You may assume that duplicates do not exist in the tree.
+
  */
 public class N105_ConstructBinaryTreefromPreorderandInorderTraversal {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
