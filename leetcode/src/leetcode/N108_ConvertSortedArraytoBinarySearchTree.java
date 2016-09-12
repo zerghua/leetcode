@@ -1,7 +1,8 @@
 package leetcode;
 import leetcode.N0_data_strcture.*;
 /**
- * Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
+ * Given an array where elements are sorted in ascending order,
+ * convert it to a height balanced BST.
  */
 public class N108_ConvertSortedArraytoBinarySearchTree {
 
