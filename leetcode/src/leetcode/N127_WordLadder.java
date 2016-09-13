@@ -31,7 +31,7 @@ import java.util.*;
  */
 public class N127_WordLadder {
     // shortest path should use BFS, DFS will TLE
-    // 101 ms
+    // 90 ms  37 / 37 test cases passed.  on 9/13/2016
     static class bfs{
         public int ladderLength(String beginWord, String endWord, Set<String> wordList) {
             wordList.remove(beginWord);
