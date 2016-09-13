@@ -37,6 +37,14 @@ Array
 88. Merge Sorted Array
 [easy] fill from the end of array.
 
+118. Pascal's Triangle
+[easy] find pattern. similar to tree level order traversal.
+
+119. Pascal's Triangle II(find kth row, but only o(k) space)
+[easy-medium] rolling array, scan from backward.
+
+
+
 
 
 ---------------------------------------------------
