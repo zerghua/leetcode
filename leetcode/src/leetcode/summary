@@ -195,6 +195,19 @@ DP
 91. Decode Ways
 [medium] dp[i] = dp[i-1] + dp[i-2] if substring(i-1,i) and substring(i-2,i) is valid dp[0]=dp[1]=1
 
+120. Triangle
+[medium] bottom up DP, rolling array. dp[i] = min(dp[i], dp[i+1]) + matrix[i][j]
+
+121. Best Time to Buy and Sell Stock
+[easy-medium] greedy. minVal = min(minVal, a[i]);  ret = max(ret, a[i]-minVal);
+
+122. Best Time to Buy and Sell Stock II(could buy and sell as much as possible.)
+[easy-medium] greedy. add up all the positive difference between two days.
+
+123. Best Time to Buy and Sell Stock III
+[medium-hard] two-way DP. find max profit <= i, find max profit >= i. and combine them. ret = max(ret, left[i]+right[i])
+
+
 
 
 
@@ -242,7 +255,7 @@ https://leetcode.com/articles/longest-palindromic-substring/#approach-5-manacher
 [easy-medium], create div the same digits as number, use it to get left digit
 
 125	Valid Palindrome
-[easy-medium], consider case and special chars.
+[easy-medium], consider case and special chars. two pointers start from left and right end.
 
 131 Palindrome Partitioning
 [medium-hard] DP to find all palindrome of sub-strings + DFS+backtracking.
