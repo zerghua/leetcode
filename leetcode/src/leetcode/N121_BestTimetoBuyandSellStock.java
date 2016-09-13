@@ -18,4 +18,19 @@ public class N121_BestTimetoBuyandSellStock {
         }
         return max_profit;
     }
+
+    // version 2 added on 9/13/2016
+    // greedy. only need to store previous min value.
+    // 3 ms  200 / 200 test cases passed.
+    public class Solution {
+        public int maxProfit(int[] prices) {
+            if(prices == null || prices.length <=0) return 0;
+            int min = prices[0], ret = 0;
+            for(int i=1;i<prices.length;i++){
+                min = Math.min(min, prices[i]);
+                ret = Math.max(ret, prices[i] - min);
+            }
+            return ret;
+        }
+    }
 }
