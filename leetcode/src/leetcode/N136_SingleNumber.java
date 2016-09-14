@@ -1,5 +1,12 @@
 package leetcode;
 
+/*
+Given an array of integers, every element appears twice except for one. Find that single one.
+
+Note:
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+
+ */
 public class N136_SingleNumber {
 	//The key to solve this problem is bit manipulation. 
 	//XOR will return 1 only on two different bits. 
