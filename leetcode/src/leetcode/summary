@@ -147,6 +147,14 @@ Bit Manipulation
 89. Gray Code
 [medium] f(n) += reverse(f(n-1)) + 2^(n-1), use list to represent f(n)
 
+136. Single Number(one number appears once while others twice)
+[easy] xor on all the elements.
+
+137. Single Number II(one number appears once while others three times)
+[medium] on every bit, the sum of each bit is 3*n + (0 or 1). and all numbers bit by bit and mod 3 is the result.
+
+
+
 
 
 
