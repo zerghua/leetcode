@@ -3,10 +3,32 @@ import javax.annotation.PostConstruct;
 import java.util.*;
 /**
  * Created by Hua on 4/17/2016.
+
+ Given a 2D board containing 'X' and 'O' (the letter O), capture all regions surrounded by 'X'.
+
+ A region is captured by flipping all 'O's into 'X's in that surrounded region.
+
+ For example,
+
+ X X X X
+ X O O X
+ X X O X
+ X O X X
+
+ After running your function, the board should be:
+
+ X X X X
+ X X X X
+ X X X X
+ X O X X
+
+
  */
 
-    //BFS, DFS will stack overflow?
+    //DFS will stack overflow?
 
+    // start from 4 sides and mark all neighbors(BFS) from 'O' to 'P',
+    // then set all 'O' to 'X', all 'P' to 'O'
 public class N130_SurroundedRegions {
     public static class Pair{
         int x; int y;
