@@ -3,6 +3,17 @@ import java.util.*;
 
 /**
  * Created by Hua on 4/10/2016.
+
+ Evaluate the value of an arithmetic expression in Reverse Polish Notation.
+
+ Valid operators are +, -, *, /. Each operand may be an integer or another expression.
+
+ Some examples:
+
+ ["2", "1", "+", "3", "*"] -> ((2 + 1) * 3) -> 9
+ ["4", "13", "5", "/", "+"] -> (4 + (13 / 5)) -> 6
+
+
  */
 public class N150_EvaluateReversePolishNotation {
     //19 ms stack
