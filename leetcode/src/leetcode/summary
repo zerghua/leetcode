@@ -70,6 +70,12 @@ Binary Tree
 94. Binary Tree Inorder Traversal
 [easy-medium] left-root-right. iterative, use stack. push p to stack if p is not null then p=p.left,  else if p==null, store stack.pop().val, and then p = p.right. while(p!=null || !s.isEmpty)
 
+144. Binary Tree Preorder Traversal
+[medium] iteratively. [TODO]
+
+145. Binary Tree Postorder Traversal
+[hard] iteratively.  [TODO]
+
 100. Same Tree
 [easy] DFS. return true if p == null && q==null, false if p==null || q==null, if p.val == q.val return dfs(p.left, q.left) && dfs(p.right, q.right) else return false
 
@@ -231,7 +237,11 @@ DP
 123. Best Time to Buy and Sell Stock III
 [medium-hard] two-way DP. find max profit <= i, find max profit >= i. and combine them. ret = max(ret, left[i]+right[i])
 
+139. Word Break(check if string can be segmented into a few words in a given dictionary)
+[medium-hard] DFS will TLE.  use DP. DP, dp[i+1] = true if dp[j]==true && dict.contains(substring[j,i+1)) for j in [0,i]
 
+140. Word Break II
+[hard]  DP + DFS + backtracking. [TODO]
 
 
 
@@ -257,6 +267,23 @@ Linked List
 
 92. Reverse Linked List II
 [medium] dummy node to solve first node issue. need extra pre_m, m_node to link head and tail. pre_m.next = pre, m_node.next=cur.  pre, cur, next for reversing node. m-- >1; n-- >1
+
+141. Linked List Cycle
+[easy] two pointers, slow and fast. while(fast!=null && fast.next != null) ...
+
+142. Linked List Cycle II(find entrance of cycle)
+[medium] once they meet, reset slow to head, and move them at the same pace, they will meet at the entrance.
+
+143. Reorder List (1->2->3->4   ----->    1->4->2->3)
+[medium] find mid point, and reverse the second half, and merge them.
+
+147. Insertion Sort List
+[medium] need dummy node.[TODO]
+
+148. Sort List
+[medium] merge sort. [TODO]
+
+
 
 
 
@@ -308,6 +335,8 @@ Stack
 71. Simplify Path
 [medium] pop if it's "..", continue if it's '.', else push
 
+150. Evaluate Reverse Polish Notation
+[easy] if operand, pop twice and evaluate and push back, else push.
 
 
 ---------------------------------------------------
