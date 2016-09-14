@@ -3,6 +3,15 @@ import java.util.*;
 
 /**
  * Created by Hua on 4/7/2016.
+
+ Given a string s and a dictionary of words dict, determine if s can be segmented into a space-separated sequence of one or more dictionary words.
+
+ For example, given
+ s = "leetcode",
+ dict = ["leet", "code"].
+
+ Return true because "leetcode" can be segmented as "leet code".
+
  */
 
 public class N139_WordBreak {
@@ -25,6 +34,7 @@ public class N139_WordBreak {
     }
 
     //6 ms
+    // DP, dp[i+1] = true if dp[i]==true && dict.contains(substring[j,i+1)).
     public boolean wordBreak_dp(String s, Set<String> wordDict) {
         boolean[] isbreakable = new boolean[s.length()+1];
         isbreakable[0] = true;
