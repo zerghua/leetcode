@@ -3,6 +3,9 @@ import leetcode.N0_data_strcture.*;
 
 /**
  * Created by Hua on 3/26/2016.
+
+ Sort a linked list using insertion sort.
+
  */
 public class N147_InsertionSortList {
     public ListNode insertionSortList(ListNode head) {
