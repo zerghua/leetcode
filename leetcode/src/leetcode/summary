@@ -43,9 +43,9 @@ Array
 119. Pascal's Triangle II(find kth row, but only o(k) space)
 [easy-medium] rolling array, scan from backward.
 
-
-
-
+134. Gas Station
+[easy-medium] greedy. read problem description carefully, because guaranteed solution
+to be unique if failed at i, we can give up all index [0,i], start checking from i+1.
 
 ---------------------------------------------------
 Binary search
@@ -115,6 +115,11 @@ Binary Tree
 [medium] share the same BFS level order traversal solution. with extra line of: if(i<size-1) node.next = q.peek(); for this linking next node.
 
 
+129. Sum Root to Leaf Numbers(sum of each path from root to leaf)
+[medium] DFS. tail recursion.
+if(node==null) return 0; ret = sum*10+node.val;
+if(left==right==null) return ret; return dfs(node.left, ret) + dfs(node.right, ret)
+
 
 ---------------------------------------------------
 Binary Search Tree
@@ -146,7 +151,7 @@ Bit Manipulation
 
 
 ---------------------------------------------------
-DFS + backtracking
+DFS/backtracking or BFS(better for shortest path)
 ---------------------------------------------------
 46  Permutations
 47  Permutations II (contains duplicates)
@@ -166,14 +171,25 @@ DFS + backtracking
 77  Combinations
 [medium] return when size==k. return part of the subsets problem. cur_list as backtrack.
 
-
 79. Word Search (Is a word in matrix)
 [medium] 4 recursive calls inside one function. need visited[][] as backtrack, conditional and boundary check.
 
 93. Restore IP Addresses
 [medium] extra in level parameter to record which level we are in, use it for termination. pruning code for IP address like 00, 01, early break.
 
+127. Word Ladder
+[medium-hard]  BFS. add all neighbor words to list, and check level by level.
 
+126. Word Ladder II(find all the path) (worth revisit)
+[hard]  BFS + backtracking. long code.
+
+130. Surrounded Regions
+[medium-hard] start from 4 sides and mark all neighbors(BFS) from 'O' to 'P',
+then set all 'O' to 'X', all 'P' to 'O'.  long code.
+
+133. Clone Graph
+[medium-hard] copy itself and copy its neighbors, use hashmap to store {new_node_label, new_node},
+and return new_node if encountered to avoid duplicate. recursively add its neighbors.
 
 
 
@@ -258,7 +274,7 @@ https://leetcode.com/articles/longest-palindromic-substring/#approach-5-manacher
 [easy-medium], consider case and special chars. two pointers start from left and right end.
 
 131 Palindrome Partitioning
-[medium-hard] DP to find all palindrome of sub-strings + DFS+backtracking.
+[medium-hard] DP to find all palindrome of sub-strings, DFS+backtracking.
 
 132 Palindrome Partitioning II
 [hard] DP cut[j] = min(cut[j], cut[i-1] + 1) inside a[i] == a[j] condition.  [TODO]
