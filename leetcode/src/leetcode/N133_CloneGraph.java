@@ -79,7 +79,7 @@ public class N133_CloneGraph {
     // DFS
     // 4 ms
     // copy itself and copy its neighbors, use hashmap to store {new_node_label, new_node}
-    // and return node_node if encountered to avoid duplicate. recursively add its neighbors.
+    // and return new_node if encountered to avoid duplicate. recursively add its neighbors.
     class DFS{
         public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
             if(node == null) return null;
