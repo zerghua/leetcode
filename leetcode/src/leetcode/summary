@@ -47,6 +47,12 @@ Array
 [easy-medium] greedy. read problem description carefully, because guaranteed solution
 to be unique if failed at i, we can give up all index [0,i], start checking from i+1.
 
+167. Two Sum II - Input array is sorted
+[easy] two pointers. l++ and r--;
+
+
+
+
 ---------------------------------------------------
 Binary search
 ---------------------------------------------------
@@ -261,6 +267,16 @@ DP
 
 
 
+---------------------------------------------------
+Hash Table
+---------------------------------------------------
+166. Fraction to Recurring Decimal
+[medium-hard] use hashtable to store visited number, and add brackets before it.
+
+
+
+
+
 
 ---------------------------------------------------
 Linked List
@@ -369,6 +385,8 @@ String
 151. Reverse Words in a String
 [easy-medium] trim().split(" +") to String[]. and reverse it.  or manual scan word, and reversely append word.
 
+165. Compare Version Numbers
+[easy-medium] problem says 1.22 > 1.3 because 22 > 3. sum digits up and compare.
 
 
 
