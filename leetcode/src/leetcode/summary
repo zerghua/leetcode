@@ -62,6 +62,11 @@ Binary search
 81. Search in Rotated Sorted Array II (duplicate in array)
 [hard] similar to 33, left++ if num[left] = num[mid]. worst case o(n)
 
+153. Find Minimum in Rotated Sorted Array
+[easy-medium]  if(num[mid] < num[r]) r= mid; else l = mid+1; return num[l]  while(l<r)
+
+154. Find Minimum in Rotated Sorted Array II(duplicate is allowed)
+[medium] if(num[mid] == num[r]) r--;  else are the same as 153.
 
 
 ---------------------------------------------------
@@ -243,6 +248,9 @@ DP
 140. Word Break II
 [hard]  DP + DFS + backtracking. [TODO]
 
+152. Maximum Product Subarray
+[medium] DP or greedy. maxVal = max(maxVal, max(num*minVal, num*maxVal));  minVal = min(minVal, min(num*minVal, num*maxVal)); ret= max(ret, maxVal)
+
 
 
 
@@ -344,6 +352,10 @@ String
 ---------------------------------------------------
 67. Add Binary
 [easy-medium]  two pointers in one loop, while they >=0
+
+151. Reverse Words in a String
+[easy-medium] trim().split(" +") to String[]. and reverse it.  or manual scan word, and reversely append word.
+
 
 
 
