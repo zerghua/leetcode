@@ -237,6 +237,8 @@ then set all 'O' to 'X', all 'P' to 'O'.  long code.
 [medium-hard] copy itself and copy its neighbors, use hashmap to store {new_node_label, new_node},
 and return new_node if encountered to avoid duplicate. recursively add its neighbors.
 
+200. Number of Islands
+[medium] DFS, for each cell, do DFS on adjacent cells, and mark them as visited.
 
 
 ---------------------------------------------------
