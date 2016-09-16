@@ -54,6 +54,11 @@ to be unique if failed at i, we can give up all index [0,i], start checking from
 [easy-medium] counting number, count++ if the same; else count--; if count==0, ret=num[i], count=1
 because majority > n/2, so it will always win with such counting.
 
+189. Rotate Array
+[easy] reverse 3 times. reverse(0,n-k-1); reverse(n-k,n-1); reverse(0,n-1)
+
+
+
 
 ---------------------------------------------------
 Binary search
@@ -140,11 +145,15 @@ Binary Tree
 117. Populating Next Right Pointers in Each Node II
 [medium] share the same BFS level order traversal solution. with extra line of: if(i<size-1) node.next = q.peek(); for this linking next node.
 
-
 129. Sum Root to Leaf Numbers(sum of each path from root to leaf)
 [medium] DFS. tail recursion.
 if(node==null) return 0; ret = sum*10+node.val;
 if(left==right==null) return ret; return dfs(node.left, ret) + dfs(node.right, ret)
+
+199. Binary Tree Right Side View
+[easy] BFS, level order traversal from right to left.
+
+
 
 
 ---------------------------------------------------
@@ -179,8 +188,11 @@ Bit Manipulation
 137. Single Number II(one number appears once while others three times)
 [medium] on every bit, the sum of each bit is 3*n + (0 or 1). and all numbers bit by bit and mod 3 is the result.
 
+190. Reverse Bits(unsigned integer)
+[easy] ret = ret<< 1 || (n & 1); n >>= 1
 
-
+191. Number of 1 Bits
+[easy] ret += (n & 1);  n >>= 1
 
 
 
@@ -266,6 +278,8 @@ DP
 152. Maximum Product Subarray
 [medium] DP or greedy. maxVal = max(maxVal, max(num*minVal, num*maxVal));  minVal = min(minVal, min(num*minVal, num*maxVal)); ret= max(ret, maxVal)
 
+198. House Robber
+[easy] dp[i] = max(dp[i-i], dp[i-2] + num[i]). or greedy, use even and odd.
 
 
 
@@ -275,7 +289,8 @@ Hash Table
 166. Fraction to Recurring Decimal
 [medium-hard] use hashtable to store visited number, and add brackets before it.
 
-
+187. Repeated DNA Sequences
+[easy-medium] hashtable on every length 10 string.
 
 
 
@@ -369,6 +384,20 @@ https://leetcode.com/articles/longest-palindromic-substring/#approach-5-manacher
 
 336	Palindrome Pairs
 [hard] hashtable + divide conquer. split each words str1 and str2, and check if isPal(str2) and reversed(str2) in map. [TODO]
+
+
+
+
+---------------------------------------------------
+Sort
+---------------------------------------------------
+179. Largest Number
+[medium] custom sort base on String desc (330 before 303)
+Collections.sort(list, new Comparator<Integer>(){
+    public int compare(Integer a, Integer b){
+        return (""+b+a).compareTo(""+a+b);
+    }
+});
 
 
 
