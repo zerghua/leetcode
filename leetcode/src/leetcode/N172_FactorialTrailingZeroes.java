@@ -10,7 +10,8 @@ package leetcode;
  */
 public class N172_FactorialTrailingZeroes {
     //1 ms
-    //count number of 5s, equal trailing zeros
+    // count number of 5s, equal trailing zeros
+    // time o(log5)
     public int trailingZeroes(int n) {
         int ret = 0;
         while(n>0){
