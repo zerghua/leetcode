@@ -1,8 +1,16 @@
 package leetcode;
+/*
+Given an array of size n, find the majority element. The majority element is the element
+that appears more than ⌊ n/2 ⌋ times.
 
+You may assume that the array is non-empty and the majority element always exist in the array.
+
+ */
 public class N169_majorityElement {
 	
 	// 396 ms  81%
+    // counting number, count++ if the same, else count--, if count==0, ret=num[i],
+    // because majority > n/2, so it will always win with such counting.
     public int majorityElement(int[] nums) {
         int majorElement=nums[0];
         int count=1;
