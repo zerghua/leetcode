@@ -14,6 +14,9 @@ import java.util.Stack;
  Note: next() and hasNext() should run in average O(1) time and uses O(h) memory,
  where h is the height of the tree.
  */
+
+    // the reason the time is average o(1)
+    // because each element is in stack once and pop out once, without extra looking.
 public class N173_BinarySearchTreeIterator {
     Stack<TreeNode> st;
 
