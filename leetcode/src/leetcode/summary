@@ -50,7 +50,9 @@ to be unique if failed at i, we can give up all index [0,i], start checking from
 167. Two Sum II - Input array is sorted
 [easy] two pointers. l++ and r--;
 
-
+169. Majority Element
+[easy-medium] counting number, count++ if the same; else count--; if count==0, ret=num[i], count=1
+because majority > n/2, so it will always win with such counting.
 
 
 ---------------------------------------------------
@@ -325,6 +327,16 @@ Math
 60, Permutation Sequence.
 [medium to hard] math, k / (n-1)! for current number,  k%(n-1)! for next iteration.
 
+168. Excel Sheet Column Title(convert base 10 to base 26)
+[easy-medium] construct from right to left, use mod first then divide. n-- to solve non-zero issue.
+
+171. Excel Sheet Column Number(convert base 26 to base 10)
+[easy] sum = sum *26 + (s.charAt(i)- 'A' + 1); for(i in [0,n-1])
+
+172. Factorial Trailing Zeroes
+[easy] count number of 5s, equal trailing zeros. time o(log5)
+
+
 
 
 
@@ -374,6 +386,8 @@ Stack
 [easy-medium] two stacks. one for regular pop, push and top. another to store min_values, push only when incoming is smaller than top, only pop when val = top.
 used the trick of stack's top always be the smallest until a smaller comes after.
 
+173. Binary Search Tree Iterator
+[medium] push all left node to stack until the left most. when pop, if node.right!=null, push all its left. the reason it's o(1) time, because each element is visited only once.
 
 
 ---------------------------------------------------
