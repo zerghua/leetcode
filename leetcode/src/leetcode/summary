@@ -194,7 +194,8 @@ Bit Manipulation
 191. Number of 1 Bits
 [easy] ret += (n & 1);  n >>= 1
 
-
+201. Bitwise AND of Numbers Range
+[easy-medium] find common bits between n and m. (still not sure why only n and m)
 
 ---------------------------------------------------
 DFS/backtracking or BFS(better for shortest path)
