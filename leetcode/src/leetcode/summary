@@ -215,6 +215,8 @@ DFS/backtracking or BFS(better for shortest path)
 216 Combination Sum III
 377 Combination Sum IV
 
+
+
 77  Combinations
 [medium] return when size==k. return part of the subsets problem. cur_list as backtrack.
 
@@ -240,6 +242,17 @@ and return new_node if encountered to avoid duplicate. recursively add its neigh
 
 200. Number of Islands
 [medium] DFS, for each cell, do DFS on adjacent cells, and mark them as visited.
+
+207. Course Schedule (find cycle in a graph)
+[medium-hard] find cycle in graph. [TODO]
+
+210. Course Schedule II
+[medium-hard] graph. [TODO]
+
+
+
+
+
 
 
 ---------------------------------------------------
@@ -284,6 +297,14 @@ DP
 198. House Robber
 [easy] dp[i] = max(dp[i-i], dp[i-2] + num[i]). or greedy, use even and odd.
 
+213. House Robber II(house in a circle)
+[medium] two times of DP, 1. remove head.  2. remove tail.
+
+
+204. Count Primes
+[easy-medium] if dp[i] is prime, set dp[i*j] = Not Prime, while j in[2,i*j<=n]; then count.
+
+
 
 
 ---------------------------------------------------
@@ -297,6 +318,13 @@ Hash Table
 
 202. Happy Number
 [easy] put calculated number in hashset to detect duplicate.
+
+205. Isomorphic Strings
+[easy-medium] two way hashtables.
+
+
+
+
 
 
 ---------------------------------------------------
@@ -337,6 +365,12 @@ Linked List
 
 160. Intersection of Two Linked Lists
 [easy-medium] subtract the length of two lists. the longer one moves the diff steps first.
+
+203. Remove Linked List Elements
+[easy] dummy node to handle first node or while loop to skip the first node.
+
+
+
 
 
 
@@ -404,6 +438,10 @@ Collections.sort(list, new Comparator<Integer>(){
 });
 
 
+215. Kth Largest Element in an Array
+[medium] heap or quicksort.
+
+
 
 
 ---------------------------------------------------
@@ -449,4 +487,20 @@ else num[++i] = nums[j],  return i+1
 
 80. Remove Duplicates from Sorted Array II
 [easy-medium] similar to 26, compare with num[i-1] rather than num[i]. j starts from 2.
+
+209. Minimum Size Subarray Sum(N203 in my Java code)
+[medium] sliding window. window [i,j] >= sum; while([i++,j]>=sum, ret= min(ret, j-i+1))
+
+
+
+
+---------------------------------------------------
+Trie
+---------------------------------------------------
+208. Implement Trie (Prefix Tree)
+[medium-hard] class Trie{Trie[] children; boolean isEnd;}
+
+211. Add and Search Word - Data structure design
+[medium-hard] BFS on trie of wildcard(.)
+
 
