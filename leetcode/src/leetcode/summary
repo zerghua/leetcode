@@ -295,7 +295,8 @@ Hash Table
 187. Repeated DNA Sequences
 [easy-medium] hashtable on every length 10 string.
 
-
+202. Happy Number
+[easy] put calculated number in hashset to detect duplicate.
 
 
 ---------------------------------------------------
