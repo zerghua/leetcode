@@ -153,6 +153,10 @@ if(left==right==null) return ret; return dfs(node.left, ret) + dfs(node.right, r
 199. Binary Tree Right Side View
 [easy] BFS, level order traversal from right to left.
 
+222. Count Complete Tree Nodes (nlogn time)
+[medium] binary search. left_height, right_height, if equal return (1<<left_height)-1; else recur(root.left) + recur(root.right) +1;
+
+
 
 
 
