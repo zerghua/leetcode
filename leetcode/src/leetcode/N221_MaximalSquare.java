@@ -44,4 +44,53 @@ public class N221_MaximalSquare {
         }
         return ret*ret;
     }
+
+    // version 2,3  added on 9/21/2016
+    // 16 ms  67 / 67 test cases passed.
+    public class Solution2 {
+        public int maximalSquare(char[][] matrix) {
+            if(matrix ==null || matrix.length==0) return 0;
+            int ret = 0;
+            int rows = matrix.length, cols = matrix[0].length;
+            int[][] state = new int[rows][cols];
+
+            for(int i=0;i<rows;i++){
+                for(int j=0;j<cols;j++){
+                    if(matrix[i][j] == '1') {
+                        if(i==0)  state[0][j] = 1;   //first row
+                        else if(j==0) state[i][0] = 1;  // first col
+                        else {
+                            state[i][j] = 1 + Math.min(state[i - 1][j - 1], Math.min(state[i - 1][j], state[i][j - 1]));
+                        }
+                        ret = Math.max(ret, state[i][j]);
+                    }
+                }
+            }
+            return ret*ret;
+        }
+    }
+
+
+    // 10 ms  67 / 67 test cases passed.
+    // dummy first row/col makes code looks cleaner.
+    public class Solution3 {
+        public int maximalSquare(char[][] matrix) {
+            if(matrix ==null || matrix.length==0) return 0;
+            int ret = 0;
+            int rows = matrix.length, cols = matrix[0].length;
+            int[][] state = new int[rows+1][cols+1];
+
+            for(int i=1;i<=rows;i++){
+                for(int j=1;j<=cols;j++){
+                    if(matrix[i-1][j-1] == '1') {
+                        state[i][j] = 1 + Math.min(state[i - 1][j - 1], Math.min(state[i - 1][j], state[i][j - 1]));
+                        ret = Math.max(ret, state[i][j]);
+                    }
+                }
+            }
+            return ret*ret;
+        }
+    }
+
+
 }
