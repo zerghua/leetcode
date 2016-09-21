@@ -54,8 +54,16 @@ to be unique if failed at i, we can give up all index [0,i], start checking from
 [easy-medium] counting number, count++ if the same; else count--; if count==0, ret=num[i], count=1
 because majority > n/2, so it will always win with such counting.
 
+229. Majority Element II(find out numbers exists times > n/3)
+[medium-hard] 2 variables to hold number, 2 counters.
+
+
 189. Rotate Array
 [easy] reverse 3 times. reverse(0,n-k-1); reverse(n-k,n-1); reverse(0,n-1)
+
+228. Summary Ranges
+[easy] array, check neighbor difference. handle overflow.
+
 
 
 
@@ -156,6 +164,9 @@ if(left==right==null) return ret; return dfs(node.left, ret) + dfs(node.right, r
 222. Count Complete Tree Nodes (nlogn time)
 [medium] binary search. left_height, right_height, if equal return (1<<left_height)-1; else recur(root.left) + recur(root.right) +1;
 
+226. Invert Binary Tree
+[easy-medium] tmp = invert(root.left); root.left = invert(root.right); roo.right= tmp;
+
 
 
 
@@ -178,6 +189,8 @@ Binary Search Tree
 109. Convert Sorted List to Binary Search Tree
 [medium] 1. convert list to array.  2. two pointers find mid point each loop. 3. global pointer, very tricky, see 109 solution.
 
+230. Kth Smallest Element in a BST  [favorite]
+[medium] recursively count current node. if k == count return; else if count > k, dfs(root.left,k); else dfs(root.right, k-count);  or iteratively in-order traversal.
 
 
 ---------------------------------------------------
@@ -408,6 +421,11 @@ Math
 172. Factorial Trailing Zeroes
 [easy] count number of 5s, equal trailing zeros. time o(log5)
 
+223. Rectangle Area
+[easy-medium] overlap(sum of 2 separate - overlap area) vs non-overlap(sum of 2 separate area).
+
+
+
 
 
 
@@ -464,7 +482,7 @@ Collections.sort(list, new Comparator<Integer>(){
 
 
 ---------------------------------------------------
-Stack
+Stack/Queue
 ---------------------------------------------------
 71. Simplify Path
 [medium] pop if it's "..", continue if it's '.', else push
@@ -478,6 +496,15 @@ used the trick of stack's top always be the smallest until a smaller comes after
 
 173. Binary Search Tree Iterator
 [medium] push all left node to stack until the left most. when pop, if node.right!=null, push all its left. the reason it's o(1) time, because each element is visited only once.
+
+225. Implement Stack using Queues
+[easy-medium] two queues to mimic stack.
+
+224. Basic Calculator [TODO]
+227. Basic Calculator II [TODO]
+
+
+
 
 
 ---------------------------------------------------
