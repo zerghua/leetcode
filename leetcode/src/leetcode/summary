@@ -300,9 +300,13 @@ DP
 213. House Robber II(house in a circle)
 [medium] two times of DP, 1. remove head.  2. remove tail.
 
-
 204. Count Primes
 [easy-medium] if dp[i] is prime, set dp[i*j] = Not Prime, while j in[2,i*j<=n]; then count.
+
+221. Maximal Square (time o(m*n), space(m*n), space can be reduced use rolling array and one variable)
+[medium] if matrix[i][j] == '1':  dp[i][j] = 1 + min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])
+
+
 
 
 
@@ -321,6 +325,17 @@ Hash Table
 
 205. Isomorphic Strings
 [easy-medium] two way hashtables.
+
+217. Contains Duplicate(check duplicate integer in an array.)
+[easy] hashset.
+
+219. Contains Duplicate II(duplicate within k distance)
+[easy] hashtable, value and idnex. check distance.
+
+220. Contains Duplicate III
+[medium-hard]  treeset? [TODO]
+
+
 
 
 
