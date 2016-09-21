@@ -7,7 +7,7 @@ import java.util.*;
  Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
 
  Note:
- You may assume k is always valid, 1 ¡Ü k ¡Ü BST's total elements.
+ You may assume k is always valid, 1 ï¿½ï¿½ k ï¿½ï¿½ BST's total elements.
 
  Follow up:
  What if the BST is modified (insert/delete operations) often and
@@ -38,9 +38,9 @@ public class N230_KthSmallestElementinaBST {
     // divide and conquer  1 ms, 53%
     public int kthSmallest2(TreeNode root, int k) {
         int node_rank = countNodes(root.left) + 1;
-            if (node_rank == k) return root.val;
-            else if (node_rank > k) return kthSmallest(root.left, k);
-            else return kthSmallest(root.right, k - node_rank);
+        if (node_rank == k) return root.val;
+        else if (node_rank > k) return kthSmallest(root.left, k);
+        else return kthSmallest(root.right, k - node_rank);
     }
 
     public int countNodes(TreeNode root) {
