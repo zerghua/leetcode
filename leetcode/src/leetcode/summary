@@ -214,6 +214,11 @@ Bit Manipulation
 201. Bitwise AND of Numbers Range
 [easy-medium] find common bits between n and m. (still not sure why only n and m)
 
+231. Power of Two
+[easy] return n>0 && (n & n-1) == 0;
+
+
+
 ---------------------------------------------------
 DFS/backtracking or BFS(better for shortest path)
 ---------------------------------------------------
@@ -499,6 +504,10 @@ used the trick of stack's top always be the smallest until a smaller comes after
 
 225. Implement Stack using Queues
 [easy-medium] two queues to mimic stack.
+
+232. Implement Queue using Stacks
+[easy-medium] two stacks to mimic queue.
+
 
 224. Basic Calculator [TODO]
 227. Basic Calculator II [TODO]
