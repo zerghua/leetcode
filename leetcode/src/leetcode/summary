@@ -5,7 +5,7 @@ Anagram(words group like: cat, act)
 [medium] sorted string in hashtable, hm<String, List<>>, or Arrays.hashCode(int[])  [TODO]
 
 242	Valid Anagram
-[easy] hashtable or sort string.  [TODO]
+[easy] hashtable or sort string.
 
 
 
@@ -57,14 +57,14 @@ because majority > n/2, so it will always win with such counting.
 229. Majority Element II(find out numbers exists times > n/3)
 [medium-hard] 2 variables to hold number, 2 counters.
 
-
 189. Rotate Array
 [easy] reverse 3 times. reverse(0,n-k-1); reverse(n-k,n-1); reverse(0,n-1)
 
 228. Summary Ranges
 [easy] array, check neighbor difference. handle overflow.
 
-
+238. Product of Array Except Self(can't use divide, require o(n) time) (tricky)
+[medium] two pass from left and right. product of all its left and right.
 
 
 
@@ -75,7 +75,11 @@ Binary search
 [easy-medium] return left bound. negative number has not sqrt, use Long to handle overflow.
 
 74. Search a 2D Matrix
-[easy-medium] val = matrix[mid/col][mid%col]
+[easy-medium] val = matrix[mid/col][mid%col],  time o(log(m+n))
+
+240. Search a 2D Matrix II
+[easy-medium] time can be o(mlogn), or o(nlogm), or o(m+n) row++ or col--;
+
 
 33. Search in Rotated Sorted Array
 [hard] 4 if conditions, compare num[mid] with num[left], and further compare target to num[left] and num[mid].
@@ -167,7 +171,8 @@ if(left==right==null) return ret; return dfs(node.left, ret) + dfs(node.right, r
 226. Invert Binary Tree
 [easy-medium] tmp = invert(root.left); root.left = invert(root.right); roo.right= tmp;
 
-
+236. Lowest Common Ancestor of a Binary Tree
+[medium] top-bottom. if left and right children contains each of q and p, then return current node; else if one of them is returned, then that one is the result.
 
 
 
@@ -191,6 +196,11 @@ Binary Search Tree
 
 230. Kth Smallest Element in a BST  [favorite]
 [medium] recursively count current node. if k == count return; else if count > k, dfs(root.left,k); else dfs(root.right, k-count);  or iteratively in-order traversal.
+
+235. Lowest Common Ancestor of a Binary Search Tree
+[easy] return if p < node.val < q. else recur left or right.
+
+
 
 
 ---------------------------------------------------
@@ -271,8 +281,8 @@ and return new_node if encountered to avoid duplicate. recursively add its neigh
 210. Course Schedule II
 [medium-hard] graph. [TODO]
 
-
-
+241. Different Ways to Add Parentheses(very interesting one.)
+[medium-hard] DFS+backtracking+divide and conquer. DFS and separate left and right by operator(+-*); for each of left and right, calculate their value.
 
 
 
@@ -406,7 +416,11 @@ Linked List
 203. Remove Linked List Elements
 [easy] dummy node to handle first node or while loop to skip the first node.
 
+234. Palindrome Linked List(require o(1) space)
+[easy-medium] reverse the first half while find mid point; compare reversed with slow. [TODO not implemented yet]
 
+237. Delete Node in a Linked List (only access to that node.)
+[easy] copy node value. remove the next node.
 
 
 
