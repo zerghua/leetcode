@@ -34,4 +34,22 @@ public class N242_isAnagram {
 	    	return true;
     	}
     }
+
+
+    // solution 2 added on 9/22/2016
+    // 4 ms  34 / 34 test cases passed.
+	public class Solution {
+		public boolean isAnagram(String s, String t) {
+            if(s.length() != t.length() ) return false;
+            int[] count = new int[128]; // only lower case alphabets
+
+            char[] s_array= s.toCharArray(), t_array=t.toCharArray();
+            for(int i=0;i<s.length();i++) count[s_array[i]]++;
+            for(int i=0;i<t.length();i++) {
+                count[t_array[i]]--;
+                if(count[t_array[i]] < 0) return false;
+            }
+            return true;
+		}
+	}
 }
