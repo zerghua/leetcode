@@ -58,6 +58,7 @@ public class N74_Searcha2DMatrix {
     // binary search in 2-d matrix, val=matrix[mid/col][mid%col]
     // this solution is guaranteed by problem description
     // 0 ms  134 / 134 test cases passed.
+    // time log(m+n)
     public class Solution {
         public boolean searchMatrix(int[][] matrix, int target) {
             int row = matrix.length, col = matrix[0].length;
