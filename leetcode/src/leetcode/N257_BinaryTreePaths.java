@@ -1,6 +1,23 @@
 package leetcode;
 import leetcode.N0_data_strcture.*;
 import java.util.*;
+/*
+ Given a binary tree, return all root-to-leaf paths.
+
+For example, given the following binary tree:
+
+   1
+ /   \
+2     3
+ \
+  5
+
+All root-to-leaf paths are:
+
+["1->2->5", "1->3"]
+
+ */
+
 
 public class N257_BinaryTreePaths {
 	//2 ms, 3 ms
