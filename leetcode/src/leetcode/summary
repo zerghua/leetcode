@@ -174,6 +174,11 @@ if(left==right==null) return ret; return dfs(node.left, ret) + dfs(node.right, r
 236. Lowest Common Ancestor of a Binary Tree
 [medium] top-bottom. if left and right children contains each of q and p, then return current node; else if one of them is returned, then that one is the result.
 
+257. Binary Tree Paths
+[easy-medium] DFS, pass ret to recursion.
+
+
+
 
 
 ---------------------------------------------------
@@ -443,9 +448,14 @@ Math
 223. Rectangle Area
 [easy-medium] overlap(sum of 2 separate - overlap area) vs non-overlap(sum of 2 separate area).
 
+258. Add Digits
+[easy] digital root. ret = n%9; if ret==0; return 9;
 
+263. Ugly Number[code is N262]
+[easy] while loop (n/=5, n/=3, n/=2) return n==1;
 
-
+264. Ugly Number II(interesting one.)
+[medium] DP. maintain l1, l2, l3 in dp[], next k =  min(dp[l1]*2, dp[l2]*3, dp[l3]*5);
 
 
 
