@@ -3,8 +3,8 @@ package leetcode;
 /**
  * Created by Hua on 5/23/2016.
 
- Given an integer array nums, find the sum of the elements
- between indices i and j (i ¡Ü j), inclusive.
+ Given an integer array nums,
+ find the sum of the elements between indices i and j (i â‰¤ j), inclusive.
 
  Example:
 
@@ -18,6 +18,7 @@ package leetcode;
 
  You may assume that the array does not change.
  There are many calls to sumRange function.
+
 
 
  */
