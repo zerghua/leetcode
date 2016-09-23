@@ -188,6 +188,9 @@ if(left==right==null) return ret; return dfs(node.left, ret) + dfs(node.right, r
 257. Binary Tree Paths
 [easy-medium] DFS, pass ret to recursion.
 
+307. Range Sum Query - Mutable
+[medium-hard] segment tree. [TODO]
+
 
 
 
@@ -312,7 +315,11 @@ and return new_node if encountered to avoid duplicate. recursively add its neigh
 241. Different Ways to Add Parentheses(very interesting one.)
 [medium-hard] DFS+backtracking+divide and conquer. DFS and separate left and right by operator(+-*); for each of left and right, calculate their value.
 
+306. Additive Number
+[medium-hard] complicate on how to extract 3 numbers. [TODO]
 
+310. Minimum Height Trees(graph)
+[medium-hard] BFS. remove leaf node until <=2
 
 
 ---------------------------------------------------
@@ -345,6 +352,10 @@ DP
 123. Best Time to Buy and Sell Stock III
 [medium-hard] two-way DP. find max profit <= i, find max profit >= i. and combine them. ret = max(ret, left[i]+right[i])
 
+309. Best Time to Buy and Sell Stock with Cooldown
+[medium-hard] not sure. [TODO]
+
+
 139. Word Break(check if string can be segmented into a few words in a given dictionary)
 [medium-hard] DFS will TLE.  use DP. DP, dp[i+1] = true if dp[j]==true && dict.contains(substring[j,i+1)) for j in [0,i]
 
@@ -371,6 +382,13 @@ DP
 
 300. Longest Increasing Subsequence
 [medium] dp[i]=1; if(nums[j] < nums[i]) dp[i] = Math.max(dp[i], dp[j]+1), for j in [0,i);
+
+303. Range Sum Query - Immutable
+[easy] extra length provides cleaner code. sum[i+1] = sum[i] + nums[i]; return sum[j+1]-sum[i]
+
+304. Range Sum Query 2D - Immutable
+[easy-medium] similar N303, but in matrix, sum by row and add each row.
+
 
 
 
