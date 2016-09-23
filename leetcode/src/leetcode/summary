@@ -66,6 +66,18 @@ because majority > n/2, so it will always win with such counting.
 238. Product of Array Except Self(can't use divide, require o(n) time) (tricky)
 [medium] two pass from left and right. product of all its left and right.
 
+// for array problem, if sort is not efficient enough, use hash table or two pointers.
+// if sorted, it's usually binary search.
+274. H-Index
+[medium] sort o(nlogn), return i if reversed sorted a[i]<=i;
+hashtable o(n) time, count each a[i], store in stat[], from [n,0) sum+=stat[i]; return i if sum>=i;
+
+275. H-Index II(arrays is sorted, require logn)
+[medium] binary search.
+
+289. Game of Life(require in-place, smart!!!)
+[medium] use second bit in int to store next state. 0 --> 00 or 10,  1--> 01 or 11.
+
 
 
 ---------------------------------------------------
@@ -79,7 +91,6 @@ Binary search
 
 240. Search a 2D Matrix II
 [easy-medium] time can be o(mlogn), or o(nlogm), or o(m+n) row++ or col--;
-
 
 33. Search in Rotated Sorted Array
 [hard] 4 if conditions, compare num[mid] with num[left], and further compare target to num[left] and num[mid].
@@ -96,8 +107,8 @@ Binary search
 162. Find Peak Element ((i==0 || num[i] > num[i-1]) && ( i= num.length-1 || num[i] > num[i+1]))
 [medium] if(i>0 && num[mid] < num[mid-1]) (search left) r=mid-1  , else (search right) l = mid+1
 
-
-
+278. First Bad Version
+[easy] if (mid is isBad){ret = mid; r =mid-1}; else l=mid+1;
 
 
 
@@ -232,6 +243,18 @@ Bit Manipulation
 231. Power of Two
 [easy] return n>0 && (n & n-1) == 0;
 
+268. Missing Number
+[easy-medium] xor.  a^b^b = a
+
+
+---------------------------------------------------
+Design
+---------------------------------------------------
+284. Peeking Iterator(iterator design, existing functions are iterator.next and iterator.hasNext; add a peek function)
+[medium] the key is to cache(save) next element with element and isPeeked variables.
+
+
+
 
 
 ---------------------------------------------------
@@ -343,7 +366,8 @@ DP
 221. Maximal Square (time o(m*n), space(m*n), space can be reduced use rolling array and one variable)
 [medium] if matrix[i][j] == '1':  dp[i][j] = 1 + min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])
 
-
+279. Perfect Squares
+[medium] for(j=1;i+ j*j<=n;j++) dp[i+j*j] = min(dp[i+j*j], dp[i]+1);
 
 
 
@@ -570,7 +594,8 @@ else num[++i] = nums[j],  return i+1
 209. Minimum Size Subarray Sum(N203 in my Java code)
 [medium] sliding window. window [i,j] >= sum; while([i++,j]>=sum, ret= min(ret, j-i+1))
 
-
+283. Move Zeroes
+[easy] move all non-zeros to front and fill zeros at the end.
 
 
 ---------------------------------------------------
