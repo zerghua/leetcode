@@ -369,6 +369,9 @@ DP
 279. Perfect Squares
 [medium] for(j=1;i+ j*j<=n;j++) dp[i+j*j] = min(dp[i+j*j], dp[i]+1);
 
+300. Longest Increasing Subsequence
+[medium] dp[i]=1; if(nums[j] < nums[i]) dp[i] = Math.max(dp[i], dp[j]+1), for j in [0,i);
+
 
 
 
@@ -385,7 +388,10 @@ Hash Table
 [easy] put calculated number in hashset to detect duplicate.
 
 205. Isomorphic Strings
-[easy-medium] two way hashtables.
+[easy-medium] two way hashtables. if(map.put(a[i]),i) != map.put(b[i],i)) return false; Integer i(not int);
+
+290. Word Pattern
+[easy-medium] two way hashtables, the same as N205.
 
 217. Contains Duplicate(check duplicate integer in an array.)
 [easy] hashset.
@@ -396,7 +402,9 @@ Hash Table
 220. Contains Duplicate III
 [medium-hard]  treeset? [TODO]
 
-
+299. Bulls and Cows
+[easy-medium] need a counter int[] for each number.
+if(counter[secret_num]++ < 0) cow++; if(counter[guess_num]-- >0) cow++;
 
 
 
@@ -481,6 +489,8 @@ Math
 264. Ugly Number II(interesting one.)
 [medium] DP. maintain l1, l2, l3 in dp[], next k =  min(dp[l1]*2, dp[l2]*3, dp[l3]*5);
 
+292. Nim Game(grab 1-3 stones, grab the last one win, you take the first grab.)
+[easy] you lose only when remains 4*n;
 
 
 ---------------------------------------------------
