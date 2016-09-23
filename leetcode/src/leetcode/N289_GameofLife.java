@@ -102,7 +102,7 @@ public class N289_GameofLife {
             for(int j=y-1;j<=y+1;j++){
                 if(i==x && j==y) continue;
                 if(i<0 || i>=board.length || j<0 || j>=board[0].length) continue;
-                ret+=board[i][j]%2; // important
+                ret+=board[i][j]%2; // get previous live/die state, equals board[i][j]>>1,
             }
         }
         return ret;
