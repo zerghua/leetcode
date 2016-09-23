@@ -29,7 +29,7 @@ package leetcode;
 
  You may assume that the matrix does not change.
  There are many calls to sumRegion function.
- You may assume that row1 ¡Ü row2 and col1 ¡Ü col2.
+ You may assume that row1 â‰¤ row2 and col1 â‰¤ col2.
 
 
  */
