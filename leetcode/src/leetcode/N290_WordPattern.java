@@ -1,19 +1,24 @@
 package leetcode;
 import java.util.*;
-
 /*
-public boolean wordPattern(String pattern, String str) {
-    String[] words = str.split(" ");
-    if (words.length != pattern.length())
-        return false;
-    Map index = new HashMap();
-    for (int i=0; i<words.length; ++i)
-        if (!Objects.equals(index.put(pattern.charAt(i), i),
-                            index.put(words[i], i)))
-            return false;
-    return true;
-}
-*/
+
+Given a pattern and a string str, find if str follows the same pattern.
+
+Here follow means a full match, such that there is a bijection
+between a letter in pattern and a non-empty word in str.
+
+Examples:
+
+    pattern = "abba", str = "dog cat cat dog" should return true.
+    pattern = "abba", str = "dog cat cat fish" should return false.
+    pattern = "aaaa", str = "dog cat cat dog" should return false.
+    pattern = "abba", str = "dog dog dog dog" should return false.
+
+Notes:
+You may assume pattern contains only lowercase letters,
+and str contains lowercase letters separated by a single space.
+
+ */
 public class N290_WordPattern {
 	//7 ms
     public static boolean wordPattern(String pattern, String str) {
@@ -46,6 +51,36 @@ public class N290_WordPattern {
     	String[] splitStr = b.trim().split("\\s+");
     	
     	System.out.println(wordPattern(a,b));
-    } 
+    }
+
+    // solution 2,3 added on 9/23/2016
+    // 5 ms 29 / 29 test cases passed.
+    public class Solution2 {
+        public boolean wordPattern(String pattern, String str) {
+            String[] words = str.split(" ");
+            if (words.length != pattern.length()) return false;
+            Map index = new HashMap();
+            for (int i=0; i<words.length; ++i)
+                if (!Objects.equals(index.put(pattern.charAt(i), i),
+                        index.put(words[i], i)))
+                    return false;
+            return true;
+        }
+    }
+
+    // 4 ms  29 / 29 test cases passed.
+    // very similar to N205 isomorphic Strings.
+    public class Solution3 {
+        public boolean wordPattern(String pattern, String str) {
+            String[] words = str.split(" ");
+            if(words.length != pattern.length()) return false;
+            char[] pattern_array = pattern.toCharArray();
+            HashMap<Object,Integer> map = new HashMap();
+            for(Integer i=0;i<words.length;i++){
+                if(map.put(pattern_array[i],i) != map.put(words[i],i)) return false;
+            }
+            return true;
+        }
+    }
     
 }
