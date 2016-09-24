@@ -50,11 +50,11 @@ public class N322_CoinChange {
 
 
     // DP  dp[i+ coin] = min(dp[i+coin], dp[i] + 1)
-    // 23 ms
+    // on 9/24/2016  19 ms  181 / 181 test cases passed.
     public int coinChange2(int[] coins, int amount) {
         int[] dp = new int[amount+1];
         for(int i=1;i<=amount;i++) dp[i] = Integer.MAX_VALUE;
-        for(int i=0;i<=amount;i++){
+        for(int i=0;i<amount;i++){
             for(int coin: coins){
                 if(i+coin <= amount && dp[i] != Integer.MAX_VALUE)
                     dp[i+coin] = Math.min(dp[i+coin], dp[i]+1);
