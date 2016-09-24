@@ -81,6 +81,12 @@ hashtable o(n) time, count each a[i], store in stat[], from [n,0) sum+=stat[i]; 
 324. Wiggle Sort II
 [medium] sort and rearrange. [NOT easy to understand.]
 
+334. Increasing Triplet Subsequence
+[easy-medium] a,b variables; each n compare with them and update. return true if larger than both
+
+
+
+
 
 
 
@@ -248,9 +254,6 @@ Bit Manipulation
 201. Bitwise AND of Numbers Range
 [easy-medium] find common bits between n and m. (still not sure why only n and m)
 
-231. Power of Two
-[easy] return n>0 && (n & n-1) == 0;
-
 268. Missing Number
 [easy-medium] xor.  a^b^b = a
 
@@ -265,7 +268,8 @@ Design
 284. Peeking Iterator(iterator design, existing functions are iterator.next and iterator.hasNext; add a peek function)
 [medium] the key is to cache(save) next element with element and isPeeked variables.
 
-
+341. Flatten Nested List Iterator
+[medium] if number then add to list, else dfs(i.getList);
 
 
 
@@ -379,6 +383,9 @@ DP
 213. House Robber II(house in a circle)
 [medium] two times of DP, 1. remove head.  2. remove tail.
 
+337. House Robber III(binary tree, interesting)
+[medium-hard] DFS + DP(hashtable).
+
 204. Count Primes
 [easy-medium] if dp[i] is prime, set dp[i*j] = Not Prime, while j in[2,i*j<=n]; then count.
 
@@ -399,6 +406,9 @@ DP
 
 322. Coin Change
 [medium] i in [0,amount] set MAX, dp[i+j] = min(dp[i+j], dp[i]+1) if i+j<=amount && dp[i]!=MAX.
+
+338. Counting Bits(DP + bit)
+[medium] ret[i] = ret[i>>1] + (i&1)  for i in [1,num]
 
 
 
@@ -523,8 +533,17 @@ Math
 319. Bulb Switcher
 [medium] return (int)Math.sqrt(n);
 
+231. Power of Two(use bit)
+[easy] return n>0 && (n & n-1) == 0;
+
 326. Power of Three
 [easy] recursively divide 3.
+
+342. Power of Four
+[easy] recursively divide 4.
+
+343. Integer Break
+[easy-medium] choose from [0,2] of 2, the rest should be 3.
 
 
 ---------------------------------------------------
@@ -640,6 +659,13 @@ else num[++i] = nums[j],  return i+1
 
 283. Move Zeroes
 [easy] move all non-zeros to front and fill zeros at the end.
+
+344. Reverse String
+[easy]
+
+345. Reverse Vowels of a String
+[easy] two pointers find vowels and swap.
+
 
 
 ---------------------------------------------------
