@@ -84,7 +84,7 @@ public class N331_VerifyPreorderSerializationofaBinaryTree {
      */
     // if it's correct
     // the number of # = the number of digit + 1
-    // or means,  null leaves = non-leaves + 1
+    // meaning,  null leaves = non-leaves + 1
     // 12 ms
     public boolean isValidSerialization2(String preorder) {
         String[] arr = preorder.split(",");
