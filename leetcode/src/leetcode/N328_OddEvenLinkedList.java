@@ -41,4 +41,20 @@ public class N328_OddEvenLinkedList {
     }
 
     //or can use two pointers, one for odd, one for even.
+    // solution 2 added 9/24/2016
+    // 1 ms 70 / 70 test cases passed.
+    public class Solution {
+        public ListNode oddEvenList(ListNode head) {
+            if(head == null || head.next == null) return head;
+            ListNode odd = head, next_head = head.next, even = next_head;
+            while(even != null && even.next != null){
+                odd.next = even.next;
+                odd = odd.next;
+                even.next = odd.next;
+                even = even.next;
+            }
+            odd.next = next_head;
+            return head;
+        }
+    }
 }
