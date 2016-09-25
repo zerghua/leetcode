@@ -64,6 +64,30 @@ public class N347_TopKFrequentElements {
     }
 
 
-    //TODO,  bucket sort, use count as index, list of key as value. time o(N)
+    // bucket sort, use count as index, list of key as value. time o(N)
+    // added on 9/25/2016
+    // 26 ms  20 / 20 test cases passed.
+    public class Solution {
+        public List<Integer> topKFrequent(int[] nums, int k) {
+            Map<Integer, Integer> map = new HashMap();
+            for(int n: nums) map.put(n, map.getOrDefault(n,0)+1);
 
+            // bucket use count as index
+            ArrayList<Integer>[] buckets = new ArrayList[nums.length+1];
+            for(int key: map.keySet()){
+                int count = map.get(key);
+                if(buckets[count] == null) buckets[count] = new ArrayList<>();
+                buckets[count].add(key);
+            }
+
+            // select k from bucket, assume k is always valid
+            List<Integer> ret = new ArrayList<>();
+            for(int i=buckets.length-1; i>=0 && ret.size()<k ; i--){
+                if(buckets[i]!=null) {
+                    ret.addAll(buckets[i]);
+                }
+            }
+            return ret;
+        }
+    }
 }
