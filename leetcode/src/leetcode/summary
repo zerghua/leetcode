@@ -84,6 +84,8 @@ hashtable o(n) time, count each a[i], store in stat[], from [n,0) sum+=stat[i]; 
 334. Increasing Triplet Subsequence
 [easy-medium] a,b variables; each n compare with them and update. return true if larger than both
 
+373. Find K Pairs with Smallest Sums
+[medium] heap time o(n*n).  can be optimized. [TODO]
 
 
 
@@ -119,6 +121,9 @@ Binary search
 
 278. First Bad Version
 [easy] if (mid is isBad){ret = mid; r =mid-1}; else l=mid+1;
+
+374. Guess Number Higher or Lower
+[easy] regular binary search.
 
 
 
@@ -260,6 +265,8 @@ Bit Manipulation
 318. Maximum Product of Word Lengths
 [medium] hashtable or store each char in an int[] as bit, do "&" for each int.
 
+371. Sum of Two Integers
+[easy-medium] [TODO]  not sure why.
 
 
 ---------------------------------------------------
@@ -270,6 +277,12 @@ Design
 
 341. Flatten Nested List Iterator
 [medium] if number then add to list, else dfs(i.getList);
+
+355. Design Twitter
+[medium-hard] [TODO]
+
+
+
 
 
 
@@ -410,6 +423,12 @@ DP
 338. Counting Bits(DP + bit)
 [medium] ret[i] = ret[i>>1] + (i&1)  for i in [1,num]
 
+368. Largest Divisible Subset(interesting...)
+[medium-hard] DP+backtracking.
+
+375. Guess Number Higher or Lower II
+[medium] 2d DP. [TODO]
+
 
 
 ---------------------------------------------------
@@ -443,8 +462,14 @@ Hash Table
 [easy-medium] need a counter int[] for each number.
 if(counter[secret_num]++ < 0) cow++; if(counter[guess_num]-- >0) cow++;
 
+347. Top K Frequent Elements
+[medium] bucket sort: key is count, val is the num. List[] buckets= new List[num.length+1];
 
+349. Intersection of Two Arrays
+[easy] find intersect of two hashset.
 
+350. Intersection of Two Arrays II
+[easy-medium] find intersect of two hashtables, value on count of each num.
 
 
 
@@ -544,6 +569,15 @@ Math
 
 343. Integer Break
 [easy-medium] choose from [0,2] of 2, the rest should be 3.
+
+357. Count Numbers with Unique Digits
+[medium] f(k) = 9 * 9 * 8 * ... (9 - k + 2) [TODO]
+
+365. Water and Jug Problem
+[medium] return z % gcd(x,y) == 0; gcd{while (b!=0){ a=b; b=a%b} return a; }
+
+367. Valid Perfect Square(9=1+3+5 ...)
+[medium] tmp=1; while(num>0) num -= tmp; tmp+=2; return num==0;
 
 
 ---------------------------------------------------
