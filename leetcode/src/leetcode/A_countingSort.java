@@ -75,5 +75,24 @@ public class A_countingSort {
         x.countingSort2(a,7);
         System.out.println("after sort:");
         System.out.println(Arrays.toString(a)); //
+
+
+        Integer[] aa = new Integer[26];
+        aa[0] = 1;
+        aa[5] = 2;
+        ArrayList<Integer> aa_x = new ArrayList<>(Arrays.asList(aa));
+        System.out.println(aa_x.hashCode());
+
+        Integer[] bb = new Integer[26];
+        bb[0] = 1;
+        bb[5] = 2;
+        ArrayList<Integer> bb_x = new ArrayList<>(Arrays.asList(bb));
+        System.out.println(bb_x.hashCode());
+
+        Integer[] cc = new Integer[26];
+        cc[0] = 10;
+        cc[5] = 2;
+        ArrayList<Integer> cc_x = new ArrayList<>(Arrays.asList(cc));
+        System.out.println(cc_x.hashCode());
     }
 }
