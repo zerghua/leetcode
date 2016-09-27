@@ -87,7 +87,8 @@ hashtable o(n) time, count each a[i], store in stat[], from [n,0) sum+=stat[i]; 
 373. Find K Pairs with Smallest Sums
 [medium] heap time o(n*n).  can be optimized. [TODO]
 
-
+378. Kth Smallest Element in a Sorted Matrix
+[medium] heap. put the first row in heap, poll from heap, push back with row++;
 
 
 
@@ -347,6 +348,10 @@ and return new_node if encountered to avoid duplicate. recursively add its neigh
 310. Minimum Height Trees(graph)
 [medium-hard] BFS. remove leaf node until <=2
 
+386. Lexicographical Numbers(interesting)
+[medium] DFS. i in [0,9]{val=pre*10+i; if 0<val<n: ret.add() and dfs(val,ret) }
+
+
 
 ---------------------------------------------------
 DP
@@ -429,6 +434,8 @@ DP
 375. Guess Number Higher or Lower II
 [medium] 2d DP. [TODO]
 
+376. Wiggle Subsequence(interesting)
+[medium] alternate DP. if(num[i]>num[i-1])p=q+1; else if(num[i]<num[i-1])q=p+1; return max(p,q);
 
 
 ---------------------------------------------------
@@ -471,6 +478,14 @@ if(counter[secret_num]++ < 0) cow++; if(counter[guess_num]-- >0) cow++;
 350. Intersection of Two Arrays II
 [easy-medium] find intersect of two hashtables, value on count of each num.
 
+383. Ransom Note(if "A" can be constructed from "B")
+[easy] hashtable, count and compare each char.
+
+387. First Unique Character in a String
+[easy-medium] two pass. first pass count each char, second compare count with 1.
+
+389. Find the Difference
+[easy] two pass. first pass count each char, second -- each char and return when negative.
 
 
 ---------------------------------------------------
@@ -609,6 +624,17 @@ https://leetcode.com/articles/longest-palindromic-substring/#approach-5-manacher
 
 336	Palindrome Pairs
 [hard] hashtable + divide conquer. split each words str1 and str2, and check if isPal(str2) and reversed(str2) in map. [TODO]
+
+
+
+---------------------------------------------------
+Random
+---------------------------------------------------
+382. Linked List Random Node
+[medium] save list to array, and call random. o(n) space
+follow up: o(1) space, see Reservoir Sampling [TODO]
+
+
 
 
 
