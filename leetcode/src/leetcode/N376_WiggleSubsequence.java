@@ -43,13 +43,13 @@ import java.util.Arrays;
 public class N376_WiggleSubsequence {
     //0 ms
     public int wiggleMaxLength(int[] nums) {
-        if(nums == null) return 0;
+        if(nums == null || nums.length==0) return 0;
         int p=1, q=1;
         for(int i=1;i<nums.length;i++){
             if(nums[i] > nums[i-1]) p = q+1;
             else if(nums[i] < nums[i-1]) q=p+1;
         }
-        return Math.min(nums.length, Math.max(q,p));
+        return Math.max(q,p);
     }
 
     public int wiggleMaxLength2(int[] nums) {
