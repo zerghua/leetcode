@@ -52,6 +52,33 @@ public class N3_lengthOfLongestSubstring {
         	hm[s.charAt(i)] =i;
         }
         return max;
-    }    
-    
+    }
+
+
+    // solution 3 added on 9/27/2016
+    // sliding windows with two pointers, hashtable to store index of previous duplicate num[i]
+    // 40 ms 982 / 982 test cases passed.
+    // example: abcdbcdef
+    public class Solution {
+        public int lengthOfLongestSubstring(String s) {
+            int[] map = new int[256];
+            for(int i=0;i<256;i++) map[i] = -1;
+
+            char[] str = s.toCharArray();
+            int left = -1, max = 0;
+            for(int i=0;i<str.length;i++){
+                if(map[str[i]] != -1) left = Math.max(left, map[str[i]]);
+                max = Math.max(max, i-left);
+                System.out.println("i="+i+" max="+max +" left="+left);
+                map[str[i]] = i;
+            }
+            return max;
+        }
+
+
+    }
+    public static void main(String[] args){
+        N3_lengthOfLongestSubstring.Solution x = new N3_lengthOfLongestSubstring().new Solution();
+        System.out.println(x.lengthOfLongestSubstring("aab"));
+    }
 }
