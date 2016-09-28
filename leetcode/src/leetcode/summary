@@ -1,8 +1,8 @@
 ---------------------------------------------------
 Anagram(words group like: cat, act)
 ---------------------------------------------------
-49	Group Anagrams
-[medium] sorted string in hashtable, hm<String, List<>>, or Arrays.hashCode(int[])  [TODO]
+49	Group Anagrams(important)
+[medium] sorted string in hashtable, hm<String, List<>>, or Arrays.hashCode(int[] of each char in str) as int in hashmap key.
 
 242	Valid Anagram
 [easy] hashtable or sort string.
@@ -16,6 +16,8 @@ Array
 31. Next Permutation(hard on find the pattern)
 [medium-hard] [TODO]
 
+48. Rotate Image
+[medium] extra space easy, ret[j][n-1-i] = matrix[i][j];  inplace, 4-way rotation. or transpose and flip(TODO).
 
 
 53	Maximum Subarray,  max continous subarray.  condition on if local_max >0.
@@ -314,8 +316,6 @@ DFS/backtracking or BFS(better for shortest path)
 [medium] return if left< right || ...; dfs(cur+"(", left-1, right; dfs(cur+")", left, right-1);
 
 
-
-
 46  Permutations
 47  Permutations II (contains duplicates)
 
@@ -601,6 +601,8 @@ Math
 43. Multiply Strings
 [medium] o(n^2), p1 = i+j; p2=i+j+1; sum = product + ret[p2]; ret[p1] += sum /10; ret[p2] = sum % 10;
 
+50. Pow(x, n)
+[medium] binary search. while(n>0){if((n & 1) == 1)ret *=x; n=/2; x*=x; }
 
 60, Permutation Sequence.
 [medium to hard] math, k / (n-1)! for current number,  k%(n-1)! for next iteration.
