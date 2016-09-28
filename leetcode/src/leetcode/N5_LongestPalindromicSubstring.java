@@ -2,6 +2,10 @@ package leetcode;
 
 /**
  * Created by Hua on 4/2/2016.
+ Given a string S, find the longest palindromic substring in S.
+ You may assume that the maximum length of S is 1000,
+ and there exists one unique longest palindromic substring.
+
  */
 public class N5_LongestPalindromicSubstring {
     //38 ms, time O(n^2), space O(1)
@@ -49,5 +53,7 @@ public class N5_LongestPalindromicSubstring {
         }
         return s.substring(start,end+1);
     }
+
+    // Manacher's Algorithm o(n)  TODO
 
 }
