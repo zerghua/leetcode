@@ -13,6 +13,11 @@ Anagram(words group like: cat, act)
 ---------------------------------------------------
 Array
 ---------------------------------------------------
+31. Next Permutation(hard on find the pattern)
+[medium-hard] [TODO]
+
+
+
 53	Maximum Subarray,  max continous subarray.  condition on if local_max >0.
 [easy]
 
@@ -96,6 +101,14 @@ hashtable o(n) time, count each a[i], store in stat[], from [n,0) sum+=stat[i]; 
 ---------------------------------------------------
 Binary search
 ---------------------------------------------------
+34. Search for a Range(good)
+[medium] more code when ==; update ret[0] and ret[1]; two direction recursion dfs(start, mid-1); dfs(mid+1,end)
+
+35. Search Insert Position
+[medium-easy] regular binary search, insertion position is the left bound; return left;
+
+
+
 69. Sqrt(x)
 [easy-medium] return left bound. negative number has not sqrt, use Long to handle overflow.
 
@@ -461,6 +474,9 @@ Hash Table
 [medium-hard] hashtable + sliding window with two pointers. BF is o(n^2), hashtable is o(n).
 map to store index of previous duplicate num[i], update left if found in map, max = (i-left);
 
+36. Valid Sudoku
+[easy-medium] hashtable to store if such number is visited or not.
+
 
 166. Fraction to Recurring Decimal
 [medium-hard] use hashtable to store visited number, and add brackets before it.
@@ -581,6 +597,9 @@ Math
 ---------------------------------------------------
 7. Reverse Integer
 [easy-medium] ret = ret*10 + x%10; x/=10; overflow, negative, trailing zeros?
+
+43. Multiply Strings
+[medium] o(n^2), p1 = i+j; p2=i+j+1; sum = product + ret[p2]; ret[p1] += sum /10; ret[p2] = sum % 10;
 
 
 60, Permutation Sequence.
@@ -762,6 +781,10 @@ for(int i=0;num!=0; i++){
 
 14. Longest Common Prefix
 [easy-medium] vertical scan each char in all strings and compare.
+
+38. Count and Say
+[easy-medium] count duplicate num and construct count+"i" set to next string.
+
 
 
 67. Add Binary
