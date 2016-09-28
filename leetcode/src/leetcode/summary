@@ -441,6 +441,14 @@ DP
 ---------------------------------------------------
 Hash Table
 ---------------------------------------------------
+1. Two Sum
+[easy] store (sum-num[i]) and index in hashtable.
+
+3. Longest Substring Without Repeating Characters(interesting)
+[medium-hard] hashtable + sliding window with two pointers. BF is o(n^2), hashtable is o(n).
+map to store index of previous duplicate num[i], update left if found in map, max = (i-left);
+
+
 166. Fraction to Recurring Decimal
 [medium-hard] use hashtable to store visited number, and add brackets before it.
 
@@ -491,6 +499,10 @@ if(counter[secret_num]++ < 0) cow++; if(counter[guess_num]-- >0) cow++;
 ---------------------------------------------------
 Linked List
 ---------------------------------------------------
+2. Add Two Numbers
+[easy-medium] carry. one list is shorter than the other. extra carry node.
+
+
 61. Rotate List
 [easy-medium] count node, tail -> head, move n - k steps, head = tail.next, tail.next = null  [TODO]
 
@@ -543,6 +555,10 @@ Linked List
 ---------------------------------------------------
 Math
 ---------------------------------------------------
+7. Reverse Integer
+[easy-medium] ret = ret*10 + x%10; x/=10; overflow, negative, trailing zeros?
+
+
 60, Permutation Sequence.
 [medium to hard] math, k / (n-1)! for current number,  k%(n-1)! for next iteration.
 
@@ -690,6 +706,17 @@ used the trick of stack's top always be the smallest until a smaller comes after
 ---------------------------------------------------
 String
 ---------------------------------------------------
+5. Longest Palindromic Substring(interesting)
+[medium-hard] BF is o(n^3). Manacher's Algorithm is o(n)  [TODO]
+for each i, call isPal(i,i) and isPal(i,i+1) o(n^2)
+
+6. ZigZag Conversion(interesting)
+[easy-medium] need StringBuilders[], sb[index]=c; index ++ or -- to put c in different row of sb.
+offset=1 reached first SB; offset=-1 when reached last SB. index+=offset
+
+8. String to Integer (atoi)
+[easy-medium] detail coding. leading/trailing spaces, negative sign, non-chars, overflow?
+
 67. Add Binary
 [easy-medium]  two pointers in one loop, while they >=0
 
