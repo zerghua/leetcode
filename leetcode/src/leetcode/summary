@@ -242,6 +242,10 @@ Binary Search Tree
 ---------------------------------------------------
 Bit Manipulation
 ---------------------------------------------------
+29. Divide Two Integers
+[medium] not sure. [TODO]
+
+
 89. Gray Code
 [medium] f(n) += reverse(f(n-1)) + 2^(n-1), use list to represent f(n)
 
@@ -290,6 +294,15 @@ Design
 ---------------------------------------------------
 DFS/backtracking or BFS(better for shortest path)
 ---------------------------------------------------
+17. Letter Combinations of a Phone Number
+[medium] hashmap to map number and chars. DFS on each char.
+
+22. Generate Parentheses(interesting)
+[medium] return if left< right || ...; dfs(cur+"(", left-1, right; dfs(cur+")", left, right-1);
+
+
+
+
 46  Permutations
 47  Permutations II (contains duplicates)
 
@@ -502,6 +515,17 @@ Linked List
 2. Add Two Numbers
 [easy-medium] carry. one list is shorter than the other. extra carry node.
 
+19. Remove Nth Node From End of List
+[easy] two pointers, one moves N steps ahead.
+
+21. Merge Two Sorted Lists
+[easy] dummy node.
+
+24. Swap Nodes in Pairs(swap adjacent node)
+[easy-medium] dummy node.  need three pointers to swap: pre, cur and nextNode.
+
+
+
 
 61. Rotate List
 [easy-medium] count node, tail -> head, move n - k steps, head = tail.next, tail.next = null  [TODO]
@@ -676,6 +700,10 @@ Collections.sort(list, new Comparator<Integer>(){
 ---------------------------------------------------
 Stack/Queue
 ---------------------------------------------------
+20. Valid Parentheses
+[easy] push if it's "(""; else pop if it's ")"; empty case. could also count++ if "("; count-- if ")"; return false if count<0;
+
+
 71. Simplify Path
 [medium] pop if it's "..", continue if it's '.', else push
 
@@ -753,6 +781,24 @@ Two pointers(or Three pointers)
 11. Container With Most Water
 [medium-easy] two pointers on left and right. min_height=min(num[left],num[right]), maxArea=max(maxArea, (right-left)*min_height); left++ while num[left] <= min_height ...
 
+15. 3Sum
+[medium-easy] BF(n^3). sort+two pointer makes it o(n^2). skip duplicate.
+
+16. 3Sum Closest
+[medium-easy] similar to N15 3sum. store ret and min_diff.
+
+18. 4Sum
+[medium] similar to N15 3sum. o(n^3)
+
+26. Remove Duplicates from Sorted Array
+[easy-medium] i points to last unique one, if (num[i]!=num[j]) num[++i] = num[j]
+
+27. Remove Element(remove given val)
+[easy-medium] similar to N26, but i points to last removable one. if (num[i] != val) num[i++] = num[j]  //num[++i]=x and num[i++]=x are different
+
+28. Implement strStr()
+[easy-medium] BF is faster than KMP in most small cases. while(i<sizeA && j<sizeB) if(A[i]==B[j]){i++;j++;} else {i=i-j+1;j=0}
+
 
 75. Sort Colors
 [easy-medium] three pointers. if 0, swap(i++,left++), if 2, swap(i,right--), else i++; while(i<=right)
@@ -775,6 +821,7 @@ else num[++i] = nums[j],  return i+1
 
 345. Reverse Vowels of a String
 [easy] two pointers find vowels and swap.
+
 
 
 
