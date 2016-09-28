@@ -717,6 +717,25 @@ offset=1 reached first SB; offset=-1 when reached last SB. index+=offset
 8. String to Integer (atoi)
 [easy-medium] detail coding. leading/trailing spaces, negative sign, non-chars, overflow?
 
+12. Integer to Roman
+[medium]
+String[] symbol={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+int[]     value={1000,900,500,400, 100, 90,  50, 40,  10, 9,   5,  4,   1};
+StringBuilder sb = new StringBuilder();
+for(int i=0;num!=0; i++){
+    while(num >= value[i]){
+        num -= value[i];
+        sb.append(symbol[i]);
+    }
+}
+
+13. Roman to Integer(hard on find the pattern)
+[easy-medium] sum-=num[i] if num[i] < num[i+1]; else sum+=num[i]
+
+14. Longest Common Prefix
+[easy-medium] vertical scan each char in all strings and compare.
+
+
 67. Add Binary
 [easy-medium]  two pointers in one loop, while they >=0
 
@@ -731,6 +750,10 @@ offset=1 reached first SB; offset=-1 when reached last SB. index+=offset
 ---------------------------------------------------
 Two pointers(or Three pointers)
 ---------------------------------------------------
+11. Container With Most Water
+[medium-easy] two pointers on left and right. min_height=min(num[left],num[right]), maxArea=max(maxArea, (right-left)*min_height); left++ while num[left] <= min_height ...
+
+
 75. Sort Colors
 [easy-medium] three pointers. if 0, swap(i++,left++), if 2, swap(i,right--), else i++; while(i<=right)
 
