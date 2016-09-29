@@ -1,5 +1,5 @@
 ---------------------------------------------------
-Anagram(words group like: cat, act) (reviewed on 9/28/2016 )
+Anagram(words group like: cat, act) (reviewed on 9/28/2016)
 ---------------------------------------------------
 49	Group Anagrams(important)
 [medium] sorted string in hashtable, hm<String, List<>>, or Arrays.hashCode(int[] of each char in str) as int in hashmap key.
@@ -11,88 +11,121 @@ Anagram(words group like: cat, act) (reviewed on 9/28/2016 )
 
 
 ---------------------------------------------------
-Array
+Array (reviewed on 9/29/2016)
+// for array problem, if sort is not efficient enough, use hash table or two pointers/sliding window
+// if sorted or adjacent/continuous graph , it's usually binary search.
 ---------------------------------------------------
 31. Next Permutation(hard on find the pattern)
 [medium-hard] [TODO]
 
-48. Rotate Image
+48. Rotate Image(rotate 90 degree of matrix)
 [medium] extra space easy, ret[j][n-1-i] = matrix[i][j];  inplace, 4-way rotation. or transpose and flip(TODO).
 
+53	Maximum Subarray(max continuous subarray)
+[easy] condition on if local_max >0. sum+=n; ret = max(ret, sum); sum=max(0,sum)
 
-53	Maximum Subarray,  max continous subarray.  condition on if local_max >0.
-[easy]
+54	Spiral Matrix(return array of spiral order, outer-->inner clockwise)
+[medium] 4 loops of top,right,bottom and left side.
 
-54	Spiral Matrix.  4 loops of top,right,bottom and left side.
-[medium to code]
+59, Spiral Matrix II(generate spiral n^2 matrix)
+[medium] 4 loops of top,right,bottom and left side.
 
-55. Jump Game.  array operation. o(n), scan each item and exit early if possible.
-[easy]
+55. Jump Game(each num means the longest distance you can jump, can you reach the end?)
+[easy]  o(n). store max_jump and compare with end index.
 
-58, Length of Last Word. String operation. scan from last. o(n)
-[very easy]
-
-59, Spiral Matrix 2. 4 loops of top,right,bottom and left side.
-[medium to code]
-
-66. Plus One
+66. Plus One(to an array of digits)
 [easy-medium]  find pattern. test case, 199, 999, 288, create new array only when like 999
+for(int i=digits.length-1;i>=0;i--){
+    if(digits[i] != 9 ){
+        digits[i]++;
+        return digits;
+    }
+    digits[i]=0;
+}
+// create new array if comes to here. like 999+1, return 1000
+int[] ret = new int[digits.length+1];
+ret[0]=1;
+return ret;
 
-73. Set Matrix Zeroes
-[medium] o(1) space.  1. record if the first row/col should should set to 0, 2. then use them to store this row/col should be set to 0, 3. set every cell, 4. set first row/col according to step 1.
+
+73. Set Matrix Zeroes(require o(1) space.)
+[medium] 1. record if the first row/col should should set to 0, 2. then use them to store this row/col should be set to 0,
+3. set every cell, 4. set first row/col according to step 1.
 
 88. Merge Sorted Array
 [easy] fill from the end of array.
 
-118. Pascal's Triangle
-[easy] find pattern. similar to tree level order traversal.
+118. Pascal's Triangle(generate it. [1],[1,1],[1,2,1],[1,3,3,1]...)
+[easy] find pattern. similar to tree level order traversal. use previous list to construct current list.
 
 119. Pascal's Triangle II(find kth row, but only o(k) space)
 [easy-medium] rolling array, scan from backward.
+Integer[] row = new Integer[rowIndex+1];
+Arrays.fill(row, 1);
+for(int i=1; i<=rowIndex;i++){
+    for(int j= i-1;j >= 1;j--){  // only works if backward
+        row[j] += row[j-1];
+    }
+}
+return Arrays.asList(row);
 
-134. Gas Station
+
+134. Gas Station(N gas stations along a circular route, cost[], gas[], return start point can circle around)
 [easy-medium] greedy. read problem description carefully, because guaranteed solution
 to be unique if failed at i, we can give up all index [0,i], start checking from i+1.
+reset current_sum to 0 if <0 and start=i+1; overall_sum should also >0;
 
-167. Two Sum II - Input array is sorted
-[easy] two pointers. l++ and r--;
-
-169. Majority Element
+169. Majority Element(majority > n/2)
 [easy-medium] counting number, count++ if the same; else count--; if count==0, ret=num[i], count=1
 because majority > n/2, so it will always win with such counting.
+int majorElement=nums[0];
+int count=1;
+for(int i=1;i<nums.length;i++){
+    if(majorElement == nums[i]) count++;
+    else count -- ;
 
-229. Majority Element II(find out numbers exists times > n/3)
+    if(count == 0) {
+        majorElement = nums[i];
+        count=1;
+    }
+}
+return majorElement;
+
+229. Majority Element II(find out numbers exists times > n/3) Boyer_Moore_majority_vote_algorithm
 [medium-hard] 2 variables to hold number, 2 counters.
 
 189. Rotate Array
 [easy] reverse 3 times. reverse(0,n-k-1); reverse(n-k,n-1); reverse(0,n-1)
 
-228. Summary Ranges
-[easy] array, check neighbor difference. handle overflow.
-
-238. Product of Array Except Self(can't use divide, require o(n) time) (tricky)
+238. Product of Array Except Self(can't use divide, require o(n) time) (tricky, kind of DP.)
 [medium] two pass from left and right. product of all its left and right.
+1st pass: ret[i] = num[i+1]*ret[i+1]; 2ed pass: ret[i] *= left_sum; left_sum *= nums[i];
 
-// for array problem, if sort is not efficient enough, use hash table or two pointers.
-// if sorted, it's usually binary search.
-274. H-Index
+274. H-Index[TODO]
 [medium] sort o(nlogn), return i if reversed sorted a[i]<=i;
 hashtable o(n) time, count each a[i], store in stat[], from [n,0) sum+=stat[i]; return i if sum>=i;
 
 275. H-Index II(arrays is sorted, require logn)
 [medium] binary search.
+while(left<=right){
+    int mid = (right-left)/2 + left;
+    if(citations[mid] ==  n - mid) return n-mid;
+    else if(citations[mid] < n -mid) left = mid+1;
+    else right = mid-1;
+}
+return n-left;
 
 289. Game of Life(require in-place, smart!!!)
 [medium] use second bit in int to store next state. 0 --> 00 or 10,  1--> 01 or 11.
 
-324. Wiggle Sort II
+324. Wiggle Sort II[TODO]
 [medium] sort and rearrange. [NOT easy to understand.]
 
-334. Increasing Triplet Subsequence
+334. Increasing Triplet Subsequence(3 increasing variables exists or not)
 [easy-medium] a,b variables; each n compare with them and update. return true if larger than both
 
-373. Find K Pairs with Smallest Sums
-[medium] heap time o(n*n).  can be optimized. [TODO]
+373. Find K Pairs with Smallest Sums[TODO]
+[medium] heap time o(n*n).  can be optimized.
 
 378. Kth Smallest Element in a Sorted Matrix
 [medium] heap. put the first row in heap, poll from heap, push back with row++;
@@ -801,6 +834,9 @@ Two pointers(or Three pointers)
 11. Container With Most Water
 [medium-easy] two pointers on left and right. min_height=min(num[left],num[right]), maxArea=max(maxArea, (right-left)*min_height); left++ while num[left] <= min_height ...
 
+167. Two Sum II - Input array is sorted
+[easy] two pointers. l++ and r--;
+
 15. 3Sum
 [medium-easy] BF(n^3). sort+two pointer makes it o(n^2). skip duplicate.
 
@@ -809,6 +845,8 @@ Two pointers(or Three pointers)
 
 18. 4Sum
 [medium] similar to N15 3sum. o(n^3)
+
+
 
 26. Remove Duplicates from Sorted Array
 [easy-medium] i points to last unique one, if (num[i]!=num[j]) num[++i] = num[j]
@@ -819,6 +857,8 @@ Two pointers(or Three pointers)
 28. Implement strStr()
 [easy-medium] BF is faster than KMP in most small cases. while(i<sizeA && j<sizeB) if(A[i]==B[j]){i++;j++;} else {i=i-j+1;j=0}
 
+58, Length of Last Word.
+[very easy] String operation. scan from last. o(n)
 
 75. Sort Colors
 [easy-medium] three pointers. if 0, swap(i++,left++), if 2, swap(i,right--), else i++; while(i<=right)
@@ -830,8 +870,13 @@ else num[++i] = nums[j],  return i+1
 80. Remove Duplicates from Sorted Array II
 [easy-medium] similar to 26, compare with num[i-1] rather than num[i]. j starts from 2.
 
+
 209. Minimum Size Subarray Sum(N203 in my Java code)
 [medium] sliding window. window [i,j] >= sum; while([i++,j]>=sum, ret= min(ret, j-i+1))
+
+
+228. Summary Ranges(given [0,1,2,4,5,7], return ["0->2","4->5","7"].)
+[easy-medium] maintain start index, if num[i]-num[i-1] >1, construct list(start,i-1); start=i;   (may overflow num[i]-num[i-1])
 
 283. Move Zeroes
 [easy] move all non-zeros to front and fill zeros at the end.
