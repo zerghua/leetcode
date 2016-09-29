@@ -106,7 +106,7 @@ public class N49_GroupAnagrams {
             for(String str: strs){
                 int[] a = new int[128];
                 for(char c: str.toCharArray()) a[c]++;
-                int key = Arrays.hashCode(a);  // has to be this. map.hashCode() won't work
+                int key = Arrays.hashCode(a);  // has to be this. map.hashCode() won't work //or can convert a[] to string, kind of sorted it, but o(n) time
 
                 if(map.containsKey(key)){
                     map.get(key).add(str);
