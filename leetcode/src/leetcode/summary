@@ -147,8 +147,8 @@ further compare target to num[left] and num[mid].
 35. Search Insert Position
 [medium-easy] regular binary search, insertion position is the left bound; return left;
 
-50. Pow(x, n)
-[medium] binary search. while(n>0){if((n & 1) == 1)ret *=x; n=/2; x*=x; }
+50. Pow(x, n) (real question)
+[medium] binary search. while(n>0){if((n & 1) == 1)ret *=x; n>=1; x*=x; }
 
 69. Sqrt(x)
 [easy-medium] return left bound. negative number has not sqrt, use Long to handle overflow.
