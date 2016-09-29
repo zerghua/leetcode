@@ -499,39 +499,46 @@ DP
 
 
 ---------------------------------------------------
-Hash Table
+Hash Table(reviewed on 9/29/2016)
+hashmap can be used as count each char/num, or store index of char/num
+hashset usually check if visited or not.
 ---------------------------------------------------
 1. Two Sum
-[easy] store (sum-num[i]) and index in hashtable.
+[easy] store (sum-num[i]) and index in hashtable.    map(sum-num[i], index)
 
-3. Longest Substring Without Repeating Characters(interesting)
-[medium-hard] hashtable + sliding window with two pointers. BF is o(n^2), hashtable is o(n).
+3. Longest Substring Without Repeating Characters(interesting)(real question)
+[medium-hard] hashtable + sliding window with two pointers. BF is o(n^2), hashtable is o(n).  map(char, index)
 map to store index of previous duplicate num[i], update left if found in map, max = (i-left);
+left = -1, ret =0;
+for(int i=0;i<s.length;i++){
+    if(map.contains(s.charAt(i))) left=max(left, map.get(s.charAt(i)));
+    ret = max(ret, i-left);
+    map.put(s.charAt(i), i);
+}
 
 36. Valid Sudoku
-[easy-medium] hashtable to store if such number is visited or not.
-
+[easy-medium] hashtable to store if such number is visited or not.  or hashset store if visited.
 
 166. Fraction to Recurring Decimal
 [medium-hard] use hashtable to store visited number, and add brackets before it.
 
-187. Repeated DNA Sequences
-[easy-medium] hashtable on every length 10 string.
+187. Repeated DNA Sequences(find all repeated 10-length string)
+[easy-medium] 2 hashsets. one is for seen, if seen, add to ret set.  or count each string, out put count>=2;
 
 202. Happy Number
 [easy] put calculated number in hashset to detect duplicate.
 
-205. Isomorphic Strings
+205. Isomorphic Strings(Two strings are isomorphic if the characters in s can be replaced to get t.)
 [easy-medium] two way hashtables. if(map.put(a[i]),i) != map.put(b[i],i)) return false; Integer i(not int);
 
 290. Word Pattern
-[easy-medium] two way hashtables, the same as N205.
+[easy-medium] two way hashtables, the same as N205.   map(char, String) and map(String, char)
 
-217. Contains Duplicate(check duplicate integer in an array.)
+217. Contains Duplicate(if duplicate integer exist in an array.)
 [easy] hashset.
 
 219. Contains Duplicate II(duplicate within k distance)
-[easy] hashtable, value and idnex. check distance.
+[easy] hashtable, value and idnex. check distance.  map(num, its index);
 
 220. Contains Duplicate III
 [medium-hard]  treeset? [TODO]
@@ -539,9 +546,21 @@ map to store index of previous duplicate num[i], update left if found in map, ma
 299. Bulls and Cows
 [easy-medium] need a counter int[] for each number.
 if(counter[secret_num]++ < 0) cow++; if(counter[guess_num]-- >0) cow++;
+int num_bull=0, num_cow=0;
+int[] nums = new int[10];
+for(int i=0;i<secret.length();i++){
+    if(secret.charAt(i) == guess.charAt(i)) num_bull++;
+    else{
+        if(nums[secret.charAt(i)-'0']++ < 0) num_cow++;
+        if(nums[guess.charAt(i)-'0']--  > 0) num_cow++;
+    }
+}
+return num_bull+"A"+num_cow+"B";
 
-347. Top K Frequent Elements
-[medium] bucket sort: key is count, val is the num. List[] buckets= new List[num.length+1];
+
+347. Top K Frequent Elements(interesting)
+[medium] bucket sort o(n) time but o(n) space: map(count, num). List[] buckets= new List[num.length+1];
+heap o(nlogn) time, but o(k) space.
 
 349. Intersection of Two Arrays
 [easy] find intersect of two hashset.
@@ -553,10 +572,10 @@ if(counter[secret_num]++ < 0) cow++; if(counter[guess_num]-- >0) cow++;
 [easy] hashtable, count and compare each char.
 
 387. First Unique Character in a String
-[easy-medium] two pass. first pass count each char, second compare count with 1.
+[easy-medium] two pass. map(char, count).  return the first count==1 foreach char in str(not map).
 
-389. Find the Difference
-[easy] two pass. first pass count each char, second -- each char and return when negative.
+389. Find the Difference(find one different char in two strings)
+[easy] two pass. 1st: map(char, count)  2ed: count--; return if count<0;
 
 
 ---------------------------------------------------
