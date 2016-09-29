@@ -1,10 +1,10 @@
 ---------------------------------------------------
-Anagram(words group like: cat, act)
+Anagram(words group like: cat, act) (reviewed on 9/28/2016 )
 ---------------------------------------------------
 49	Group Anagrams(important)
 [medium] sorted string in hashtable, hm<String, List<>>, or Arrays.hashCode(int[] of each char in str) as int in hashmap key.
 
-242	Valid Anagram
+242	Valid Anagram(is valid anagram of two strings.)
 [easy] hashtable or sort string.
 
 
@@ -98,41 +98,43 @@ hashtable o(n) time, count each a[i], store in stat[], from [n,0) sum+=stat[i]; 
 [medium] heap. put the first row in heap, poll from heap, push back with row++;
 
 
-
-
 ---------------------------------------------------
-Binary search
+Binary search(reviewed on 9/28/2016 )
 ---------------------------------------------------
+33. Search in Rotated Sorted Array
+[hard-medium] 4 if conditions, compare num[mid] with num[left],
+further compare target to num[left] and num[mid].
+
+81. Search in Rotated Sorted Array II (duplicate in array)
+[hard-medium] similar to 33, left++ if num[left] = num[mid]. worst case o(n)
+
 34. Search for a Range(good)
 [medium] more code when ==; update ret[0] and ret[1]; two direction recursion dfs(start, mid-1); dfs(mid+1,end)
 
 35. Search Insert Position
 [medium-easy] regular binary search, insertion position is the left bound; return left;
 
-
+50. Pow(x, n)
+[medium] binary search. while(n>0){if((n & 1) == 1)ret *=x; n=/2; x*=x; }
 
 69. Sqrt(x)
 [easy-medium] return left bound. negative number has not sqrt, use Long to handle overflow.
 
-74. Search a 2D Matrix
-[easy-medium] val = matrix[mid/col][mid%col],  time o(log(m+n))
+74. Search a 2D Matrix(can be converted to 1D row by row.)
+[easy-medium] l=0, r=row*col-1; midVal = matrix[mid/col][mid%col],  time o(log(m+n))
 
-240. Search a 2D Matrix II
-[easy-medium] time can be o(mlogn), or o(nlogm), or o(m+n) row++ or col--;
-
-33. Search in Rotated Sorted Array
-[hard] 4 if conditions, compare num[mid] with num[left], and further compare target to num[left] and num[mid].
-
-81. Search in Rotated Sorted Array II (duplicate in array)
-[hard] similar to 33, left++ if num[left] = num[mid]. worst case o(n)
+240. Search a 2D Matrix II(sorted by rows and cols)
+[easy-medium] o(m+n). start on top right point, row=0, col=col_size-1; row++ or col--;
+time can also be o(mlogn) or o(nlogm)
 
 153. Find Minimum in Rotated Sorted Array
-[easy-medium]  if(num[mid] < num[r]) r= mid; else l = mid+1; return num[l]  while(l<r)
+[easy-medium]  if(num[mid]< num[r]) r= mid(not mid-1, because it can be the min);
+else l = mid+1; return num[l]  while(l<r)
 
 154. Find Minimum in Rotated Sorted Array II(duplicate is allowed)
 [medium] if(num[mid] == num[r]) r--;  else are the same as 153.
 
-162. Find Peak Element ((i==0 || num[i] > num[i-1]) && ( i= num.length-1 || num[i] > num[i+1]))
+162. Find Peak Element ((i==0 || num[i] > num[i-1]) && ( i= num.length-1 || num[i] > num[i+1]))(tricky)
 [medium] if(i>0 && num[mid] < num[mid-1]) (search left) r=mid-1  , else (search right) l = mid+1
 
 278. First Bad Version
@@ -259,7 +261,6 @@ Bit Manipulation
 ---------------------------------------------------
 29. Divide Two Integers
 [medium] not sure. [TODO]
-
 
 89. Gray Code
 [medium] f(n) += reverse(f(n-1)) + 2^(n-1), use list to represent f(n)
@@ -540,9 +541,6 @@ Linked List
 24. Swap Nodes in Pairs(swap adjacent node)
 [easy-medium] dummy node.  need three pointers to swap: pre, cur and nextNode.
 
-
-
-
 61. Rotate List
 [easy-medium] count node, tail -> head, move n - k steps, head = tail.next, tail.next = null  [TODO]
 
@@ -600,9 +598,6 @@ Math
 
 43. Multiply Strings
 [medium] o(n^2), p1 = i+j; p2=i+j+1; sum = product + ret[p2]; ret[p1] += sum /10; ret[p2] = sum % 10;
-
-50. Pow(x, n)
-[medium] binary search. while(n>0){if((n & 1) == 1)ret *=x; n=/2; x*=x; }
 
 60, Permutation Sequence.
 [medium to hard] math, k / (n-1)! for current number,  k%(n-1)! for next iteration.
