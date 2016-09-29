@@ -52,4 +52,23 @@ public class N187_RepeatedDNASequences {
         }
     }
 
+    // added on 9/29/2016
+    // TLE?
+    public class Solution2 {
+        public List<String> findRepeatedDnaSequences(String s) {
+            List<String> ret = new LinkedList<>();
+            HashMap<String, Integer> hm = new HashMap<>();
+            for(int i=0;i<=s.length()-10;i++){
+                String sequence = s.substring(i,i+10);
+                if(hm.containsKey(sequence))hm.put(sequence, hm.get(sequence)+1);
+                else hm.put(sequence, 1);
+            }
+
+            for(String key: hm.keySet()){
+                if(hm.get(key)>1) ret.add(key);
+            }
+            return ret;
+        }
+    }
+
 }
