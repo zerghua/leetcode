@@ -182,7 +182,9 @@ else l = mid+1; return num[l]  while(l<r)
 Binary Tree
 ---------------------------------------------------
 94. Binary Tree Inorder Traversal
-[easy-medium] left-root-right. iterative, use stack. push p to stack if p is not null then p=p.left,  else if p==null, store stack.pop().val, and then p = p.right. while(p!=null || !s.isEmpty)
+[easy-medium] left-root-right. iterative, use stack.
+push p to stack if p is not null then p=p.left,  else if p==null, store stack.pop().val,
+then p = p.right. while(p!=null || !s.isEmpty)
 
 144. Binary Tree Preorder Traversal
 [medium] iteratively. [TODO]
@@ -191,19 +193,23 @@ Binary Tree
 [hard] iteratively.  [TODO]
 
 100. Same Tree
-[easy] DFS. return true if p == null && q==null, false if p==null || q==null, if p.val == q.val return dfs(p.left, q.left) && dfs(p.right, q.right) else return false
+[easy] DFS. return true if p == null && q==null, false if p==null || q==null; if p.val == q.val
+return dfs(p.left, q.left) && dfs(p.right, q.right) else return false
 
 101. Symmetric Tree
-[easy-medium] DFS or BFS. DFS compare left.val == right.val && dfs(left.left, right.right) && dfs(left.right, right.left).   BFS, two queues, lq.push(left,right), rq.push(right,left).
+[easy-medium] DFS or BFS. similar to N100.
+DFS compare left.val == right.val && dfs(left.left, right.right) && dfs(left.right, right.left).
+BFS, two queues, lq.push(left,right), rq.push(right,left).
 
 102. Binary Tree Level Order Traversal
-[easy] BFS use queue, store size of each level. DFS pass level as argument.
+[easy] BFS use queue, store size of each level. DFS solution passes level as argument.
 
 107. Binary Tree Level Order Traversal II (return bottom up result)
 [easy] almost the same as 102, just change ret.add(list) to ret.add(0,list);
 
 103. Binary Tree Zigzag Level Order Traversal
-[medium] 1. could reverse odd number of list with 102 solution. Collections.reverse(res.get(i));   2. use two stacks.
+[medium] 1. could reverse odd number of list with 102 solution. Collections.reverse(res.get(i));
+2. use two stacks.
 
 104. Maximum Depth of Binary Tree
 [easy] DFS.  1 + max(dfs(node.left), dfs(node.right)). if(node ==null) return 0;
@@ -375,7 +381,6 @@ DFS/backtracking or BFS(better for shortest path)
 40  Combination Sum II (can't reuse same element)
 216 Combination Sum III
 377 Combination Sum IV
-
 
 
 77  Combinations
@@ -861,6 +866,21 @@ or manual scan word, and reversely append word.
 165. Compare Version Numbers
 [easy-medium] problem says 1.22 > 1.3 because 22 > 3. build num between '.';
 num1 = num1*10 + c1[i]-'0';
+
+161. One Edit Distance(decide if two string are one char diff)(real question, VIP)
+[medium] 3 True cases.
+1. s="abc" t="abcX"(append); 2. s="abc" t="aXc"(modify); 3. s="abc" t="abXc"(insert)
+public boolean isOneEditDistance(String s, String t){
+    int m = s.length, n = t.length;
+    if(m>n) return isOneEditDistance(t,s); //make sure s is shorted than t
+    int i=0, diff = n-m;
+    if(diff>1) return false;
+    while(i<m && s.charAt(i) == t.charAt(i))i++;
+    if(i==m) return diff == 1; //append case, return false if s==t
+    if(diff == 0) i++; // for modify case
+    while(i<m && s.charAt(i) == t.charAt(i+diff)) i++; //insert and modify case.
+    return i==m;
+}
 
 
 
