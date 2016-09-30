@@ -179,7 +179,7 @@ else l = mid+1; return num[l]  while(l<r)
 
 
 ---------------------------------------------------
-Binary Tree
+Binary Tree(reviewed on 9/30/2016)
 ---------------------------------------------------
 94. Binary Tree Inorder Traversal
 [easy-medium] left-root-right. iterative, use stack.
@@ -193,7 +193,8 @@ then p = p.right. while(p!=null || !s.isEmpty)
 [hard] iteratively.  [TODO]
 
 100. Same Tree
-[easy] DFS. return true if p == null && q==null, false if p==null || q==null; if p.val == q.val
+[easy] boolean = DFS(node1, node2)
+return true if p == null && q==null, false if p==null || q==null; if p.val == q.val
 return dfs(p.left, q.left) && dfs(p.right, q.right) else return false
 
 101. Symmetric Tree
@@ -211,61 +212,112 @@ BFS, two queues, lq.push(left,right), rq.push(right,left).
 [medium] 1. could reverse odd number of list with 102 solution. Collections.reverse(res.get(i));
 2. use two stacks.
 
-104. Maximum Depth of Binary Tree
-[easy] DFS.  1 + max(dfs(node.left), dfs(node.right)). if(node ==null) return 0;
-
-105. Construct Binary Tree from Preorder and Inorder Traversal
-[medium] DFS. dfs(int[] preoder, int preorder_start, int preorder_end, int[] inorder, int inorder_start, inorder_end) if(preorder_start>preorder_end) return null, if (preorder_start==preorder_end) return new TreeNode(preorder[preorder_start]); else build it and recursive on left and right.
-
-106. Construct Binary Tree from Inorder and Postorder Traversal
-[medium] DFS. similar to 105.
-
-110. Balanced Binary Tree
-[easy-medium] DFS, if node ==null, return 0.  left_height = dfs(node.left), if(left_height==-1) return -1 ...  return 1+ max(left_height, right_height).
-
-111. Minimum Depth of Binary Tree
-[easy-medium] DFS. if(node.left==null || node.right==null) return 1 + max(dfs(node.left), dfs(node.right)),  else return 1 + min(dfs(node.left), dfs(node.right))
-
-112. Path Sum
-[easy-medium] DFS. if(root == null) return false;  if(root.val == sum && root.left ==null && root.right == null) return true; return dfs(root.left, sum-root.val) || dfs(root.right, sum-root.val)
-
-113. Path Sum II
-[medium] DFS + backtracking. pass along ret and cur_list. return condition is the same as 112. cur_list.add(root.val); dfs(ret, root.left, cur_list, sum-root.val); cur_list.remove(root.val)
- ... the same goes for right node.
-
-114. Flatten Binary Tree to Linked List
-[medium-hard] Morris Algorithm?  [TODO]
-
-116. Populating Next Right Pointers in Each Node
-117. Populating Next Right Pointers in Each Node II
-[medium] share the same BFS level order traversal solution. with extra line of: if(i<size-1) node.next = q.peek(); for this linking next node.
-
-129. Sum Root to Leaf Numbers(sum of each path from root to leaf)
-[medium] DFS. tail recursion.
-if(node==null) return 0; ret = sum*10+node.val;
-if(left==right==null) return ret; return dfs(node.left, ret) + dfs(node.right, ret)
+116. Populating Next Right Pointers in Each Node(perfect binary tree)
+117. Populating Next Right Pointers in Each Node II(any binary tree)
+[medium] use BFS level order traversal solution.
+One extra line of: if(i<size-1) node.next = q.peek(); (linking the next node if not the last.)
 
 199. Binary Tree Right Side View
 [easy] BFS, level order traversal from right to left.
 
-222. Count Complete Tree Nodes (nlogn time)
-[medium] binary search. left_height, right_height, if equal return (1<<left_height)-1; else recur(root.left) + recur(root.right) +1;
+104. Maximum Depth of Binary Tree
+[easy] int = DFS(node)
+if(node ==null) return 0; return 1 + max(dfs(node.left), dfs(node.right));
 
-226. Invert Binary Tree
-[easy-medium] tmp = invert(root.left); root.left = invert(root.right); roo.right= tmp;
+111. Minimum Depth of Binary Tree(one more case than 104 max depth.)
+[easy-medium] int = DFS(node)
+if(node.left==null || node.right==null) return 1 + max(dfs(node.left), dfs(node.right)),
+return 1 + min(dfs(node.left), dfs(node.right))
+
+105. Construct Binary Tree from Preorder and Inorder Traversal
+[medium]dfs(int[] preoder, int preorder_start, int preorder_end, int[] inorder, int inorder_start, inorder_end)
+if(preorder_start>preorder_end) return null,
+if (preorder_start==preorder_end) return new TreeNode(preorder[preorder_start]);
+else build it and recursive on left and right.
+
+106. Construct Binary Tree from Inorder and Postorder Traversal
+[medium] DFS. similar to 105.
+
+110. Balanced Binary Tree(height-balanced tree: every node's subtree diff <= 1)
+[easy-medium] DFS.
+public int getHeight(TreeNode root){
+    if(root == null) return 0;
+    int left = getHeight(root.left);
+    if(left == -1) return -1;
+    int right = getHeight(root.right);
+    if(right ==-1 || Math.abs(left-right) > 1) return -1;
+    return 1+ Math.max(left, right);
+}
+
+112. Path Sum(return if sum of any root to leaf path == val)
+[easy-medium] boolean = DFS(node, val)
+if(root == null) return false;
+if(root.val == sum && root.left ==null && root.right == null) return true;
+return dfs(root.left, sum-root.val) || dfs(root.right, sum-root.val)
+
+113. Path Sum II(return all path == val)
+[medium] DFS + backtracking.  void = dfs(node, val, ret, list)
+pass along ret and cur_list. return condition is the same as 112.
+cur_list.add(root.val); dfs(ret, root.left, cur_list, sum-root.val); cur_list.remove(root.val)
+ ... the same goes for right node.
+
+129. Sum Root to Leaf Numbers(sum of each path from root to leaf)
+[medium] int = DFS(node, val)
+public int dfs(TreeNode node, int sum){
+    if(node == null) return 0;
+    int ret = sum*10 + node.val;
+    if(node.left == null && node.right==null) return ret;
+    return dfs(node.left, ret) + dfs(node.right, ret);
+}
+
+257. Binary Tree Paths(return all root to leaf path)
+[easy-medium] DFS + backtracking. similar to N129. void = DFS(node, ret, string)
+
+114. Flatten Binary Tree to Linked List
+[medium-hard] Morris Algorithm?  [TODO]
+
+222. Count Complete Tree Nodes (require o(nlogn) time) (interesting)
+[medium] binary search.  int = dfs(node)
+count left_height; count right_height; if equal return (1<<left_height)-1;
+else recur(root.left) + recur(root.right) +1;
+
+226. Invert Binary Tree(swap left and right)(interesting)
+[easy-medium] node = DFS(node), bottom up.
+if(root == null) return root;
+else {
+    TreeNode tmp = invertTree(root.left);
+    root.left = invertTree(root.right);
+    root.right = tmp;
+    return root;
+}
 
 236. Lowest Common Ancestor of a Binary Tree
-[medium] top-bottom. if left and right children contains each of q and p, then return current node; else if one of them is returned, then that one is the result.
+[medium] top-bottom. kind of similar to N226.
+if left and right children contains each of q and p, then return current node;
+else if one of them is returned, then that one is the result.
+public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    if(root == null || root == p || root == q) return root;
+    TreeNode left = lowestCommonAncestor(root.left, p, q);
+    TreeNode right = lowestCommonAncestor(root.right, p, q);
+    if(left != null && right!=null) return root;
+    return right == null? left: right;
+}
 
-257. Binary Tree Paths
-[easy-medium] DFS, pass ret to recursion.
 
 307. Range Sum Query - Mutable
 [medium-hard] segment tree. [TODO]
 
 331. Verify Preorder Serialization of a Binary Tree
 [medium] diff = outdegree - indegree = 1. each node count--; if not leaf, count+=2;
-
+public boolean isValidSerialization(String preorder) {
+    String[] arr = preorder.split(",");
+    int count = 1;
+    for(String s: arr){
+        if(--count <0) return false;
+        if(!s.equals("#")) count+=2;
+    }
+    return count == 0;
+}
 
 
 ---------------------------------------------------
