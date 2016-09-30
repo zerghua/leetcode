@@ -326,7 +326,12 @@ Bit Manipulation
 ---------------------------------------------------
 Design
 ---------------------------------------------------
-284. Peeking Iterator(iterator design, existing functions are iterator.next and iterator.hasNext; add a peek function)
+173. Binary Search Tree Iterator(next() return smallest in BST)
+[medium] push all left node to stack until the left most.
+when pop, if node.right!=null, push all its left. the reason it's o(1) time,
+because each element is visited only once.
+
+284. Peeking Iterator(existing functions are iterator.next and iterator.hasNext; add a peek function)
 [medium] the key is to cache(save) next element with element and isPeeked variables.
 
 341. Flatten Nested List Iterator
@@ -766,11 +771,11 @@ Collections.sort(list, new Comparator<Integer>(){
 
 
 ---------------------------------------------------
-Stack/Queue
+Stack/Queue(reviewed on 9/29/2016)
 ---------------------------------------------------
 20. Valid Parentheses
-[easy] push if it's "(""; else pop if it's ")"; empty case. could also count++ if "("; count-- if ")"; return false if count<0;
-
+[easy] push if it's "(""; else pop if it's ")"; empty case.
+could also count++ if "("; count-- if ")"; return false if count<0;
 
 71. Simplify Path
 [medium] pop if it's "..", continue if it's '.', else push
@@ -778,12 +783,10 @@ Stack/Queue
 150. Evaluate Reverse Polish Notation
 [easy] if operand, pop twice and evaluate and push back, else push.
 
-155. Min Stack
-[easy-medium] two stacks. one for regular pop, push and top. another to store min_values, push only when incoming is smaller than top, only pop when val = top.
+155. Min Stack(tricky)
+[easy-medium] two stacks. one for regular pop, push and top. another to store min_values,
+push only when incoming is smaller than top, pop only when val = top.
 used the trick of stack's top always be the smallest until a smaller comes after.
-
-173. Binary Search Tree Iterator
-[medium] push all left node to stack until the left most. when pop, if node.right!=null, push all its left. the reason it's o(1) time, because each element is visited only once.
 
 225. Implement Stack using Queues
 [easy-medium] two queues to mimic stack.
@@ -793,8 +796,10 @@ used the trick of stack's top always be the smallest until a smaller comes after
 
 
 224. Basic Calculator [TODO]
-227. Basic Calculator II [TODO]
+[hard]
 
+227. Basic Calculator II [TODO]
+[mmedium]
 
 
 
