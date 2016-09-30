@@ -321,25 +321,76 @@ public boolean isValidSerialization(String preorder) {
 
 
 ---------------------------------------------------
-Binary Search Tree
+Binary Search Tree(reviewed on 9/30/2016)
 ---------------------------------------------------
-96. Unique Binary Search Trees
+96. Unique Binary Search Trees(return how many unique trees.)
 [medium-hard] DP. catalan number. f(n) = f(0)*f(n-1) + f(1)*f(n-2) + ... + f(n-1)f(0)
+public int numTrees(int n) {
+    int[] catalan = new int[n+1];
+    catalan[0]=1;
+    for(int i=1; i<=n; i++){
+        for(int j=0;j<i;j++){
+            catalan[i] += catalan[j] * catalan[i-j-1];
+        }
+    }
+    return catalan[n];
+}
 
-95. Unique Binary Search Trees II
+
+95. Unique Binary Search Trees II(generate all unique trees)(interesting)
 [medium-hard] DFS. foreach(start,n), left = (start,i-1), right=(i+1,n).
+public List<TreeNode> generateTrees(int start, int end) {
+    List<TreeNode> ret = new LinkedList<>();
+    if(start > end){
+        ret.add(null);
+        return ret;
+    }
+
+    for(int i=start; i<=end; i++){
+        List<TreeNode> lefts= generateTrees(start, i-1);
+        List<TreeNode> rights= generateTrees(i+1, end);
+
+        for(TreeNode left: lefts){
+            for(TreeNode right: rights){
+                TreeNode node = new TreeNode(i);
+                node.left = left;
+                node.right = right;
+                ret.add(node);
+            }
+        }
+    }
+    return ret;
+}
+
 
 98. Validate Binary Search Tree
-[easy-medium] DFS. pass along min, max value to validate. return false if root.val>=max || root.val <= min. then return dfs(root.left,min, root.val) && dfs(root.right,root.val, max).
+[easy-medium] DFS. pass along min, max value to validate.
+public boolean isValidBST2(TreeNode node, double min, double max){
+    if(node == null) return true;
+    if(node.val >= max || node.val <= min) return false;
+    return isValidBST2(node.left, min, node.val) && isValidBST2(node.right, node.val, max);
+}
 
 108. Convert Sorted Array to Binary Search Tree
-[easy] DFS. dfs(int[] a, int start, int end), if(start>end) return null. else build tree. mid = (left+right)/2  ...
+[easy] node = DFS(int[], left_index, right_index)
+public TreeNode sortedArrayToBSTHelper2(int[] nums, int left, int right){
+    if (left > right) return null;
+
+    int mid = left + (right - left)/2;
+    TreeNode node = new TreeNode(nums[mid]);
+    node.left = sortedArrayToBSTHelper(nums, left, mid - 1);
+    node.right = sortedArrayToBSTHelper(nums, mid + 1, right);
+    return node;
+}
 
 109. Convert Sorted List to Binary Search Tree
-[medium] 1. convert list to array.  2. two pointers find mid point each loop. 3. global pointer, very tricky, see 109 solution.
+[medium] 1. convert list to array.  2. two pointers find mid point each loop.
+3. global pointer, very tricky, see 109 solution.
 
 230. Kth Smallest Element in a BST  [favorite]
-[medium] recursively count current node. if k == count return; else if count > k, dfs(root.left,k); else dfs(root.right, k-count);  or iteratively in-order traversal.
+[medium] recursively count current node.
+if k == count return; else if count > k, dfs(root.left,k); else dfs(root.right, k-count);
+or iteratively in-order traversal.
 
 235. Lowest Common Ancestor of a Binary Search Tree
 [easy] return if p < node.val < q. else recur left or right.
