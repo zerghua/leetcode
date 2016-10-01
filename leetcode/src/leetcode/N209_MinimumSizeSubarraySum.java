@@ -36,4 +36,23 @@ public class N209_MinimumSizeSubarraySum {
         }
         return min == Integer.MAX_VALUE ? 0 : min;
     }
+
+    // added on 10/1/2016
+    // 1 ms 14 / 14 test cases passed.
+    public class Solution {
+        public int minSubArrayLen(int s, int[] nums) {
+            int i=0, sum=0, ret= Integer.MAX_VALUE;
+            for(int j=0;j<nums.length;j++){
+                sum+= nums[j];
+                if(sum>= s){
+                    while(sum-nums[i]>=s){
+                        sum -= nums[i++];
+                    }
+                    ret = Math.min(ret, j-i+1);
+                }
+            }
+            return ret==Integer.MAX_VALUE? 0 : ret;
+        }
+    }
+
 }
