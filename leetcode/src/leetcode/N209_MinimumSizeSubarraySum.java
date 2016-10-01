@@ -1,11 +1,10 @@
 package leetcode;
 
 /**
- * Created by Hua on 6/5/2016.
+ * Created by HuaZ on 10/1/2016.
 
  Given an array of n positive integers and a positive integer s,
- find the minimal length of a subarray of which the sum ¡Ý s.
- If there isn't one, return 0 instead.
+ find the minimal length of a subarray of which the sum â‰¥ s. If there isn't one, return 0 instead.
 
  For example, given the array [2,3,1,2,4,3] and s = 7,
  the subarray [4,3] has the minimal length under the problem constraint.
@@ -13,12 +12,12 @@ package leetcode;
  click to show more practice.
  More practice:
 
- If you have figured out the O(n) solution, try coding another solution of
- which the time complexity is O(n log n).
+ If you have figured out the O(n) solution,
+ try coding another solution of which the time complexity is O(n log n).
 
 
  */
-public class N203_MinimumSizeSubarraySum {
+public class N209_MinimumSizeSubarraySum {
     // store two pointers point to front and end which sum of between >=s
     // 1 ms
     // sliding window.
