@@ -42,4 +42,21 @@ public class N228_SummaryRanges {
 
         return ret;
     }
+
+    // concise code added on 10/1/2016
+    // 0 ms 27 / 27 test cases passed.
+    public class Solution {
+        public List<String> summaryRanges(int[] nums) {
+            List<String> ret = new ArrayList<>();
+            int start=0;
+            for(int i=1; i<=nums.length;i++){
+                if(i == nums.length || nums[i] != nums[i-1]+1){
+                    if(i-1 == start) ret.add(""+ nums[i-1]); // case when last one is single.
+                    else ret.add(nums[start] + "->" + nums[i-1]);
+                    start = i;
+                }
+            }
+            return ret;
+        }
+    }
 }
