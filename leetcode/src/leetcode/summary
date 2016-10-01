@@ -988,10 +988,12 @@ public boolean isOneEditDistance(String s, String t){
 
 
 ---------------------------------------------------
-Two pointers(or Three pointers)
+Two pointers(or Three pointers)(reviewed on 10/1/2016)
 ---------------------------------------------------
-11. Container With Most Water
-[medium-easy] two pointers on left and right. min_height=min(num[left],num[right]), maxArea=max(maxArea, (right-left)*min_height); left++ while num[left] <= min_height ...
+11. Container With Most Water(interesting)(sliding windows)
+[medium-easy] two pointers on left and right.
+min_height=min(num[left],num[right]), maxArea=max(maxArea, (right-left)*min_height);
+left++ while num[left] <= min_height ...
 
 167. Two Sum II - Input array is sorted
 [easy] two pointers. l++ and r--;
@@ -1002,51 +1004,44 @@ Two pointers(or Three pointers)
 16. 3Sum Closest
 [medium-easy] similar to N15 3sum. store ret and min_diff.
 
-18. 4Sum
+18. 4Sum(prepare for ksum, DFS+backtracking)
 [medium] similar to N15 3sum. o(n^3)
 
 26. Remove Duplicates from Sorted Array
 [easy-medium] i points to last unique one, if (num[i]!=num[j]) num[++i] = num[j]
 
-27. Remove Element(remove given val)
-[easy-medium] similar to N26, but i points to last removable one. if (num[i] != val) num[i++] = num[j]  //num[++i]=x and num[i++]=x are different
+80. Remove Duplicates from Sorted Array II(duplicate allows twice)
+[easy-medium] similar to 26, compare with num[i-1] rather than num[i]. i=1, j=2.
+
+27. Remove Element(remove given val)(real question)
+[easy-medium] similar to N26, but i points to last removable one.
+if (num[i] != val) num[i++] = num[j]  //num[++i]=x and num[i++]=x are different
+
+283. Move Zeroes
+[easy-medium] similar to N27. if (num[i] != 0) num[i++] = num[j], and fill zeros to the end.
 
 28. Implement strStr()
-[easy-medium] BF is faster than KMP in most small cases. while(i<sizeA && j<sizeB) if(A[i]==B[j]){i++;j++;} else {i=i-j+1;j=0}
+[easy-medium] BF is faster than KMP in most small cases.
+while(i<sizeA && j<sizeB) if(A[i]==B[j]){i++;j++;} else {i=i-j+1;j=0}; return i-j if j==sizeB.
 
 58, Length of Last Word.
 [very easy] String operation. scan from last. o(n)
 
-75. Sort Colors
-[easy-medium] three pointers. if 0, swap(i++,left++), if 2, swap(i,right--), else i++; while(i<=right)
+75. Sort Colors(sort 3 categories)(real question)(interesting)
+[easy-medium] two passed, counting each category and overwrite. (counting sort)
+(one pass)three pointers. if 0, swap(i++,left++), if 2, swap(i,right--), else i++; while(i<=right)
 
-26. Remove Duplicates from Sorted Array
-[easy-medium] i as the end of array, compare it with num[j], if equal continue j and skipped num[j],
-else num[++i] = nums[j],  return i+1
-
-80. Remove Duplicates from Sorted Array II
-[easy-medium] similar to 26, compare with num[i-1] rather than num[i]. j starts from 2.
-
-
-209. Minimum Size Subarray Sum(N203 in my Java code)
+209. Minimum Size Subarray Sum(interesting)
 [medium] sliding window. window [i,j] >= sum; while([i++,j]>=sum, ret= min(ret, j-i+1))
 
-
 228. Summary Ranges(given [0,1,2,4,5,7], return ["0->2","4->5","7"].)
-[easy-medium] maintain start index, if num[i]-num[i-1] >1, construct list(start,i-1); start=i;   (may overflow num[i]-num[i-1])
-
-283. Move Zeroes
-[easy] move all non-zeros to front and fill zeros at the end.
+[medium-easy] maintain start index. multiple sliding windows.
+if num[i]-num[i-1] >1, construct list(start,i-1); start=i;  (may overflow num[i]-num[i-1])
 
 344. Reverse String
 [easy]
 
 345. Reverse Vowels of a String
 [easy] two pointers find vowels and swap.
-
-
-
-
-
 
 
