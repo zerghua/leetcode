@@ -554,70 +554,117 @@ dp[0]=dp[1]=1;
 if(isValid(s.substring(i-1, i))) dp[i] += dp[i-1];
 if(isValid(s.substring(i-2, i))) dp[i] += dp[i-2];
 
-120. Triangle
-[medium] bottom up DP, rolling array. dp[i] = min(dp[i], dp[i+1]) + matrix[i][j]
+120. Triangle(minimum path sum from top to bottom, move down only adjacent)[important]
+[medium] (Bottom up DP!!!) rolling array. dp[i] = min(dp[i], dp[i+1]) + matrix[i][j]
 
-121. Best Time to Buy and Sell Stock
-[easy-medium] greedy. minVal = min(minVal, a[i]);  ret = max(ret, a[i]-minVal);
+121. Best Time to Buy and Sell Stock(at most one transaction)
+[easy-medium] greedy. store global min, and update max each time.
+minVal = min(minVal, a[i]);  ret = max(ret, a[i]-minVal);
 
 122. Best Time to Buy and Sell Stock II(could buy and sell as much as possible.)
 [easy-medium] greedy. add up all the positive difference between two days.
 
-123. Best Time to Buy and Sell Stock III
-[medium-hard] two-way DP. find max profit <= i, find max profit >= i. and combine them. ret = max(ret, left[i]+right[i])
+123. Best Time to Buy and Sell Stock III(at most 2 transaction)(interesting)
+[medium-hard] two passes DP. divide and conquer.
+find max profit <= i and max profit >= i. combine them ret = max(ret, left[i]+right[i])
 
 309. Best Time to Buy and Sell Stock with Cooldown
 [medium-hard] not sure. [TODO]
 
 139. Word Break(check if string can be segmented into a few words in a given dictionary)
-[medium-hard] DFS will TLE.  use DP. DP, dp[i+1] = true if dp[j]==true && dict.contains(substring[j,i+1)) for j in [0,i]
+[medium-hard] DFS will TLE.  similar to N132. Palindrome Partitioning II
+dp[0]=true; for each substring, if (dp[j]==true && word.contains(s.substring[j,i+1)) dp[i+1] = true;
 
-140. Word Break II
-[hard]  DP + DFS + backtracking. [TODO]
+140. Word Break II(add spaces in str to construct a sentence, return all possible results.)
+[hard]  DP + DFS + backtracking. need a ArrayList<String>[] preWordsList;
+store each dictionary word in preWordsList, add to ret by backtracking with matching str length.
 
-152. Maximum Product Subarray
-[medium] DP or greedy. maxVal = max(maxVal, max(num*minVal, num*maxVal));  minVal = min(minVal, min(num*minVal, num*maxVal)); ret= max(ret, maxVal)
+152. Maximum Product Subarray(return the largest product in a contiguous subarray)(interesting)
+[medium] DP or greedy.
+    int tmp = cur_max;
+    cur_max = Math.max(nums[i], Math.max(cur_max*nums[i], cur_min*nums[i]));
+    cur_min = Math.min(nums[i], Math.min(tmp*nums[i], cur_min*nums[i]));
+    max = Math.max(max, cur_max);
 
-198. House Robber
-[easy] dp[i] = max(dp[i-i], dp[i-2] + num[i]). or greedy, use even and odd.
+198. House Robber(return maximum money can rob but not adjacent houses.)
+[easy] dp[i] = max(dp[i-i], dp[i-2] + num[i]).
+or greedy, use even and odd. even=max(even,odd); odd=max(even,odd);
 
 213. House Robber II(house in a circle)
-[medium] two times of DP, 1. remove head.  2. remove tail.
+[medium] two passes of DP, 1. remove head.  2. remove tail.
 
-337. House Robber III(binary tree, interesting)
-[medium-hard] DFS + DP(hashtable).
+337. House Robber III(binary tree, very interesting)
+[medium-hard] DFS + DP(hashtable).  int = DFS(node, map), naive is not using map.
+public int rob(TreeNode root, HashMap<TreeNode, Integer> map) {
+    if (root == null) return 0;
+    if(map.containsKey(root)) return map.get(root);
 
-204. Count Primes
-[easy-medium] if dp[i] is prime, set dp[i*j] = Not Prime, while j in[2,i*j<=n]; then count.
+    int val = 0;
+    if (root.left != null) val += rob(root.left.left, map) + rob(root.left.right, map);
+    if (root.right != null) val += rob(root.right.left, map) + rob(root.right.right, map);
+    val =Math.max(val + root.val, rob(root.left, map) + rob(root.right,map));
+    map.put(root, val);
+    return val;
+}
 
-221. Maximal Square (time o(m*n), space(m*n), space can be reduced use rolling array and one variable)
+204. Count Primes(return number of primes less than n)(interesting)
+[easy-medium] dp[i*j] = false
+set dp[0,n] =true; if dp[i] IS prime, set dp[i*j] = NOT Prime, while j in[2,i*j<=n]; then count.
+
+279. Perfect Squares(find the least number of perfect square numbers sum to n. 4+9=13)
+[medium] similar to N204.  dp[i+j*j] = Math.min(dp[i+j*j], dp[i]+1);
+for(int i=0;i<=n;i++){
+    for(int j=1;i+j*j<=n;j++){
+        dp[i+j*j] = Math.min(dp[i+j*j], dp[i]+1);
+    }
+}
+
+322. Coin Change(return fewest number of coins sum to a val)
+[medium] similar to N279.  dp[i+j] = min(dp[i+j], dp[i]+1)
+int[] dp = new int[amount+1];
+for(int i=1;i<=amount;i++) dp[i] = Integer.MAX_VALUE;
+for(int i=0;i<amount;i++){
+    for(int coin: coins){
+        if(i+coin <= amount && dp[i] != Integer.MAX_VALUE)
+            dp[i+coin] = Math.min(dp[i+coin], dp[i]+1);
+    }
+}
+return dp[amount] == Integer.MAX_VALUE? -1 : dp[amount];
+
+221. Maximal Square(matrix with 0 and 1, find largest square with all 1 and return its area.)
 [medium] if matrix[i][j] == '1':  dp[i][j] = 1 + min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])
+(time o(m*n), space(m*n), space can be reduced use rolling array and one variable)
 
-279. Perfect Squares
-[medium] for(j=1;i+ j*j<=n;j++) dp[i+j*j] = min(dp[i+j*j], dp[i]+1);
+300. Longest Increasing Subsequence(return max length of increasing subsequence in array)(interesting)
+[medium] dp[i] = Math.max(dp[i], dp[j]+1)
+for(int i=0;i<nums.length;i++){
+    dp[i] = 1;
+    for(int j=0;j<i;j++){
+        if(nums[j] < nums[i]) dp[i] = Math.max(dp[i], dp[j]+1);
+    }
+    max = Math.max(max, dp[i]);
+}
 
-300. Longest Increasing Subsequence
-[medium] dp[i]=1; if(nums[j] < nums[i]) dp[i] = Math.max(dp[i], dp[j]+1), for j in [0,i);
-
-303. Range Sum Query - Immutable
-[easy] extra length provides cleaner code. sum[i+1] = sum[i] + nums[i]; return sum[j+1]-sum[i]
+303. Range Sum Query - Immutable(find the sum of the elements between indices [i,j])
+[easy] sum(i) = sum[0,i); return sum(j+1)-sum(i);
+sum = new int[nums.length + 1];
+for (int i = 0; i < nums.length; i++) {
+    sum[i + 1] = sum[i] + nums[i];
+}
 
 304. Range Sum Query 2D - Immutable
 [easy-medium] similar N303, but in matrix, sum by row and add each row.
 
-322. Coin Change
-[medium] i in [0,amount] set MAX, dp[i+j] = min(dp[i+j], dp[i]+1) if i+j<=amount && dp[i]!=MAX.
+338. Counting Bits(return number of 1 bits in range[0,n])(very interesting)
+[medium] DP + bit. ret[i] = ret[i>>1] + (i&1)  for i in [1,num]
 
-338. Counting Bits(DP + bit)
-[medium] ret[i] = ret[i>>1] + (i&1)  for i in [1,num]
-
-368. Largest Divisible Subset(interesting...)
-[medium-hard] DP+backtracking.
+368. Largest Divisible Subset(find largest set each si%sj==0)(interesting)
+[medium-hard] DP+backtracking. [TODO]
 
 375. Guess Number Higher or Lower II
 [medium] 2d DP. [TODO]
 
-376. Wiggle Subsequence(interesting)
+376. Wiggle Subsequence(return length of longest wiggle subsequence)(interesting) [TODO]
 [medium] alternate DP. if(num[i]>num[i-1])p=q+1; else if(num[i]<num[i-1])q=p+1; return max(p,q);
 
 
