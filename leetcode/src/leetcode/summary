@@ -823,34 +823,41 @@ Math
 
 
 ---------------------------------------------------
-Palindrome(DFS + backtracking or DP)
+Palindrome(DFS + backtracking or DP)(reviewed on 10/1/2016)
 ---------------------------------------------------
 https://leetcode.com/articles/longest-palindromic-substring/#approach-5-manachers-algorithm-accepted    Manacher's Algorithm
-5	Longest Palindromic Substring
+5. Longest Palindromic Substring(read question)
+[medium-hard] BF is o(n^3). Manacher's Algorithm is o(n)  [TODO]
+for each i, call isPal(i,i) and isPal(i,i+1) o(n^2)
 
-9	Palindrome Number
-[easy-medium], create div the same digits as number, use it to get left digit
+9. Palindrome Number
+[easy-medium] 1. convert to string.
+2. create div the same digits as number, use it to get left digit
 
-125	Valid Palindrome
-[easy-medium], consider case and special chars. two pointers start from left and right end.
+125. Valid Palindrome
+[easy-medium] consider case and special chars. two pointers start from left and right end.
 
-131 Palindrome Partitioning
-[medium-hard] DP to find all palindrome of sub-strings, DFS+backtracking.
+131. Palindrome Partitioning(find all possible palindrome partitioning of s)
+[medium-hard] DP+DFS+backtracking.
+DP(n^2) to store all substring isPal, DFS+backtracking on all substring. (~ o(n!))
 
-132 Palindrome Partitioning II
-[hard] DP cut[j] = min(cut[j], cut[i-1] + 1) inside a[i] == a[j] condition.  [TODO]
+132. Palindrome Partitioning II(Return the minimum cuts needed for a palindrome partitioning of s)
+[hard] similar solution as 131 will TLE. add another DP condition in isPal[][] dp. o(n^2)
+DP cut[j] = min(cut[j], cut[i-1] + 1) inside a[i] == a[j] condition.
 
-214	Shortest Palindrome
+214. Shortest Palindrome(add chars in front of string to make it palindrome)(tricky)
 [hard] String, recursive. prefix, suffix and middle. [TODO]
 
-234	Palindrome Linked List
-[easy] o(n) space,  [medium] o(1) space. reverse first half list. [TODO]
+234. Palindrome Linked List
+[easy] o(n) space, convert to string.
+[medium] o(1) space. reverse first half list. [TODO]
 
-266	Palindrome Permutation    (locked)
-267	Palindrome Permutation II (locked)
+266. Palindrome Permutation    (locked)
+267. Palindrome Permutation II (locked)
 
-336	Palindrome Pairs
-[hard] hashtable + divide conquer. split each words str1 and str2, and check if isPal(str2) and reversed(str2) in map. [TODO]
+336. Palindrome Pairs
+[hard] hashtable + divide conquer.
+split each words str1 and str2, and check if isPal(str2) and reversed(str2) in map. [TODO]
 
 
 
