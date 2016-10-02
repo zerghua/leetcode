@@ -533,22 +533,26 @@ and return new_node if encountered to avoid duplicate. recursively add its neigh
 
 
 ---------------------------------------------------
-DP
+DP(reviewed on 10/2/2016)
 ---------------------------------------------------
-62. Unique Paths
-[easy] dp[i][j] = dp[i-1][j] + dp[i][j-1]
+62. Unique Paths(matrix, can only move down and right, return max unique path)
+[easy] dp[i][j] = dp[i-1][j] + dp[i][j-1];
 
-63. Unique Paths II
-[easy-medium]  rolling array.  dp[j] += d[j-1]  when j>0
+63. Unique Paths II(with obstacles marked as 1)
+[easy-medium] rolling array. if(obstacleGrid[i][j] == 1) dp[j] = 0; else if(j>0) dp[j] += dp[j-1];
 
-64. Minimum Path Sum
+64. Minimum Path Sum(matrix, can only move down and right, return min path sum)
 [easy]  dp[j] = min(dp[j-1], dp[j]) + grid[i][j].  similar to 62, but use rolling array(o(m) space).
 
-70, climb stairs. (either 1 step or 2 steps)
-[easy-medium]   dp[i] = dp[i-2] + dp[i-1].  or c= a+b, a=b, b=c
+70, climb stairs. (either 1 step or 2 steps, return distinct ways to the top)
+[easy-medium]   dp[i] = dp[i-2] + dp[i-1].
+this is kind of fibonacci, so can be: a=b=1; i in [2,n]{c= a+b, a=b, b=c;} return b;
 
-91. Decode Ways
-[medium] dp[i] = dp[i-1] + dp[i-2] if substring(i-1,i) and substring(i-2,i) is valid dp[0]=dp[1]=1
+91. Decode Ways('A'->1, ... 'Z'->26, return how many ways to decode a given string)
+[medium] hard on how to analyze this problem. f(n) = f(n-1) + f(n-2) if valid in [1,26]
+dp[0]=dp[1]=1;
+if(isValid(s.substring(i-1, i))) dp[i] += dp[i-1];
+if(isValid(s.substring(i-2, i))) dp[i] += dp[i-2];
 
 120. Triangle
 [medium] bottom up DP, rolling array. dp[i] = min(dp[i], dp[i+1]) + matrix[i][j]
