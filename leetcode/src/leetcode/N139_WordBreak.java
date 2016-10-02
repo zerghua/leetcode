@@ -69,5 +69,21 @@ public class N139_WordBreak {
         }
     }
 
-
+    // added on 10/2/2016
+    // 16 ms  34 / 34 test cases passed
+    public class Solution2 {
+        public boolean wordBreak(String s, Set<String> wordDict) {
+            boolean[] dp = new boolean[s.length()+1];
+            dp[0] = true;
+            for(int i=0;i<s.length();i++){
+                for(int j=0;j<=i;j++){
+                    if(dp[j] && wordDict.contains(s.substring(j,i+1))) {  //important it's dp[j] instead of dp[i]
+                        dp[i+1] = true;
+                        break; // pruning
+                    }
+                }
+            }
+            return dp[s.length()];
+        }
+    }
 }
