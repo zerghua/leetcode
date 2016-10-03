@@ -494,6 +494,7 @@ permutation:   [1,2,3], [2,1,3] ...
 subset:        [1,2,3], [2,3], [3] ...      subset remains original sequence.
 
 
+// the reason why using start+1 or start is to avoid duplicate of (1,2) and (2,1).  only permutation will need that, so it used an array.
 39. Combination Sum(find all unique combinations in C where the candidate positive numbers sums to T) like set [2, 3, 6, 7] and target 7
 [medium] void = DFS(ret, cur_list, num_array, cur_target, start_int);
 dfs(ret, cur_list, num_arary, cur_target-num_array[start_int], start_int);
@@ -504,11 +505,11 @@ Arrays.sort(num_array);
 dfs(ret, cur_list, num_arary, cur_target-num_array[start_int], start_int+1);
 Arrays.sort(num_array);
 
-216. Combination Sum III
-[medium]
+216. Combination Sum III(given number [1,9], each can use only once, return all possible k numbers sum to n)
+[medium] void = DFS(ret, cur_list, k_int, n_int, start_int)
 
-377. Combination Sum IV
-[medium]
+377. Combination Sum IV(return number of possible results with the same proble of N216)(tricky, tailored for interview, (1,2) and (2,1) both are valid)
+[medium] DP.  dp[i+n] += dp[i] if (i+n<=target)
 
 
 77  Combinations
