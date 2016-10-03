@@ -463,27 +463,52 @@ because each element is visited only once.
 ---------------------------------------------------
 DFS/backtracking or BFS(better for shortest path)
 ---------------------------------------------------
-17. Letter Combinations of a Phone Number
-[medium] hashmap to map number and chars. DFS on each char.
+17. Letter Combinations of a Phone Number(return all possible letter combinations that the number could represent)
+[medium] void = DFS(ret, cur_list, digits_string, start_int, map)
+hashmap to map number and chars. DFS on each char.
+String[] map = {"", "*", "abc", "def", "ghi", "jkl","mno", "pqrs", "tuv","wxyz"};
 
-22. Generate Parentheses(interesting)
-[medium] return if left< right || ...; dfs(cur+"(", left-1, right; dfs(cur+")", left, right-1);
+22. Generate Parentheses(given int n, return all combinations of well-formed parentheses)(interesting)
+[medium] void = DFS(ret, cur_string, left_int, right_int)
+return if left< right; add to ret if left==0 && right==0;
+two DFS in func: dfs(cur+"(", left-1, right;  dfs(cur+")", left, right-1);
+
+46. Permutations(Given a distinct collection of numbers, return all possible permutations)
+[medium] void = DFS(ret, cur_list, num_array, used_array)
+
+47. Permutations II (contains duplicates, return unique permutation, no duplicate set.)
+[medium] void = DFS(ret, cur_list, num_array, used_array)
+Arrays.sort(num_array);
+if(i>0 && num[i]==num[i-1] && !used[i-1]) continue; (think about why it's !used[i-1] for like set(1,1,2))
+
+78. Subsets(Given a set of distinct integers, nums, return all possible subsets)
+[medium] void = DFS(ret, cur_list, num_array, start_int)
+
+90. Subsets II (contains duplicates)  [1,1,2]
+[medium] void = DFS(ret, cur_list, num_array, start_int)
+Arrays.sort(num_array);
+if(i>start && num[i]==num[i-1]) continue;
+
+// difference on permutation and subset, for example [1,2,3]:
+permutation:   [1,2,3], [2,1,3] ...
+subset:        [1,2,3], [2,3], [3] ...      subset remains original sequence.
 
 
-46  Permutations
-47  Permutations II (contains duplicates)
+39. Combination Sum(find all unique combinations in C where the candidate positive numbers sums to T) like set [2, 3, 6, 7] and target 7
+[medium] void = DFS(ret, cur_list, num_array, cur_target, start_int);
+dfs(ret, cur_list, num_arary, cur_target-num_array[start_int], start_int);
+Arrays.sort(num_array);
 
-78  Subsets(distinct numbers)
-[medium] add all cur_list to ret in loop, cur_list as backtrack.
+40. Combination Sum II (can use only once for each element. 39 the same number can be used multiple times.)
+[medium] void = DFS(ret, cur_list, num_array, cur_target, start_int);
+dfs(ret, cur_list, num_arary, cur_target-num_array[start_int], start_int+1);
+Arrays.sort(num_array);
 
-90  Subsets II (contains duplicates)
-[medium] add all cur_list to ret in loop, sort and skip duplicate when i>start && num[i-1]=num[i]
+216. Combination Sum III
+[medium]
 
-
-39  Combination Sum
-40  Combination Sum II (can't reuse same element)
-216 Combination Sum III
-377 Combination Sum IV
+377. Combination Sum IV
+[medium]
 
 
 77  Combinations
