@@ -461,7 +461,7 @@ because each element is visited only once.
 
 
 ---------------------------------------------------
-DFS/backtracking or BFS(better for shortest path)(reviewed on 10/3/2016 @130)
+DFS/backtracking or BFS(better for shortest path)(reviewed on 10/3/2016 - 10/4/2016)
 ---------------------------------------------------
 17. Letter Combinations of a Phone Number(return all possible letter combinations that the number could represent)
 [medium] void = DFS(ret, cur_list, digits_string, start_int, map)
@@ -538,31 +538,71 @@ pruning code for IP address like 00, 01, early break.
 [medium-hard] start from 4 sides and mark all neighbors(BFS) from 'O' to 'P',
 then set all 'O' to 'X', all 'P' to 'O'.  long code.
 
-133. Clone Graph
-[medium-hard] copy itself and copy its neighbors, use hashmap to store {new_node_label, new_node},
-and return new_node if encountered to avoid duplicate. recursively add its neighbors.
+133. Clone Graph(each node's label is unique)(tricky but interesting)
+[medium-hard]  NewNode = DFS(node, map<newNode_label, newNode>)
+return new_node if encountered to avoid duplicate, copy itself and copy its neighbors, recursively add its neighbors.
+public UndirectedGraphNode dfs(UndirectedGraphNode node,
+                               HashMap<Integer,UndirectedGraphNode> map){
+    if(map.containsKey(node.label)) return map.get(node.label); // return copy of node
+    UndirectedGraphNode newNode = new UndirectedGraphNode(node.label);
+    map.put(newNode.label, newNode);
+    for(UndirectedGraphNode neighbor: node.neighbors){
+        newNode.neighbors.add(dfs(neighbor, map));
+    }
+    return newNode;
+}
 
-200. Number of Islands
-[medium] DFS, for each cell, do DFS on adjacent cells, and mark them as visited.
+200. Number of Islands(matrix with 1(land) and 0(water), count number of islands, assume edges are water)(interesting)
+[medium] void = DFS(matrix, i_int, j_int, visited_matrix)
+DFS, for each cell(if not visited, islands++), do DFS on adjacent cells, and mark them as visited.
 
-207. Course Schedule (find cycle in a graph)
-[medium-hard] find cycle in graph. [TODO]
+207. Course Schedule (find cycle in a graph)(interesting)
+[medium-hard] boolean = canFinishDFS(node_int, map<node_int, adjacent_node_hashset_ofInt>, visitedNode_int_array)
+// visited = 1, visiting= -1
+private boolean canFinishDFS(HashMap<Integer, HashSet<Integer>> map,
+                             int[] visited, int i) {
+    if(visited[i] == -1) return false;
+    if(visited[i] == 1) return true;  //pruning, means this node has confirmed without cycle.
 
-210. Course Schedule II
-[medium-hard] graph. [TODO]
+    visited[i] = -1;
+    if(map.containsKey(i)){
+        for(int adjacent_node: map.get(i)){
+            if(!canFinishDFS(map, visited, adjacent_node)) return false;
+        }
+    }
+    visited[i] = 1;
+    return true;
+}
 
-241. Different Ways to Add Parentheses(very interesting one.)
-[medium-hard] DFS+backtracking+divide and conquer. DFS and separate left and right by operator(+-*); for each of left and right, calculate their value.
+210. Course Schedule II(return one possible route)
+[medium-hard] graph. similar to N207,  not sure why it's  "ret[index--]=i;" for backtracking. [TODO]
 
-306. Additive Number
-[medium-hard] complicate on how to extract 3 numbers. [TODO]
+241. Different Ways to Add Parentheses(given a string of numbers and operators, return all possible results by group them differently. operators are ""+-*")(very interesting)
+[medium-hard] List = DFS(string)   (divide and conquer)!!!    example: 2*3+5
+if i is operator:  left_list = DFS(str.substring(0,i));  right_list = DFS(str.substring(i+1));
+for n in left_list: for m in right_list: ret.add(compute(n,m,operator_at_i))
+DFS and separate left and right by operator(+-*); for each of left and right, calculate their value.
 
-310. Minimum Height Trees(graph)
-[medium-hard] BFS. remove leaf node until <=2
+306. Additive Number(return if a string is additive number,  199100199 is because [1, 99, 100, 199])
+[medium-hard] boolean = DFS(num_string, left_int, right_int, first_num_int)
+complicate on how to extract 3 numbers. [TODO]
 
-386. Lexicographical Numbers(interesting)
-[medium] DFS. i in [0,9]{val=pre*10+i; if 0<val<n: ret.add() and dfs(val,ret) }
+310. Minimum Height Trees(given a tree-like graph, return a list of MHT root.)
+[medium-hard] BFS, remove all leaf node until remain node <=2 and return.
+map<node_int, list_of_adjacent_node>; node_int_array to store count of adjacent nodes; a list to store leaf node.
 
+386. Lexicographical Numbers(Given an integer n, return [1,n] in lexicographical order, n=13; return [1,10,11,12,13,2,3,4,5,6,7,8,9])(interesting)
+[medium] void = DFS(pre_num_int, n_int, ret)
+public void dfs(int pre, int n, List ret){
+    for(int i=0;i<=9;i++){
+        int val = pre*10 + i;
+        if(val > n) return;
+        if(val > 0){
+            ret.add(val);
+            dfs(val, n, ret);
+        }
+    }
+}
 
 
 ---------------------------------------------------
