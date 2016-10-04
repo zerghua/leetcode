@@ -461,7 +461,7 @@ because each element is visited only once.
 
 
 ---------------------------------------------------
-DFS/backtracking or BFS(better for shortest path)
+DFS/backtracking or BFS(better for shortest path)(reviewed on 10/3/2016 @130)
 ---------------------------------------------------
 17. Letter Combinations of a Phone Number(return all possible letter combinations that the number could represent)
 [medium] void = DFS(ret, cur_list, digits_string, start_int, map)
@@ -493,11 +493,13 @@ if(i>start && num[i]==num[i-1]) continue;
 permutation:   [1,2,3], [2,1,3] ...
 subset:        [1,2,3], [2,3], [3] ...      subset remains original sequence.
 
+// the reason why using start+1 or start is to avoid duplicate of (1,2) and (2,1).
+// only permutation will need that, so it need an used_array.
 
-// the reason why using start+1 or start is to avoid duplicate of (1,2) and (2,1).  only permutation will need that, so it used an array.
+
 39. Combination Sum(find all unique combinations in C where the candidate positive numbers sums to T) like set [2, 3, 6, 7] and target 7
 [medium] void = DFS(ret, cur_list, num_array, cur_target, start_int);
-dfs(ret, cur_list, num_arary, cur_target-num_array[start_int], start_int);
+dfs(ret, cur_list, num_array, cur_target-num_array[start_int], start_int);
 Arrays.sort(num_array);
 
 40. Combination Sum II (can use only once for each element. 39 the same number can be used multiple times.)
@@ -507,27 +509,32 @@ Arrays.sort(num_array);
 
 216. Combination Sum III(given number [1,9], each can use only once, return all possible k numbers sum to n)
 [medium] void = DFS(ret, cur_list, k_int, n_int, start_int)
+for(int i=start;i<=9;i++){}
 
 377. Combination Sum IV(return number of possible results with the same proble of N216)(tricky, tailored for interview, (1,2) and (2,1) both are valid)
 [medium] DP.  dp[i+n] += dp[i] if (i+n<=target)
 
+77  Combinations(return all combinations of k numbers out of n, (1,2) and (2,1) are duplicate)
+[medium] void = DFS(ret, cur_list, k_int, n_int, start_int)  for(int i=start;i<=n;i++)
+return when size==k. return part of the subsets problem. similar to
 
-77  Combinations
-[medium] return when size==k. return part of the subsets problem. cur_list as backtrack.
+79. Word Search (Is this word exists in matrix)
+[medium] boolean = DFS(matrix, word_string, start_int, i_int, j_int, visited_matrix)
+4 recursive calls inside one function. need visited[][] as backtrack, conditional and boundary check.
 
-79. Word Search (Is a word in matrix)
-[medium] 4 recursive calls inside one function. need visited[][] as backtrack, conditional and boundary check.
+93. Restore IP Addresses(given a string of digits, return all possible valid IP address.)
+[medium] void = DFS(ret, cur_list, word_string, start_int, level_int)
+for(int i=start+1; i<=start+3 && i<word.length;i++){}
+extra in level parameter to record which level we are in, use it for termination.
+pruning code for IP address like 00, 01, early break.
 
-93. Restore IP Addresses
-[medium] extra in level parameter to record which level we are in, use it for termination. pruning code for IP address like 00, 01, early break.
-
-127. Word Ladder
+127. Word Ladder(TODO)
 [medium-hard]  BFS. add all neighbor words to list, and check level by level.
 
-126. Word Ladder II(find all the path) (worth revisit)
+126. Word Ladder II(find all the path) (worth revisit)(TODO)
 [hard]  BFS + backtracking. long code.
 
-130. Surrounded Regions
+130. Surrounded Regions(matrix with 'X' and 'O', set surrounded 'O' to 'X')
 [medium-hard] start from 4 sides and mark all neighbors(BFS) from 'O' to 'P',
 then set all 'O' to 'X', all 'P' to 'O'.  long code.
 
