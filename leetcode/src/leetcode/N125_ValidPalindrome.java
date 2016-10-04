@@ -56,4 +56,21 @@ public class N125_ValidPalindrome {
         }
     	return true;
     }
+
+    // added on 10/4/2016
+    // 12 ms  476 / 476 test cases passed.
+    // ask if empty string is palindrome.
+	public class Solution {
+		public boolean isPalindrome(String s) {
+            int i=0, j=s.length()-1;
+            char[] a = s.toLowerCase().toCharArray();
+            while(i<j){
+                while(i<j && !Character.isLetterOrDigit(a[i]))i++;
+                while(i<j && !Character.isLetterOrDigit(a[j]))j--;
+                if(i<j && a[i] != a[j]) return false;
+                i++;j--;
+            }
+		    return true;
+		}
+	}
 }
