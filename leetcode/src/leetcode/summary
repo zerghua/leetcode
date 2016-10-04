@@ -1176,3 +1176,54 @@ if num[i]-num[i-1] >1, construct list(start,i-1); start=i;  (may overflow num[i]
 [easy] two pointers find vowels and swap.
 
 
+
+
+-----------------------------------------[hard]---------------------------------------------
+149. Max Points on a Line(Given n points on a 2D plane, find the maximum number of points that lie on the same straight line)
+[hard-medium] [hashtable+corner cases]time o(n^2). for each point, calculate slope for each pair and store in map<slope_double, count_int>;
+corner case of duplicate points(b.x==a.x && b.y==a.y) and vertical points (b.x==a.x)
+
+146. LRU Cache(implement get and set function for least recently used cache)
+[hard] [design] [hashtable + double linked list] [TODO]
+
+68. Text Justification
+[hard] [String] [TODO reduce code length]
+
+44. Wildcard Matching(string match but support '?' and '*')
+[hard] [string] time o(n). compare with N28 strstr. [TODO]
+
+4. Median of Two Sorted Arrays
+[hard] [binary search] [tricky]  [TODO]
+
+273. Integer to English Words
+[hard] [String] [long code] [TODO reduce code length]
+
+212. Word Search II
+[hard] [TODO may need to move close to word search]
+
+30. Substring with Concatenation of All Words(seem to be interesting)
+[hard] [2 hashtable] [TODO]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
