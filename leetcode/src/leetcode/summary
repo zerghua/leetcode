@@ -1204,8 +1204,19 @@ corner case of duplicate points(b.x==a.x && b.y==a.y) and vertical points (b.x==
 30. Substring with Concatenation of All Words(seem to be interesting)
 [hard] [2 hashtable] [TODO]
 
+174. Dungeon Game(return min number needed to reach from top left to bottom right. Matrix contains both positive and negative number, need at least 1 in each cell)
+[hard-medium] Bottom-up DP.
 
+76. Minimum Window Substring(given two strings s and t, find minimum window in s contains t.)(interesting)
+[hard-medium] hashmap<char_from_t, count_int> + sliding window in s.  [TODO reduce the code length]
 
+32. Longest Valid Parentheses(given a string contains only '(' and ')', return length of longest well-formed parentheses substring)(interesting)
+[hard] [stack to store index! ] [TODO]
+
+295. Find Median from Data Stream
+[hard-medium] [2 heaps]
+Queue minHeap = new PriorityQueue<Integer>((o1,o2)-> o1-o2); maxHeap= ...(o2-o1);
+minHeap.add(num); maxHeap.add(min.poll()); if (maxHeap.size > minHeap.size) minHeap.add(maxHeap.poll);
 
 
 
