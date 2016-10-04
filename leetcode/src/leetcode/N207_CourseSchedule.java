@@ -69,7 +69,7 @@ public class N207_CourseSchedule {
     private boolean canFinishDFS(HashMap<Integer, HashSet<Integer>> map,
                                  int[] visited, int i) {
         if(visited[i] == -1) return false;
-        if(visited[i] == 1) return true;
+        if(visited[i] == 1) return true;  //pruning, means this node has confirmed without cycle.
 
         visited[i] = -1;
         if(map.containsKey(i)){
