@@ -29,7 +29,16 @@ public class A_calculateExponentiation {
 
         housePrice = 700;
         System.out.println((ret-year)*tax_rate*housePrice);
+
+        String a = "1";
+        String b= "中";
+        x.testUnicode(a);
+        x.testUnicode(b);
     }
 
+
+    public void testUnicode(String a){
+        System.out.println("a="+a+ " num="+(int)a.charAt(0));
+    }
 
 }
