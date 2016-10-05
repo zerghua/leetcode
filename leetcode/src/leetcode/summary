@@ -1186,6 +1186,10 @@ corner case of duplicate points(b.x==a.x && b.y==a.y) and vertical points (b.x==
 146. LRU Cache(implement get and set function for least recently used cache)
 [hard] [design] [hashtable + double linked list] [TODO]
 
+65. Valid Number
+[hard] skip white space, sign, digits, point, digits, e, reset hasNumber, skip sign, digits, space.
+return hasNumber && i==n;
+
 68. Text Justification
 [hard] [String] [TODO reduce code length]
 
