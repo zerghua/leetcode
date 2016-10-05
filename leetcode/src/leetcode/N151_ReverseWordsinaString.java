@@ -49,4 +49,21 @@ public class N151_ReverseWordsinaString {
         for(int i=a.length-1; i>=0; i--) ret.append(a[i]+" ");
         return ret.toString().trim();
     }
+
+    // non-split one pass solution added on 10/4/2016
+    // 8 ms 22 / 22 test cases passed.
+    public class Solution {
+        public String reverseWords(String s) {
+            StringBuilder sb = new StringBuilder();
+            int j=s.length();
+            for(int i=s.length()-1; i>=0;i--){
+                if(s.charAt(i) == ' ') j = i;
+                else if(i==0 || s.charAt(i-1) == ' '){
+                    if(sb.length() != 0) sb.append(" ");
+                    sb.append(s.substring(i,j));
+                }
+            }
+            return sb.toString();
+        }
+    }
 }
