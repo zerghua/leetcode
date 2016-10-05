@@ -1328,11 +1328,19 @@ if (dfs(s1_1, s2_1) && dfs(s1_2,s2_2)) return true;
 s2 from right side, s3_1 = s2.substring(n-i,n) s3_2 = s2.substring(0,n-i);
 if (dfs(s1_1, s3_1) && dfs(s1_2,s3_2)) return true;
 
-51. N-Queens
-[hard]
+51. N-Queens(return all possible matrix solution)
+[hard] similar to N52, just need to build matrix.
 
-
-
+52. N-Queens II(return number of possible solution)
+[hard] void =  DFS(n_int, row_int, visited_cols_list)
+// if i and j in diagonal, ab(i_row - j_row) == ab(i_col - j_col)
+public boolean isValidPosition(int row_index, int col_index, List<Integer> visited_cols){
+    for(int i=0;i<visited_cols.size();i++){
+        if(col_index == visited_cols.get(i) || Math.abs(row_index - i) == Math.abs(col_index - visited_cols.get(i)))
+            return false;
+    }
+    return true;
+}
 
 
 
