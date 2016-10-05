@@ -641,6 +641,9 @@ minVal = min(minVal, a[i]);  ret = max(ret, a[i]-minVal);
 [medium-hard] two passes DP. divide and conquer.
 find max profit <= i and max profit >= i. combine them ret = max(ret, left[i]+right[i])
 
+188. Best Time to Buy and Sell Stock IV(allow at most k transaction)
+[hard] two array DP. [TODO]
+
 309. Best Time to Buy and Sell Stock with Cooldown
 [medium-hard] not sure. [TODO]
 
@@ -707,6 +710,11 @@ return dp[amount] == Integer.MAX_VALUE? -1 : dp[amount];
 221. Maximal Square(matrix with 0 and 1, find largest square with all 1 and return its area.)
 [medium] if matrix[i][j] == '1':  dp[i][j] = 1 + min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])
 (time o(m*n), space(m*n), space can be reduced use rolling array and one variable)
+
+
+
+
+
 
 300. Longest Increasing Subsequence(return max length of increasing subsequence in array)(interesting)
 [medium] dp[i] = Math.max(dp[i], dp[j]+1)
@@ -1196,6 +1204,9 @@ return hasNumber && i==n;
 44. Wildcard Matching(string match but support '?' and '*')
 [hard] [string] time o(n). compare with N28 strstr. [TODO]
 
+10. Regular Expression Matching('.' match single char, while '*' should match zero or more preceding chars.)
+[hard] [DFS or DP] (tricky to write, hard to prove correctness.) [TODO]
+
 4. Median of Two Sorted Arrays
 [hard] [binary search] [tricky]  [TODO]
 
@@ -1221,6 +1232,32 @@ return hasNumber && i==n;
 [hard-medium] [2 heaps]
 Queue minHeap = new PriorityQueue<Integer>((o1,o2)-> o1-o2); maxHeap= ...(o2-o1);
 minHeap.add(num); maxHeap.add(min.poll()); if (maxHeap.size > minHeap.size) minHeap.add(maxHeap.poll);
+
+135. Candy(higher rating kids should get more candy than its neighbors in an array, each has at least one)(interesting)
+[hard-medium] two pass DP. init set all dp[i]=1;
+1 pass left to right: dp[i] = dp[i-1]+1 if(rating[i]> rating[i-1])
+2 pass right to left: similar to first pass.
+
+97. Interleaving String
+[hard] matrix DP. [TODO]
+
+124. Binary Tree Maximum Path Sum(find max sum from any node to any node, not need to across root)(very interesting)
+[hard-medium] DFS bottom up, partial max, and global max. int = DFS(node)
+int global_max=Integer.MIN_VALUE;
+int DFS(node){
+    if(node == null) return 0;
+    int left_sum = DFS(node.left);
+    int right_sum = DFS(node.right);
+    int partial_sum = Math.max(node.val, Math.max(node.val + left_sum,  node.val + right_sum));
+    global_max = Math.max(global_max,  Math.max(partial_sum, node.val+left_sum+right_sum));
+    return partial_sum;
+}
+
+41. First Missing Positive(require o(n) time and o(1) space)
+[hard] kind of inplace swap to its position. [TODO]
+
+
+
 
 
 
