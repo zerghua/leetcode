@@ -651,7 +651,7 @@ minVal = min(minVal, a[i]);  ret = max(ret, a[i]-minVal);
 [easy-medium] greedy. add up all the positive difference between two days.
 
 123. Best Time to Buy and Sell Stock III(at most 2 transaction)(interesting)
-[medium-hard] two passes DP. divide and conquer.
+[hard-medium] two passes DP. divide and conquer.
 find max profit <= i and max profit >= i. combine them ret = max(ret, left[i]+right[i])
 
 188. Best Time to Buy and Sell Stock IV(allow at most k transaction)
@@ -1294,14 +1294,42 @@ else if end < next.end; end = next.end;   // else when end > next.end do nothing
 233. Number of Digit One
 [hard] [math] [TODO]
 
+37. Sudoku Solver(solve a sodoku in matrix, assume there is only one solution)
+[hard-medium] DFS+backtracking.  void = DFS(matrix, seq_int)
+for each cell if empty, DFS(matrix, seq_int+1);
 
+282. Expression Add Operators(return all possible expression with added operators(+-*) equals target)
+[hard] DFS+backtracking+Divide Conquer+Math.  void = DFS(ret, cur_str, num_string, target_int, start_int, sum_int, last_sum_int)
+public void dfs(List<String> ret, String num, int target, String path, int pos, long sum, long lastNum){
+    if(pos == num.length()){
+        if(sum == target) ret.add(path);
+        return;
+    }
+    for(int i=pos; i<num.length();i++){
+        if(num.charAt(pos) == '0' && pos != i) break; // skip corner case like 000
+        long cur = Long.parseLong(num.substring(pos,i+1));
+        if(pos == 0) dfs(ret, num, target, path + cur, i+1, cur, cur);//first num, has to be i+1
+        else{
+            dfs(ret, num, target, path + "+" + cur, i+1, sum+cur, cur);
+            dfs(ret, num, target, path + "-" + cur, i+1, sum-cur, -cur);
+            dfs(ret, num, target, path + "*" + cur, i+1, sum-lastNum + lastNum*cur, lastNum*cur);
+        }
+    }
+}
 
+316. Remove Duplicate Letters(return unique lexicographical order)
+[hard] count each char and stack.  [TODO]
 
+87. Scramble String(test if two string are scramble of each other)
+[hard] Divide and conquer + DFS.  boolean = DFS(str1, str2)  [TODO explore DP solution]
+s1_1=s1.substring(0,i);  s1_2=s1.substring(i,n);
+s2_1=21.substring(0,i);  s2_2=s2.substring(i,n);
+if (dfs(s1_1, s2_1) && dfs(s1_2,s2_2)) return true;
+s2 from right side, s3_1 = s2.substring(n-i,n) s3_2 = s2.substring(0,n-i);
+if (dfs(s1_1, s3_1) && dfs(s1_2,s3_2)) return true;
 
-
-
-
-
+51. N-Queens
+[hard]
 
 
 
