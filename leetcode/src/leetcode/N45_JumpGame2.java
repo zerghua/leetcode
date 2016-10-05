@@ -40,4 +40,39 @@ public class N45_JumpGame2 {
         }
         return min_steps[nums.length-1];
     }
+
+
+    // more concise code added on 10/5/2016
+    // greedy
+    // 11 ms 91 / 91 test cases passed.
+    public class Solution {
+        public int jump(int[] nums) {
+            int ret=0, last_jump_max=0, cur_jump_max=0;
+            for(int i=0;i<nums.length-1;i++){
+                cur_jump_max = Math.max(cur_jump_max, i+nums[i]);
+                if(i == last_jump_max){
+                    ret++;
+                    last_jump_max =cur_jump_max;
+                }
+            }
+            return ret;
+        }
+    }
+
+    // greedy with pruning on 10/5/2016
+    // still 11 ms...
+    public class Solution2 {
+        public int jump(int[] nums) {
+            int ret=0, last_jump_max=0, cur_jump_max=0;
+            for(int i=0;i<nums.length-1;i++){
+                cur_jump_max = Math.max(cur_jump_max, i+nums[i]);
+                if(cur_jump_max >= nums.length-1) return ret+1;  //pruning
+                if(i == last_jump_max){
+                    ret++;
+                    last_jump_max =cur_jump_max;
+                }
+            }
+            return ret;
+        }
+    }
 }
