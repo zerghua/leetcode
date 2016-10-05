@@ -77,4 +77,48 @@ public class N65_ValidNumber {
             return hasNumber && i == n;
         }
     }
+
+    // more clean solution
+    // 3 ms 1481 / 1481 test cases passed.
+    public class Solution2 {
+        public boolean isNumber(String s) {
+            // first skip white space
+            int i=0, n = s.length();
+            char[] a = s.toCharArray();
+            while(i<n && a[i] == ' ') i++;
+
+            // check sign
+            if(i<n && (a[i] == '+' || a[i] == '-'))i++;
+
+            // check points and digits
+            boolean hasNumber = false;
+            while(i<n && '0'<=a[i] && a[i]<='9'){
+                hasNumber = true;
+                i++;
+            }
+            if(i<n && a[i]=='.'){
+                i++;
+                while(i<n && '0'<=a[i] && a[i]<='9'){
+                    hasNumber = true;
+                    i++;
+                }
+            }
+
+            // handle for e case;
+            if(hasNumber && i<n && a[i] == 'e'){
+                i++;
+                hasNumber = false;
+                if(i<n && (a[i] == '+' || a[i] == '-'))i++;
+                while(i<n && '0'<=a[i] && a[i]<='9'){
+                    hasNumber = true;
+                    i++;
+                }
+            }
+
+            // trailing zeros
+            while(i<n && a[i] == ' ') i++;
+            return hasNumber && i==n;
+        }
+    }
+
 }
