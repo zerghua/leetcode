@@ -41,5 +41,33 @@ public class N23_MergekSortedLists {
         }
         return dummy.next;
     }
+
+    // added on 10/5/2016, improved the way heap is initialized.
+    // 24 ms  130 / 130 test cases passed.
+    public class Solution {
+        public ListNode mergeKLists(ListNode[] lists) {
+            if(lists == null || lists.length == 0) return null;
+
+            // min heap, natural ordering by val in ListNode
+            Queue<ListNode> heap = new PriorityQueue<ListNode>((o1,o2)-> o1.val - o2.val);
+
+            //put initial k into heap
+            for(ListNode e: lists){
+                if(e != null) heap.add(e);
+            }
+
+            // remove and add next of removed
+            ListNode dummy = new ListNode(0);
+            ListNode cur = dummy;
+            while(!heap.isEmpty()){
+                ListNode tmp = heap.poll();
+                cur.next = tmp;
+                if(tmp.next !=null) heap.add(tmp.next);
+                cur = cur.next;
+            }
+            return dummy.next;
+        }
+    }
+
 }
 
