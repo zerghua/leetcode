@@ -1379,6 +1379,58 @@ for(int i=0; i<nums.length;i++){
 115. Distinct Subsequences(not sure the problem. [TODO])
 [hard] 2D DP. dp[i][j] = dp[i-1][j];  if(s.charAt(i-1) == t.charAt(j-1)) dp[i][j] += dp[i-1][j-1];
 
+297. Serialize and Deserialize Binary Tree(very interesting)
+[hard-medium] Serialize: recursively preorder traversal node to store each node in String separated by ',';
+Deserialize: split string by ',' to a list, recursively build tree back.
+public TreeNode deserialize(LinkedList<String> list){
+    String cur = list.removeFirst();
+    if(cur.equals("null")) return null;
+
+    TreeNode node = new TreeNode(Integer.valueOf(cur));
+    node.left = deserialize(list);
+    node.right = deserialize(list);
+    return node;
+}
+
+354. Russian Doll Envelopes(return max doll you can fit in, need a.length > b.length && a.width>b.width)
+[hard] DP time o(n^2), sort, similar to longest increasing sequence.  dp[j] = max(dp[j], dp[i] + 1);
+public int maxEnvelopes(int[][] envelopes) {
+    if(envelopes.length == 0) return 0;
+    Arrays.sort(envelopes, (int[] a,int[] b)->(a[0] == b[0]?a[1]-b[1]:a[0]-b[0]));
+    int[] dp = new int[envelopes.length];
+    Arrays.fill(dp,1);
+    int max = 1;
+    for(int j=1;j<envelopes.length;j++){
+        for(int i=0;i<j;i++){
+            if(envelopes[j][0]>envelopes[i][0] && envelopes[j][1] > envelopes[i][1]){
+                dp[j] = Math.max(dp[j], dp[i] + 1);
+            }
+        }
+        max = Math.max(dp[j], max);
+    }
+    return max;
+}
+[TODO] Binary search o(nlogn)?
+
+301. Remove Invalid Parentheses(return all valid results after remove invalid ones)
+[hard] DFS or BFS. (TODO)
+
+128. Longest Consecutive Sequence(return max length of consecutive sequence in array. like 1,2,3,4 ...)(interesting and impressive)
+[hard-medium] require o(n) time. hashset.
+put all num in hashset; go through each item in hashset and iterate through it's left and right, update max and remove them to prune.
+
+42. Trapping Rain Water(return how much water can be trapped in the whole array)
+[hard]
+
+
+
+
+
+
+
+
+
+
 
 
 
