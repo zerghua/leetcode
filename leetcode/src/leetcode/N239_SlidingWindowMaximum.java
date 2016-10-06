@@ -44,6 +44,9 @@ public class N239_SlidingWindowMaximum {
     // 30 ms
     // time o(n), space o(k), deque. pop smaller last element.
     // brute force, time o(k*n), space o(1)
+    // maintain a descending deque as  [max, second max ... min]  with K elements.
+    // remove first if out of K, always get max from the first.
+    // similar to the min stack problem.
     public int[] maxSlidingWindow(int[] nums, int k) {
         if(nums == null || k<=0) return new int[0];
         int[] ret = new int[nums.length - k + 1];
