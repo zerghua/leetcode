@@ -1332,7 +1332,7 @@ if (dfs(s1_1, s3_1) && dfs(s1_2,s3_2)) return true;
 [hard] similar to N52, just need to build matrix.
 
 52. N-Queens II(return number of possible solution)
-[hard] void =  DFS(n_int, row_int, visited_cols_list)
+[hard-medium] void =  DFS(n_int, row_int, visited_cols_list)
 // if i and j in diagonal, ab(i_row - j_row) == ab(i_col - j_col)
 public boolean isValidPosition(int row_index, int col_index, List<Integer> visited_cols){
     for(int i=0;i<visited_cols.size();i++){
@@ -1341,6 +1341,49 @@ public boolean isValidPosition(int row_index, int col_index, List<Integer> visit
     }
     return true;
 }
+
+164. Maximum Gap(return max difference between two neighbors in sorted form)(interesting)
+[hard] BF. o(nlogn) sorted array, and gap = max(gap, a[i]-a[i-1]);
+require o(n) time, bucket sort, at most (max-min)/len + 1 buckets. (TODO)
+
+99. Recover Binary Search Tree(Two elements of a binary search tree (BST) are swapped by mistake, recover it.)
+[hard] BF is o(n) space. save node to list, and sort values and reassign to each node.
+o(1) space. morris traversal.  (TODO)
+
+25. Reverse Nodes in k-Group(reverse k linked list node at a time)
+[hard-medium] reverse part of linked list.
+
+72. Edit Distance(return min steps to convert str1 to str2, 3 allowed operations: add, delete, replace)
+[hard] matrix DP.  dp[0][i] = 1 and dp[i][0]=1; if c1 = c2; dp[i+1][j+1] = dp[i][j];
+else  dp[i+1][j+1] = min(dp[i][j], dp[i+1][j], dp[i][j+1]) + 1;
+
+239. Sliding Window Maximum(return an array of the max value in each k windows)(very interesting)
+[hard] BF. time o(k*(n-k)), space o(1).  Find max in each K windows for (n-k) times.
+o(n) time, but space o(k).  Deque<Integer> deque = new ArrayDeque<>();
+use keep a descending deque of [1,k] elements, get max from the first. similar to min stack problem.
+for(int i=0; i<nums.length;i++){
+    // remove the first if out of range k
+    if(!deque.isEmpty() && deque.peek() < i+1-k){
+        deque.removeFirst();
+    }
+    // pop last if less than coming in
+    while(!deque.isEmpty() && nums[deque.peekLast()] < nums[i]){
+        deque.removeLast();
+    }
+    deque.addLast(i);
+    if(i >= k-1){
+        ret[ret_index++] = nums[deque.peek()];
+    }
+}
+
+115. Distinct Subsequences(not sure the problem. [TODO])
+[hard] 2D DP. dp[i][j] = dp[i-1][j];  if(s.charAt(i-1) == t.charAt(j-1)) dp[i][j] += dp[i-1][j-1];
+
+
+
+
+
+
 
 
 
