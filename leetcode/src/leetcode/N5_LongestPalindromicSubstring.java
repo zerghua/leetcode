@@ -30,7 +30,7 @@ public class N5_LongestPalindromicSubstring {
                 end++;
             }else break;
         }
-        return s.substring(start+1, end);
+        return s.substring(start+1, end); // important
     }
 
 
