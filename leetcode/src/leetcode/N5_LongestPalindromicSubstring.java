@@ -33,6 +33,33 @@ public class N5_LongestPalindromicSubstring {
         return s.substring(start+1, end); // important
     }
 
+    // added on 10/7/2016
+    // 42 ms 89 / 89 test cases passed.
+    public class Solution {
+        public String longestPalindrome(String s) {
+            if(s == null) return s;
+            String ret = "";
+            for(int i=0;i<s.length();i++){
+                String cur = isPal(s, i, i);
+                if(cur.length() > ret.length()) ret = cur;
+
+                cur = isPal(s, i, i+1);
+                if(cur.length() > ret.length()) ret = cur;
+            }
+            return ret;
+        }
+
+        public String isPal(String s, int left, int right){
+            while(left>=0 && right<s.length()){
+                if(s.charAt(left) == s.charAt(right)){
+                    left--; right++;
+                }else break;
+            }
+            return s.substring(left+1, right);
+        }
+    }
+
+
 
     //DP 66 ms time O(n^2), space O(n^2)
     public String longestPalindrome2(String s) {
