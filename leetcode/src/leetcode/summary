@@ -46,7 +46,7 @@ for(int i=0;i<nums.length-1;i++){
 return ret;
 
 
-66. Plus One(to an array of digits)
+66. Plus One(to an array of digits)(real question)
 [easy-medium]  find pattern. test case, 199, 999, 288, create new array only when like 999
 for(int i=digits.length-1;i>=0;i--){
     if(digits[i] != 9 ){
@@ -841,10 +841,10 @@ Linked List
 19. Remove Nth Node From End of List
 [easy] two pointers, one moves N steps ahead.
 
-21. Merge Two Sorted Lists
+21. Merge Two Sorted Lists(real question)
 [easy] dummy node.
 
-24. Swap Nodes in Pairs(swap adjacent node)
+24. Swap Nodes in Pairs(swap adjacent node)(real question)
 [easy-medium] dummy node.  need three pointers to swap: pre, cur and nextNode.
 
 61. Rotate List
@@ -899,7 +899,7 @@ Linked List
 ---------------------------------------------------
 Math
 ---------------------------------------------------
-7. Reverse Integer
+7. Reverse Integer(real question)
 [easy-medium] ret = ret*10 + x%10; x/=10; overflow, negative, trailing zeros?
 
 43. Multiply Strings
@@ -965,7 +965,7 @@ https://leetcode.com/articles/longest-palindromic-substring/#approach-5-manacher
 [medium-hard] BF is o(n^3). Manacher's Algorithm is o(n)  [TODO]
 for each i, call isPal(i,i) and isPal(i,i+1) o(n^2)
 
-9. Palindrome Number
+9. Palindrome Number(real question)
 [easy-medium] 1. convert to string.
 2. create div the same digits as number, use it to get left digit
 
@@ -1281,8 +1281,10 @@ o(n) time. while(incoming < stack.top)pop and update max; else push and i++; whi
 85. Maximal Rectangle(problem similar to N221 Maximal Square, but can't use DP)
 [hard] convert matrix to n rows of histogram, and use N84 solution to find max in each row.
 
-23. Merge k Sorted Lists
-[hard-medium] Heap to store k node. heap = new PriorityQueue<ListNode>((o1,o2)->o1.val - o2.val);
+23. Merge k Sorted Lists(real question)
+[hard-medium] o(nlogk)
+1. o(k) space, Heap to store k node. heap = new PriorityQueue<ListNode>((o1,o2)->o1.val - o2.val);
+2. o(1) space, divide and conquer, merge 2 lists recursively.
 
 56. Merge Intervals
 [hard-medium] sort. Collections.sort(intervals, (Interval a, Interval b)-> a.start - b.start);
@@ -1292,8 +1294,10 @@ else if end < next.end; end = next.end;   // else when end > next.end do nothing
 57. Insert Interval
 [hard-medium] insert new interval to sorted list and use solution from N56 to merge.
 
-138. Copy List with Random Pointer(return deep copy)
-[hard-medium] [TODO reduce code]
+138. Copy List with Random Pointer(return deep copy)(real question)(interesting)
+[hard-medium]
+1. o(n) space, map<node, new_node>; 1st pass to copy next node, 2ed pass to copy random node using map.
+2. o(1) space, copy each node and added to its next, as A->A'->B->B'; node.next.random = node.random.next;
 
 233. Number of Digit One
 [hard] [math] [TODO]
