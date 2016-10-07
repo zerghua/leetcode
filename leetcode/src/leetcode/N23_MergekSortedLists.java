@@ -69,5 +69,42 @@ public class N23_MergekSortedLists {
         }
     }
 
+    // added on 10/7/2016
+    // o(1) space solution, divide and conquer.
+    // 13 ms 130 / 130 test cases passed.
+    public class Solution2 {
+        public ListNode mergeKLists(ListNode[] lists) {
+            if(lists == null || lists.length == 0) return null;
+            int end=lists.length-1;
+            while(end>0){
+                int begin = 0;
+                while(begin < end){
+                    lists[begin] = mergeTwoLists(lists[begin], lists[end]);
+                    begin++;
+                    end--;
+                }
+            }
+            return lists[0];
+        }
+
+        // reusing solution from N21 merge two sorted list
+        public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+            ListNode fakeHead = new ListNode(0);
+            ListNode p = fakeHead;
+            while(l1 !=null && l2!=null){
+                if(l1.val < l2.val){
+                    p.next = l1;
+                    l1 = l1.next;
+                }else{
+                    p.next = l2;
+                    l2 = l2.next;
+                }
+                p=p.next;
+            }
+            if(l1!=null) p.next =l1;
+            if(l2!=null) p.next =l2;
+            return fakeHead.next;
+        }
+    }
 }
 
