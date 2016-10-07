@@ -770,16 +770,6 @@ hashset usually check if visited or not.
 1. Two Sum
 [easy] store (sum-num[i]) and index in hashtable.    map(sum-num[i], index)
 
-3. Longest Substring Without Repeating Characters(interesting)(real question)
-[medium-hard] hashtable + sliding window with two pointers. BF is o(n^2), hashtable is o(n).  map(char, index)
-map to store index of previous duplicate num[i], update left if found in map, max = (i-left);
-left = -1, ret =0;
-for(int i=0;i<s.length;i++){
-    if(map.contains(s.charAt(i))) left=max(left, map.get(s.charAt(i)));
-    ret = max(ret, i-left);
-    map.put(s.charAt(i), i);
-}
-
 36. Valid Sudoku
 [easy-medium] hashtable to store if such number is visited or not.  or hashset store if visited.
 
@@ -1014,6 +1004,34 @@ Random
 follow up: o(1) space, see Reservoir Sampling [TODO]
 
 
+---------------------------------------------------
+Sliding Window
+---------------------------------------------------
+3. Longest Substring Without Repeating Characters(interesting)(real question)[Must]
+[medium-hard] BF is o(n^2).
+hashtable + sliding window with two pointers. o(n) time,  map(char, index)
+map to store index of previous duplicate num[i], update left if found in map, max = (i-left);
+left = -1, ret =0; //important left=-1
+for(int i=0;i<s.length;i++){
+    if(map.contains(s.charAt(i))) left=max(left, map.get(s.charAt(i)));
+    ret = max(ret, i-left);
+    map.put(s.charAt(i), i);
+}
+
+11. Container With Most Water(interesting)(sliding windows)
+[medium-easy] two pointers on left and right.
+min_height=min(num[left],num[right]), maxArea=max(maxArea, (right-left)*min_height);
+left++ while num[left] <= min_height ...
+
+76. Minimum Window Substring(given two strings s and t, find minimum window in s contains t.)(interesting)
+[hard-medium] hashmap<char_from_t, count_int> + sliding window in s.  [TODO reduce the code length]
+
+209. Minimum Size Subarray Sum(interesting)
+[medium] sliding window. window [i,j] >= sum; while([i++,j]>=sum, ret= min(ret, j-i+1))
+
+228. Summary Ranges(given [0,1,2,4,5,7], return ["0->2","4->5","7"].)
+[medium-easy] maintain start index. multiple sliding windows.
+if num[i]-num[i-1] >1, construct list(start,i-1); start=i;  (may overflow num[i]-num[i-1])
 
 
 
@@ -1142,11 +1160,6 @@ public boolean isOneEditDistance(String s, String t){
 ---------------------------------------------------
 Two pointers(or Three pointers)(reviewed on 10/1/2016)
 ---------------------------------------------------
-11. Container With Most Water(interesting)(sliding windows)
-[medium-easy] two pointers on left and right.
-min_height=min(num[left],num[right]), maxArea=max(maxArea, (right-left)*min_height);
-left++ while num[left] <= min_height ...
-
 167. Two Sum II - Input array is sorted
 [easy] two pointers. l++ and r--;
 
@@ -1182,13 +1195,6 @@ while(i<sizeA && j<sizeB) if(A[i]==B[j]){i++;j++;} else {i=i-j+1;j=0}; return i-
 75. Sort Colors(sort 3 categories)(real question)(interesting)
 [easy-medium] two passed, counting each category and overwrite. (counting sort)
 (one pass)three pointers. if 0, swap(i++,left++), if 2, swap(i,right--), else i++; while(i<=right)
-
-209. Minimum Size Subarray Sum(interesting)
-[medium] sliding window. window [i,j] >= sum; while([i++,j]>=sum, ret= min(ret, j-i+1))
-
-228. Summary Ranges(given [0,1,2,4,5,7], return ["0->2","4->5","7"].)
-[medium-easy] maintain start index. multiple sliding windows.
-if num[i]-num[i-1] >1, construct list(start,i-1); start=i;  (may overflow num[i]-num[i-1])
 
 344. Reverse String
 [easy]
@@ -1234,9 +1240,6 @@ return hasNumber && i==n;
 
 174. Dungeon Game(return min number needed to reach from top left to bottom right. Matrix contains both positive and negative number, need at least 1 in each cell)
 [hard-medium] Bottom-up DP.
-
-76. Minimum Window Substring(given two strings s and t, find minimum window in s contains t.)(interesting)
-[hard-medium] hashmap<char_from_t, count_int> + sliding window in s.  [TODO reduce the code length]
 
 32. Longest Valid Parentheses(given a string contains only '(' and ')', return length of longest well-formed parentheses substring)(interesting)
 [hard] [stack to store index! ] [TODO]
