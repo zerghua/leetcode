@@ -1091,9 +1091,10 @@ used the trick of stack's top always be the smallest until a smaller comes after
 ---------------------------------------------------
 String(reviewed on 9/29/2016)
 ---------------------------------------------------
-5. Longest Palindromic Substring(interesting)
-[medium-hard] BF is o(n^3). Manacher's Algorithm is o(n)  [TODO]
-for each i, call isPal(i,i) and isPal(i,i+1) o(n^2)
+5. Longest Palindromic Substring(interesting)(real question)[must]
+[medium-hard] BF is o(n^3).
+Manacher's Algorithm is o(n) (non-trivial, not expected at interview.)
+o(n^2) for each i, call isPal(i,i) and isPal(i,i+1);  return s.substring(start+1, end)
 
 6. ZigZag Conversion(interesting)
 [easy-medium] need StringBuilders[], sb[index]=c; index ++ or -- to put c in different row of sb.
@@ -1140,7 +1141,7 @@ or manual scan word, and reversely append word.
 [easy-medium] problem says 1.22 > 1.3 because 22 > 3. build num between '.';
 num1 = num1*10 + c1[i]-'0';
 
-161. One Edit Distance(decide if two string are one char diff)(real question, VIP)
+161. One Edit Distance(decide if two string are one char diff)(real question, VIP)[must]
 [medium] 3 True cases.
 1. s="abc" t="abcX"(append); 2. s="abc" t="aXc"(modify); 3. s="abc" t="abXc"(insert)
 public boolean isOneEditDistance(String s, String t){
