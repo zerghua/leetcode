@@ -24,7 +24,7 @@ Array (reviewed on 9/29/2016)
 53	Maximum Subarray(max continuous subarray)
 [easy] condition on if local_max >0. sum+=n; ret = max(ret, sum); sum=max(0,sum)
 
-54	Spiral Matrix(return array of spiral order, outer-->inner clockwise)
+54	Spiral Matrix(return array of spiral order, outer-->inner clockwise)(real question)
 [medium] 4 loops of top,right,bottom and left side.
 
 59, Spiral Matrix II(generate spiral n^2 matrix)
@@ -448,10 +448,11 @@ Bit Manipulation
 89. Gray Code
 [medium] f(n) += reverse(f(n-1)) + 2^(n-1), use list to represent f(n)
 
-136. Single Number(one number appears once while others twice)
-[easy] xor on all the elements.
+136. Single Number(one number appears once while others twice)(real question)
+[easy] 1. map<num, count>, two passes. o(n) space  2. hashset<num>, remove char if exist. one pass. o(n) space
+3. o(1) space and one pass. xor on all the elements.
 
-137. Single Number II(one number appears once while others three times)
+137. Single Number II(one number appears once while others three times)(real question)
 [medium] on every bit, the sum of each bit is 3*n + (0 or 1). and all numbers bit by bit and mod 3 is the result.
 
 190. Reverse Bits(unsigned integer)
@@ -579,16 +580,16 @@ pruning code for IP address like 00, 01, early break.
 [medium-hard] start from 4 sides and mark all neighbors(BFS) from 'O' to 'P',
 then set all 'O' to 'X', all 'P' to 'O'.  long code.
 
-133. Clone Graph(each node's label is unique)(tricky but interesting)
-[medium-hard]  NewNode = DFS(node, map<newNode_label, newNode>)
+133. Clone Graph(each node's label is unique)(tricky but interesting)(real question)
+[medium]  NewNode = DFS(node, map<node, newNode>), simiar to N138 clone random linked list
 return new_node if encountered to avoid duplicate, copy itself and copy its neighbors, recursively add its neighbors.
 public UndirectedGraphNode dfs(UndirectedGraphNode node,
                                HashMap<Integer,UndirectedGraphNode> map){
-    if(map.containsKey(node.label)) return map.get(node.label); // return copy of node
+    if(map.containsKey(node)) return map.get(node); // return copy of node
     UndirectedGraphNode newNode = new UndirectedGraphNode(node.label);
-    map.put(newNode.label, newNode);
-    for(UndirectedGraphNode neighbor: node.neighbors){
-        newNode.neighbors.add(dfs(neighbor, map));
+    map.put(node, newNode);
+    for(UndirectedGraphNode n: node.neighbors){
+        newNode.neighbors.add(dfs(n, map));
     }
     return newNode;
 }
@@ -1137,7 +1138,7 @@ for(char c: s.toCharArray()){
 8. String to Integer (atoi) str.chatAt(i)-'0'
 [easy-medium] detail coding. leading/trailing spaces, negative sign, non-chars, overflow?
 
-12. Integer to Roman
+12. Integer to Roman(real question)
 [medium]
 String[] symbol={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
 int[]     value={1000,900,500,400, 100, 90,  50, 40,  10, 9,   5,  4,   1};
@@ -1149,7 +1150,7 @@ for(int i=0;num!=0; i++){
     }
 }
 
-13. Roman to Integer(hard on find the pattern)
+13. Roman to Integer(hard on find the pattern)(real question)
 [easy-medium] sum-=num[i] if num[i] < num[i+1]; else sum+=num[i]
 
 14. Longest Common Prefix
