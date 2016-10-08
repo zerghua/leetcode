@@ -7,6 +7,9 @@ import leetcode.N0_data_strcture.*;
  Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
 
  */
+
+// 10/8/2016
+// 2 ms  32 / 32 test cases passed.
 public class N109_ConvertSortedListtoBinarySearchTree {
     private static ListNode node ;
 
