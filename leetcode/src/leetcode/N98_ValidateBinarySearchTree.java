@@ -52,6 +52,38 @@ public class N98_ValidateBinarySearchTree {
         return isValidBST2(node.left, min, node.val) && isValidBST2(node.right, node.val, max);
     }
 
+    // clean solution added on 10/8/2016
+    // use null to represent infinity
+    // 1 ms  74 / 74 test cases passed.
+    public class Solution {
+        public boolean isValidBST(TreeNode root) {
+            return isValid(root, null, null);
+        }
+        public boolean isValid(TreeNode node, Integer low, Integer high){
+            if(node == null) return true;
+            return (low == null || low < node.val) && (high == null || node.val < high) &&
+                    isValid(node.left, low, node.val) && isValid(node.right, node.val, high);
+        }
+    }
 
+    // added on 10/8/2016
+    // inorder traversal, verify if it's monotonic increasing order(look at how to code this way)
+    // 1 ms  74 / 74 test cases passed.
+    public class Solution2 {
+        TreeNode prev;
+        public boolean isValidBST(TreeNode root) {
+            prev = null;
+            return isMonotonicIncreasing(root);
+        }
+        public boolean isMonotonicIncreasing(TreeNode node){
+            if(node == null) return true;
+            if(isMonotonicIncreasing(node.left)){
+                if(prev != null && prev.val >= node.val) return false;
+                prev = node;
+                return isMonotonicIncreasing(node.right);
+            }
+            return false;
+        }
+    }
 
 }
