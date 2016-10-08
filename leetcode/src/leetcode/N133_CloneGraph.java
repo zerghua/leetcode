@@ -97,4 +97,25 @@ public class N133_CloneGraph {
             return newNode;
         }
     }
+
+    // added on 10/8/2016
+    // map<node, new_node> instead of map<new_node_label, new_node>
+    // 8 ms 12 / 12 test cases passed.
+    public class Solution {
+        public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+            if(node == null) return null;
+            return dfs(node, new HashMap());
+        }
+
+        public UndirectedGraphNode dfs(UndirectedGraphNode node,
+                                       HashMap<UndirectedGraphNode, UndirectedGraphNode> map){
+            if(map.containsKey(node)) return map.get(node);
+            UndirectedGraphNode newNode = new UndirectedGraphNode(node.label);
+            map.put(node, newNode);
+            for(UndirectedGraphNode n: node.neighbors){
+                newNode.neighbors.add(dfs(n, map));
+            }
+            return newNode;
+        }
+    }
 }
