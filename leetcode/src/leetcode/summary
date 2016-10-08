@@ -233,14 +233,30 @@ One extra line of: if(i<size-1) node.next = q.peek(); (linking the next node if 
 199. Binary Tree Right Side View
 [easy] BFS, level order traversal from right to left.
 
-104. Maximum Depth of Binary Tree
-[easy] int = DFS(node)
+104. Maximum Depth of Binary Tree(real question)(max of max)
+[easy] int = DFS(node)  bottom-up DFS.
 if(node ==null) return 0; return 1 + max(dfs(node.left), dfs(node.right));
 
-111. Minimum Depth of Binary Tree(one more case than 104 max depth.)
-[easy-medium] int = DFS(node)
+111. Minimum Depth of Binary Tree(real question)(min of min, if one child is null then max of min)
+[easy-medium] int = DFS(node)(one more case than 104 max depth.)  bottom-up DFS.
 if(node.left==null || node.right==null) return 1 + max(dfs(node.left), dfs(node.right)),
 return 1 + min(dfs(node.left), dfs(node.right))
+BFS solution works well for highly unbalanced tree.
+
+110. Balanced Binary Tree(height-balanced tree: every node's subtree diff <= 1)(real question)(interesting)
+[easy-medium] BF o(n^2), for each node, check left and right diff. Top-down
+bottom-up DFS. similar to N104 max depth of binary tree.
+public int getHeight(TreeNode root){
+    if(root == null) return 0;
+    int left = getHeight(root.left);
+    if(left == -1) return -1;
+    int right = getHeight(root.right);
+    if(right ==-1 || Math.abs(left-right) > 1) return -1;
+    return 1+ Math.max(left, right);
+}
+
+
+
 
 105. Construct Binary Tree from Preorder and Inorder Traversal
 [medium]dfs(int[] preoder, int preorder_start, int preorder_end, int[] inorder, int inorder_start, inorder_end)
@@ -251,16 +267,6 @@ else build it and recursive on left and right.
 106. Construct Binary Tree from Inorder and Postorder Traversal
 [medium] DFS. similar to 105.
 
-110. Balanced Binary Tree(height-balanced tree: every node's subtree diff <= 1)
-[easy-medium] DFS.
-public int getHeight(TreeNode root){
-    if(root == null) return 0;
-    int left = getHeight(root.left);
-    if(left == -1) return -1;
-    int right = getHeight(root.right);
-    if(right ==-1 || Math.abs(left-right) > 1) return -1;
-    return 1+ Math.max(left, right);
-}
 
 112. Path Sum(return if sum of any root to leaf path == val)
 [easy-medium] boolean = DFS(node, val)
@@ -377,7 +383,7 @@ public List<TreeNode> generateTrees(int start, int end) {
 
 
 98. Validate Binary Search Tree
-[easy-medium] DFS. pass along min, max value to validate.
+[easy-medium] DFS. pass along min, max value to validate.(real question)
 public boolean isValidBST2(TreeNode node, double min, double max){
     if(node == null) return true;
     if(node.val >= max || node.val <= min) return false;
