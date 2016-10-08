@@ -244,7 +244,7 @@ return 1 + min(dfs(node.left), dfs(node.right))
 BFS solution works well for highly unbalanced tree.
 
 110. Balanced Binary Tree(height-balanced tree: every node's subtree diff <= 1)(real question)(interesting)
-[easy-medium] BF o(n^2), for each node, check left and right diff. Top-down
+[easy-medium] BF o(n^2), for each node, check left and right diff. bottom-up DFS.
 bottom-up DFS. similar to N104 max depth of binary tree.
 public int getHeight(TreeNode root){
     if(root == null) return 0;
@@ -255,7 +255,17 @@ public int getHeight(TreeNode root){
     return 1+ Math.max(left, right);
 }
 
-
+124. Binary Tree Maximum Path Sum(find max sum from any node to any node, not need to across root)(very interesting)
+[hard-medium] DFS bottom up, partial max, and global max. int = DFS(node) bottom-up DFS.
+int global_max=Integer.MIN_VALUE;
+int DFS(node){
+    if(node == null) return 0;
+    int left_sum = DFS(node.left);
+    int right_sum = DFS(node.right);
+    int partial_sum = Math.max(node.val, Math.max(node.val + left_sum,  node.val + right_sum));
+    global_max = Math.max(global_max,  Math.max(partial_sum, node.val+left_sum+right_sum));
+    return partial_sum;
+}
 
 
 105. Construct Binary Tree from Preorder and Inorder Traversal
@@ -390,11 +400,10 @@ public boolean isValidBST2(TreeNode node, double min, double max){
     return isValidBST2(node.left, min, node.val) && isValidBST2(node.right, node.val, max);
 }
 
-108. Convert Sorted Array to Binary Search Tree
-[easy] node = DFS(int[], left_index, right_index)
+108. Convert Sorted Array to Binary Search Tree(real question)(interesting)
+[easy] node = DFS(int[], left_index, right_index) (divide and conquer)
 public TreeNode sortedArrayToBSTHelper2(int[] nums, int left, int right){
     if (left > right) return null;
-
     int mid = left + (right - left)/2;
     TreeNode node = new TreeNode(nums[mid]);
     node.left = sortedArrayToBSTHelper(nums, left, mid - 1);
@@ -402,9 +411,22 @@ public TreeNode sortedArrayToBSTHelper2(int[] nums, int left, int right){
     return node;
 }
 
-109. Convert Sorted List to Binary Search Tree
+109. Convert Sorted List to Binary Search Tree(real question)(follow up of N108)
 [medium] 1. convert list to array.  2. two pointers find mid point each loop.
-3. global pointer, very tricky, see 109 solution.
+3. global pointer, very tricky, see 109 solution. (bottom-up)  node = dfs(node, start_int, end_int)
+private ListNode node ;
+public TreeNode buildBST(int start, int end){
+    if(start > end) return null;
+    int mid = (end-start)/2 + start;
+    TreeNode left = buildBST(start, mid-1);
+    TreeNode root = new TreeNode(node.val);
+    node = node.next;
+    TreeNode right = buildBST(mid+1, end);
+    root.left = left;
+    root.right = right;
+    return root;
+}
+
 
 230. Kth Smallest Element in a BST  [favorite]
 [medium] recursively count current node.
@@ -1263,18 +1285,6 @@ minHeap.add(num); maxHeap.add(min.poll()); if (maxHeap.size > minHeap.size) minH
 
 97. Interleaving String
 [hard] matrix DP. [TODO]
-
-124. Binary Tree Maximum Path Sum(find max sum from any node to any node, not need to across root)(very interesting)
-[hard-medium] DFS bottom up, partial max, and global max. int = DFS(node)
-int global_max=Integer.MIN_VALUE;
-int DFS(node){
-    if(node == null) return 0;
-    int left_sum = DFS(node.left);
-    int right_sum = DFS(node.right);
-    int partial_sum = Math.max(node.val, Math.max(node.val + left_sum,  node.val + right_sum));
-    global_max = Math.max(global_max,  Math.max(partial_sum, node.val+left_sum+right_sum));
-    return partial_sum;
-}
 
 41. First Missing Positive(require o(n) time and o(1) space)
 [hard] kind of inplace swap to its position. [TODO]
