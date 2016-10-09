@@ -1086,19 +1086,19 @@ Collections.sort(list, new Comparator<Integer>(){
 ---------------------------------------------------
 Stack/Queue(reviewed on 9/29/2016)
 ---------------------------------------------------
-20. Valid Parentheses
-[easy] push if it's "(""; else pop if it's ")"; empty case.
+20. Valid Parentheses(real question)
+[easy] push if it's opening parenthesis like "({[", else stack.pop, return false if not matched closing parenthesis.")}]"
 could also count++ if "("; count-- if ")"; return false if count<0;
 
 71. Simplify Path
 [medium] pop if it's "..", continue if it's '.', else push
 
-150. Evaluate Reverse Polish Notation
+150. Evaluate Reverse Polish Notation(real question)
 [easy] if operand, pop twice and evaluate and push back, else push.
 
-155. Min Stack(tricky)
+155. Min Stack(interesting)(real question)
 [easy-medium] two stacks. one for regular pop, push and top. another to store min_values,
-push only when incoming is smaller than top, pop only when val = top.
+push only when incoming is smaller than top(or minstack.push(min(minstack.peek(), curNum)), pop only when val = top.
 used the trick of stack's top always be the smallest until a smaller comes after.
 
 225. Implement Stack using Queues
