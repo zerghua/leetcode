@@ -1,21 +1,15 @@
 package leetcode;
 /*
-Given a sorted array and a target value, return the index if the target is found. 
+Given a sorted array and a target value, return the index if the target is found.
 If not, return the index where it would be if it were inserted in order.
 
 You may assume no duplicates in the array.
 
 Here are few examples.
-[1,3,5,6], 5 ¡ú 2
-[1,3,5,6], 2 ¡ú 1
-[1,3,5,6], 7 ¡ú 4
-[1,3,5,6], 0 ¡ú 0    
-
-mid=0, l=0, r=1    	
-// [1,3]  2   mid[0] < target  -->  l=mid+1 -->  l=1 r=1, --> l=1, r=0 -->return l;
-// [1,3]  4   mid[0] < target  -->  l=mid+1 -->  l=1 r=1, --> l=2, r=1 -->return l;
-// [1,3]  0   target < mid[0]  -->  r=mid-1 -->  l=0 r=-1 --> return l;
- * if not found, return lower bound.
+[1,3,5,6], 5 â†’ 2
+[1,3,5,6], 2 â†’ 1
+[1,3,5,6], 7 â†’ 4
+[1,3,5,6], 0 â†’ 0
  */
 
 // modified binary search
