@@ -21,9 +21,6 @@ Array (reviewed on 9/29/2016)
 48. Rotate Image(rotate 90 degree of matrix)
 [medium] extra space easy, ret[j][n-1-i] = matrix[i][j];  inplace, 4-way rotation. or transpose and flip(TODO).
 
-53	Maximum Subarray(max continuous subarray)
-[easy] condition on if local_max >0. sum+=n; ret = max(ret, sum); sum=max(0,sum)
-
 54	Spiral Matrix(return array of spiral order, outer-->inner clockwise)(real question)
 [medium] 4 loops of top,right,bottom and left side.
 
@@ -157,7 +154,7 @@ further compare target to num[left] and num[mid].
 34. Search for a Range(good)
 [medium] more code when ==; update ret[0] and ret[1]; two direction recursion dfs(start, mid-1); dfs(mid+1,end)
 
-35. Search Insert Position
+35. Search Insert Position(real question)
 [medium-easy] regular binary search, insertion position is the left bound; return left;
 
 50. Pow(x, n) (real question)
@@ -173,11 +170,11 @@ further compare target to num[left] and num[mid].
 [easy-medium] o(m+n). start on top right point, row=0, col=col_size-1; row++ or col--;
 time can also be o(mlogn) or o(nlogm)
 
-153. Find Minimum in Rotated Sorted Array
+153. Find Minimum in Rotated Sorted Array(real question)
 [easy-medium]  if(num[mid]< num[r]) r= mid(not mid-1, because it can be the min);
 else l = mid+1; return num[l]  while(l<r)
 
-154. Find Minimum in Rotated Sorted Array II(duplicate is allowed)
+154. Find Minimum in Rotated Sorted Array II(duplicate is allowed)(real question)
 [hard-medium] if(num[mid] == num[r]) r--;  else are the same as 153.
 
 162. Find Peak Element ((i==0 || num[i] > num[i-1]) && ( i= num.length-1 || num[i] > num[i+1]))(tricky)
@@ -650,10 +647,10 @@ public void dfs(int pre, int n, List ret){
 ---------------------------------------------------
 DP(reviewed on 10/2/2016)
 ---------------------------------------------------
-62. Unique Paths(matrix, can only move down and right, return max unique path)
+62. Unique Paths(matrix, can only move down and right, return max unique path)(real question)
 [easy] dp[i][j] = dp[i-1][j] + dp[i][j-1];
 
-63. Unique Paths II(with obstacles marked as 1)
+63. Unique Paths II(with obstacles marked as 1)(real question)
 [easy-medium] rolling array. if(obstacleGrid[i][j] == 1) dp[j] = 0; else if(j>0) dp[j] += dp[j-1];
 
 64. Minimum Path Sum(matrix, can only move down and right, return min path sum)
@@ -697,8 +694,11 @@ dp[0]=true; for each substring, if (dp[j]==true && word.contains(s.substring[j,i
 [hard]  DP + DFS + backtracking. need a ArrayList<String>[] preWordsList;
 store each dictionary word in preWordsList, add to ret by backtracking with matching str length.
 
-152. Maximum Product Subarray(return the largest product in a contiguous subarray)(interesting)
-[medium] DP or greedy.
+53	Maximum Subarray(max continuous subarray)(real question)
+[easy] local_max = Math.max(local_max+num, num);  ret = Math.max(ret, local_max);
+
+152. Maximum Product Subarray(return the largest product in a contiguous subarray)(interesting)(real question)
+[medium] DP or greedy.  need cur_max and cur_min.
     int tmp = cur_max;
     cur_max = Math.max(nums[i], Math.max(cur_max*nums[i], cur_min*nums[i]));
     cur_min = Math.min(nums[i], Math.min(tmp*nums[i], cur_min*nums[i]));
