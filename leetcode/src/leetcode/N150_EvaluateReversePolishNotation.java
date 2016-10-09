@@ -36,4 +36,24 @@ public class N150_EvaluateReversePolishNotation {
 
         return Integer.valueOf(stack.peek());
     }
+
+    // stack<Integer> instead of stack<String> added on 10/9/2016
+    // 15 ms 20 / 20 test cases passed.
+    public class Solution {
+        public int evalRPN(String[] tokens) {
+            Stack<Integer> stack = new Stack();
+            HashSet<String> operators = new HashSet(Arrays.asList("+","-","*","/")); //remember use String than char.
+            for(String token: tokens){
+                if(operators.contains(token)){
+                    int b = stack.pop();
+                    int a = stack.pop();
+                    if(token.equals("+")) stack.push(a+b);
+                    else if (token.equals("-")) stack.push(a-b);
+                    else if (token.equals("*")) stack.push(a*b);
+                    else stack.push(a/b);
+                }else stack.push(Integer.valueOf(token));
+            }
+            return stack.pop();
+        }
+    }
 }
