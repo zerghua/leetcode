@@ -35,6 +35,22 @@ public class N153_FindMinimuminRotatedSortedArray {
         return nums[l];
     }
 
+    // optimized code added on 10/9/2016
+    // 0 ms 146 / 146 test cases passed.
+    public class Solution {
+        public int findMin(int[] nums) {
+            if(nums == null || nums.length==0) return -1;
+            int l=0, r=nums.length-1;
+            while(l<r && nums[l] >= nums[r]){ //hightlight not l<=r
+                int mid = l + (r-l)/2;
+                if(nums[mid] < nums[r]) r = mid;   //highlight, not mid-1
+                else l = mid + 1;
+            }
+            return nums[l];
+        }
+    }
+
+
     public static void main(String[] args) {
         int[] a= {4,5,6,7,2};
         //int[] a= {0,1,2,3,4,5};
