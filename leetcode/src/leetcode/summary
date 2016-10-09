@@ -659,7 +659,7 @@ DP(reviewed on 10/2/2016)
 64. Minimum Path Sum(matrix, can only move down and right, return min path sum)
 [easy]  dp[j] = min(dp[j-1], dp[j]) + grid[i][j].  similar to 62, but use rolling array(o(m) space).
 
-70, climb stairs. (either 1 step or 2 steps, return distinct ways to the top)
+70, climb stairs. (either 1 step or 2 steps, return distinct ways to the top)(real question)
 [easy-medium]   dp[i] = dp[i-2] + dp[i-1].
 this is kind of fibonacci, so can be: a=b=1; i in [2,n]{c= a+b, a=b, b=c;} return b;
 
