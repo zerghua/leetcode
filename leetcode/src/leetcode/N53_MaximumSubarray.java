@@ -17,4 +17,17 @@ public class N53_MaximumSubarray {
         }
         return ret;
     }
+
+    // solution added on 10/9/2016
+    // 16 ms 201 / 201 test cases passed.
+    public class Solution {
+        public int maxSubArray(int[] nums) {
+            int ret = Integer.MIN_VALUE, local_max=0;
+            for(int num: nums){
+                local_max = Math.max(local_max+num, num);
+                ret = Math.max(ret, local_max);
+            }
+            return ret;
+        }
+    }
 }
