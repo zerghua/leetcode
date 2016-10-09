@@ -39,6 +39,8 @@ public class N150_EvaluateReversePolishNotation {
 
     // stack<Integer> instead of stack<String> added on 10/9/2016
     // 15 ms 20 / 20 test cases passed.
+    // Integer.parseInt(s) returns primitive int however Integer.valueOf() returns Integer object.
+    // Integer.valueOf(s) equals new Integer(Integer.parseInt(s))
     public class Solution {
         public int evalRPN(String[] tokens) {
             Stack<Integer> stack = new Stack();
