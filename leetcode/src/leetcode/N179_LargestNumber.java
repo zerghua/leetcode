@@ -36,4 +36,19 @@ public class N179_LargestNumber {
 
         return ret.toString();
     }
+
+    // added on 10/10/2016
+    // new way to passing comparator
+    // 120 ms 221 / 221 test cases passed.
+    public class Solution {
+        public String largestNumber(int[] nums) {
+            ArrayList<Integer> list = new ArrayList();
+            for(int e:nums)list.add(e);
+            Collections.sort(list, (a, b)-> (""+b+a).compareTo(""+a+b));
+            StringBuilder ret = new StringBuilder();
+            for(int e: list) ret.append(e);
+            return ret.charAt(0)=='0' ? "0": ret.toString();
+        }
+    }
+
 }
