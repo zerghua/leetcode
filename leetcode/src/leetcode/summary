@@ -1066,18 +1066,14 @@ if num[i]-num[i-1] >1, construct list(start,i-1); start=i;  (may overflow num[i]
 
 
 ---------------------------------------------------
-Sort
+Sort(reviewed on 10/10/2016)
 ---------------------------------------------------
-179. Largest Number
+179. Largest Number(given [3, 30, 34, 5, 9], the largest formed number is 9534330.)
 [medium] custom sort base on String desc (330 before 303)
-Collections.sort(list, new Comparator<Integer>(){
-    public int compare(Integer a, Integer b){
-        return (""+b+a).compareTo(""+a+b);
-    }
-});
+Collections.sort(list, (a, b)-> (""+b+a).compareTo(""+a+b));
 
 
-215. Kth Largest Element in an Array
+215. Kth Largest Element in an Array(TODO, write quickselect again)
 [medium] heap or quicksort.
 
 
