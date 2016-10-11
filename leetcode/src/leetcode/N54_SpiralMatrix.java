@@ -68,7 +68,7 @@ public class N54_SpiralMatrix {
             List<Integer> ret = new ArrayList<>();
             if (matrix == null || matrix.length==0) return ret;
             int top = 0, left = 0, bottom = matrix.length-1, right = matrix[0].length-1;
-            while(left<= right || top <= bottom){
+            while(left<= right || top <= bottom){  // both "||" or "&&" are working here
                 // top side
                 if(top <= bottom){
                     for(int i=left; i<=right;i++) ret.add(matrix[top][i]);
