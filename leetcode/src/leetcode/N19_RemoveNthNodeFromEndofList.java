@@ -19,7 +19,9 @@ Try to do this in one pass.
  */
 public class N19_RemoveNthNodeFromEndofList {
 	//1 ms
-    public ListNode removeNthFromEnd(ListNode head, int n) {    
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+    	if(n<=0) throw new IllegalArgumentException("n<=0");
+
     	ListNode cur = head;
     	for(int i=0;i<n;i++) cur = cur.next;
     	
@@ -35,5 +37,10 @@ public class N19_RemoveNthNodeFromEndofList {
 	    	t.next = t.next.next;
 	    	return head;
     	}
+    }
+
+    public static void main(String[] args){
+        N19_RemoveNthNodeFromEndofList x = new N19_RemoveNthNodeFromEndofList();
+        x.removeNthFromEnd(null, 0);
     }
 }
