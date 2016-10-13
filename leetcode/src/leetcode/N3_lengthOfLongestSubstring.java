@@ -92,7 +92,21 @@ public class N3_lengthOfLongestSubstring {
         }
     }
 
-
+    // more intuitive solution. added on 10/12/2016
+    // 56 ms 982 / 982 test cases passed.
+    public class Solution4 {
+        public int lengthOfLongestSubstring(String s) {
+            int ret=0, left=0;
+            HashMap<Character, Integer> map = new HashMap<>();
+            char[] ch = s.toCharArray();
+            for(int i=0;i<ch.length;i++){
+                if(map.containsKey(ch[i])) left = Math.max(left, map.get(ch[i])); // important max
+                ret = Math.max(ret, i-left+1);
+                map.put(ch[i], i+1);
+            }
+            return ret;
+        }
+    }
 
     public static void main(String[] args){
         N3_lengthOfLongestSubstring.Solution x = new N3_lengthOfLongestSubstring().new Solution();
