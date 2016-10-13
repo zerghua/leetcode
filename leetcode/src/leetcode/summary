@@ -1040,11 +1040,11 @@ Sliding Window
 [medium-hard] BF is o(n^2).
 hashtable + sliding window with two pointers. o(n) time,  map(char, index)
 map to store index of previous duplicate num[i], update left if found in map, max = (i-left);
-left = -1, ret =0; //important left=-1
+left = 0, ret =0;
 for(int i=0;i<s.length;i++){
-    if(map.contains(s.charAt(i))) left=max(left, map.get(s.charAt(i)));
-    ret = max(ret, i-left);
-    map.put(s.charAt(i), i);
+    if(map.containsKey(s.charAt(i))) left=max(left, map.get(s.charAt(i)));
+    ret = max(ret, i-left+1);
+    map.put(s.charAt(i), i+1);
 }
 
 11. Container With Most Water(interesting)(sliding windows)
@@ -1158,9 +1158,12 @@ for(int i=0;num!=0; i++){
 67. Add Binary(return sum of two binary number)
 [easy-medium]  from right to left. sum+=str.chatAt(i)-'0'; sum+=str.chatAt(j)-'0'; carry=sum/2;
 
-151. Reverse Words in a String
+151. Reverse Words in a String(real question)
 [easy-medium] trim().split(" +") to String[]. and reverse it.
 or manual scan word, and reversely append word.
+follow up: if there is no leading/trailing spaces and each word is separated by one space, do it o(1) space.
+reverse[0,n-1]; reverse each word.
+
 
 165. Compare Version Numbers
 [easy-medium] problem says 1.22 > 1.3 because 22 > 3. build num between '.';
