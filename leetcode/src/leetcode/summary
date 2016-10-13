@@ -704,11 +704,11 @@ store each dictionary word in preWordsList, add to ret by backtracking with matc
     cur_min = Math.min(nums[i], Math.min(tmp*nums[i], cur_min*nums[i]));
     max = Math.max(max, cur_max);
 
-198. House Robber(return maximum money can rob but not adjacent houses.)
+198. House Robber(return maximum money can rob but not adjacent houses.)(real question)
 [easy] dp[i] = max(dp[i-i], dp[i-2] + num[i]).
 or greedy, use even and odd. even=max(even,odd); odd=max(even,odd);
 
-213. House Robber II(house in a circle)
+213. House Robber II(house in a circle)(real question)
 [medium] two passes of DP, 1. remove head.  2. remove tail.
 
 337. House Robber III(binary tree, very interesting)
