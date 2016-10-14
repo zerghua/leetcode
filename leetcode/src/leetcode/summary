@@ -1231,6 +1231,8 @@ while(i<sizeA && j<sizeB) if(A[i]==B[j]){i++;j++;} else {i=i-j+1;j=0}; return i-
 345. Reverse Vowels of a String
 [easy] two pointers find vowels and swap.
 
+163. MissingRanges(VIP)(real question)(interesting)(return missing interval)
+[medium] cur-pre >=2, extra two sentinels, pre=start-1; cur = (i==num.length)?end+1; num[i];
 
 
 
