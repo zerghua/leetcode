@@ -21,6 +21,8 @@ import java.util.*;
 
  */
 public class N163_MissingRanges {
+    // Two pointers, and two sentinels for concise code.
+    // cur-pre>=2
     public class Solution {
         //  bug when lower=Integer.MIN_VALUE and upper = Integer.MAX_VALUE;
         public List<String> findMissingRanges(int[] nums, int lower, int upper) {
