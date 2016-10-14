@@ -44,6 +44,7 @@ public class N23_MergekSortedLists {
 
     // added on 10/5/2016, improved the way heap is initialized.
     // 24 ms  130 / 130 test cases passed.
+    // o(nklogk) time, o(k) space
     public class Solution {
         public ListNode mergeKLists(ListNode[] lists) {
             if(lists == null || lists.length == 0) return null;
@@ -70,7 +71,7 @@ public class N23_MergekSortedLists {
     }
 
     // added on 10/7/2016
-    // o(1) space solution, divide and conquer.
+    // o(nklogk) time, o(1) space solution, divide and conquer.
     // 13 ms 130 / 130 test cases passed.
     public class Solution2 {
         public ListNode mergeKLists(ListNode[] lists) {
@@ -89,8 +90,7 @@ public class N23_MergekSortedLists {
 
         // reusing solution from N21 merge two sorted list
         public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-            ListNode fakeHead = new ListNode(0);
-            ListNode p = fakeHead;
+            ListNode fakeHead = new ListNode(0), p = fakeHead;
             while(l1 !=null && l2!=null){
                 if(l1.val < l2.val){
                     p.next = l1;
