@@ -415,13 +415,16 @@ public List<TreeNode> generateTrees(int start, int end) {
 }
 
 
-98. Validate Binary Search Tree
-[easy-medium] DFS. pass along min, max value to validate.(real question)
-public boolean isValidBST2(TreeNode node, double min, double max){
+98. Validate Binary Search Tree(real question)(interesting)
+[easy-medium]
+1. DFS. pass along min, max value to validate. Can pass null to Integer to avoid overflow.
+public boolean isValidBST(TreeNode node, double min, double max){
     if(node == null) return true;
     if(node.val >= max || node.val <= min) return false;
     return isValidBST2(node.left, min, node.val) && isValidBST2(node.right, node.val, max);
 }
+2. in-order traversal, compare preNode and curNode isMonotonicIncreasing, like N109 convert list to BST.
+
 
 108. Convert Sorted Array to Binary Search Tree(real question)(interesting)
 [easy] node = DFS(int[], left_index, right_index) (divide and conquer)
@@ -1174,8 +1177,9 @@ for(char c: s.toCharArray()){
     index += offset;
 }
 
-8. String to Integer (atoi) str.chatAt(i)-'0'
-[easy-medium] detail coding. leading/trailing spaces, negative sign, non-chars, overflow?
+8. String to Integer (atoi) (real question)
+[easy-medium] str.chatAt(i)-'0'
+detail coding. leading/trailing spaces, negative/positive sign, non-chars, overflow/underflow?
 
 12. Integer to Roman(real question)
 [medium]
