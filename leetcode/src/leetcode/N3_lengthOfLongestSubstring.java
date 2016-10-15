@@ -101,7 +101,7 @@ public class N3_lengthOfLongestSubstring {
             char[] ch = s.toCharArray();
             for(int i=0;i<ch.length;i++){
                 if(map.containsKey(ch[i])) left = Math.max(left, map.get(ch[i])); // important max
-                ret = Math.max(ret, i-left+1);
+                ret = Math.max(ret, i-left+1); // window only contains unique chars.
                 map.put(ch[i], i+1);
             }
             return ret;
