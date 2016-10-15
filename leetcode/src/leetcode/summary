@@ -1,10 +1,36 @@
+If a String Contains an Anagram of Another String
+// sliding window + hashmap. similar to N159 N340 and N49
+// assume all english chars.
+public boolean isContainAnagram(String s, String t){
+    int m = s.length(), n = t.length();
+    if(m < n) return false; // s should be longer than t
+    int[] a= new int[128];
+    for(char c: t)a[c]++;
+    int key = Arrays.hashCode(a);
+
+    int[] b= new int[128];
+    for(int i=0;i<n;i++) b[s.charAt(i)]++;
+    if(Array.hashCode(b) == a) return true;
+    int left=0;
+    for(int i=n ;i<= m-n;i++){
+        b[s.charAt(i)]++;
+        b[s.charAt(left)]--;
+        if(Array.hashCode(b) == a) return true;
+    }
+    return false;
+}
+
 ---------------------------------------------------
 Anagram(words group like: cat, act) (reviewed on 9/28/2016)
 ---------------------------------------------------
-49	Group Anagrams(important)
-[medium] sorted string in hashtable, hm<String, List<>>, or Arrays.hashCode(int[] of each char in str) as int in hashmap key.
+49. Group Anagrams(important)(real question)
+[medium] hashmap<String, list>  or hashmap<int, list>.
+1. Arrays.sort(word.toCharArray()) and String(char[]) as key in map.   o(nlogn) time
+2. foreach char[c-'a']++; String(char[]) as key in map.  o(n) time
+3. foreach int[c]++; Arrays.hashCode(int[]) as key in hashmap.  o(n) time
 
-242	Valid Anagram(is valid anagram of two strings.)
+
+242. Valid Anagram(is valid anagram of two strings.)
 [easy] hashtable or sort string.
 
 
