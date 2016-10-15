@@ -120,5 +120,28 @@ public class N49_GroupAnagrams {
         }
     }
 
+    // added on 10/14/2016
+    // convert char[] to string, using String(char[]) constructor
+    // assume all input are lower-case english chars.
+    // 31 ms 100 / 100 test cases passed.
+    public class Solution5 {
+        public List<List<String>> groupAnagrams(String[] strs) {
+            List<List<String>> ret = new ArrayList<>();
+            HashMap<String, List<String>> map = new HashMap<>();
+            for(String str: strs){
+                char[] a = new char[26];
+                for(char c: str.toCharArray()) a[c-'a']++;
+                String key = new String(a);
 
+                if(map.containsKey(key)){
+                    map.get(key).add(str);
+                }else{
+                    ArrayList<String> list = new ArrayList<>(Arrays.asList(str));
+                    map.put(key, list);
+                    ret.add(list);
+                }
+            }
+            return ret;
+        }
+    }
 }
