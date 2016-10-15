@@ -49,4 +49,35 @@ public class N155_MinStack {
         if(!min_stack.isEmpty()) return min_stack.peek();
         return -1;
     }
+
+
+    // concise code added on 10/15/2016
+    // 113 ms 18 / 18 test cases passed.
+    // pop and min when stack is empty is undefined.
+    public class MinStack {
+        Stack<Integer> s, minStack;
+        public MinStack() {
+            s = new Stack();
+            minStack = new Stack();
+        }
+
+        public void push(int x) {
+            s.push(x);
+            if(minStack.isEmpty() || minStack.peek() >= x) minStack.push(x);
+        }
+
+        public void pop() {
+            int e = s.pop();
+            if(e == minStack.peek()) minStack.pop();
+        }
+
+        public int top() {
+            return s.peek();
+        }
+
+        public int getMin() {
+            return minStack.peek();
+        }
+    }
+
 }
