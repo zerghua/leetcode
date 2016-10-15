@@ -1140,8 +1140,9 @@ could also count++ if "("; count-- if ")"; return false if count<0;
 [easy] if operand, pop twice and evaluate and push back, else push.
 
 155. Min Stack(interesting)(real question)
-[easy-medium] two stacks. one for regular pop, push and top. another to store min_values,
-push only when incoming is smaller than top(or minstack.push(min(minstack.peek(), curNum)), pop only when val = top.
+[easy-medium] two stacks. stack, minStack.
+push to minstack only when it's empty or incoming is <=(equal to handle duplicate) than minStack.top();
+pop minStack only when val = top.
 used the trick of stack's top always be the smallest until a smaller comes after.
 
 225. Implement Stack using Queues
