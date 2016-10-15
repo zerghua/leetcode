@@ -116,6 +116,36 @@ public class N8_StringtoInteger {
         return (int) ret*sign;
     }
 
+    // added on 10/15/2016
+    // 40 ms 1047 / 1047 test cases passed.
+    // 1. discard leading spaces, 2. get sign, 3. get numbers, 4. overflow/underflow
+    public class Solution {
+        public int myAtoi(String str) {
+            if(str == null || str.length()==0) return 0;
+            int i=0, n=str.length(), sign=1;
+            int maxDiv10=Integer.MAX_VALUE/10;
+            char[] s= str.toCharArray();
+            while(i<n && s[i]==' ')i++;  // discard leading space
+
+            if(i<n && s[i] == '+') i++;  // sign
+            else if(i<n && s[i] == '-'){
+                i++;
+                sign = -1;
+            }
+
+            int ret = 0;
+            while(i<n && s[i] >= '0' && s[i]<='9'){  // go through each number
+                int digit = s[i] - '0';
+                if(ret > maxDiv10 || (ret == maxDiv10 && digit>=8)){  //8 rather '8'. overflow and underflow
+                    return sign == 1? Integer.MAX_VALUE : Integer.MIN_VALUE;
+                }
+                ret = ret * 10 + digit;
+                i++;
+            }
+            return sign*ret;  // discard trailing non-numeric chars.
+        }
+    }
+
 
     public static void main(String[] args) {
         N8_StringtoInteger x= new N8_StringtoInteger();
