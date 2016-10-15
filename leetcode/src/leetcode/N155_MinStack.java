@@ -63,7 +63,7 @@ public class N155_MinStack {
 
         public void push(int x) {
             s.push(x);
-            if(minStack.isEmpty() || minStack.peek() >= x) minStack.push(x);
+            if(minStack.isEmpty() || minStack.peek() >= x) minStack.push(x); // >= to handle duplicate
         }
 
         public void pop() {
