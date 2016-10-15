@@ -825,8 +825,9 @@ Hash Table(reviewed on 9/29/2016)
 hashmap can be used as count each char/num, or store index of char/num
 hashset usually check if visited or not.
 ---------------------------------------------------
-1. Two Sum
-[easy] store (sum-num[i]) and index in hashtable.    map(sum-num[i], index)
+1. Two Sum(real question)(interesting)
+[easy] store (sum-num[i]) and index in hashtable.  map(sum-num[i], index)
+throw new IllegalArgumentException("No solution");
 
 36. Valid Sudoku
 [easy-medium] hashtable to store if such number is visited or not.  or hashset store if visited.
