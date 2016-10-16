@@ -475,11 +475,22 @@ Bit Manipulation
 [medium] f(n) += reverse(f(n-1)) + 2^(n-1), use list to represent f(n)
 
 136. Single Number(one number appears once while others twice)(real question)
-[easy] 1. map<num, count>, two passes. o(n) space  2. hashset<num>, remove char if exist. one pass. o(n) space
+[easy]
+1. map<num, count>, two passes. o(n) space
+2. hashset<num>, remove char if exist. one pass. o(n) space
 3. o(1) space and one pass. xor on all the elements.
 
+[follow up](all exists twice except two, return those two)
+[medium] divide and conquer.
+first pass, c ^= each item in array.
+find any one bit in C that is 1 and store it, separate array to two groups(based on 0 and 1 on that bit)
+xor all item in each group will get you those two int.
+
 137. Single Number II(one number appears once while others three times)(real question)
-[medium] on every bit, the sum of each bit is 3*n + (0 or 1). and all numbers bit by bit and mod 3 is the result.
+[medium] on every bit, the sum of each bit is 3*n + (0 or 1). each bit mod 3 is the result.
+
+268. Missing Number(all exists twice except one, return that one)
+[easy-medium] xor.  a^b^b = a.  ret = nums.length; for i in [0,num.length) ret = ret ^ index ^ num[index]
 
 190. Reverse Bits(unsigned integer)
 [easy] ret = ret<< 1 || (n & 1); n >>= 1
@@ -489,9 +500,6 @@ Bit Manipulation
 
 201. Bitwise AND of Numbers Range
 [easy-medium] find common bits between n and m. (still not sure why only n and m)
-
-268. Missing Number
-[easy-medium] xor.  a^b^b = a
 
 318. Maximum Product of Word Lengths
 [medium] hashtable or store each char in an int[] as bit, do "&" for each int.
