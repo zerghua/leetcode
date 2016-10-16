@@ -1,3 +1,5 @@
+10/16/2016 on N389
+
 If a String Contains an Anagram of Another String
 // sliding window + hashmap. similar to N159 N340 and N49
 // assume all english chars.
