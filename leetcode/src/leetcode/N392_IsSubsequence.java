@@ -42,5 +42,7 @@ public class N392_IsSubsequence {
             return i == a.length;
         }
     }
-
+    // follow up solution
+    // put all t chars in  map<char, list of index for this char>
+    // for each char in s, to see if we could find an index in t for that char is larger than t_pre_index.
 }
