@@ -690,7 +690,9 @@ DP(reviewed on 10/2/2016)
 [easy] dp[i][j] = dp[i-1][j] + dp[i][j-1];
 
 63. Unique Paths II(with obstacles marked as 1)(real question)
-[easy-medium] rolling array. if(obstacleGrid[i][j] == 1) dp[j] = 0; else if(j>0) dp[j] += dp[j-1];
+[easy-medium] rolling array.
+if(obstacleGrid[i][j] == 1) dp[j] = 0;
+else if(j>0) dp[j] += dp[j-1];  //(j>0) important
 
 64. Minimum Path Sum(matrix, can only move down and right, return min path sum)
 [easy]  dp[j] = min(dp[j-1], dp[j]) + grid[i][j].  similar to 62, but use rolling array(o(m) space).
@@ -904,8 +906,8 @@ heap o(nlogn) time, but o(k) space.
 ---------------------------------------------------
 Linked List
 ---------------------------------------------------
-2. Add Two Numbers
-[easy-medium] carry. one list is shorter than the other. extra carry node.
+2. Add Two Numbers(real question)
+[easy-medium] carry. one list is shorter than the other. extra carry node. similar to N415.
 
 19. Remove Nth Node From End of List
 [easy] two pointers, one moves N steps ahead.
@@ -1217,13 +1219,6 @@ for(int i=0;num!=0; i++){
 67. Add Binary(return sum of two binary number)
 [easy-medium]  from right to left. sum+=str.chatAt(i)-'0'; sum+=str.chatAt(j)-'0'; carry=sum/2;
 
-151. Reverse Words in a String(real question)
-[easy-medium] trim().split(" +") to String[]. and reverse it.
-or manual scan word, and reversely append word.
-follow up: if there is no leading/trailing spaces and each word is separated by one space, do it o(1) space.
-reverse[0,n-1]; reverse each word.
-
-
 165. Compare Version Numbers
 [easy-medium] problem says 1.22 > 1.3 because 22 > 3. build num between '.';
 num1 = num1*10 + c1[i]-'0';
@@ -1283,6 +1278,17 @@ while(i<sizeA && j<sizeB) if(A[i]==B[j]){i++;j++;} else {i=i-j+1;j=0}; return i-
 75. Sort Colors(sort 3 categories)(real question)(interesting)
 [easy-medium] two passed, counting each category and overwrite. (counting sort)
 (one pass)three pointers. if 0, swap(i++,left++), if 2, swap(i,right--), else i++; while(i<=right)
+
+151. Reverse Words in a String(real question)(interesting)
+[easy-medium] 1. trim().split(" +") to String[]. and reverse it.
+2. scan word right to left with one pointer to the end of word, another check if a[i-1] == ' ';
+    if(s.charAt(i) == ' ') j = i;
+    else if(i==0 || s.charAt(i-1) == ' '){  // i==0 corner case, s.charAt(i-1) very good!!!
+        if(sb.length() != 0) sb.append(" ");  // sb.length !=0 corner case.
+        sb.append(s.substring(i,j));
+    }
+follow up: if there is no leading/trailing spaces and each word is separated by one space, do it o(1) space.
+reverse[0,n-1]; reverse each word.
 
 344. Reverse String
 [easy]
