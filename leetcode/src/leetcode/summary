@@ -1134,8 +1134,10 @@ Sort(reviewed on 10/10/2016)
 Collections.sort(list, (a, b)-> (""+b+a).compareTo(""+a+b));
 
 
-215. Kth Largest Element in an Array(TODO, write quickselect again)
-[medium] heap or quicksort.
+215. Kth Largest Element in an Array
+[medium] quickselect, time o(n) = n + n/2 + n/4 ..,  space o(1)
+heap, time o(nlogk), space o(k)
+also have quicksort to compare with quickselect
 
 
 
