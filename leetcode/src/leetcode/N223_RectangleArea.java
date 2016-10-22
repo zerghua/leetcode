@@ -11,6 +11,11 @@ package leetcode;
 
  Assume that the total area is never beyond the maximum possible value of int.
 
+        (C,D)
+ (A,B)
+
+        (G,H)
+ (E,F)
 
  */
 public class N223_RectangleArea {
