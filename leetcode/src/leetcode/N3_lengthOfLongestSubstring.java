@@ -93,6 +93,8 @@ public class N3_lengthOfLongestSubstring {
     }
 
     // more intuitive solution. added on 10/12/2016
+    // map index to the next of current char(i+1) to make sure next window is unique.
+    // e.g  abcabc  --> map(b,2), when comes next b, we start from index 2, which is [cab] rather than [bcab]
     // 56 ms 982 / 982 test cases passed.
     public class Solution4 {
         public int lengthOfLongestSubstring(String s) {
@@ -107,6 +109,43 @@ public class N3_lengthOfLongestSubstring {
             return ret;
         }
     }
+
+    // similar to solution 4, but use int[] rather than hashmap. added on 10/23/2016
+    // 39 ms 982 / 982 test cases passed.  %97.34
+    public class Solution5 {
+        public int lengthOfLongestSubstring(String s) {
+            int ret=0, left=0;
+            int[] map = new int[128];
+            char[] ch = s.toCharArray();
+            for(int i=0;i<ch.length;i++){
+                if(map[ch[i]] != 0) left = Math.max(left, map[ch[i]]); // important max
+                ret = Math.max(ret, i-left+1); // window only contains unique chars.
+                map[ch[i]] = i+1;
+            }
+            return ret;
+        }
+    }
+
+
+    // left pointer moves one by one, slower than above. added on 10/23/2016
+    // 48 ms 982 / 982 test cases passed.
+    public class Solution6 {
+        public int lengthOfLongestSubstring(String s) {
+            int ret=0, left=0, count=0;
+            int[] map = new int[128];
+            char[] a = s.toCharArray();
+            for(int right=0; right<s.length();right++){
+                if(map[a[right]]++ > 0) count++;
+                while(count > 0){ // move left pointer one by one
+                    if(map[a[left++]]-- > 1) count--;  // move left if count of char has more than 1
+                }
+                ret = Math.max(ret, right-left+1);
+            }
+            return ret;
+        }
+    }
+
+
 
     public static void main(String[] args){
         N3_lengthOfLongestSubstring.Solution x = new N3_lengthOfLongestSubstring().new Solution();
