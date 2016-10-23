@@ -1088,37 +1088,65 @@ Sliding Window
 [medium] BF is o(n^2). windows contains only unique chars. ret = Math.max(ret, i-left+1);
 hashtable + sliding window with two pointers. o(n) time,  map(char, index)
 map to store index of previous duplicate num[i], update left if found in map.
-    left = 0, ret =0;
-    for(int i=0;i<s.length;i++){
-        if(map.containsKey(s.charAt(i))) left=max(left, map.get(s.charAt(i)));
-        map.put(s.charAt(i), i+1);
-        ret = max(ret, i-left+1);
+    for(int i=0;i<ch.length;i++){
+        if(map[ch[i]] != 0) left = Math.max(left, map[ch[i]]); // important max
+        ret = Math.max(ret, i-left+1); // window only contains unique chars.
+        map[ch[i]] = i+1;
     }
+
+can also move left 1 by 1 like below, but slower. above is optimized way.
+    for(int i=0; i<s.length();i++){
+        if(map[a[i]]++ > 0) count++;
+        while(count > 0){ // move left pointer one by one
+            if(map[a[left++]]-- > 1) count--;  // move left if count of char has more than 1
+        }
+        ret = Math.max(ret, i-left+1);
+    }
+
+
+
 
 159. Longest Substring Which Contains at most 2 Unique Characters(VIP)(interesting)
 340. Longest Substring Which Contains at most k Unique Characters(VIP)(interesting)
 [hard-medium] windows contains only unique k chars. ret = Math.max(ret, i-left+1);
 sliding window with k size. use help of hashmap<char, count> or int[256] to move window.
     for(int i=0; i<str.length; i++){
-        if(map[str[i]] == 0) size++;
-        map[str[i]]++;
-        if(size > k){
-            while(size>k){
-                map[str[left]]--;
-                if(map[str[left]]==0) size--;
-                left++;
-            }
+        if(map[str[i]]++ == 0) count++;
+        while(count>k){
+            map[str[left]]--;
+            if(map[str[left]]==0) count--;
+            left++;
         }
         ret = Math.max(ret, i-left+1);  //windows only contains at most k unique chars.
+    }
+
+76. Minimum Window Substring(given two strings s and t, find minimum window in s contains t.)(interesting)
+[hard-medium] sliding window.
+    while(right< s.length()){
+        if(map[a[right++]]-- >0) count--;
+        while(count == 0){ // downsizing window
+            if(right-left < len){
+                len = right - left;
+                start = left;
+            }
+            if(map[a[left++]]++ >=0) count++;
+        }
+    }
+
+438. Find All Anagrams in a String(interesting)
+[easy-medium] a window of size p. similar to N76.
+1. Arrays.hashCode(char[]) to validate window.
+2. counter;
+    while(right<s.length()){
+        if(map[a[right++]]-- > 0) count--;
+        if(right-left>p.length() && map[a[left++]]++>=0) count++;
+        if(count == 0) ret.add(left);
     }
 
 11. Container With Most Water(interesting)
 [medium-easy] two pointers on left and right.
 min_height=min(num[left],num[right]), maxArea=max(maxArea, (right-left)*min_height);
 left++ while num[left] <= min_height ...
-
-76. Minimum Window Substring(given two strings s and t, find minimum window in s contains t.)(interesting)
-[hard-medium] hashmap<char_from_t, count_int> + sliding window in s.  [TODO reduce the code length]
 
 209. Minimum Size Subarray Sum(interesting)
 [medium] sliding window. window [i,j] >= sum; while([i++,j]>=sum, ret= min(ret, j-i+1))
