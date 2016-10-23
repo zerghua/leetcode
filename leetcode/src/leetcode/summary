@@ -347,7 +347,7 @@ else {
     return root;
 }
 
-236. Lowest Common Ancestor of a Binary Tree
+236. Lowest Common Ancestor of a Binary Tree(real question)(Google/Microsoft)
 [medium] top-bottom. kind of similar to N226.
 if left and right children contains each of q and p, then return current node;
 else if one of them is returned, then that one is the result.
