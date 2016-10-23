@@ -317,6 +317,13 @@ pass along ret and cur_list. return condition is the same as 112.
 cur_list.add(root.val); dfs(ret, root.left, cur_list, sum-root.val); cur_list.remove(root.val)
  ... the same goes for right node.
 
+437. Path Sum III(find count of path sum to a target, can start from any node, but only downwards.)
+[easy-medium] return dfs(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
+dfs(node, sum){
+    if(node== null) return 0;
+    return (node.val == sum? 1:0) + dfs(node.left, sum-node.val) + dfs(node.right, sum-node.val);
+}
+
 129. Sum Root to Leaf Numbers(sum of each path from root to leaf)
 [medium] int = DFS(node, val)
 public int dfs(TreeNode node, int sum){
@@ -1079,6 +1086,9 @@ Random
 382. Linked List Random Node
 [medium] save list to array, and call random. o(n) space
 follow up: o(1) space, see Reservoir Sampling [TODO]
+
+398. Random Pick Index
+[medium] Reservoir Sampling
 
 
 ---------------------------------------------------
