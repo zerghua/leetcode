@@ -78,7 +78,7 @@ public class N438_FindAllAnagramsinaString {
             int left=0, right=0, count=p.length();
             char[] a = s.toCharArray();
             while(right<s.length()){
-                if(map[a[right++]]-- >= 1) count--;
+                if(map[a[right++]]-- > 0) count--;
                 if(right-left>p.length() && map[a[left++]]++>=0) count++;
                 if(count == 0) ret.add(left);
             }
