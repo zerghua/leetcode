@@ -1,5 +1,6 @@
 package leetcode;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.PriorityQueue;
 import java.util.Random;
 
@@ -127,6 +128,11 @@ public class N215_KthLargestElementinanArray {
             x.quicksort(e);
             System.out.println(Arrays.toString(e));
         }
+
+        HashMap<Integer, Integer> map = new HashMap();
+        map.put(1,10);
+        int ret = map.remove(1);
+        System.out.println("ret="+ret);
 
     }
 
