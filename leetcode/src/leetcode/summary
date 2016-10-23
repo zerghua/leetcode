@@ -1,5 +1,7 @@
 10/16/2016 on N389
 
+
+
 If a String Contains an Anagram of Another String
 // sliding window + hashmap. similar to N159 N340 and N49
 // assume all english chars.
@@ -373,6 +375,8 @@ public boolean isValidSerialization(String preorder) {
     return count == 0;
 }
 
+156. Binary Tree Upside Down(VIP)(linkedin phone)(interesting)
+[medium] bottom-up approach. dfs(node, parent);
 
 ---------------------------------------------------
 Binary Search Tree(reviewed on 9/30/2016)
