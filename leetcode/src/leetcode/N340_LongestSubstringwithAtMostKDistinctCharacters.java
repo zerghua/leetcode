@@ -21,12 +21,10 @@ public class N340_LongestSubstringwithAtMostKDistinctCharacters {
             char[] str = s.toCharArray();
             for(int i=0; i<str.length; i++){
                 map.put(str[i], 1+map.getOrDefault(str[i], 0));
-                if(map.size() > k){
-                    while(map.size()>k){
-                        map.put(str[left], map.get(str[left])-1);
-                        if(map.get(str[left])==0) map.remove(str[left]);
-                        left++;
-                    }
+                while(map.size()>k){
+                    map.put(str[left], map.get(str[left])-1);
+                    if(map.get(str[left])==0) map.remove(str[left]);
+                    left++;
                 }
                 ret = Math.max(ret, i-left+1);  //windows only contains at most 2 unique chars.
             }
@@ -44,14 +42,11 @@ public class N340_LongestSubstringwithAtMostKDistinctCharacters {
             int ret = 0, left = 0, size=0;
             char[] str = s.toCharArray();
             for(int i=0; i<str.length; i++){
-                if(map[str[i]] == 0) size++;
-                map[str[i]]++;
-                if(size > k){
-                    while(size>k){
-                        map[str[left]]--;
-                        if(map[str[left]]==0) size--;
-                        left++;
-                    }
+                if(map[str[i]]++ == 0) size++;
+                while(size>k){
+                    map[str[left]]--;
+                    if(map[str[left]]==0) size--;
+                    left++;
                 }
                 ret = Math.max(ret, i-left+1);  //windows only contains at most k unique chars.
             }
