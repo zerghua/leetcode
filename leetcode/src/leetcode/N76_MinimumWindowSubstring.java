@@ -73,6 +73,29 @@ public class N76_MinimumWindowSubstring {
         return s.substring(min_start, min_start+min_len);
     }
 
+    // concise code added on 10/23/2016
+    // 3 ms 266 / 266 test cases passed.
+    public class Solution {
+        public String minWindow(String s, String t) {
+            if(s == null || t.length() > s.length()) return "";
+            int[] map = new int[128];
+            for(char c: t.toCharArray()) map[c]++;
+            int left=0, right=0, count=t.length(), start=0, len= Integer.MAX_VALUE;
+            char[] a = s.toCharArray();
+            while(right< s.length()){
+                if(map[a[right++]]-- >0) count--;
+                while(count == 0){ // downsizing window
+                    if(right-left < len){
+                        len = right - left;
+                        start = left;
+                    }
+                    if(map[a[left++]]++ >=0) count++;
+                }
+            }
+            return (len == Integer.MAX_VALUE)? "": s.substring(start, start+len);
+        }
+    }
+
 }
 
 
