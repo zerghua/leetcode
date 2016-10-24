@@ -383,7 +383,14 @@ public boolean isValidSerialization(String preorder) {
 }
 
 156. Binary Tree Upside Down(VIP)(linkedin phone)(interesting)
-[medium] bottom-up approach. dfs(node, parent);
+[medium] bottom-up approach. return dfs(root, null);
+    public TreeNode dfs(TreeNode node, TreeNode parent){
+        if(node == null) return parent; // return left-most node
+        TreeNode root = dfs(node.left, node);
+        node.left = (parent == null)? null: parent.right;
+        node.right = parent;
+        return root;
+    }
 
 ---------------------------------------------------
 Binary Search Tree(reviewed on 9/30/2016)
