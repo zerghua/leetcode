@@ -53,7 +53,7 @@ public class N322_CoinChange {
     // on 9/24/2016  19 ms  181 / 181 test cases passed.
     public int coinChange2(int[] coins, int amount) {
         int[] dp = new int[amount+1];
-        for(int i=1;i<=amount;i++) dp[i] = Integer.MAX_VALUE;
+        for(int i=1;i<=amount;i++) dp[i] = Integer.MAX_VALUE; //important, init all to max except first one.
         for(int i=0;i<amount;i++){
             for(int coin: coins){
                 if(i+coin <= amount && dp[i] != Integer.MAX_VALUE)
