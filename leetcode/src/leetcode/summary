@@ -1258,7 +1258,8 @@ used the trick of stack's top always be the smallest until a smaller comes after
 227. Basic Calculator II [TODO]
 [mmedium]
 
-
+402. Remove K Digits(impressive idea)
+[medium-hard] stack, pop stack when stack.peek() > num; k--;
 
 
 ---------------------------------------------------
