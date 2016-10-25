@@ -551,6 +551,11 @@ void = dfs(List<NestedInteger> nestedList){
     }
 }
 
+385. Mini Parser(interesting)
+[medium-hard] stack to store each object. if '[', add obj to stack,  if ',' || ']', add number to stack.peek() object, if ']', pop stack.
+
+
+
 355. Design Twitter
 [medium-hard] [TODO]
 
@@ -925,6 +930,10 @@ heap o(nlogn) time, but o(k) space.
 
 387. First Unique Character in a String
 [easy-medium] two pass. map(char, count).  return the first count==1 foreach char in str(not map).
+
+388.Longest Absolute File Path
+[medium] hashtable to store last level length(will be replaced by new line).
+process line by line using s.split("\n"); "\t" is counted as one char.
 
 389. Find the Difference(find one different char in two strings)
 [easy] two pass. 1st: map(char, count)  2ed: count--; return if count<0;
