@@ -2,6 +2,22 @@
 
 
 
+
+
+---------------------------------------------------
+Anagram(words group like: cat, act) (reviewed on 9/28/2016)
+---------------------------------------------------
+49. Group Anagrams(important)(real question)
+[medium] hashmap<String, list>  or hashmap<int, list>.
+1. Arrays.sort(word.toCharArray()) and String(char[]) as key in map.   o(nlogn) time
+2. foreach char[c-'a']++; String(char[]) as key in map.  o(n) time
+3. foreach int[c]++; Arrays.hashCode(int[]) as key in hashmap.  o(n) time
+
+
+242. Valid Anagram(is valid anagram of two strings.)
+[easy] hashtable or sort string.
+
+
 If a String Contains an Anagram of Another String
 // sliding window + hashmap. similar to N159 N340 and N49
 // assume all english chars.
@@ -23,21 +39,6 @@ public boolean isContainAnagram(String s, String t){
     }
     return false;
 }
-
----------------------------------------------------
-Anagram(words group like: cat, act) (reviewed on 9/28/2016)
----------------------------------------------------
-49. Group Anagrams(important)(real question)
-[medium] hashmap<String, list>  or hashmap<int, list>.
-1. Arrays.sort(word.toCharArray()) and String(char[]) as key in map.   o(nlogn) time
-2. foreach char[c-'a']++; String(char[]) as key in map.  o(n) time
-3. foreach int[c]++; Arrays.hashCode(int[]) as key in hashmap.  o(n) time
-
-
-242. Valid Anagram(is valid anagram of two strings.)
-[easy] hashtable or sort string.
-
-
 
 
 ---------------------------------------------------
@@ -170,6 +171,8 @@ return n-left;
 378. Kth Smallest Element in a Sorted Matrix
 [medium] heap. put the first row in heap, poll from heap, push back with row++;
 
+414. Third Maximum Number
+[easy-medium] very tricky to find distinct third largest.
 
 ---------------------------------------------------
 Binary search(reviewed on 9/28/2016 )
@@ -333,7 +336,7 @@ public int dfs(TreeNode node, int sum){
     return dfs(node.left, ret) + dfs(node.right, ret);
 }
 
-257. Binary Tree Paths(return all root to leaf path)
+257. Binary Tree Paths(return all root to leaf path)(real question)(facebook)
 [easy-medium] DFS + backtracking. similar to N129. void = DFS(node, ret, string)
 
 114. Flatten Binary Tree to Linked List
@@ -802,7 +805,7 @@ for(int i=0;i<=n;i++){
     }
 }
 
-322. Coin Change(return fewest number of coins sum to a val)
+322. Coin Change(return fewest number of coins sum to a val)(real question)
 [medium] similar to N279.  dp[i+j] = min(dp[i+j], dp[i]+1)
 int[] dp = new int[amount+1];
 for(int i=1;i<=amount;i++) dp[i] = Integer.MAX_VALUE;
@@ -1147,7 +1150,7 @@ can also move left 1 by 1 like below, but slower. above is optimized way.
 
 
 159. Longest Substring Which Contains at most 2 Unique Characters(VIP)(interesting)
-340. Longest Substring Which Contains at most k Unique Characters(VIP)(interesting)
+340. Longest Substring Which Contains at most k Unique Characters(VIP)(interesting)(real question)(Facebook)
 [hard-medium] windows contains only unique k chars. ret = Math.max(ret, i-left+1);
 sliding window with k size. use help of hashmap<char, count> or int[256] to move window.
     for(int i=0; i<str.length; i++){
@@ -1219,7 +1222,7 @@ Stack/Queue(reviewed on 9/29/2016)
 ---------------------------------------------------
 20. Valid Parentheses(real question)
 [easy] push if it's opening parenthesis like "({[", else stack.pop, return false if not matched closing parenthesis.")}]"
-could also count++ if "("; count-- if ")"; return false if count<0;
+
 
 71. Simplify Path
 [medium] pop if it's "..", continue if it's '.', else push
