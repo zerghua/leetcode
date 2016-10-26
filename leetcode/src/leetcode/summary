@@ -175,7 +175,7 @@ return n-left;
 [easy-medium] very tricky to find distinct third largest.
 
 ---------------------------------------------------
-Binary search(reviewed on 9/28/2016 )
+Binary search(reviewed on 9/28/2016 )(should be reviewed again, important!)
 ---------------------------------------------------
 33. Search in Rotated Sorted Array
 [hard-medium] 4 if conditions, compare num[mid] with num[left],
