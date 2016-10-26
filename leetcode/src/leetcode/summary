@@ -1223,7 +1223,8 @@ Collections.sort(list, (a, b)-> (""+b+a).compareTo(""+a+b));
 heap, time o(nlogk), space o(k)
 also have quicksort to compare with quickselect
 
-
+406. Queue Reconstruction by Height(interesting)(sort by first and second)
+[medium] sort + insertion.
 
 
 ---------------------------------------------------
