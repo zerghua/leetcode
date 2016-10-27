@@ -138,6 +138,18 @@ return majorElement;
 189. Rotate Array
 [easy] reverse 3 times. reverse(0,n-k-1); reverse(n-k,n-1); reverse(0,n-1)
 
+228. Summary Ranges(given [0,1,2,4,5,7], return ["0->2","4->5","7"].)
+[medium] maintain start index. multiple sliding windows.
+if num[i]-num[i-1] >1, construct list(start,i-1); start=i;  (may overflow num[i]-num[i-1])
+    for(int i=1; i<=nums.length;i++){
+        if(i == nums.length || nums[i] != nums[i-1]+1){
+            if(i-1 == start) ret.add(""+ nums[i-1]); // case when last one is single.
+            else ret.add(nums[start] + "->" + nums[i-1]);
+            start = i;
+        }
+    }
+
+
 238. Product of Array Except Self(can't use divide, require o(n) time) (tricky, kind of DP.)
 [medium] two pass from left and right. product of all its left and right.
 1st pass: ret[i] = num[i+1]*ret[i+1]; 2ed pass: ret[i] *= left_sum; left_sum *= nums[i];
@@ -173,7 +185,6 @@ return n-left;
 
 414. Third Maximum Number
 [easy-medium] very tricky to find distinct third largest.
-
 
 
 ---------------------------------------------------
@@ -1159,18 +1170,18 @@ split each words str1 and str2, and check if isPal(str2) and reversed(str2) in m
 
 
 ---------------------------------------------------
-Random
+Random(reviewed on 10/27/2016)
 ---------------------------------------------------
 382. Linked List Random Node
 [medium] save list to array, and call random. o(n) space
-follow up: o(1) space, see Reservoir Sampling [TODO]
+follow up: o(1) space, o(n) time. see Reservoir Sampling. update ret when rand.nextInt(++count) == target(most likely 0)
 
 398. Random Pick Index
 [medium] Reservoir Sampling
 
 
 ---------------------------------------------------
-Sliding Window
+Sliding Window(reviewed on 10/27/2016)
 ---------------------------------------------------
 3. Longest Substring Without Repeating Characters(interesting)(real question)[Must]
 [medium] BF is o(n^2). windows contains only unique chars. ret = Math.max(ret, i-left+1);
@@ -1190,8 +1201,6 @@ can also move left 1 by 1 like below, but slower. above is optimized way.
         }
         ret = Math.max(ret, i-left+1);
     }
-
-
 
 
 159. Longest Substring Which Contains at most 2 Unique Characters(VIP)(interesting)
@@ -1231,18 +1240,9 @@ sliding window with k size. use help of hashmap<char, count> or int[256] to move
         if(count == 0) ret.add(left);
     }
 
-11. Container With Most Water(interesting)
-[medium-easy] two pointers on left and right.
-min_height=min(num[left],num[right]), maxArea=max(maxArea, (right-left)*min_height);
-left++ while num[left] <= min_height ...
 
 209. Minimum Size Subarray Sum(interesting)
 [medium] sliding window. window [i,j] >= sum; while([i++,j]>=sum, ret= min(ret, j-i+1))
-
-228. Summary Ranges(given [0,1,2,4,5,7], return ["0->2","4->5","7"].)
-[medium-easy] maintain start index. multiple sliding windows.
-if num[i]-num[i-1] >1, construct list(start,i-1); start=i;  (may overflow num[i]-num[i-1])
-
 
 
 
@@ -1268,7 +1268,6 @@ Stack/Queue(reviewed on 9/29/2016)
 ---------------------------------------------------
 20. Valid Parentheses(real question)
 [easy] push if it's opening parenthesis like "({[", else stack.pop, return false if not matched closing parenthesis.")}]"
-
 
 71. Simplify Path
 [medium] pop if it's "..", continue if it's '.', else push
@@ -1369,6 +1368,11 @@ public boolean isOneEditDistance(String s, String t){
 ---------------------------------------------------
 Two pointers(or Three pointers)(reviewed on 10/1/2016)
 ---------------------------------------------------
+11. Container With Most Water(interesting)
+[medium-easy] two pointers on left and right.
+min_height=min(num[left],num[right]), maxArea=max(maxArea, (right-left)*min_height);
+left++ while num[left] <= min_height ...
+
 167. Two Sum II - Input array is sorted
 [easy] two pointers. l++ and r--;
 
