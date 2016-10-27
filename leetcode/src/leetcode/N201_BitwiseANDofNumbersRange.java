@@ -8,6 +8,11 @@ package leetcode;
 
  For example, given the range [5, 7], you should return 4.
 
+ 011   3
+ 100   4
+ 101   5
+ 110   6
+ 111   7
  */
 public class N201_BitwiseANDofNumbersRange {
     //TLE 0, 2147483647
@@ -21,7 +26,7 @@ public class N201_BitwiseANDofNumbersRange {
 
     // 9 ms
     // bit manipulation
-    // find the common part on the left and add 0 back.
+    // find the common part on the left of smallest and add 0 back.
     public int rangeBitwiseAnd(int m, int n) {
         int i=0;
         while( n != m){
