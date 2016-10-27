@@ -969,7 +969,7 @@ process line by line using s.split("\n"); "\t" is counted as one char.
 
 
 ---------------------------------------------------
-Interval
+Interval(reviewing on 10/27/2016)
 ---------------------------------------------------
 56. Merge Intervals
 [hard-medium] sort. Collections.sort(intervals, (Interval a, Interval b)-> a.start - b.start);
@@ -984,6 +984,7 @@ else if end < next.end; end = next.end;   // else when end > next.end do nothing
 
 253. Meeting Rooms II(VIP)(interesting)
 [medium] using heap sorted by interval.end to merge adjacent intervals greedily.
+return heap.size();
 
 
 
