@@ -489,12 +489,12 @@ or iteratively in-order traversal.
 
 
 ---------------------------------------------------
-Bit Manipulation
+Bit Manipulation(reviewing on 10/27/2016)
 ---------------------------------------------------
 29. Divide Two Integers
 [medium] not sure. [TODO]
 
-89. Gray Code
+89. Gray Code(interesting)
 [medium] f(n) += reverse(f(n-1)) + 2^(n-1), use list to represent f(n)
 
 136. Single Number(one number appears once while others twice)(real question)
@@ -503,7 +503,7 @@ Bit Manipulation
 2. hashset<num>, remove char if exist. one pass. o(n) space
 3. o(1) space and one pass. xor on all the elements.
 
-[follow up](all exists twice except two, return those two)
+[follow up](all exists twice except two, return those two)(interesting)
 [medium] divide and conquer.
 first pass, c ^= each item in array.
 find any one bit in C that is 1 and store it, separate array to two groups(based on 0 and 1 on that bit)
@@ -512,16 +512,19 @@ xor all item in each group will get you those two int.
 137. Single Number II(one number appears once while others three times)(real question)
 [medium] on every bit, the sum of each bit is 3*n + (0 or 1). each bit mod 3 is the result.
 
-268. Missing Number(all exists twice except one, return that one)
-[easy-medium] xor.  a^b^b = a.  ret = nums.length; for i in [0,num.length) ret = ret ^ index ^ num[index]
+268. Missing Number(for [o,n] range, only one is missing, index in range [0,n-1])
+[easy-medium] xor.  a^b^b = a.  ret = n(important); for i in [0,num.length) ret = ret ^ index ^ num[index]
 
-190. Reverse Bits(unsigned integer)
-[easy] ret = ret<< 1 || (n & 1); n >>= 1
+190. Reverse Bits(unsigned integer) (follow up, hashtable to handle visited ones.)
+[easy] ret = 0;
+for(int i=0;i<32;i++){
+    ret = ret<< 1 || (n & 1); n >>= 1  // the first bit is 0, so ok.
+}
 
 191. Number of 1 Bits
 [easy] ret += (n & 1);  n >>= 1
 
-201. Bitwise AND of Numbers Range
+201. Bitwise AND of Numbers Range(interesting)
 [easy-medium] find common bits between n and m. (still not sure why only n and m)
 
 318. Maximum Product of Word Lengths
