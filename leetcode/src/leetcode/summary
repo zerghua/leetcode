@@ -174,8 +174,10 @@ return n-left;
 414. Third Maximum Number
 [easy-medium] very tricky to find distinct third largest.
 
+
+
 ---------------------------------------------------
-Binary search(reviewed on 9/28/2016 )(should be reviewed again, important!)
+Binary search(reviewed on 9/28/2016 )(reviewed again on 10/27/2016)(regular BS is while(left<=right), and has early return)
 ---------------------------------------------------
 33. Search in Rotated Sorted Array
 [hard-medium] 4 if conditions, compare num[mid] with num[left],
@@ -184,17 +186,38 @@ further compare target to num[left] and num[mid].
 81. Search in Rotated Sorted Array II (duplicate in array)
 [hard-medium] similar to 33, left++ if num[left] = num[mid]. worst case o(n)
 
-34. Search for a Range(good)
+153. Find Minimum in Rotated Sorted Array(real question)
+[easy-medium]  [only exception of left<right rather than left<=right], because it's return num[left]
+if(num[mid]< num[r]) r= mid(not mid-1, because it can be the min);
+else l = mid+1; return num[l]  while(l<r)
+
+154. Find Minimum in Rotated Sorted Array II(duplicate is allowed)(real question)
+[hard-medium] if(num[mid] == num[r]) r--;  else are the same as 153.
+
+34. Search for a Range(interesting)
 [medium] more code when ==; update ret[0] and ret[1]; two direction recursion dfs(start, mid-1); dfs(mid+1,end)
 
 35. Search Insert Position(real question)
 [medium-easy] regular binary search, insertion position is the left bound; return left;
 
-50. Pow(x, n) (real question)
-[medium] binary search. while(n>0){if((n & 1) == 1)ret *=x; n>=1; x*=x; }
+50. Pow(x, n) (real question)(interesting)
+[medium] binary search.  if(n<0) return 1/pow(x, -n); // if n = Int.MIN_VALUE, will overflow. then, 1/x*pow(x,-(n+1))
+int ret = pow(x, n/2);
+if(n%2==0) return ret*ret;
+else return ret*ret*x;
 
-69. Sqrt(x)
-[easy-medium] return left bound. negative number has not sqrt, use Long to handle overflow.
+69. Sqrt(x) (interesting)
+[easy-medium] negative can't be sqrt. regular BS, but store temp ret in condition. use long to handle overflow.
+int left=1, right=x, ret=1;
+while(left<=right){
+    int mid = (right-left)/2 + left;
+    int tmp = long) mid*mid;
+    if( tmp== x) return mid;
+    else if(tmp < x) {ret = mid; left=mid+1;}
+    else right = mid-1;
+}
+return ret;
+
 
 74. Search a 2D Matrix(can be converted to 1D row by row.)
 [easy-medium] l=0, r=row*col-1; midVal = matrix[mid/col][mid%col],  time o(log(m+n))
@@ -203,17 +226,11 @@ further compare target to num[left] and num[mid].
 [easy-medium] o(m+n). start on top right point, row=0, col=col_size-1; row++ or col--;
 time can also be o(mlogn) or o(nlogm)
 
-153. Find Minimum in Rotated Sorted Array(real question)
-[easy-medium]  if(num[mid]< num[r]) r= mid(not mid-1, because it can be the min);
-else l = mid+1; return num[l]  while(l<r)
+162. Find Peak Element (tricky but interesting)
+[medium] return mid if(mid==0 || num[mid] > num[mid-1]) && ( mid= num.length-1 || num[mid] > num[mid+1])
+if(mid>0 && num[mid] < num[mid-1]) (search left) r=mid-1  , else (search right) l = mid+1
 
-154. Find Minimum in Rotated Sorted Array II(duplicate is allowed)(real question)
-[hard-medium] if(num[mid] == num[r]) r--;  else are the same as 153.
-
-162. Find Peak Element ((i==0 || num[i] > num[i-1]) && ( i= num.length-1 || num[i] > num[i+1]))(tricky)
-[medium] if(i>0 && num[mid] < num[mid-1]) (search left) r=mid-1  , else (search right) l = mid+1
-
-278. First Bad Version
+278. First Bad Version(real question)
 [easy] if (mid is isBad){ret = mid; r =mid-1}; else l=mid+1;
 
 374. Guess Number Higher or Lower
@@ -489,10 +506,13 @@ or iteratively in-order traversal.
 
 
 ---------------------------------------------------
-Bit Manipulation(reviewing on 10/27/2016)
+Bit Manipulation(reviewed on 10/27/2016)
 ---------------------------------------------------
 29. Divide Two Integers
 [medium] not sure. [TODO]
+
+371. Sum of Two Integers
+[easy-medium] [TODO]  not sure why.
 
 89. Gray Code(interesting)
 [medium] f(n) += reverse(f(n-1)) + 2^(n-1), use list to represent f(n)
@@ -524,14 +544,8 @@ for(int i=0;i<32;i++){
 191. Number of 1 Bits
 [easy] ret += (n & 1);  n >>= 1
 
-201. Bitwise AND of Numbers Range(interesting)
-[easy-medium] find common bits between n and m. (still not sure why only n and m)
-
-318. Maximum Product of Word Lengths
-[medium] hashtable or store each char in an int[] as bit, do "&" for each int.
-
-371. Sum of Two Integers
-[easy-medium] [TODO]  not sure why.
+201. Bitwise AND of Numbers Range(interesting) in range [m,n]
+[easy-medium] count left common bits between m and n. return m<<count. write an example will understand.
 
 
 ---------------------------------------------------
@@ -830,10 +844,6 @@ return dp[amount] == Integer.MAX_VALUE? -1 : dp[amount];
 (time o(m*n), space(m*n), space can be reduced use rolling array and one variable)
 
 
-
-
-
-
 300. Longest Increasing Subsequence(return max length of increasing subsequence in array)(interesting)
 [medium] dp[i] = Math.max(dp[i], dp[j]+1)
 for(int i=0;i<nums.length;i++){
@@ -868,7 +878,7 @@ for (int i = 0; i < nums.length; i++) {
 
 
 ---------------------------------------------------
-Hash Table(reviewed on 9/29/2016)
+Hash Table(reviewed on 9/29/2016)(should be reviewed again)
 hashmap can be used as count each char/num, or store index of char/num
 hashset usually check if visited or not.
 ---------------------------------------------------
@@ -917,6 +927,10 @@ for(int i=0;i<secret.length();i++){
 }
 return num_bull+"A"+num_cow+"B";
 
+318. Maximum Product of Word Lengths(interesting)
+[medium] 1. hashset to store chars for each word. time o(n^2), space(26*n)
+2. optimize, store each char in an int[] as bit, do "&" for each int. time o(n^2), space(n)
+
 
 347. Top K Frequent Elements(interesting)
 [medium] bucket sort o(n) time but o(n) space: map(count, num). List[] buckets= new List[num.length+1];
@@ -942,6 +956,7 @@ process line by line using s.split("\n"); "\t" is counted as one char.
 [easy] two pass. 1st: map(char, count)  2ed: count--; return if count<0;
 
 
+
 ---------------------------------------------------
 Interval
 ---------------------------------------------------
@@ -959,8 +974,11 @@ else if end < next.end; end = next.end;   // else when end > next.end do nothing
 253. Meeting Rooms II(VIP)(interesting)
 [medium] using heap sorted by interval.end to merge adjacent intervals greedily.
 
+
+
+
 ---------------------------------------------------
-Linked List
+Linked List(reviewed on 10/27/2016)(out of box thinking, modify value in node)
 ---------------------------------------------------
 2. Add Two Numbers(real question)
 [easy-medium] carry. one list is shorter than the other. extra carry node. similar to N415.
@@ -972,25 +990,28 @@ Linked List
 [easy] dummy node.
 
 24. Swap Nodes in Pairs(swap adjacent node)(real question)
-[easy-medium] dummy node.  need three pointers to swap: pre, cur and nextNode.
+[easy-medium] dummy node and odd and even.  need three pointers to swap: pre, cur and nextNode.
+
+206. Reverse Linked List
+[easy-medium] iterative one. need pre, cur, next. similar to N24.
+
+92. Reverse Linked List II(from position m to n)
+[medium] dummy node to solve first node issue. need extra pre_m, m_node to link head and tail.
+pre_m.next = pre, m_node.next=cur.  pre, cur, next for reversing node. m-- >1; n-- >1
 
 61. Rotate List
-[easy-medium] count node, tail -> head, move n - k steps, head = tail.next, tail.next = null  [TODO]
+[easy-medium] just need link tail and head, break one link, reset head node.
+count node, tail -> head, move n - k steps, head = tail.next, tail.next = null
 
 83. Remove Duplicates from Sorted List
 [easy] skip next if equals. if ==, cur.next=cur.next.next, else cur = cur.next.
 
-82. Remove Duplicates from Sorted List II
-[medium] need dummy node to skip the first one. store duplicate value by checking cur.next.val == cur.next.next.val , and skip all duplicate if equals duplicate value.
+82. Remove Duplicates from Sorted List II(only return unique node, remove all nodes exists more than once)
+[medium] need dummy node to skip the first one. check next.val == next.next.val
+store duplicate value by checking cur.next.val == cur.next.next.val , and skip all duplicate if equals duplicate value.
 
-86. Partition List
+86. Partition List(move node.val < x to list 1, move node.val >= x to list 2, and link them.)
 [medium] two dummy nodes as the start of each list, two p pointers points to current node will end up to the tail of each list.
-
-206. Reverse Linked List
-[easy-medium] iterative one. need pre, cur, next.
-
-92. Reverse Linked List II
-[medium] dummy node to solve first node issue. need extra pre_m, m_node to link head and tail. pre_m.next = pre, m_node.next=cur.  pre, cur, next for reversing node. m-- >1; n-- >1
 
 141. Linked List Cycle
 [easy] two pointers, slow and fast. while(fast!=null && fast.next != null) ...
@@ -1002,16 +1023,23 @@ Linked List
 [medium] find mid point, and reverse the second half, and merge them.
 
 147. Insertion Sort List
-[medium] need dummy node.[TODO]
+[medium] need dummy node. for each node insert it to it's proper position.
 
-148. Sort List
-[medium] merge sort. [TODO]
+148. Sort List(interesting)
+[medium] merge sort.
+if(head==null || head.next==null) return head;
+slow = head, fast = head.next.next // important, make sure slow is the node before mid node.
+ListNode l1 = sortList(slow.next);
+slow.next=null;
+ListNode l2 = sortList(head);
+return merge(l1, l2);
 
-160. Intersection of Two Linked Lists
+160. Intersection of Two Linked Lists(interesting)
 [easy-medium] subtract the length of two lists. the longer one moves the diff steps first.
 
 203. Remove Linked List Elements
-[easy] dummy node to handle first node or while loop to skip the first node.
+[easy] 1. dummy node to handle first node
+2. or while loop to skip the first node.
 
 234. Palindrome Linked List(require o(1) space)
 [easy-medium] reverse the first half while find mid point; compare reversed with slow. [TODO not implemented yet]
@@ -1021,6 +1049,7 @@ Linked List
 
 328. Odd Even Linked List
 [easy-medium] one pointer for odd, one pointer for even.
+while(even!=null && even.next != null) {...}
 
 
 ---------------------------------------------------
