@@ -559,13 +559,14 @@ for(int i=0;i<32;i++){
 [easy-medium] count left common bits between m and n. return m<<count. write an example will understand.
 
 
+
+
 ---------------------------------------------------
-Design
+Design(reviewed on 10/27/2016)
 ---------------------------------------------------
-173. Binary Search Tree Iterator(next() return smallest in BST)
+173. Binary Search Tree Iterator(next() return smallest in BST)(interesting)(stack)
 [medium] push all left node to stack until the left most.
-when pop, if node.right!=null, push all its left. the reason it's o(1) time,
-because each element is visited only once.
+when pop, if node.right!=null, push all its left. It's o(1) time, because each element is visited only once.
 
 284. Peeking Iterator(existing functions are iterator.next and iterator.hasNext; add a peek function)
 [medium] the key is to cache(save) next element with element and isPeeked variables.
@@ -579,13 +580,12 @@ void = dfs(List<NestedInteger> nestedList){
     }
 }
 
-385. Mini Parser(interesting)
-[medium-hard] stack to store each object. if '[', add obj to stack,  if ',' || ']', add number to stack.peek() object, if ']', pop stack.
-
-
+385. Mini Parser(interesting)(constructed NestedInteger from String)
+[medium-hard] stack to store each object.
+if '[', add obj to stack,  if ',' || ']', add number to stack.peek() object, if ']', pop stack.
 
 355. Design Twitter
-[medium-hard] [TODO]
+[medium-hard] [TODO] a few hashmap, hashset and priorityQueue.
 
 // Trie
 208. Implement Trie (Prefix Tree)
@@ -969,7 +969,7 @@ process line by line using s.split("\n"); "\t" is counted as one char.
 
 
 ---------------------------------------------------
-Interval(reviewing on 10/27/2016)
+Interval(reviewed on 10/27/2016)
 ---------------------------------------------------
 56. Merge Intervals
 [hard-medium] sort. Collections.sort(intervals, (Interval a, Interval b)-> a.start - b.start);
