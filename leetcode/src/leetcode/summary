@@ -1265,7 +1265,7 @@ also have quicksort to compare with quickselect
 
 
 ---------------------------------------------------
-Stack/Queue(reviewed on 9/29/2016)
+Stack/Queue(reviewed on 9/29/2016, 10/27/2016)
 ---------------------------------------------------
 20. Valid Parentheses(real question)
 [easy] push if it's opening parenthesis like "({[", else stack.pop, return false if not matched closing parenthesis.")}]"
@@ -1282,10 +1282,10 @@ push to minstack only when it's empty or incoming is <=(equal to handle duplicat
 pop minStack only when val = top.
 used the trick of stack's top always be the smallest until a smaller comes after.
 
-225. Implement Stack using Queues
+225. Implement Stack using Queues(real question)
 [easy-medium] two queues to mimic stack.
 
-232. Implement Queue using Stacks
+232. Implement Queue using Stacks(real question)
 [easy-medium] two stacks to mimic queue.
 
 
@@ -1295,7 +1295,7 @@ used the trick of stack's top always be the smallest until a smaller comes after
 227. Basic Calculator II [TODO]
 [mmedium]
 
-402. Remove K Digits(impressive idea)
+402. Remove K Digits(impressive idea) example: 12345, 54321, 100234, 500432
 [medium-hard] stack, pop stack when stack.peek() > num; k--;
 
 
