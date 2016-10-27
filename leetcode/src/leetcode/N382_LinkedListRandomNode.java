@@ -50,4 +50,29 @@ public class N382_LinkedListRandomNode {
             return list.get(index);
         }
     }
+
+    // Reservoir_sampling added on 10/27/2016, not tested
+    // o(n) time, o(1) space
+    public class Solution2 {
+        private int count;
+        Random rand;
+        ListNode cur;
+        /** @param head The linked list's head.
+        Note that the head is guaranteed to be not null, so it contains at least one node. */
+        public Solution2(ListNode head) {
+            count = 0;
+            rand = new Random();
+            cur = head;
+        }
+
+        /** Returns a random node's value. */
+        public int getRandom() {
+            int ret=0;
+            while(cur != null){
+                if(rand.nextInt(++count) == 0) ret = cur.val;
+                cur=cur.next;
+            }
+            return ret;
+        }
+    }
 }
