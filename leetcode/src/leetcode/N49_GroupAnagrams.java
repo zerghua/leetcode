@@ -50,6 +50,7 @@ public class N49_GroupAnagrams {
 
 
     // TLE caused by  ret.addAll(map.values()) ???
+    // I think this is OK, just OJ is crazy sometime.
     public class Solution2 {
         public List<List<String>> groupAnagrams(String[] strs) {
             List<List<String>> ret = new ArrayList<>();
@@ -144,4 +145,48 @@ public class N49_GroupAnagrams {
             return ret;
         }
     }
+
+    // added on 10/27/2016
+    // 33 ms 100 / 100 test cases passed.
+    public class Solution6 {
+        public List<List<String>> groupAnagrams(String[] strs) {
+            List<List<String>> ret = new ArrayList<>();
+            HashMap<Integer, List<String>> map = new HashMap<>();
+            for(String str: strs){
+                int[] a = new int[128];
+                for(char c: str.toCharArray()) a[c]++;
+                int key = Arrays.hashCode(a);
+
+                if(!map.containsKey(key)){
+                    ArrayList<String> list = new ArrayList();
+                    ret.add(list);
+                    map.put(key, list);
+                }
+                map.get(key).add(str);
+            }
+            return ret;
+        }
+    }
+
+    // added on 10/27/2016
+    // 33 ms 100 / 100 test cases passed.
+    public class Solution7 {
+        public List<List<String>> groupAnagrams(String[] strs) {
+            HashMap<Integer, List<String>> map = new HashMap<>();
+            for(String str: strs){
+                int[] a = new int[128];
+                for(char c: str.toCharArray()) a[c]++;
+                int key = Arrays.hashCode(a);
+
+                if(!map.containsKey(key)){
+                    map.put(key, new ArrayList());
+                }
+                map.get(key).add(str);
+            }
+            List<List<String>> ret = new ArrayList<>();
+            ret.addAll(map.values());
+            return ret;
+        }
+    }
+
 }
