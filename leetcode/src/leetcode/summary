@@ -889,7 +889,7 @@ for (int i = 0; i < nums.length; i++) {
 
 
 ---------------------------------------------------
-Hash Table(reviewed on 9/29/2016)(should be reviewed again)
+Hash Table(reviewed on 9/29/2016, 10/28/2016)
 hashmap can be used as count each char/num, or store index of char/num
 hashset usually used to check if visited or not.
 ---------------------------------------------------
@@ -909,8 +909,8 @@ throw new IllegalArgumentException("No solution");
 202. Happy Number
 [easy] put calculated number in hashset to detect duplicate.
 
-205. Isomorphic Strings(Two strings are isomorphic if the characters in s can be replaced to get t.)
-[easy-medium] two way hashtables. if(map.put(a[i]),i) != map.put(b[i],i)) return false; Integer i(not int);
+205. Isomorphic Strings(Two strings are isomorphic if the characters in s can be replaced to get t.)case: aa and ab.
+[easy-medium] two way hashtables. return func(s,t) && func(t,s);
 
 290. Word Pattern
 [easy-medium] two way hashtables, the same as N205.   map(char, String) and map(String, char)
@@ -942,7 +942,6 @@ return num_bull+"A"+num_cow+"B";
 [medium] 1. hashset to store chars for each word. time o(n^2), space(26*n)
 2. optimize, store each char in an int[] as bit, do "&" for each int. time o(n^2), space(n)
 
-
 347. Top K Frequent Elements(interesting)
 [medium] bucket sort o(n) time but o(n) space: map(count, num). List[] buckets= new List[num.length+1];
 heap o(nlogn) time, but o(k) space.
@@ -953,7 +952,7 @@ heap o(nlogn) time, but o(k) space.
 350. Intersection of Two Arrays II
 [easy-medium] find intersect of two hashtables, value on count of each num.
 
-383. Ransom Note(if "A" can be constructed from "B")
+383. Ransom Note(if "A" can be constructed from "B")(real question)
 [easy] hashtable, count and compare each char.
 
 387. First Unique Character in a String
