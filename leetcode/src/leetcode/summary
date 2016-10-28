@@ -250,7 +250,7 @@ if(mid>0 && num[mid] < num[mid-1]) (search left) r=mid-1  , else (search right) 
 
 
 ---------------------------------------------------
-Binary Tree(reviewed on 9/30/2016)
+Binary Tree(reviewed on 9/30/2016, 10/28/2016)
 ---------------------------------------------------
 94. Binary Tree Inorder Traversal
 [easy-medium] left-root-right. iterative, use stack.
