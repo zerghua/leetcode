@@ -424,7 +424,7 @@ public boolean isValidSerialization(String preorder) {
     }
 
 ---------------------------------------------------
-Binary Search Tree(reviewed on 9/30/2016)
+Binary Search Tree(reviewed on 9/30/2016, 10/28/2016)
 ---------------------------------------------------
 96. Unique Binary Search Trees(return how many unique trees.)
 [medium-hard] DP. catalan number. f(n) = f(0)*f(n-1) + f(1)*f(n-2) + ... + f(n-1)f(0)
