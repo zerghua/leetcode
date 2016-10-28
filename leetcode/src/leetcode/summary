@@ -42,7 +42,7 @@ public boolean isContainAnagram(String s, String t){
 
 
 ---------------------------------------------------
-Array (reviewed on 9/29/2016)
+Array (reviewed on 9/29/2016, 10/27/2016)
 // for array problem, if sort is not efficient enough, use hash table or two pointers/sliding window
 // if sorted or adjacent/continuous graph , it's usually binary search.
 ---------------------------------------------------
@@ -138,9 +138,9 @@ return majorElement;
 189. Rotate Array
 [easy] reverse 3 times. reverse(0,n-k-1); reverse(n-k,n-1); reverse(0,n-1)
 
-228. Summary Ranges(given [0,1,2,4,5,7], return ["0->2","4->5","7"].)
-[medium] maintain start index. multiple sliding windows.
-if num[i]-num[i-1] >1, construct list(start,i-1); start=i;  (may overflow num[i]-num[i-1])
+228. Summary Ranges(given [0,1,2,4,5,7], return ["0->2","4->5","7"])(interesting)
+[medium] maintain start index.
+if num[i]-num[i-1] >1, construct list(start,i-1); start=i;  (may overflow num[i]-num[i-1])(corner case last one)
     for(int i=1; i<=nums.length;i++){
         if(i == nums.length || nums[i] != nums[i-1]+1){
             if(i-1 == start) ret.add(""+ nums[i-1]); // case when last one is single.
@@ -188,7 +188,7 @@ return n-left;
 
 
 ---------------------------------------------------
-Binary search(reviewed on 9/28/2016 )(reviewed again on 10/27/2016)(regular BS is while(left<=right), and has early return)
+Binary search(reviewed on 9/28/2016, 10/27/2016)(regular BS is while(left<=right), and has early return)
 ---------------------------------------------------
 33. Search in Rotated Sorted Array
 [hard-medium] 4 if conditions, compare num[mid] with num[left],
@@ -1326,7 +1326,7 @@ detail coding. leading/trailing spaces, negative/positive sign, non-chars, overf
 String[] symbol={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
 int[]     value={1000,900,500,400, 100, 90,  50, 40,  10, 9,   5,  4,   1};
 StringBuilder sb = new StringBuilder();
-for(int i=0;num!=0; i++){
+for(int i=0;num!=0; i++){ //important num!=0
     while(num >= value[i]){
         num -= value[i];
         sb.append(symbol[i]);
