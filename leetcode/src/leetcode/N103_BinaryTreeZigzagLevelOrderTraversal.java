@@ -66,4 +66,30 @@ public class N103_BinaryTreeZigzagLevelOrderTraversal {
     // on 9/12/2016
     //another solution could be 102, level order traversal and then reverse odd list in ret.
     //as  Collections.reverse(res.get(i));  for each odd number list.
+
+    // added on 10/28/2016
+    // 2 ms 33 / 33 test cases passed.
+    public class Solution {
+        public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+            List<List<Integer>> ret = new LinkedList();
+            if(root == null) return ret;
+            Queue<TreeNode> queue = new LinkedList();
+            queue.add(root);
+            int level= 1;
+            while(!queue.isEmpty()){
+                int size = queue.size();
+                List<Integer> cur = new ArrayList();
+                for(int i=0;i<size;i++){
+                    TreeNode node = queue.poll();
+                    cur.add(node.val);
+                    if(node.left != null) queue.add(node.left);
+                    if(node.right!= null) queue.add(node.right);
+                }
+                if(level%2 == 0) Collections.reverse(cur);
+                level++;
+                ret.add(cur);
+            }
+            return ret;
+        }
+    }
 }
