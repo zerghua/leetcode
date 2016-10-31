@@ -1216,6 +1216,9 @@ can also move left 1 by 1 like below, but slower. above is optimized way.
         ret = Math.max(ret, i-left+1);
     }
 
+424. Longest Repeating Character Replacement(real question)(google)
+[medium-hard] [TODO]
+
 
 159. Longest Substring Which Contains at most 2 Unique Characters(VIP)(interesting)
 340. Longest Substring Which Contains at most k Unique Characters(VIP)(interesting)(real question)(Facebook)
