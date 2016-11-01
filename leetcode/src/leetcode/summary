@@ -1216,10 +1216,6 @@ can also move left 1 by 1 like below, but slower. above is optimized way.
         ret = Math.max(ret, i-left+1);
     }
 
-424. Longest Repeating Character Replacement(real question)(google)
-[medium-hard] [TODO]
-
-
 159. Longest Substring Which Contains at most 2 Unique Characters(VIP)(interesting)
 340. Longest Substring Which Contains at most k Unique Characters(VIP)(interesting)(real question)(Facebook)
 [hard-medium] windows contains only unique k chars. ret = Math.max(ret, i-left+1);
@@ -1233,6 +1229,10 @@ sliding window with k size. use help of hashmap<char, count> or int[256] to move
         }
         ret = Math.max(ret, i-left+1);  //windows only contains at most k unique chars.
     }
+
+424. Longest Repeating Character Replacement(real question)(google)(tricky to move window)
+[medium-hard] [TODO]
+
 
 76. Minimum Window Substring(given two strings s and t, find minimum window in s contains t.)(interesting)
 [hard-medium] sliding window.
