@@ -1,6 +1,6 @@
 10/16/2016 on N389
 11/2/2016 backwards added N419.
-
+11/3/2016 backwards added N401.
 
 ---------------------------------------------------
 Anagram(words group like: cat, act) (reviewed on 9/28/2016, 10/27/2016)
@@ -180,6 +180,9 @@ return n-left;
 
 378. Kth Smallest Element in a Sorted Matrix
 [medium] heap. put the first row in heap, poll from heap, push back with row++;
+
+412. Fizz Buzz
+[easy] very easy.
 
 414. Third Maximum Number
 [easy-medium] very tricky to find distinct third largest.
@@ -421,6 +424,11 @@ public boolean isValidSerialization(String preorder) {
         return root;
     }
 
+
+404. Sum of Left Leaves
+[easy-medium] DFS.
+
+
 ---------------------------------------------------
 Binary Search Tree(reviewed on 9/30/2016, 10/28/2016)
 ---------------------------------------------------
@@ -556,7 +564,8 @@ for(int i=0;i<32;i++){
 201. Bitwise AND of Numbers Range(interesting) in range [m,n]
 [easy-medium] count left common bits between m and n. return m<<count. write an example will understand.
 
-
+405. Convert a Number to Hexadecimal(interesting)
+[easy-medium] ret.insert(0, hex[num & 15]);
 
 
 ---------------------------------------------------
@@ -740,8 +749,14 @@ public void dfs(int pre, int n, List ret){
     }
 }
 
+401. Binary Watch
+[easy-medium] DFS+backtracking or hashtable solution.
+
 419. Battleships in a Board
 [medium-easy] DFS+backtracking or a simple solution.
+
+
+
 
 
 ---------------------------------------------------
@@ -888,6 +903,8 @@ for (int i = 0; i < nums.length; i++) {
 376. Wiggle Subsequence(return length of longest wiggle subsequence)(interesting) [TODO]
 [medium] alternate DP. if(num[i]>num[i-1])p=q+1; else if(num[i]<num[i-1])q=p+1; return max(p,q);
 
+416. Partition Equal Subset Sum
+[medium] find half sum of array and DP.
 
 
 ---------------------------------------------------
@@ -979,6 +996,9 @@ process line by line using s.split("\n"); "\t" is counted as one char.
 
 389. Find the Difference(find one different char in two strings)
 [easy] two pass. 1st: map(char, count)  2ed: count--; return if count<0;
+
+409. Longest Palindrome(interesting)
+[easy-medium] ret += (odd-1)
 
 
 
@@ -1382,6 +1402,9 @@ public boolean isOneEditDistance(String s, String t){
     while(i<m && s.charAt(i) == t.charAt(i+diff)) i++; //insert and modify case.
     return i==m;
 }
+
+415. Add Strings
+[easy] similar to N2.
 
 
 
