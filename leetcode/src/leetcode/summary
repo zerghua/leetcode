@@ -1,6 +1,7 @@
 10/16/2016 on N389
 11/2/2016 backwards added N419.
 11/3/2016 backwards added N401.
+11/4/2016 backwards added N389.
 
 ---------------------------------------------------
 Anagram(words group like: cat, act) (reviewed on 9/28/2016, 10/27/2016)
@@ -181,11 +182,15 @@ return n-left;
 378. Kth Smallest Element in a Sorted Matrix
 [medium] heap. put the first row in heap, poll from heap, push back with row++;
 
+393. UTF-8 Validation
+[medium] find pattern.
+
 412. Fizz Buzz
 [easy] very easy.
 
 414. Third Maximum Number
 [easy-medium] very tricky to find distinct third largest.
+
 
 
 ---------------------------------------------------
@@ -564,6 +569,9 @@ for(int i=0;i<32;i++){
 201. Bitwise AND of Numbers Range(interesting) in range [m,n]
 [easy-medium] count left common bits between m and n. return m<<count. write an example will understand.
 
+397. Integer Replacement
+[medium] matters on last two binary digits, and special case on 3.
+
 405. Convert a Number to Hexadecimal(interesting)
 [easy-medium] ret.insert(0, hex[num & 15]);
 
@@ -748,6 +756,9 @@ public void dfs(int pre, int n, List ret){
         }
     }
 }
+
+394. Decode String(interesting)
+[medium] DFS.
 
 401. Binary Watch
 [easy-medium] DFS+backtracking or hashtable solution.
@@ -1162,6 +1173,13 @@ while(n>0){
 367. Valid Perfect Square(9=1+3+5 ...)(interesting)
 [medium] tmp=1; while(num>0) num -= tmp; tmp+=2; return num==0;
 
+396. Rotate Function
+[easy-medium] math.
+Sum=f0+f1+...fn
+F0 = 0*f0 + 1*f1 + n*fn
+F1 = F0 + sum - n*f(n-1)
+...
+
 423. Reconstruct Original Digits from English
 [medium] find pattern.
 
@@ -1472,9 +1490,8 @@ reverse[0,n-1]; reverse each word.
 163. MissingRanges(VIP)(real question)(interesting)(return missing interval)
 [medium] cur-pre >=2, extra two sentinels, pre=start-1; cur = (i==num.length)?end+1; num[i];
 
-
-
-
+392. Is Subsequence
+[medium-easy] two pointers. return i == a.length;
 
 
 -----------------------------------------[hard]---------------------------------------------
