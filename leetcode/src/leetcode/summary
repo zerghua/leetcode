@@ -2,6 +2,7 @@
 11/2/2016 backwards added N419.
 11/3/2016 backwards added N401.
 11/4/2016 backwards added N389.
+11/5/2016 backwards added N379.
 
 ---------------------------------------------------
 Anagram(words group like: cat, act) (reviewed on 9/28/2016, 10/27/2016)
@@ -609,8 +610,12 @@ if '[', add obj to stack,  if ',' || ']', add number to stack.peek() object, if 
 211. Add and Search Word - Data structure design
 [medium-hard] BFS on trie of wildcard(.)
 
+379. Design Phone Directory(VIP)
+[medium]
 
-
+380. Insert Delete GetRandom O(1)
+381. Insert Delete GetRandom O(1) - Duplicates allowed
+[hard]
 
 
 ---------------------------------------------------
@@ -1230,6 +1235,9 @@ Random(reviewed on 10/27/2016)
 382. Linked List Random Node
 [medium] save list to array, and call random. o(n) space
 follow up: o(1) space, o(n) time. see Reservoir Sampling. update ret when rand.nextInt(++count) == target(most likely 0)
+
+384. Shuffle an Array
+[medium] ?
 
 398. Random Pick Index
 [medium] Reservoir Sampling
