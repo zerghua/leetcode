@@ -1189,6 +1189,10 @@ F1 = F0 + sum - n*f(n-1)
 423. Reconstruct Original Digits from English
 [medium] find pattern.
 
+441. Arranging Coins
+[easy-medium] math or binary search.
+
+
 ---------------------------------------------------
 Palindrome(DFS + backtracking or DP)(reviewed on 10/1/2016)
 ---------------------------------------------------
