@@ -1017,6 +1017,8 @@ process line by line using s.split("\n"); "\t" is counted as one char.
 409. Longest Palindrome(interesting)
 [easy-medium] ret += (odd-1)
 
+447. Number of Boomerangs
+[easy-medium] hashmap to store previous distance, ret += pre_dist*2; map.put(dist, pre_dist+1);
 
 
 ---------------------------------------------------
