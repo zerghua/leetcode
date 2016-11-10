@@ -1194,6 +1194,8 @@ F1 = F0 + sum - n*f(n-1)
 441. Arranging Coins
 [easy-medium] math or binary search.
 
+453. Minimum Moves to Equal Array Elements
+[easy-medium] think from the opposite way, add n-1 == minus 1;  ret= sum_of_array - n*min;
 
 ---------------------------------------------------
 Palindrome(DFS + backtracking or DP)(reviewed on 10/1/2016)
