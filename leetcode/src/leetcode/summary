@@ -1039,8 +1039,11 @@ else if end < next.end; end = next.end;   // else when end > next.end do nothing
 [medium] using heap sorted by interval.end to merge adjacent intervals greedily.
 return heap.size();
 
+435. Non-overlapping Intervals
+[medium] similar to N452. keep track of end, remove larger end.
+
 452. Minimum Number of Arrows to Burst Balloons(interesting)
-[medium] similar to N253. keep track of end point, compare it with next start point.
+[medium] similar to N435. keep track of end point, compare it with next start point.
 
 
 ---------------------------------------------------
