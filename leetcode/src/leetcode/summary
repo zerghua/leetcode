@@ -255,6 +255,9 @@ if(mid>0 && num[mid] < num[mid-1]) (search left) r=mid-1  , else (search right) 
 374. Guess Number Higher or Lower
 [easy] regular binary search.
 
+436. Find Right Interval(interesting)
+[medium] BF is o(n^2).
+treemap to sort key(interval.start), value=index. cellingEntry(key) to do binary search. o(nlogn)
 
 
 ---------------------------------------------------
