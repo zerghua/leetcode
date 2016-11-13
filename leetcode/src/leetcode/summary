@@ -998,6 +998,9 @@ return num_bull+"A"+num_cow+"B";
 [medium] bucket sort o(n) time but o(n) space: map(count, num). List[] buckets= new List[num.length+1];
 heap o(nlogn) time, but o(k) space.
 
+451. Sort Characters By Frequency(google, amazon)
+[medium] counting/bucket sort.  o(n).
+
 349. Intersection of Two Arrays
 [easy] find intersect of two hashset.
 
