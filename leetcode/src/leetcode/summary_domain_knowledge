@@ -1,3 +1,45 @@
+web browser <--> HTTP  <-- port 80 --> TCP
+UDP header(source port 2 bytes, target port 2 bytes, length 2 bytes, checksum 2 bytes) 8 bytes.
+TCP header(source/target port, sequence number, Acknowledgment number, checksum etc...)20-24 bytes
+IP header(source/target IP address...) IP size = 2^16 + header() ~= 65536 + 20 bytes
+Ethernet protocol header(source/target MAC address) ARP to map between IP and MAC address.
+MTU(Maximum Transfer Unit) in Ethernet networks(network/physical layer) is of 1,500 bytes
+if target is not in the same network, use gateway's MAC address.
+
+DNS(on UDP, port 53.)
+HTTP based on TCP(not UDP)
+Ethernet network(broadcasting target MAC in its network, each host accept or discard)
+
+IP address to help to identify sub-network, so it can be broadcast in Ethernet network.
+
+subnet mask will help to tell if two IP are in the same sub-network
+
+Purpose of IP:
+1. assign IP address to each host
+2. identify which IPs are in the same network.
+
+
+The PC finds that the destination IP address does not belong to his own IP address range
+and it has to forward the request to the Gateway. The Gateway in this scenario can be a router
+or a Proxy Server. Though the Gateway’s IP address is known to the client machine but computers
+do not exchange data on IP addresses, rather they need the machine’s hardware address which is
+Layer-2 factory coded MAC address.
+
+To obtain the MAC address of the Gateway, the client PC broadcasts an ARP request
+saying "Who owns this IP address?" The Gateway in response to the ARP query
+sends its MAC address. Upon receiving the MAC address, the PC sends the packets to the Gateway.
+
+It is important that source and destination MAC addresses change as they travel across
+the Internet (segment by segment) but source and destination IP addresses never change.
+
+gateway will provide the MAC address of IP.
+
+<Ethernet header>--<IP header>--<TCP header>--<HTTP data>
+
+
+
+
+
 what-happens-when-you-type-in-a-url-in-browser
 http://stackoverflow.com/questions/2092527/what-happens-when-you-type-in-a-url-in-browser
 
@@ -38,12 +80,7 @@ checking for malicious content etc.) - and the whole operation gets
 an order of magnitude more complex with HTTPS (certificates and ciphers and pinning, oh my!).
 
 
-UDP header(source port 2 bytes, target port 2 bytes, length 2 bytes, checksum 2 bytes) 8 bytes.
-TCP header(source/target port, sequence number, Acknowledgment number, checksum etc...)20-24 bytes
-IP header(source/target IP address...) IP size = 2^16 + header() ~= 65536 + 20 bytes
-Ethernet protocol header(source/target MAC address) ARP to map between IP and MAC address.
-MTU(Maximum Transfer Unit) in Ethernet networks(network/physical layer) is of 1,500 bytes
-if target is not in the same network, use gateway's MAC address.
+
 
 
 Network Interface Layer
