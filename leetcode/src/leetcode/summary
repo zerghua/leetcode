@@ -1256,7 +1256,8 @@ Random(reviewed on 10/27/2016)
 follow up: o(1) space, o(n) time. see Reservoir Sampling. update ret when rand.nextInt(++count) == target(most likely 0)
 
 384. Shuffle an Array
-[medium] ?
+[medium] Fisher–Yates shuffle.
+https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
 
 398. Random Pick Index
 [medium] Reservoir Sampling
