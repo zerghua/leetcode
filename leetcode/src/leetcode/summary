@@ -1264,7 +1264,8 @@ https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
 
 
 ---------------------------------------------------
-Sliding Window(reviewed on 10/27/2016)
+Sliding Window(reviewed on 10/27/2016, 11/14/2016)
+all is compare count with k([0,n]) except N424, use window - maxRepeatingChar compare with k.
 ---------------------------------------------------
 3. Longest Substring Without Repeating Characters(interesting)(real question)[Must]
 [medium] BF is o(n^2). windows contains only unique chars. ret = Math.max(ret, i-left+1);
@@ -1300,8 +1301,15 @@ sliding window with k size. use help of hashmap<char, count> or int[256] to move
     }
 
 424. Longest Repeating Character Replacement(real question)(google)(tricky to move window)
-[medium-hard] [TODO]
-
+[medium-hard] store previous max length.
+for(int i=0;i<a.length;i++){
+    maxRepeatChar = Math.max(maxRepeatChar,  ++map[a[i]]); // add window
+    while(i-left+1 - maxRepeatChar > k) { // downsize window if needed
+        map[a[left]]--;
+        left++;
+    }
+    ret = Math.max(ret, i-left+1);  //update ret to window size
+}
 
 76. Minimum Window Substring(given two strings s and t, find minimum window in s contains t.)(interesting)
 [hard-medium] sliding window.
