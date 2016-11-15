@@ -192,7 +192,8 @@ return n-left;
 
 414. Third Maximum Number
 [easy-medium] very tricky to find distinct third largest.
-
+if( (first != null && first == n) || (second!= null && second == n) ||
+(third!=null && third == n)) continue;  //to skip duplicate
 
 
 ---------------------------------------------------
@@ -346,7 +347,6 @@ else build it and recursive on left and right.
 106. Construct Binary Tree from Inorder and Postorder Traversal
 [medium] DFS. similar to 105.
 
-
 112. Path Sum(return if sum of any root to leaf path == val)
 [easy-medium] boolean = DFS(node, val)
 if(root == null) return false;
@@ -408,7 +408,6 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     return right == null? left: right;
 }
 
-
 307. Range Sum Query - Mutable(real question)(google)(must)
 [medium-hard] segment tree. [TODO]
 
@@ -437,7 +436,6 @@ public boolean isValidSerialization(String preorder) {
 
 404. Sum of Left Leaves
 [easy-medium] DFS.
-
 
 ---------------------------------------------------
 Binary Search Tree(reviewed on 9/30/2016, 10/28/2016)
