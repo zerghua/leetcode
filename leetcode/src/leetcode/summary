@@ -1740,18 +1740,3 @@ ret += max(Math.min(leftMostHeight[i], rightMostHeight[i]) - height[i] , 0)
 BF, time o(n^2) compare each number.
 tricky solution, map of map. (TODO)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
