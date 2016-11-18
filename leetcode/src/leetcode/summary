@@ -1389,6 +1389,10 @@ used the trick of stack's top always be the smallest until a smaller comes after
 402. Remove K Digits(impressive idea) example: 12345, 54321, 100234, 500432
 [medium-hard] stack, pop stack when stack.peek() > num; k--;
 
+456. 132 Pattern
+[medium] stack solution, require one < three < two.
+
+
 
 ---------------------------------------------------
 String(reviewed on 9/29/2016)
