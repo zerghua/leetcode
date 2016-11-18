@@ -1458,6 +1458,9 @@ public boolean isOneEditDistance(String s, String t){
 415. Add Strings
 [easy] similar to N2.
 
+459. Repeated Substring Pattern
+[easy-medium] build substring and compare, but with a few pruning.
+
 
 
 ---------------------------------------------------
