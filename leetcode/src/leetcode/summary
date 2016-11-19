@@ -59,21 +59,6 @@ Array (reviewed on 9/29/2016, 10/27/2016)
 59, Spiral Matrix II(generate spiral n^2 matrix)
 [medium] 4 loops of top,right,bottom and left side.
 
-55. Jump Game(each num means the longest distance you can jump, can you reach the end?)
-[easy] o(n). store max_jump and compare with end index.
-
-45. Jump Game II(return min jumps to end, assume there is a solution)(interesting)
-[hard-medium] greedy. store max_jump and cur_jump.
-int ret=0, last_jump_max=0, cur_jump_max=0;
-for(int i=0;i<nums.length-1;i++){
-    cur_jump_max = Math.max(cur_jump_max, i+nums[i]);
-    if(i == last_jump_max){
-        ret++;
-        last_jump_max =cur_jump_max;
-    }
-}
-return ret;
-
 
 66. Plus One(to an array of digits)(real question)
 [easy-medium]  find pattern. test case, 199, 999, 288, create new array only when like 999
@@ -110,12 +95,6 @@ for(int i=1; i<=rowIndex;i++){
     }
 }
 return Arrays.asList(row);
-
-
-134. Gas Station(N gas stations along a circular route, cost[], gas[], return start point can circle around)
-[easy-medium] greedy. read problem description carefully, because guaranteed solution
-to be unique if failed at i, we can give up all index [0,i], start checking from i+1.
-reset current_sum to 0 if <0 and start=i+1; overall_sum should also >0;
 
 169. Majority Element(majority > n/2)
 [easy-medium] counting number, count++ if the same; else count--; if count==0, ret=num[i], count=1
@@ -934,6 +913,31 @@ Divide and conquer
 
 
 
+---------------------------------------------------
+Greedy
+---------------------------------------------------
+55. Jump Game(each num means the longest distance you can jump, can you reach the end?)
+[easy] o(n). store max_jump and compare with end index.
+
+45. Jump Game II(return min jumps to end, assume there is a solution)(interesting)
+[hard-medium] greedy. store max_jump and cur_jump.
+int ret=0, last_jump_max=0, cur_jump_max=0;
+for(int i=0;i<nums.length-1;i++){
+    cur_jump_max = Math.max(cur_jump_max, i+nums[i]);
+    if(i == last_jump_max){
+        ret++;
+        last_jump_max =cur_jump_max;
+    }
+}
+return ret;
+
+134. Gas Station(N gas stations along a circular route, cost[], gas[], return start point can circle around)
+[easy-medium] greedy. read problem description carefully, because guaranteed solution
+to be unique if failed at i, we can give up all index [0,i], start checking from i+1.
+reset current_sum to 0 if <0 and start=i+1; overall_sum should also >0;
+
+455. Assign Cookies
+[easy] sort, greedy. count++ when size of cookie >= child's greed.
 
 
 
