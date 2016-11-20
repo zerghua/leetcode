@@ -239,6 +239,9 @@ if(mid>0 && num[mid] < num[mid-1]) (search left) r=mid-1  , else (search right) 
 [medium] BF is o(n^2).
 treemap to sort key(interval.start), value=index. cellingEntry(key) to do binary search. o(nlogn)
 
+463. Island Perimeter
+[easy-medium] island*4 - neighbour*2; only count right and down neighbours.
+
 
 ---------------------------------------------------
 Binary Tree(reviewed on 9/30/2016, 10/28/2016)
