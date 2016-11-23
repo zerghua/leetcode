@@ -1037,6 +1037,10 @@ process line by line using s.split("\n"); "\t" is counted as one char.
 447. Number of Boomerangs
 [easy-medium] hashmap to store previous distance, ret += pre_dist*2; map.put(dist, pre_dist+1);
 
+454. 4Sum II
+[medium] hashmap on(C[i] + D[j]), check if exist in map (-1*(A[i]+B[j])). time o(n^2)
+
+
 
 ---------------------------------------------------
 Interval(reviewed on 10/27/2016)
