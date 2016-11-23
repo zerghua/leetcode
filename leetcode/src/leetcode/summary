@@ -1222,6 +1222,10 @@ F1 = F0 + sum - n*f(n-1)
 453. Minimum Moves to Equal Array Elements
 [easy-medium] think from the opposite way, add n-1 == minus 1;  ret= sum_of_array - n*min;
 
+462. Minimum Moves to Equal Array Elements II
+[medium] math. sort and while(i<j) ret += nums[j--] - nums[i++];
+
+
 ---------------------------------------------------
 Palindrome(DFS + backtracking or DP)(reviewed on 10/1/2016)
 ---------------------------------------------------
