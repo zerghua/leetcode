@@ -569,6 +569,9 @@ for(int i=0;i<32;i++){
 405. Convert a Number to Hexadecimal(interesting)
 [easy-medium] ret.insert(0, hex[num & 15]);
 
+421. Maximum XOR of Two Numbers in an Array
+[medium-hard] [TODO] figure out how this works.
+
 
 ---------------------------------------------------
 Design(reviewed on 10/27/2016)
