@@ -1411,7 +1411,10 @@ used the trick of stack's top always be the smallest until a smaller comes after
 [hard]
 
 227. Basic Calculator II [TODO]
-[mmedium]
+[medium]
+
+372. Super Pow
+[medium-hard] stack and recursion. kind of math, a^25 = (a^2)^10 * a^5;
 
 402. Remove K Digits(impressive idea) example: 12345, 54321, 100234, 500432
 [medium-hard] stack, pop stack when stack.peek() > num; k--;
