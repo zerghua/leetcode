@@ -1265,7 +1265,11 @@ DP cut[j] = min(cut[j], cut[i-1] + 1) inside a[i] == a[j] condition.
 [medium] o(1) space. reverse first half list. [TODO]
 
 266. Palindrome Permutation    (locked)
-267. Palindrome Permutation II (locked)
+
+
+267. Palindrome Permutation II(VIP)(real question)(Akamai)
+
+
 
 336. Palindrome Pairs
 [hard] hashtable + divide conquer.
