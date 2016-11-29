@@ -18,6 +18,12 @@ package leetcode;
  The array is only modifiable by the update function.
  You may assume the number of calls to update and sumRange function is distributed evenly
 
+
+ see graph here, it requires at least 2*n - 1 node, uppper bound is ~ 4n node.
+ non-leaf node are contains range of sum
+ leaf node contains value of each index.
+ http://www.programcreek.com/2014/04/leetcode-range-sum-query-mutable-java/
+
  */
 public class N307_RangeSumQueryMutable {
     // segment tree
