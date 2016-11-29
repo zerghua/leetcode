@@ -1212,6 +1212,10 @@ while(n>0){
 367. Valid Perfect Square(9=1+3+5 ...)(interesting)
 [medium] tmp=1; while(num>0) num -= tmp; tmp+=2; return num==0;
 
+390. Elimination Game
+[medium-hard] move head only when 1. move from left, 2 move from right when remain is odd.
+each time step *=2; remain /=2;
+
 396. Rotate Function
 [easy-medium] math.
 Sum=f0+f1+...fn
@@ -1230,6 +1234,8 @@ F1 = F0 + sum - n*f(n-1)
 
 462. Minimum Moves to Equal Array Elements II
 [medium] math. sort and while(i<j) ret += nums[j--] - nums[i++];
+
+
 
 
 ---------------------------------------------------
