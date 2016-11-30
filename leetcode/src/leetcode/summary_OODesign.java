@@ -32,6 +32,7 @@ public class summary_OODesign {
         }
     }
 
+
     public class ParkingLot{
         // variables
         int numTotalParkingSpaces;
@@ -52,7 +53,10 @@ public class summary_OODesign {
 
 
         // method
+        // assume the type must match to park
         public boolean parkCar(Car car){
+            if(this.isFull()) return false; // cant' park because it's full
+
             for(ParkingSpace e : spaces){
                 if(e.isEmpty && e.type == car.type){
                     e.isEmpty = false;
@@ -61,13 +65,13 @@ public class summary_OODesign {
                     return true;
                 }
             }
-            return false; // car not parked, either it's full or no matching types.
+            return false; // can't park because no type match
         }
 
         // o(n) time, can be o(1) with extra space with hashmap.
         public boolean exitCar(Car car){
             for(ParkingSpace e : spaces){
-                if(e.car.equals(car)){
+                if(!e.isEmpty && e.car.equals(car)){
                     numParkedSpaces--;
                     e.isEmpty = true;
                     e.car = null;
@@ -82,5 +86,9 @@ public class summary_OODesign {
         }
 
     }
+
+    // the operation of exitCar can be improved by using hashmap
+    // the operation of parkCar can be improved by separate counting of each type of car.
+
 
 }
