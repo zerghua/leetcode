@@ -26,4 +26,20 @@ public class N283_MoveZeroes {
         for(int i=zero_index;i<nums.length;i++) nums[i] = 0;
 
     }
+
+
+    // concise code added on 12/1/2016
+    // 0 ms 21 / 21 test cases passed.
+    public class Solution {
+        public void moveZeroes(int[] nums) {
+            int i=0;
+            for(int n: nums){
+                if(n != 0) nums[i++] = n;
+            }
+            for(int j=i;j<nums.length;j++) nums[j] = 0;
+        }
+    }
+
+
+
 }
