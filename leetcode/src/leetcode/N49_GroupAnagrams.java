@@ -18,6 +18,18 @@ import java.util.*;
 
  Note: All inputs will be in lower-case.
 
+ Don't use Array.hashcode, because it might have collision in the range of int, below is the source code.
+ public static int hashCode(int a[]) {
+     if (a == null)
+     return 0;
+
+     int result = 1;
+     for (int element : a)
+     result = 31 * result + element;
+
+     return result;
+ }
+
 
  */
 public class N49_GroupAnagrams {
@@ -189,4 +201,46 @@ public class N49_GroupAnagrams {
         }
     }
 
+    // added on 11/30/2016
+    // should not use Arrays.hashCode will might have a collision.
+    // o(n) + o(nlogk)
+    // 33 ms 100 / 100 test cases passed.
+    public class Solution8 {
+        public List<List<String>> groupAnagrams(String[] strs) {
+            HashMap<String, List<String>> map = new HashMap<>();
+            for(String str: strs){
+                char[] a = str.toCharArray();
+                Arrays.sort(a);
+                String key = new String(a);
+                if(!map.containsKey(key)){
+                    map.put(key, new ArrayList());
+                }
+                map.get(key).add(str);
+            }
+            List<List<String>> ret = new ArrayList<>();
+            ret.addAll(map.values());
+            return ret;
+        }
+    }
+
+    // added on 11/30/2016
+    // o(n), counting sort to construct new string instead of sort.
+    // 28 ms 100 / 100 test cases passed.
+    public class Solution9 {
+        public List<List<String>> groupAnagrams(String[] strs) {
+            HashMap<String, List<String>> map = new HashMap<>();
+            for(String str: strs){
+                char[] a = new char[26];
+                for(char c: str.toCharArray()) a[c-'a']++;
+                String key = new String(a);
+                if(!map.containsKey(key)){
+                    map.put(key, new ArrayList());
+                }
+                map.get(key).add(str);
+            }
+            List<List<String>> ret = new ArrayList<>();
+            ret.addAll(map.values());
+            return ret;
+        }
+    }
 }
