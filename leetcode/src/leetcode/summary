@@ -1274,9 +1274,8 @@ DP cut[j] = min(cut[j], cut[i-1] + 1) inside a[i] == a[j] condition.
 [easy] o(n) space, convert to string.
 [medium] o(1) space. reverse first half list. [TODO]
 
-266. Palindrome Permutation    (locked)
 
-
+266. Palindrome Permutation(VIP)
 267. Palindrome Permutation II(VIP)(real question)(Akamai)
 
 
@@ -1512,48 +1511,134 @@ public boolean isOneEditDistance(String s, String t){
 
 
 ---------------------------------------------------
-Two pointers(or Three pointers)(reviewed on 10/1/2016)
+Two pointers(or Three pointers)(reviewed on 10/1/2016, 12/1/2016)
 ---------------------------------------------------
 11. Container With Most Water(interesting)
 [medium-easy] two pointers on left and right.
-min_height=min(num[left],num[right]), maxArea=max(maxArea, (right-left)*min_height);
-left++ while num[left] <= min_height ...
+while(left < right){
+    int min = Math.min(height[right] , height[left]);
+    max = Math.max(max,  min * (right-left));
+
+    while(left<right && height[left]<= min) left++;
+    while(left<right && height[right]<= min) right--;
+}
 
 167. Two Sum II - Input array is sorted
 [easy] two pointers. l++ and r--;
 
-15. 3Sum
+15. 3Sum(real question)
 [medium-easy] BF(n^3). sort+two pointer makes it o(n^2). skip duplicate.
+Arrays.sort(nums);
+for(int i=0; i<nums.length-2;i++){
+    if(i>0 && nums[i] == nums[i-1]) continue; //skip duplicate of i
+
+    int left = i+1, right = nums.length-1;
+    while(left < right) {
+        int sum = nums[i] + nums[left] + nums[right];
+        if (sum == 0) {
+            ret.add(Arrays.asList(nums[i], nums[left], nums[right]));
+            left++; right--;
+
+            // skip duplicate of left and right
+            while(left<right && nums[left] == nums[left-1]) left++;
+            while(left<right && nums[right] == nums[right+1]) right--;
+        }
+        else if (sum > 0) right--;
+        else left++;
+    }
+}
+
 
 16. 3Sum Closest
 [medium-easy] similar to N15 3sum. store ret and min_diff.
+for(int i=0; i< nums.length-2; i++){
+    int start = i+1, end=nums.length-1;
+    while(start < end){
+        int sum = nums[i] + nums[start] + nums[end];
+        if(sum == target) return target;
+        else if(sum< target) start++;
+        else end--;
+
+        int cur_diff = Math.abs(sum-target);
+        if( cur_diff < min_diff) {
+            min_diff = cur_diff;
+            ret = sum;
+        }
+    }
+}
+
 
 18. 4Sum(prepare for ksum, DFS+backtracking)
 [medium] similar to N15 3sum. o(n^3)
 
 26. Remove Duplicates from Sorted Array
-[easy-medium] i points to last unique one, if (num[i]!=num[j]) num[++i] = num[j]
+[easy-medium] i points to last unique one.
+int i=0;
+for(int n: nums){
+    if(n != nums[i]) nums[++i] = n;
+}
+return i+1;
+
 
 80. Remove Duplicates from Sorted Array II(duplicate allows twice)
-[easy-medium] similar to 26, compare with num[i-1] rather than num[i]. i=1, j=2.
+[easy-medium] similar to 26, compare with num[i-1] rather than num[i].
+int i=1;
+for(int j=2;j<nums.length;j++){
+    if(nums[i-1] != nums[j]) nums[++i] = nums[j];
+}
+return i+1;
+
 
 27. Remove Element(remove given val)(real question)
 [easy-medium] similar to N26, but i points to last removable one.
-if (num[i] != val) num[i++] = num[j]  //num[++i]=x and num[i++]=x are different
+int i=0;
+for(int n: nums){
+    if(n != val) nums[i++] = n;
+}
+return i;
+
 
 283. Move Zeroes
 [easy-medium] similar to N27. if (num[i] != 0) num[i++] = num[j], and fill zeros to the end.
+int i=0;
+for(int n: nums){
+    if(n != 0) nums[i++] = n;
+}
+for(int j=i;j<nums.length;j++) nums[j] = 0;
+
 
 28. Implement strStr()
 [easy-medium] BF is faster than KMP in most small cases.
 while(i<sizeA && j<sizeB) if(A[i]==B[j]){i++;j++;} else {i=i-j+1;j=0}; return i-j if j==sizeB.
+int i=0, j=0;
+char[] t = haystack.toCharArray();
+char[] p = needle.toCharArray();
+while(i<t.length && j<p.length){
+    if(t[i] == p[j]){
+        i++;
+        j++;
+    }else{
+        i = i-j+1;
+        j = 0;
+    }
+}
+int ret = -1;
+if(j==p.length) ret = i-j;
+return ret;
+
 
 58, Length of Last Word.
 [very easy] String operation. scan from last. o(n)
+for(int i=s.length()-1; i>=0;i--){
+    if(s.charAt(i) != ' ') ret++;
+    else if(ret != 0) break;  // trailing spaces.
+}
 
-75. Sort Colors(sort 3 categories)(real question)(interesting)
-[easy-medium] two passed, counting each category and overwrite. (counting sort)
+
+75. Sort Colors(sort 3 categories)(real question)(interesting)(akamai)
+[easy-medium] two passed, counting each category and overwrite. (counting sort) two passes can also solve 4 colors.
 (one pass)three pointers. if 0, swap(i++,left++), if 2, swap(i,right--), else i++; while(i<=right)
+
 
 151. Reverse Words in a String(real question)(interesting)
 [easy-medium] 1. trim().split(" +") to String[]. and reverse it.
@@ -1567,16 +1652,34 @@ follow up: if there is no leading/trailing spaces and each word is separated by 
 reverse[0,n-1]; reverse each word.
 
 344. Reverse String
-[easy]
+[easy] two pointers from both end.
 
 345. Reverse Vowels of a String
 [easy] two pointers find vowels and swap.
 
-163. MissingRanges(VIP)(real question)(interesting)(return missing interval)
+163. MissingRanges(VIP)(real question)(interesting)(return missing interval)(tricky)
 [medium] cur-pre >=2, extra two sentinels, pre=start-1; cur = (i==num.length)?end+1; num[i];
+public List<String> findMissingRanges(int[] nums, int lower, int upper) {
+    List<String> ret = new ArrayList();
+    Long pre = (long)lower-1;
+    for(int i=0;i<=nums.length;i++){
+        long cur = (i == nums.length)?(long)upper+1 : nums[i];
+        if(cur - pre >= 2) ret.add(addString((long)pre+1, (long)cur-1));
+        pre = cur;
+    }
+    return ret;
+}
+public String addString(long from, long to){
+    return (from == to)? ""+from : from + "->" + to;
+}
 
 392. Is Subsequence
 [medium-easy] two pointers. return i == a.length;
+
+
+
+
+
 
 
 -----------------------------------------[hard]---------------------------------------------
