@@ -72,4 +72,17 @@ public class N27_RemoveElement {
     	}
     	return r+1;
     }
+
+
+    // added on 12/1/2016
+    // 13 ms 113 / 113 test cases passed.
+	public class Solution {
+		public int removeElement(int[] nums, int val) {
+            int i=0;
+            for(int n: nums){
+                if(n != val) nums[i++] = n;
+            }
+            return i;
+		}
+	}
 }
