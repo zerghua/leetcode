@@ -6,7 +6,7 @@
 11/6/2016 all added(traced back to N300).
 
 ---------------------------------------------------
-Anagram(words group like: cat, act) (reviewed on 9/28/2016, 10/27/2016)
+Anagram(words group like: cat, act) (reviewed on 9/28/2016, 10/27/2016, 11/30/2016)
 ---------------------------------------------------
 49. Group Anagrams(important)(real question)
 [medium] hashmap<String, list>  or hashmap<int, list>.
@@ -24,18 +24,17 @@ If a String Contains an Anagram of Another String
 public boolean isContainAnagram(String s, String t){
     int m = s.length(), n = t.length();
     if(m < n) return false; // s should be longer than t
-    int[] a= new int[128];
-    for(char c: t)a[c]++;
-    int key = Arrays.hashCode(a);
+    char[] a= new char[26];
+    for(char c: t)a[c - 'a']++;
+    String key = new String(a);
 
-    int[] b= new int[128];
-    for(int i=0;i<n;i++) b[s.charAt(i)]++;
-    if(Array.hashCode(b) == a) return true;
-    int left=0;
-    for(int i=n ;i<= m-n;i++){
-        b[s.charAt(i)]++;
-        b[s.charAt(left)]--;
-        if(Array.hashCode(b) == a) return true;
+    char[] b= new char[26];
+    for(int i=0, left=0 ;i<m;i++){
+        b[s.charAt(i) - 'a']++;
+        if(i>=n-1){
+            if(key.equals(new String(b))) return true;
+            b[s.charAt(left++) - 'a']--;
+        }
     }
     return false;
 }
