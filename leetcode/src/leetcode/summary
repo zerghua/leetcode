@@ -1379,21 +1379,37 @@ for(int i=0;i<a.length;i++){
 
 
 ---------------------------------------------------
-Sort(reviewed on 10/10/2016)
+Sort(reviewed on 10/10/2016, 12/1/2016)
 ---------------------------------------------------
 179. Largest Number(given [3, 30, 34, 5, 9], the largest formed number is 9534330.)
 [medium] custom sort base on String desc (330 before 303)
 Collections.sort(list, (a, b)-> (""+b+a).compareTo(""+a+b));
 
-
 215. Kth Largest Element in an Array
-[medium] quickselect, time o(n) = n + n/2 + n/4 ..,  space o(1)
+[medium] quickselect, time o(n) = n + n/2 + n/4 .., space o(1), compare quicksort with quickselect
 heap, time o(nlogk), space o(k)
-also have quicksort to compare with quickselect
 
-406. Queue Reconstruction by Height(interesting)(sort by first and second)
-[medium] sort + insertion.
+PriorityQueue<Integer> heap = new PriorityQueue<Integer>(k);
+for(int e : nums){
+    if(heap.size()<k) heap.add(e);
+    else{
+        if(e > heap.peek()) {
+            heap.poll();
+            heap.add(e);
+        }
+    }
+}
+return heap.poll();
 
+
+406. Queue Reconstruction by Height(interesting)(tricky)
+[medium] sort + insertion.sort descending by height and ascending of rank
+Arrays.sort(people, (a,b) -> a[0] == b[0]? a[1]-b[1] : b[0]-a[0]);// sort height reversely, and rank
+List<int[]> ret = new LinkedList();
+for(int[] p : people){
+    ret.add(p[1], p);//insert people to its position by rank
+}
+return ret.toArray(new int[people.length][]);
 
 ---------------------------------------------------
 Stack/Queue(reviewed on 9/29/2016, 10/27/2016)
