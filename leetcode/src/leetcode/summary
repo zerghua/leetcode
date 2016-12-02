@@ -1287,7 +1287,7 @@ split each words str1 and str2, and check if isPal(str2) and reversed(str2) in m
 
 
 ---------------------------------------------------
-Random(reviewed on 10/27/2016)
+Random(reviewed on 10/27/2016, 12/1/2016)
 ---------------------------------------------------
 382. Linked List Random Node
 [medium] save list to array, and call random. o(n) space
