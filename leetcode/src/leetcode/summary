@@ -296,25 +296,35 @@ One extra line of: if(i<size-1) node.next = q.peek(); (linking the next node if 
 
 104. Maximum Depth of Binary Tree(real question)(max of max)
 [easy] int = DFS(node)  bottom-up DFS.
-if(node ==null) return 0; return 1 + max(dfs(node.left), dfs(node.right));
+    if (root == null) return 0;
+    return 1+ Math.max(maxDepth(root.left), maxDepth(root.right));
 
 111. Minimum Depth of Binary Tree(real question)(min of min, if one child is null then max of min)
 [easy-medium] int = DFS(node)(one more case than 104 max depth.)  bottom-up DFS.
-if(node.left==null || node.right==null) return 1 + max(dfs(node.left), dfs(node.right)),
-return 1 + min(dfs(node.left), dfs(node.right))
+    if(root == null) return 0;
+    if(root.left ==null) return 1 + minDepth(root.right);
+    else if(root.right ==null) return 1 + minDepth(root.left);
+    else return 1 + Math.min(minDepth(root.left),  minDepth(root.right));
 BFS solution works well for highly unbalanced tree.
 
 110. Balanced Binary Tree(height-balanced tree: every node's subtree diff <= 1)(real question)(interesting)
 [easy-medium] BF o(n^2), for each node, check left and right diff. bottom-up DFS.
 bottom-up DFS. similar to N104 max depth of binary tree.
-public int getHeight(TreeNode root){
-    if(root == null) return 0;
-    int left = getHeight(root.left);
-    if(left == -1) return -1;
-    int right = getHeight(root.right);
-    if(right ==-1 || Math.abs(left-right) > 1) return -1;
-    return 1+ Math.max(left, right);
-}
+    public int dfs(TreeNode root){
+        if(root == null) return 0;
+
+        int left = dfs(root.left);
+        if(left == -1) return -1;
+
+        int right = dfs(root.right);
+        if(right ==-1 || Math.abs(left-right) > 1) return -1;
+
+        return 1+ Math.max(left, right);
+    }
+
+    public boolean isBalanced(TreeNode root) {
+        return dfs(root) != -1;
+    }
 
 124. Binary Tree Maximum Path Sum(find max sum from any node to any node, not need to across root)(very interesting)
 [hard-medium] DFS bottom up, partial max, and global max. int = DFS(node) bottom-up DFS.
@@ -352,9 +362,13 @@ cur_list.add(root.val); dfs(ret, root.left, cur_list, sum-root.val); cur_list.re
 
 437. Path Sum III(find count of path sum to a target, can start from any node, but only downwards.)
 [easy-medium] return dfs(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
-dfs(node, sum){
-    if(node== null) return 0;
-    return (node.val == sum? 1:0) + dfs(node.left, sum-node.val) + dfs(node.right, sum-node.val);
+public int pathSum(TreeNode root, int sum) {
+    if(root == null) return 0;
+    return dfs(root, sum) + pathSum(root.left,sum) + pathSum(root.right,sum);
+}
+public int dfs(TreeNode node, int sum){
+    if(node == null) return 0;
+    return (node.val == sum ? 1 : 0) + dfs(node.left, sum-node.val) + dfs(node.right, sum-node.val);
 }
 
 129. Sum Root to Leaf Numbers(sum of each path from root to leaf)
@@ -376,6 +390,25 @@ public int dfs(TreeNode node, int sum){
 [medium] binary search.  int = dfs(node)
 count left_height; count right_height; if equal return (1<<left_height)-1;
 else recur(root.left) + recur(root.right) +1;
+public int countNodes(TreeNode root) {
+    if(root == null) return 0;
+    TreeNode leftNode = root, rightNode=root;
+    int left_height=0, right_height=0;
+    while(leftNode != null){
+        leftNode = leftNode.left;
+        left_height++;
+    }
+    while(rightNode != null){
+        rightNode = rightNode.right;
+        right_height++;
+    }
+    if(left_height == right_height){
+        return (1<<left_height) -1;
+    }
+    // left_height > right_height
+    return countNodes(root.left) + countNodes(root.right) + 1;
+}
+
 
 226. Invert Binary Tree(swap left and right)(interesting)
 [easy-medium] node = DFS(node), bottom up.
@@ -398,9 +431,6 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     if(left != null && right!=null) return root;
     return right == null? left: right;
 }
-
-307. Range Sum Query - Mutable(real question)(google)(must)
-[medium-hard] segment tree. [TODO]
 
 331. Verify Preorder Serialization of a Binary Tree
 [medium] diff = outdegree - indegree = 1. each node count--; if not leaf, count+=2;
@@ -427,6 +457,23 @@ public boolean isValidSerialization(String preorder) {
 
 404. Sum of Left Leaves
 [easy-medium] DFS.
+public int sumOfLeftLeaves(TreeNode root) {
+    if(root ==null) return 0;
+    if(root.left != null && root.left.left ==null && root.left.right==null)
+        return root.left.val + sumOfLeftLeaves(root.right);
+    return sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
+}
+
+
+---------------------------------------------------
+Segment/Interval Tree
+---------------------------------------------------
+307. Range Sum Query - Mutable(real question)(google)(must)
+[medium-hard] segment tree. [TODO]
+
+
+
+
 
 ---------------------------------------------------
 Binary Search Tree(reviewed on 9/30/2016, 10/28/2016)
@@ -1037,13 +1084,10 @@ process line by line using s.split("\n"); "\t" is counted as one char.
 389. Find the Difference(find one different char in two strings)
 [easy] two pass. 1st: map(char, count)  2ed: count--; return if count<0;
 
-409. Longest Palindrome(interesting)
-[easy-medium] ret += (odd-1)
-
 447. Number of Boomerangs
 [easy-medium] hashmap to store previous distance, ret += pre_dist*2; map.put(dist, pre_dist+1);
 
-454. 4Sum II
+454. 4Sum II(interesting)
 [medium] hashmap on(C[i] + D[j]), check if exist in map (-1*(A[i]+B[j])). time o(n^2)
 
 
@@ -1294,12 +1338,12 @@ DP cut[j] = min(cut[j], cut[i-1] + 1) inside a[i] == a[j] condition.
 266. Palindrome Permutation(VIP)
 267. Palindrome Permutation II(VIP)(real question)(Akamai)
 
-
 336. Palindrome Pairs
 [hard] hashtable + divide conquer.
 split each words str1 and str2, and check if isPal(str2) and reversed(str2) in map. [TODO]
 
-
+409. Longest Palindrome(interesting)
+[easy-medium] ret += (odd-1)
 
 ---------------------------------------------------
 Random(reviewed on 10/27/2016, 12/1/2016)
