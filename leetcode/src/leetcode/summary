@@ -1243,14 +1243,30 @@ F1 = F0 + sum - n*f(n-1)
 
 
 ---------------------------------------------------
-Palindrome(DFS + backtracking or DP)(reviewed on 10/1/2016)
+Palindrome(DFS + backtracking or DP)(reviewed on 10/1/2016, 12/1/2016)
 ---------------------------------------------------
 https://leetcode.com/articles/longest-palindromic-substring/#approach-5-manachers-algorithm-accepted    Manacher's Algorithm
 5. Longest Palindromic Substring(read question)(important)
 [medium-hard] 1. BF is o(n^3).  2. Manacher's Algorithm is o(n). non-trivial.
 3. for each i, call isPal(i,i) and isPal(i,i+1) o(n^2)
 4. getPal(s,i,i) and getPal(s,i,i+1);  use this solution.
+    for(int i=0;i<s.length();i++){
+        String cur = isPal(s, i, i);
+        if(cur.length() > ret.length()) ret = cur;
 
+        cur = isPal(s, i, i+1);
+        if(cur.length() > ret.length()) ret = cur;
+    }
+    return ret;
+
+public String isPal(String s, int left, int right){
+    while(left>=0 && right<s.length()){
+        if(s.charAt(left) == s.charAt(right)){
+            left--; right++;
+        }else break;
+    }
+    return s.substring(left+1, right);
+}
 
 9. Palindrome Number(real question)
 [easy-medium] 1. convert to string.
@@ -1277,7 +1293,6 @@ DP cut[j] = min(cut[j], cut[i-1] + 1) inside a[i] == a[j] condition.
 
 266. Palindrome Permutation(VIP)
 267. Palindrome Permutation II(VIP)(real question)(Akamai)
-
 
 
 336. Palindrome Pairs
