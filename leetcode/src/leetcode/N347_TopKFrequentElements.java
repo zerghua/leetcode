@@ -43,12 +43,7 @@ public class N347_TopKFrequentElements {
         }
 
         // min_heap to get top K
-        PriorityQueue<Pair> min_heap = new PriorityQueue<>(k,
-                new Comparator<Pair>() {
-                    public int compare(Pair o1, Pair o2) {
-                        return o1.count - o2.count;
-                    }
-                });
+        PriorityQueue<Pair> min_heap = new PriorityQueue<>(k, (o1, o2) -> o1.count -o2.count);
 
         for(int key: hm.keySet()){
             if(min_heap.size()<k) min_heap.add(new Pair(key, hm.get(key)));
