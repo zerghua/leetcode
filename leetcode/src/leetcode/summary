@@ -557,10 +557,21 @@ public TreeNode buildBST(int start, int end){
 }
 
 
-230. Kth Smallest Element in a BST  [favorite]
+230. Kth Smallest Element in a BST [favorite]
 [medium] recursively count current node.
 if k == count return; else if count > k, dfs(root.left,k); else dfs(root.right, k-count);
 or iteratively in-order traversal.
+public int kthSmallest2(TreeNode root, int k) {
+    int node_rank = countNodes(root.left) + 1;
+    if (node_rank == k) return root.val;
+    else if (node_rank > k) return kthSmallest(root.left, k);
+    else return kthSmallest(root.right, k - node_rank);
+}
+
+public int countNodes(TreeNode root) {
+    if (root == null) return 0;
+    return countNodes(root.left) + countNodes(root.right) + 1;
+}
 
 235. Lowest Common Ancestor of a Binary Search Tree
 [easy] return if p < node.val < q. else recur left or right.
