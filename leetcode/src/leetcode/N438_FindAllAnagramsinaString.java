@@ -85,4 +85,25 @@ public class N438_FindAllAnagramsinaString {
             return ret;
         }
     }
+
+
+    // added on 12/1/2016
+    // 21 ms 34 / 34 test cases passed.
+    public class Solution3 {
+        public List<Integer> findAnagrams(String s, String p) {
+            List<Integer> ret = new ArrayList();
+            if(p.length() > s.length()) return ret;
+            int[] map = new int[128];
+            for(char c: p.toCharArray())map[c]++;
+
+            int left=0, right=0, count=p.length();
+            char[] a = s.toCharArray();
+            while(right<s.length()){
+                if(map[a[right++]]-- > 0) count--;
+                if(count == 0) ret.add(left);
+                if(right-left == p.length() && map[a[left++]]++>=0) count++;
+            }
+            return ret;
+        }
+    }
 }
