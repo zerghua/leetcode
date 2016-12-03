@@ -1295,8 +1295,6 @@ F1 = F0 + sum - n*f(n-1)
 [medium] math. sort and while(i<j) ret += nums[j--] - nums[i++];
 
 
-
-
 ---------------------------------------------------
 Palindrome(DFS + backtracking or DP)(reviewed on 10/1/2016, 12/1/2016)
 ---------------------------------------------------
