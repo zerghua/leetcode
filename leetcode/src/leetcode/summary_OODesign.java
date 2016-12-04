@@ -91,4 +91,35 @@ public class summary_OODesign {
     // the operation of parkCar can be improved by separate counting of each type of car.
 
 
+
+
+
+
+
+
+    // ************************************************************************************* //
+    // Design Elevator, assume only one elevator.
+    public enum Status {up, down, standby, maintainance}
+
+    public class Elevator{
+        Status status;
+        int capacity;
+        int currentCapacity;
+        int currentFloor;
+
+        // method
+        void openDoor(){}
+        void closeDoor(){}
+        void moveUp(){}
+        void moveDown(){}
+
+
+
+    }
+
+
+
+
+
+
 }
