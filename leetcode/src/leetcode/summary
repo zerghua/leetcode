@@ -1282,6 +1282,9 @@ F0 = 0*f0 + 1*f1 + n*fn
 F1 = F0 + sum - n*f(n-1)
 ...
 
+413. Arithmetic Slices
+[medium] math. i in [2,n){cur +=1; ret += cur;} else cur=0;
+
 423. Reconstruct Original Digits from English
 [medium] find pattern.
 
@@ -1854,8 +1857,6 @@ linkedlist to represent Least recently used:
 1. current get/set element will be put at the head of linked list
 2. remove tail element when need delete.
 3. hashmap<Element, Node> to enable o(1) to get/set element and operate on the node according to 1 and 2.
-
-
 
 
 65. Valid Number
