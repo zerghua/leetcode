@@ -822,6 +822,13 @@ public void dfs(int pre, int n, List ret){
 401. Binary Watch
 [easy-medium] DFS+backtracking or hashtable solution.
 
+417. Pacific Atlantic Water Flow
+[medium] DFS. very interesting coding detail.
+    int[][] dir = new int[][]{{0,1}, {0,-1}, {1,0}, {-1,0}};
+    for(int[] d : dir){
+        dfs(matrix, visited, matrix[x][y], x+d[0], y+d[1]);
+    }
+
 419. Battleships in a Board
 [medium-easy] DFS+backtracking or a simple solution.
 
