@@ -606,6 +606,9 @@ xor all item in each group will get you those two int.
 137. Single Number II(one number appears once while others three times)(real question)
 [medium] on every bit, the sum of each bit is 3*n + (0 or 1). each bit mod 3 is the result.
 
+260. Single Number III
+[medium] two passes. two groups divided by one bit.
+
 268. Missing Number(for [o,n] range, only one is missing, index in range [0,n-1])
 [easy-medium] xor.  a^b^b = a.  ret = n(important); for i in [0,num.length) ret = ret ^ index ^ num[index]
 
