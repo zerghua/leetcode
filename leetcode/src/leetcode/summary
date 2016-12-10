@@ -1856,9 +1856,6 @@ public String addString(long from, long to){
 
 
 
-
-
-
 -----------------------------------------[hard]---------------------------------------------
 149. Max Points on a Line(Given n points on a 2D plane, find the maximum number of points that lie on the same straight line)
 [hard-medium] [hashtable+corner cases]time o(n^2). for each point, calculate slope for each pair and store in map<slope_double, count_int>;
