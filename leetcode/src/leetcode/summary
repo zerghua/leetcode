@@ -57,7 +57,6 @@ Array (reviewed on 9/29/2016, 10/27/2016)
 59, Spiral Matrix II(generate spiral n^2 matrix)
 [medium] 4 loops of top,right,bottom and left side.
 
-
 66. Plus One(to an array of digits)(real question)
 [easy-medium]  find pattern. test case, 199, 999, 288, create new array only when like 999
 for(int i=digits.length-1;i>=0;i--){
