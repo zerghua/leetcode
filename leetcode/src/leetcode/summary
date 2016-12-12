@@ -834,7 +834,8 @@ public void dfs(int pre, int n, List ret){
 419. Battleships in a Board
 [medium-easy] DFS+backtracking or a simple solution.
 
-
+464. Can I Win(can't reuse number)
+[medium-hard] DFS+backtracking+DP.
 
 
 
