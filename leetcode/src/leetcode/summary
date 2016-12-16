@@ -1853,7 +1853,8 @@ public String addString(long from, long to){
 392. Is Subsequence
 [medium-easy] two pointers. return i == a.length;
 
-
+475. Heaters
+[easy-medium] two pointers or binary search. Math.
 
 
 -----------------------------------------[hard]---------------------------------------------
