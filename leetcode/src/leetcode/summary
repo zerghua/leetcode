@@ -1685,6 +1685,9 @@ for(int i=size/2;i>=1;i--) {
 }
 
 
+468. Validate IP Address
+[medium] interesting. take a look.
+
 
 
 ---------------------------------------------------
@@ -2073,3 +2076,6 @@ ret += max(Math.min(leftMostHeight[i], rightMostHeight[i]) - height[i] , 0)
 [hard] require o(1) space, can't modify array, running time faster than o(n^2)
 BF, time o(n^2) compare each number.
 tricky solution, map of map. (TODO)
+
+410. Split Array Largest Sum
+[hard] binary search, but hard to prove it's right.(TODO)
