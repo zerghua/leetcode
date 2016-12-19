@@ -5,6 +5,34 @@
 11/5/2016 backwards added N379.
 11/6/2016 all added(traced back to N300).
 
+
+Table of Contents(last reviewed on)
+1. Anagram                  11/30/2016
+2. Array                    10/27/2016
+3. Binary search            12/01/2016
+4. Binary Tree              10/28/2016
+5. Segment/Interval Tree
+6. Binary Search Tree       10/28/2016
+7. Bit Manipulation         10/27/2016
+8. Design                   10/27/2016
+9. DFS/backtracking or BFS  10/4/2016
+10.DP                       10/2/2016
+11.Divide and conquer
+12.Greedy
+13.Hash Table               10/28/2016
+14.Interval                 10/27/2016
+15.Linked List              10/27/2016
+16.Math                     10/27/2016
+17.Palindrome               12/1/2016
+18.Random                   12/1/2016
+19.Sliding Window           12/1/2016
+20.Sort                     12/1/2016
+21.Stack/Queue              10/27/2016
+22.String                   12/1/2016
+23.Two pointers             12/1/2016
+24.hard questions
+
+
 ---------------------------------------------------
 Anagram(words group like: cat, act) (reviewed on 9/28/2016, 10/27/2016, 11/30/2016)
 ---------------------------------------------------
@@ -631,6 +659,10 @@ for(int i=0;i<32;i++){
 
 421. Maximum XOR of Two Numbers in an Array
 [medium-hard] [TODO] figure out how this works.
+
+461. Hamming Distance
+[easy] xor. return Integer.bitCount(x^y);
+
 
 
 ---------------------------------------------------
