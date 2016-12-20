@@ -45,6 +45,7 @@ public class N45_JumpGame2 {
     // more concise code added on 10/5/2016
     // greedy
     // 11 ms 91 / 91 test cases passed.
+    // example 2,1,6,1,1,4 (2-->6-->4)
     public class Solution {
         public int jump(int[] nums) {
             int ret=0, last_jump_max=0, cur_jump_max=0;
