@@ -18,7 +18,7 @@ Table of Contents(last reviewed on)
 9. DFS/backtracking or BFS  10/4/2016
 10.DP                       10/2/2016
 11.Divide and conquer
-12.Greedy
+12.Greedy                   12/19/2016
 13.Hash Table               10/28/2016
 14.Interval                 10/27/2016
 15.Linked List              10/27/2016
@@ -1029,7 +1029,7 @@ Divide and conquer
 
 
 ---------------------------------------------------
-Greedy
+Greedy(reviewed on 12/19/2016)
 ---------------------------------------------------
 55. Jump Game(each num means the longest distance you can jump, can you reach the end?)
 [easy] o(n). store max_jump and compare with end index.
@@ -1050,10 +1050,28 @@ return ret;
 [easy-medium] greedy. read problem description carefully, because guaranteed solution
 to be unique if failed at i, we can give up all index [0,i], start checking from i+1.
 reset current_sum to 0 if <0 and start=i+1; overall_sum should also >0;
+    int net_sum=0, cur_sum=0, start=0;
+    for(int i=0;i<gas.length;i++){
+        cur_sum += gas[i] - cost[i];
+        net_sum += gas[i] - cost[i];
+        if(cur_sum < 0) {
+            start = i+1;
+            cur_sum = 0;
+        }
+    }
+    if(net_sum < 0) return -1;
+    return start;
 
-455. Assign Cookies
+
+455. Assign Cookies(return max children can be satisfied with their greedy factor)
 [easy] sort, greedy. count++ when size of cookie >= child's greed.
-
+    Arrays.sort(g); //g is children's greedy factor
+    Arrays.sort(s); //s is number of cookie
+    int i=0;
+    for(int j=0;j<s.length && i<g.length; j++){
+        if(g[i] <= s[j]) i++;
+    }
+    return i;
 
 
 
