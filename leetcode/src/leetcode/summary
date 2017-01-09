@@ -1425,9 +1425,12 @@ Random(reviewed on 10/27/2016, 12/1/2016)
 [medium] save list to array, and call random. o(n) space
 follow up: o(1) space, o(n) time. see Reservoir Sampling. update ret when rand.nextInt(++count) == target(most likely 0)
 
-384. Shuffle an Array
-[medium] Fisher–Yates shuffle.
-https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+384. Shuffle an Array(shuffle a deck of card)(Amazon)
+[medium] Fisher–Yates shuffle.  https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+for(int i=a.length-1; i>=1; i--){
+    int j = random.nextInt(i+1);
+    swap(a, i, j);
+}
 
 398. Random Pick Index
 [medium] Reservoir Sampling
