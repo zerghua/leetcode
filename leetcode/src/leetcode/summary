@@ -896,9 +896,22 @@ if(isValid(s.substring(i-2, i))) dp[i] += dp[i-2];
 120. Triangle(minimum path sum from top to bottom, move down only adjacent)[important]
 [medium] (Bottom up DP!!!) rolling array. dp[i] = min(dp[i], dp[i+1]) + matrix[i][j]
 
-121. Best Time to Buy and Sell Stock(at most one transaction)
+121. Best Time to Buy and Sell Stock(at most one transaction)(Amazon)
 [easy-medium] greedy. store global min, and update max each time.
 minVal = min(minVal, a[i]);  ret = max(ret, a[i]-minVal);
+[medium] return index rather than maxProfit
+for(int i=1;i<prices.length;i++){
+    if(min > prices[i]){
+        min = prices[i];
+        possible_min_index = i;
+    }
+    if(max < prices[i] - min){
+        ret[0] = possible_min_index;
+        ret[1] = i;
+        max = prices[i] - min;
+    }
+}
+
 
 122. Best Time to Buy and Sell Stock II(could buy and sell as much as possible.)
 [easy-medium] greedy. add up all the positive difference between two days.
