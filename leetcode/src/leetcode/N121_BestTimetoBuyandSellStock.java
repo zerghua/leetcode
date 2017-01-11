@@ -33,4 +33,41 @@ public class N121_BestTimetoBuyandSellStock {
             return ret;
         }
     }
+
+
+    // return index rather than max profit
+    public class solution_return_index{
+        public int[] maxProfit(int[] prices) {
+            int min = prices[0], max = 0, possible_min_index=0;
+            int[] ret = {0, 0};
+            for(int i=1;i<prices.length;i++){
+                if(min > prices[i]){
+                    min = prices[i];
+                    possible_min_index = i;
+                }
+                if(max < prices[i] - min){
+                    ret[0] = possible_min_index;
+                    ret[1] = i;
+                    max = prices[i] - min;
+                }
+            }
+            return ret;
+        }
+    }
+
+
+    public static void main(String[] args){
+        N121_BestTimetoBuyandSellStock.solution_return_index x= new N121_BestTimetoBuyandSellStock().new solution_return_index();
+        printArray(x.maxProfit(new int[]{2,6,8,10}));
+        printArray(x.maxProfit(new int[]{2,6,4,3,1}));
+        printArray(x.maxProfit(new int[]{2,6,4,3,1,9}));
+    }
+
+    public static void printArray(int[] a){
+        System.out.println(a[0] + " " + a[1]);
+    }
+
+
+
+
 }
