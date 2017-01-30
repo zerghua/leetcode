@@ -1594,7 +1594,7 @@ Stack/Queue(reviewed on 9/29/2016, 10/27/2016)
 150. Evaluate Reverse Polish Notation(real question)
 [easy] if operand, pop twice and evaluate and push back, else push.
 
-155. Min Stack(interesting)(real question)
+155. Min Stack(interesting)(real question)(can easily extended to max or both)
 [easy-medium] two stacks. stack, minStack.
 push to minstack only when it's empty or incoming is <=(equal to handle duplicate) than minStack.top();
 pop minStack only when val = top.
