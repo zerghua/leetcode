@@ -61,6 +61,7 @@ public class N121_BestTimetoBuyandSellStock {
         printArray(x.maxProfit(new int[]{2,6,8,10}));
         printArray(x.maxProfit(new int[]{2,6,4,3,1}));
         printArray(x.maxProfit(new int[]{2,6,4,3,1,9}));
+        printArray(x.maxProfit(new int[]{5,20,1,2,9}));
     }
 
     public static void printArray(int[] a){
