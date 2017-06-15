@@ -1029,6 +1029,8 @@ for (int i = 0; i < nums.length; i++) {
 416. Partition Equal Subset Sum
 [medium] find half sum of array and DP.
 
+583. Delete Operation for Two Strings(equivalent to Longest Common SubSequence (LCS))
+[medium] dp[i][j] = (word1.charAt(i-1) == word2.charAt(j-1)) ? 1 + dp[i-1][j-1] : Math.max(dp[i-1][j], dp[i][j-1]);
 
 ---------------------------------------------------
 Divide and conquer
