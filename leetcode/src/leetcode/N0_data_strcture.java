@@ -33,4 +33,11 @@ public class N0_data_strcture {
         Interval() { start = 0; end = 0; }
         Interval(int s, int e) { start = s; end = e; }
     }
+
+     class Point {
+             int x;
+             int y;
+             Point() { x = 0; y = 0; }
+             Point(int a, int b) { x = a; y = b; }
+     }
 }
