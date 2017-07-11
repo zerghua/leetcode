@@ -14,6 +14,8 @@ import java.util.Arrays;
 
 public class N252_MeetingRooms {
     // time o(nlogn) bounded by sort, space o(1)
+    // 76 / 76 test cases passed.
+    // 14 ms
     public class Solution {
         public boolean canAttendMeetings(Interval[] intervals) {
             if(intervals == null || intervals.length <=1) return true;
