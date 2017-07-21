@@ -39,6 +39,10 @@ import java.util.*;
  */
 
 public class N379_DesignPhoneDirectory {
+    // hashset + linkedlist
+    // google
+    // 18 / 18 test cases passed.  7/21/2017
+    // 557 ms
     public class PhoneDirectory {
         int max;
         HashSet<Integer> set;
@@ -66,7 +70,7 @@ public class N379_DesignPhoneDirectory {
 
         /** Check if a number is available or not. */
         public boolean check(int number) {
-            return set.contains(number) && number<=max;
+            return !set.contains(number) && number<=max;
         }
 
         /** Recycle or release a number. */
