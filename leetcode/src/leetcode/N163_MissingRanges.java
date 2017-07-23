@@ -21,6 +21,7 @@ import java.util.*;
 
  */
 public class N163_MissingRanges {
+    // google
     // Two pointers, and two sentinels for concise code.
     // cur-pre>=2
     public class Solution {
@@ -41,6 +42,8 @@ public class N163_MissingRanges {
     }
 
     // fix max and min Integer using Long type
+    // 40 / 40 test cases passed.  7/23/2017
+    // 1 ms
     public class Solution2 {
         public List<String> findMissingRanges(int[] nums, int lower, int upper) {
             List<String> ret = new ArrayList();
@@ -56,6 +59,7 @@ public class N163_MissingRanges {
             return (from == to)? ""+from : from + "->" + to;
         }
     }
+
 
     public static void main(String[] args){
         N163_MissingRanges.Solution x = new N163_MissingRanges().new Solution();
