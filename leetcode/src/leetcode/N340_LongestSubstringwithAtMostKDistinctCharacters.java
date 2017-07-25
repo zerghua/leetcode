@@ -10,7 +10,10 @@ import java.util.HashMap;
  The following solution is corrected. Given "abcadcacacaca" and 3, it returns "cadcacacaca".
  */
 public class N340_LongestSubstringwithAtMostKDistinctCharacters {
+    // google
     // sliding window, similar to N159.
+    // 142 / 142 test cases passed.  7/25/2017
+    // 42 ms
     public class Solution{
         public int lengthOfLongestSubstringKDistinct(String s, int k) {
             if(s == null || k<=0) return 0;
@@ -33,6 +36,8 @@ public class N340_LongestSubstringwithAtMostKDistinctCharacters {
     }
 
     // assume all ascii chars.
+    // 142 / 142 test cases passed.
+    // 8 ms
     public class Solution2{
         public int lengthOfLongestSubstringKDistinct(String s, int k) {
             if(s == null || k<=0) return 0;
