@@ -13,6 +13,7 @@ package leetcode;
 
 import java.util.*;
 public class N246_StrobogrammaticNumber {
+    // google
     // 47 / 47 test cases passed.
     // 1 ms
     public class Solution {
