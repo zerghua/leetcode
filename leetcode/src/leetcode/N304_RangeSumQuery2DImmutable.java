@@ -34,7 +34,8 @@ package leetcode;
 
  */
 public class N304_RangeSumQuery2DImmutable {
-
+    // google
+    // dp, check out similar but more concise solution on N308
     // 8 ms
     // DP, store col sum in dp.
     public class NumMatrix {
