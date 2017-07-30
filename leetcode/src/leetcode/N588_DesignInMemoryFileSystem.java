@@ -46,7 +46,7 @@ package leetcode;
 import java.util.*;
 public class N588_DesignInMemoryFileSystem {
     // baidu
-    // hashmap + similar to trie/tree structure
+    // design, similar to trie/tree structure
     // 63 / 63 test cases passed.
     // 182 ms
     public class FileSystem {
