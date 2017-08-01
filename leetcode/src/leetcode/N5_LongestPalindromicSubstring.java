@@ -8,7 +8,8 @@ package leetcode;
 
  */
 public class N5_LongestPalindromicSubstring {
-    //38 ms, time O(n^2), space O(1)
+    // Amazon, Microsoft and Bloomberg
+    // 38 ms, time O(n^2), space O(1)
     public String longestPalindrome(String s) {
         if(s==null || s.length()==1) return s;
 
