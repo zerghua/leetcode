@@ -11,18 +11,18 @@ package leetcode;
 
  Example 1:
 
- 1
- / \
- 2   3
- /   / \
- 4   2   4
- /
- 4
+        1
+       / \
+      2   3
+    /   / \
+   4   2   4
+     /
+    4
 
  The following are two duplicate subtrees:
 
- 2
- /
+   2
+  /
  4
 
  and
