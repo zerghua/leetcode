@@ -1,0 +1,146 @@
+top-interview-questions sort by Frequency(145)
+	1      Two Sum    34.3%	Easy
+	344    Reverse String    59.1%	Easy
+	2      Add Two Numbers    27.7%	Medium
+	136    Single Number    54.3%	Easy
+	4      Median of Two Sorted Arrays    21.7%	Hard
+	13     Roman to Integer    45.6%	Easy
+	371    Sum of Two Integers    51.3%	Easy
+	237    Delete Node in a Linked List    46.4%	Easy
+	104    Maximum Depth of Binary Tree    52.5%	Easy
+	3      Longest Substring Without Repeating Characters    24.3%	Medium
+	155    Min Stack    28.5%	Easy
+	146    LRU Cache    17.6%	Hard
+	191    Number of 1 Bits    39.5%	Easy
+	206    Reverse Linked List    45.3%	Easy
+	11     Container With Most Water    36.5%	Medium
+	5      Longest Palindromic Substring    25.2%	Medium
+	169    Majority Element    46.5%	Easy
+	14     Longest Common Prefix    31.4%	Easy
+	7      Reverse Integer    24.3%	Easy
+	283    Move Zeroes    49.7%	Easy
+	20     Valid Parentheses    33.3%	Easy
+	66     Plus One    38.5%	Easy
+	412    Fizz Buzz    58.8%	Easy
+	148    Sort List    28.6%	Medium
+	70     Climbing Stairs    39.9%	Easy
+	141    Linked List Cycle    35.4%	Easy
+	121    Best Time to Buy and Sell Stock    41.0%	Easy
+	21     Merge Two Sorted Lists    39.0%	Easy
+	198    House Robber    38.8%	Easy
+	122    Best Time to Buy and Sell Stock II    46.9%	Easy
+	53     Maximum Subarray    39.5%	Easy
+	38     Count and Say    34.5%	Easy
+	42     Trapping Rain Water    36.6%	Hard
+	238    Product of Array Except Self    48.9%	Medium
+	217    Contains Duplicate    45.6%	Easy
+	171    Excel Sheet Column Number    47.0%	Easy
+	202    Happy Number    40.6%	Easy
+	172    Factorial Trailing Zeroes    35.9%	Easy
+	328    Odd Even Linked List    43.5%	Medium
+	15     3Sum    21.6%	Medium
+	10     Regular Expression Matching    24.1%	Hard
+	149    Max Points on a Line    15.3%	Hard
+	139    Word Break    29.8%	Medium
+	50     Pow(x, n)    26.4%	Medium
+	17     Letter Combinations of a Phone Number    34.3%	Medium
+	200    Number of Islands    34.4%	Medium
+	23     Merge k Sorted Lists    27.1%	Hard
+	138    Copy List with Random Pointer    26.3%	Medium
+	22     Generate Parentheses    44.8%	Medium
+	49     Group Anagrams    34.5%	Medium
+	160    Intersection of Two Linked Lists    30.5%	Easy
+	326    Power of Three    40.2%	Easy
+	384    Shuffle an Array    46.4%	Medium
+	150    Evaluate Reverse Polish Notation    27.1%	Medium
+	152    Maximum Product Subarray    25.6%	Medium
+	88     Merge Sorted Array    32.0%	Easy
+	26     Remove Duplicates from Sorted Array    35.5%	Easy
+	179    Largest Number    22.5%	Medium
+	48     Rotate Image    38.5%	Medium
+	8      String to Integer (atoi)    14.0%	Medium
+	118    Pascal's Triangle    38.4%	Easy
+	234    Palindrome Linked List    32.6%	Easy
+	242    Valid Anagram    46.3%	Easy
+	56     Merge Intervals    29.9%	Medium
+	33     Search in Rotated Sorted Array    32.1%	Medium
+	36     Valid Sudoku    35.6%	Medium
+	46     Permutations    43.5%	Medium
+	128    Longest Consecutive Sequence    36.7%	Hard
+	54     Spiral Matrix    25.9%	Medium
+	28     Implement strStr()    28.0%	Easy
+	268    Missing Number    44.2%	Easy
+	287    Find the Duplicate Number    43.3%	Medium
+	387    First Unique Character in a String    46.5%	Easy
+	189    Rotate Array    24.5%	Easy
+	218    The Skyline Problem    27.0%	Hard
+	347    Top K Frequent Elements    47.9%	Medium
+	289    Game of Life    36.8%	Medium
+	41     First Missing Positive    25.5%	Hard
+	79     Word Search    26.7%	Medium
+	108    Convert Sorted Array to Binary Search Tree    42.1%	Easy
+	240    Search a 2D Matrix II    38.5%	Medium
+	69     Sqrt(x)    27.8%	Easy
+	29     Divide Two Integers    16.0%	Medium
+	279    Perfect Squares    36.7%	Medium
+	19     Remove Nth Node From End of List    33.4%	Medium
+	162    Find Peak Element    37.3%	Medium
+	73     Set Matrix Zeroes    35.9%	Medium
+	134    Gas Station    29.3%	Medium
+	127    Word Ladder    19.4%	Medium
+	140    Word Break II    23.2%	Hard
+	190    Reverse Bits    29.6%	Easy
+	204    Count Primes    26.5%	Easy
+	124    Binary Tree Maximum Path Sum    26.0%	Hard
+	236    Lowest Common Ancestor of a Binary Tree    29.7%	Medium
+	116    Populating Next Right Pointers in Each Node    36.9%	Medium
+	125    Valid Palindrome    26.2%	Easy
+	62     Unique Paths    41.0%	Medium
+	297    Serialize and Deserialize Binary Tree    33.2%	Hard
+	101    Symmetric Tree    38.6%	Easy
+	76     Minimum Window Substring    25.2%	Hard
+	215    Kth Largest Element in an Array    39.1%	Medium
+	350    Intersection of Two Arrays II    44.6%	Easy
+	102    Binary Tree Level Order Traversal    39.5%	Medium
+	78     Subsets    40.3%	Medium
+	166    Fraction to Recurring Decimal    17.4%	Medium
+	55     Jump Game    29.5%	Medium
+	105    Construct Binary Tree from Preorder and Inorder Traversal    32.1%	Medium
+	315    Count of Smaller Numbers After Self    34.4%	Hard
+	395    Longest Substring with At Least K Repeating Characters    35.7%	Medium
+	75     Sort Colors    37.9%	Medium
+	91     Decode Ways    19.6%	Medium
+	334    Increasing Triplet Subsequence    39.1%	Medium
+	84     Largest Rectangle in Histogram    26.6%	Hard
+	208    Implement Trie (Prefix Tree)    28.0%	Medium
+	322    Coin Change    26.5%	Medium
+	295    Find Median from Data Stream    26.4%	Hard
+	341    Flatten Nested List Iterator    41.3%	Medium
+	34     Search for a Range    31.3%	Medium
+	230    Kth Smallest Element in a BST    43.7%	Medium
+	324    Wiggle Sort II    26.0%	Medium
+	44     Wildcard Matching    20.0%	Hard
+	239    Sliding Window Maximum    32.8%	Hard
+	131    Palindrome Partitioning    33.0%	Medium
+	227    Basic Calculator II    29.1%	Medium
+	253    Meeting Rooms II    38.8%	Medium
+	269    Alien Dictionary    23.8%	Hard
+	300    Longest Increasing Subsequence    38.3%	Medium
+	212    Word Search II    23.3%	Hard
+	378    Kth Smallest Element in a Sorted Matrix    44.5%	Medium
+	277    Find the Celebrity    35.3%	Medium
+	94     Binary Tree Inorder Traversal    46.4%	Medium
+	380    Insert Delete GetRandom O(1)    39.1%	Medium
+	207    Course Schedule    31.9%	Medium
+	98     Validate Binary Search Tree    23.2%	Medium
+	329    Longest Increasing Path in a Matrix    36.3%	Hard
+	251    Flatten 2D Vector    40.3%	Medium
+	130    Surrounded Regions    18.4%	Medium
+	340    Longest Substring with At Most K Distinct Characters    38.7%	Hard
+	103    Binary Tree Zigzag Level Order Traversal    34.4%	Medium
+	308    Range Sum Query 2D - Mutable    22.4%	Hard
+	285    Inorder Successor in BST    36.1%	Medium
+	163    Missing Ranges    24.6%	Medium
+	454    4Sum II    46.3%	Medium
+	348    Design Tic-Tac-Toe    45.8%	Medium
+	210    Course Schedule II    27.8%	Medium
