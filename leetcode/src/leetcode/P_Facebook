@@ -105,3 +105,55 @@ Facebook list sort by Frequency
 	168 	Excel Sheet Column Title 	25.8% 	Easy
 	80  	Remove Duplicates from Sorted Array II 	35.9% 	Medium
 	26  	Remove Duplicates from Sorted Array 	35.5% 	Easy
+
+Top 50 Facebook Questions
+	534    Design TinyURL    N/A	Medium
+	1      Two Sum    34.3%	Easy
+	13     Roman to Integer    45.6%	Easy
+	461    Hamming Distance    70.1%	Easy
+	146    LRU Cache    17.6%	Hard
+	206    Reverse Linked List    45.3%	Easy
+	283    Move Zeroes    49.7%	Easy
+	20     Valid Parentheses    33.3%	Easy
+	121    Best Time to Buy and Sell Stock    41.0%	Easy
+	38     Count and Say    34.5%	Easy
+	238    Product of Array Except Self    48.9%	Medium
+	15     3Sum    21.6%	Medium
+	10     Regular Expression Matching    24.1%	Hard
+	535    Encode and Decode TinyURL    73.8%	Medium
+	139    Word Break    29.8%	Medium
+	50     Pow(x, n)    26.4%	Medium
+	17     Letter Combinations of a Phone Number    34.4%	Medium
+	200    Number of Islands    34.4%	Medium
+	23     Merge k Sorted Lists    27.1%	Hard
+	49     Group Anagrams    34.5%	Medium
+	67     Add Binary    32.3%	Easy
+	88     Merge Sorted Array    32.0%	Easy
+	26     Remove Duplicates from Sorted Array    35.5%	Easy
+	234    Palindrome Linked List    32.6%	Easy
+	173    Binary Search Tree Iterator    41.2%	Medium
+	85     Maximal Rectangle    27.7%	Hard
+	56     Merge Intervals    29.9%	Medium
+	235    Lowest Common Ancestor of a Binary Search Tree    38.9%	Easy
+	33     Search in Rotated Sorted Array    32.1%	Medium
+	128    Longest Consecutive Sequence    36.7%	Hard
+	28     Implement strStr()    28.0%	Easy
+	273    Integer to English Words    22.0%	Hard
+	218    The Skyline Problem    27.0%	Hard
+	79     Word Search    26.7%	Medium
+	69     Sqrt(x)    27.8%	Easy
+	43     Multiply Strings    27.0%	Medium
+	127    Word Ladder    19.4%	Medium
+	168    Excel Sheet Column Title    25.8%	Easy
+	236    Lowest Common Ancestor of a Binary Tree    29.7%	Medium
+	125    Valid Palindrome    26.2%	Easy
+	297    Serialize and Deserialize Binary Tree    33.2%	Hard
+	76     Minimum Window Substring    25.2%	Hard
+	278    First Bad Version    25.2%	Easy
+	215    Kth Largest Element in an Array    39.1%	Medium
+	301    Remove Invalid Parentheses    35.1%	Hard
+	102    Binary Tree Level Order Traversal    39.5%	Medium
+	78     Subsets    40.3%	Medium
+	282    Expression Add Operators    29.6%	Hard
+	91     Decode Ways    19.6%	Medium
+	334    Increasing Triplet Subsequence    39.1%	Medium
