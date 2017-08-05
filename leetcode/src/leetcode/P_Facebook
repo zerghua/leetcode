@@ -1,0 +1,107 @@
+Facebook list sort by Frequency
+	283 	Move Zeroes 	49.7% 	Easy
+	325 	Maximum Size Subarray Sum Equals k 	42.3% 	Medium
+	301 	Remove Invalid Parentheses 	35.1% 	Hard
+	67  	Add Binary 	32.3% 	Easy
+	311 	Sparse Matrix Multiplication 	50.7% 	Medium
+	314 	Binary Tree Vertical Order Traversal 	36.4% 	Medium
+	273 	Integer to English Words 	22.0% 	Hard
+	17  	Letter Combinations of a Phone Number 	34.3% 	Medium
+	278 	First Bad Version 	25.2% 	Easy
+	91  	Decode Ways 	19.6% 	Medium
+	10  	Regular Expression Matching 	24.1% 	Hard
+	253 	Meeting Rooms II 	38.8% 	Medium
+	15  	3Sum 	21.6% 	Medium
+	277 	Find the Celebrity 	35.3% 	Medium
+	158 	Read N Characters Given Read4 II - Call multiple times 	24.2% 	Hard
+	200 	Number of Islands 	34.4% 	Medium
+	297 	Serialize and Deserialize Binary Tree 	33.2% 	Hard
+	282 	Expression Add Operators 	29.6% 	Hard
+	76  	Minimum Window Substring 	25.2% 	Hard
+	257 	Binary Tree Paths 	38.2% 	Easy
+	23  	Merge k Sorted Lists 	27.1% 	Hard
+	161 	One Edit Distance 	31.2% 	Medium
+	157 	Read N Characters Given Read4 	28.9% 	Easy
+	285 	Inorder Successor in BST 	36.1% 	Medium
+	211 	Add and Search Word - Data structure design 	22.6% 	Medium
+	139 	Word Break 	29.8% 	Medium
+	121 	Best Time to Buy and Sell Stock 	41.0% 	Easy
+	56  	Merge Intervals 	29.9% 	Medium
+	341 	Flatten Nested List Iterator 	41.3% 	Medium
+	1   	Two Sum 	34.3% 	Easy
+	173 	Binary Search Tree Iterator 	41.2% 	Medium
+	125 	Valid Palindrome 	26.2% 	Easy
+	75  	Sort Colors 	37.9% 	Medium
+	78  	Subsets 	40.3% 	Medium
+	98  	Validate Binary Search Tree 	23.2% 	Medium
+	43  	Multiply Strings 	27.0% 	Medium
+	206 	Reverse Linked List 	45.3% 	Easy
+	133 	Clone Graph 	25.1% 	Medium
+	252 	Meeting Rooms 	47.1% 	Easy
+	218 	The Skyline Problem 	27.0% 	Hard
+	236 	Lowest Common Ancestor of a Binary Tree 	29.7% 	Medium
+	49  	Group Anagrams 	34.5% 	Medium
+	79  	Word Search 	26.7% 	Medium
+	238 	Product of Array Except Self 	48.9% 	Medium
+	38  	Count and Say 	34.5% 	Easy
+	57  	Insert Interval 	27.5% 	Hard
+	209 	Minimum Size Subarray Sum 	30.4% 	Medium
+	215 	Kth Largest Element in an Array 	39.1% 	Medium
+	71  	Simplify Path 	25.2% 	Medium
+	146 	LRU Cache 	17.6% 	Hard
+	13  	Roman to Integer 	45.6% 	Easy
+	33  	Search in Rotated Sorted Array 	32.1% 	Medium
+	208 	Implement Trie (Prefix Tree) 	28.0% 	Medium
+	90  	Subsets II 	36.0% 	Medium
+	44  	Wildcard Matching 	20.0% 	Hard
+	128 	Longest Consecutive Sequence 	36.7% 	Hard
+	102 	Binary Tree Level Order Traversal 	39.5% 	Medium
+	380 	Insert Delete GetRandom O(1) 	39.1% 	Medium
+	88  	Merge Sorted Array 	32.0% 	Easy
+	377 	Combination Sum IV 	41.9% 	Medium
+	28  	Implement strStr() 	28.0% 	Easy
+	334 	Increasing Triplet Subsequence 	39.1% 	Medium
+	127 	Word Ladder 	19.4% 	Medium
+	398 	Random Pick Index 	42.6% 	Medium
+	50  	Pow(x, n) 	26.4% 	Medium
+	494 	Target Sum 	43.8% 	Medium
+	269 	Alien Dictionary 	23.8% 	Hard
+	20  	Valid Parentheses 	33.3% 	Easy
+	235 	Lowest Common Ancestor of a Binary Search Tree 	38.9% 	Easy
+	286 	Walls and Gates 	43.9% 	Medium
+	69  	Sqrt(x) 	27.8% 	Easy
+	117 	Populating Next Right Pointers in Each Node II 	33.7% 	Medium
+	68  	Text Justification 	19.0% 	Hard
+	221 	Maximal Square 	28.7% 	Medium
+	274 	H-Index 	33.1% 	Medium
+	85  	Maximal Rectangle 	27.7% 	Hard
+	210 	Course Schedule II 	27.8% 	Medium
+	25  	Reverse Nodes in k-Group 	30.7% 	Hard
+	234 	Palindrome Linked List 	32.6% 	Easy
+    --------------------------------------------------------------------   Above are more Frequenct
+
+	642 	Design Search Autocomplete System 	28.3% 	Hard
+	639 	Decode Ways II 	23.0% 	Hard
+	637 	Average of Levels in Binary Tree 	56.7% 	Easy
+	636 	Exclusive Time of Functions 	38.9% 	Medium
+	621 	Task Scheduler 	41.7% 	Medium
+	602 	Friend Requests II: Who Has the Most Friends 	44.1% 	Medium
+	597 	Friend Requests I: Overall Acceptance Rate 	30.0% 	Easy
+	578 	Get Highest Answer Rate Question 	23.3% 	Medium
+	572 	Subtree of Another Tree 	40.6% 	Easy
+	554 	Brick Wall 	44.6% 	Medium
+	543 	Diameter of Binary Tree 	43.4% 	Easy
+	535 	Encode and Decode TinyURL 	73.8% 	Medium
+	534 	Design TinyURL 	0.0% 	Medium
+	525 	Contiguous Array 	38.8% 	Medium
+	523 	Continuous Subarray Sum 	22.6% 	Medium
+	477 	Total Hamming Distance 	46.5% 	Medium
+	461 	Hamming Distance 	70.1% 	Easy
+	410 	Split Array Largest Sum 	36.8% 	Hard
+	404 	Sum of Left Leaves 	46.9% 	Easy
+	275 	H-Index II 	34.3% 	Medium
+	265 	Paint House II 	37.9% 	Hard
+	261 	Graph Valid Tree 	37.6% 	Medium
+	168 	Excel Sheet Column Title 	25.8% 	Easy
+	80  	Remove Duplicates from Sorted Array II 	35.9% 	Medium
+	26  	Remove Duplicates from Sorted Array 	35.5% 	Easy
