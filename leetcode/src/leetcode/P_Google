@@ -1,4 +1,4 @@
-Google list sort by Frequency
+Google list sort by Frequency(198)
 	388 	Longest Absolute File Path 	36.4% 	Medium
 	340 	Longest Substring with At Most K Distinct Characters 	38.7% 	Hard
 	308 	Range Sum Query 2D - Mutable 	22.4% 	Hard
@@ -199,3 +199,56 @@ Google list sort by Frequency
 	314 	Binary Tree Vertical Order Traversal 	36.4% 	Medium
 	312 	Burst Balloons 	42.5% 	Hard
 	310 	Minimum Height Trees 	28.8% 	Medium
+
+
+Top 50 Google Questions
+	534    Design TinyURL    N/A	Medium
+	4      Median of Two Sorted Arrays    21.7%	Hard
+	155    Min Stack    28.5%	Easy
+	146    LRU Cache    17.6%	Hard
+	388    Longest Absolute File Path    36.4%	Medium
+	20     Valid Parentheses    33.3%	Easy
+	66     Plus One    38.5%	Easy
+	42     Trapping Rain Water    36.6%	Hard
+	10     Regular Expression Matching    24.1%	Hard
+	535    Encode and Decode TinyURL    73.8%	Medium
+	139    Word Break    29.8%	Medium
+	50     Pow(x, n)    26.4%	Medium
+	17     Letter Combinations of a Phone Number    34.3%	Medium
+	200    Number of Islands    34.4%	Medium
+	23     Merge k Sorted Lists    27.1%	Hard
+	22     Generate Parentheses    44.8%	Medium
+	326    Power of Three    40.2%	Easy
+	173    Binary Search Tree Iterator    41.2%	Medium
+	56     Merge Intervals    29.9%	Medium
+	228    Summary Ranges    29.7%	Medium
+	463    Island Perimeter    57.1%	Easy
+	128    Longest Consecutive Sequence    36.7%	Hard
+	54     Spiral Matrix    25.9%	Medium
+	218    The Skyline Problem    27.0%	Hard
+	289    Game of Life    36.8%	Medium
+	316    Remove Duplicate Letters    29.4%	Hard
+	336    Palindrome Pairs    26.1%	Hard
+	345    Reverse Vowels of a String    38.4%	Easy
+	240    Search a 2D Matrix II    38.5%	Medium
+	231    Power of Two    40.1%	Easy
+	279    Perfect Squares    36.7%	Medium
+	162    Find Peak Element    37.3%	Medium
+	140    Word Break II    23.2%	Hard
+	312    Burst Balloons    42.5%	Hard
+	31     Next Permutation    28.8%	Medium
+	448    Find All Numbers Disappeared in an Array    51.5%	Easy
+	297    Serialize and Deserialize Binary Tree    33.2%	Hard
+	374    Guess Number Higher or Lower    35.2%	Easy
+	224    Basic Calculator    26.9%	Hard
+	214    Shortest Palindrome    24.1%	Hard
+	421    Maximum XOR of Two Numbers in an Array    45.7%	Medium
+	166    Fraction to Recurring Decimal    17.4%	Medium
+	282    Expression Add Operators    29.6%	Hard
+	315    Count of Smaller Numbers After Self    34.4%	Hard
+	280    Wiggle Sort    56.9%	Medium
+	208    Implement Trie (Prefix Tree)    28.0%	Medium
+	318    Maximum Product of Word Lengths    44.1%	Medium
+	295    Find Median from Data Stream    26.4%	Hard
+	133    Clone Graph    25.1%	Medium
+	257    Binary Tree Paths    38.2%	Easy
