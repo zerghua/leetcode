@@ -5,6 +5,7 @@ package leetcode;
  * There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
  */
 public class N4_MedianofTwoSortedArrays {
+    // Google, Microsoft
     // 5 ms
     // binary search
     // TODO, need to revisit
