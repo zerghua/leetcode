@@ -16,7 +16,8 @@ import java.util.stream.Collector;
 
  */
 public class N3_lengthOfLongestSubstring {
-	//425ms 38%
+	// Amazon
+    // 425ms 38%
     // sliding window, o(n)
     public int lengthOfLongestSubstring(String s) {
         int max=0;
