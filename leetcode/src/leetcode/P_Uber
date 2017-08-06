@@ -1,0 +1,54 @@
+Uber list sorted by Frequency
+	262 	Trips and Users 	16.7% 	Hard
+	380 	Insert Delete GetRandom O(1) 	39.1% 	Medium
+	291 	Word Pattern II 	38.1% 	Hard
+	297 	Serialize and Deserialize Binary Tree 	33.2% 	Hard
+	432 	All O`one Data Structure 	27.8% 	Hard
+	254 	Factor Combinations 	42.4% 	Medium
+	36 	    Valid Sudoku 	35.6% 	Medium
+	139 	Word Break 	29.8% 	Medium
+	146 	LRU Cache 	17.6% 	Hard
+	249 	Group Shifted Strings 	41.2% 	Medium
+	450 	Delete Node in a BST 	36.6% 	Medium
+	186 	Reverse Words in a String II 	27.5% 	Medium
+	54 	    Spiral Matrix 	25.9% 	Medium
+	17 	    Letter Combinations of a Phone Number 	34.4% 	Medium
+	49 	    Group Anagrams 	34.5% 	Medium
+	22 	    Generate Parentheses 	44.8% 	Medium
+	10 	    Regular Expression Matching 	24.1% 	Hard
+	290 	Word Pattern 	33.0% 	Easy
+	13 	    Roman to Integer 	45.6% 	Easy
+	208 	Implement Trie (Prefix Tree) 	28.0% 	Medium
+	37 	    Sudoku Solver 	30.0% 	Hard
+	133 	Clone Graph 	25.1% 	Medium
+	39 	    Combination Sum 	38.4% 	Medium
+	230 	Kth Smallest Element in a BST 	43.7% 	Medium
+	138 	Copy List with Random Pointer 	26.3% 	Medium
+	91 	    Decode Ways 	19.6% 	Medium
+	140 	Word Break II 	23.2% 	Hard
+	23 	    Merge k Sorted Lists 	27.1% 	Hard
+	76 	    Minimum Window Substring 	25.2% 	Hard
+	24 	    Swap Nodes in Pairs 	38.3% 	Medium
+	202 	Happy Number 	40.6% 	Easy
+	242 	Valid Anagram 	46.3% 	Easy
+	1 	    Two Sum 	34.3% 	Easy
+	206 	Reverse Linked List 	45.3% 	Easy
+	33 	    Search in Rotated Sorted Array 	32.1% 	Medium
+	125 	Valid Palindrome 	26.2% 	Easy
+    --------------------------------------------------------------------   Above are more Frequent
+
+	648 	Replace Words 	48.5% 	Medium
+	535 	Encode and Decode TinyURL 	73.9% 	Medium
+	534 	Design TinyURL 	0.0% 	Medium
+	516 	Longest Palindromic Subsequence 	42.5% 	Medium
+	373 	Find K Pairs with Smallest Sums 	30.6% 	Medium
+	337 	House Robber III 	43.3% 	Medium
+	266 	Palindrome Permutation 	56.8% 	Easy
+	171 	Excel Sheet Column Number 	47.0% 	Easy
+	161 	One Edit Distance 	31.2% 	Medium
+	155 	Min Stack 	28.5% 	Easy
+	121 	Best Time to Buy and Sell Stock 	41.0% 	Easy
+	104 	Maximum Depth of Binary Tree 	52.6% 	Easy
+	78 	    Subsets 	40.3% 	Medium
+	8 	    String to Integer (atoi) 	14.0% 	Medium
+
