@@ -34,6 +34,15 @@ public class A_calculateExponentiation {
         String b= "中";
         x.testUnicode(a);
         x.testUnicode(b);
+
+        int[] id = new int[3];
+        for(int e: id) e = 10;
+        for(int e: id) System.out.println(e);
+        for(int i=0;i<id.length;i++) {
+            id[i] = 20;
+        }
+        for(int e: id) System.out.println(e);
+
     }
 
 
