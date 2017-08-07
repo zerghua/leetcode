@@ -16,6 +16,7 @@ import java.util.*;
  (order does not matter).
  */
 public class N30_SubstringwithConcatenationofAllWords {
+    // no company
     // 184 ms
     // two hash map, to compare count
     // time o(nm), may be improved

@@ -26,7 +26,19 @@ Hint:
 // very similar to N26_RemoveDuplicatesfromSortedArray
 // two pointers. one points to the to-be inserted position and moves when condition meets, another one goes on.
 public class N27_RemoveElement {
-	
+	// no company
+	// added on 12/1/2016
+	// 13 ms 113 / 113 test cases passed.
+	public class Solution {
+		public int removeElement(int[] nums, int val) {
+			int i=0;
+			for(int n: nums){
+				if(n != val) nums[i++] = n;
+			}
+			return i;
+		}
+	}
+
 	//276 ms 76%
     public int removeElement(int[] nums, int val) {
     	int count=0;
@@ -74,15 +86,5 @@ public class N27_RemoveElement {
     }
 
 
-    // added on 12/1/2016
-    // 13 ms 113 / 113 test cases passed.
-	public class Solution {
-		public int removeElement(int[] nums, int val) {
-            int i=0;
-            for(int n: nums){
-                if(n != val) nums[i++] = n;
-            }
-            return i;
-		}
-	}
+
 }

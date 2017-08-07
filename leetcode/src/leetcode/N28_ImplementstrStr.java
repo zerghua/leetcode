@@ -8,6 +8,23 @@ Returns the index of the first occurrence of needle in haystack, or -1 if needle
 version 2 and 3 adds on 9/1/2016
 */
 public class N28_ImplementstrStr {
+    // Microsoft, Facebook, Google.
+    // added on 10/4/2016  very concise solution
+    // 18 ms  72 / 72 test cases passed.
+    public class Solution {
+        public int strStr(String haystack, String needle) {
+            for(int i=0; ;i++){
+                for(int j=0; ;j++){
+                    if(j == needle.length()) return i;
+                    if(i+j == haystack.length()) return -1;
+                    if(haystack.charAt(i+j) != needle.charAt(j))break;
+                }
+            }
+        }
+    }
+
+
+
 	//5 ms
     public int strStr(String haystack, String needle) {   
         if(haystack==null || needle ==null) return -1;
@@ -112,18 +129,6 @@ public class N28_ImplementstrStr {
         return next;
     }
 
-    // added on 10/4/2016  very concise solution
-    // 18 ms  72 / 72 test cases passed.
-    public class Solution {
-        public int strStr(String haystack, String needle) {
-            for(int i=0; ;i++){
-                for(int j=0; ;j++){
-                    if(j == needle.length()) return i;
-                    if(i+j == haystack.length()) return -1;
-                    if(haystack.charAt(i+j) != needle.charAt(j))break;
-                }
-            }
-        }
-    }
+
     
 }
