@@ -11,6 +11,7 @@ import java.math.*;
  Your algorithm should run in O(n) time and uses constant space.
  */
 public class N41_FirstMissingPositive {
+    // no company
     //1 ms
     // kind of in place bucket sort
     // careful with duplicate numbers.

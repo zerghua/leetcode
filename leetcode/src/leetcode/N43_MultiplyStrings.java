@@ -18,13 +18,7 @@ import java.math.BigInteger;
  be careful with carry and leading zeros.
  */
 public class N43_MultiplyStrings {
-    //21 ms
-    public String multiply(String num1, String num2) {
-        BigInteger a= new BigInteger(num1);
-        BigInteger b= new BigInteger(num2);
-        return a.multiply(b).toString();
-    }
-
+    // Facebook, Twitter
     // 9 ms
     // the solution OJ wants
     public String multiply2(String num1, String num2) {
@@ -46,5 +40,12 @@ public class N43_MultiplyStrings {
         StringBuilder sb = new StringBuilder();
         while(i<n) sb.append(ret[i++]);
         return sb.length() ==0? "0": sb.toString();
+    }
+
+    //21 ms
+    public String multiply(String num1, String num2) {
+        BigInteger a= new BigInteger(num1);
+        BigInteger b= new BigInteger(num2);
+        return a.multiply(b).toString();
     }
 }

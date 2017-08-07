@@ -12,15 +12,43 @@ package leetcode;
  bool isMatch(const char *s, const char *p)
 
  Some examples:
- isMatch("aa","a") ¡ú false
- isMatch("aa","aa") ¡ú true
- isMatch("aaa","aa") ¡ú false
- isMatch("aa", "*") ¡ú true
- isMatch("aa", "a*") ¡ú true
- isMatch("ab", "?*") ¡ú true
- isMatch("aab", "c*a*b") ¡ú false
+ Some examples:
+ isMatch("aa","a") ? false
+ isMatch("aa","aa") ? true
+ isMatch("aaa","aa") ? false
+ isMatch("aa", "*") ? true
+ isMatch("aa", "a*") ? true
+ isMatch("ab", "?*") ? true
+ isMatch("aab", "c*a*b") ? false
  */
 public class N44_WildcardMatching {
+    // Google, Facebook
+    // greedy
+    // let the previous star match as less as possible, and delegate it to following star
+    // so previous star don't need to redo the following star's job.
+    // need to think through how multiple stars co-work
+    // 6 ms
+    public boolean isMatch2(String s, String p) {
+        int i=0, j=0, star_index=-1, i_index=-1;
+        while(i<s.length()){
+            if(j<p.length() && (s.charAt(i) == p.charAt(j) || p.charAt(j)=='?')){
+                i++;j++;
+            }
+            else if(j<p.length() && p.charAt(j)=='*'){
+                star_index = j;
+                i_index = i;
+                j++;
+            }
+            else if(star_index != -1){
+                j = star_index+1;
+                i = ++i_index;
+            }else return false;
+        }
+        while(j<p.length() && p.charAt(j) == '*') j++;
+        return j == p.length();
+    }
+
+
     // first TLE
     // "aaabbbaabaaaaababaabaaabbabbbbbbbbaabababbabbbaaaaba"
     // "a*******b"
@@ -54,30 +82,7 @@ public class N44_WildcardMatching {
     }
 
 
-    // greedy
-    // let the previous star match as less as possible, and delegate it to following star
-    // so previous star don't need to redo the following star's job.
-    // need to think through how multiple stars co-work
-    // 6 ms
-    public boolean isMatch2(String s, String p) {
-        int i=0, j=0, star_index=-1, i_index=-1;
-        while(i<s.length()){
-            if(j<p.length() && (s.charAt(i) == p.charAt(j) || p.charAt(j)=='?')){
-                i++;j++;
-            }
-            else if(j<p.length() && p.charAt(j)=='*'){
-                star_index = j;
-                i_index = i;
-                j++;
-            }
-            else if(star_index != -1){
-                j = star_index+1;
-                i = ++i_index;
-            }else return false;
-        }
-        while(j<p.length() && p.charAt(j) == '*') j++;
-        return j == p.length();
-    }
+
 
 
     public static void main(String[] args) {

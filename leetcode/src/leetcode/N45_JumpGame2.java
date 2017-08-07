@@ -20,28 +20,7 @@ package leetcode;
  You can assume that you can always reach the last index.
  */
 public class N45_JumpGame2 {
-    // 3 ms, DP
-    // can also use greedy, no need to store each point,
-    // just store the max
-    public int jump(int[] nums) {
-        if(nums == null || nums.length == 1) return 0;
-        int[] min_steps = new int[nums.length];
-        int last_max_index = 0;
-        for(int i=0;i<nums.length;i++){
-            int cur_index = i + nums[i];
-            if(cur_index >= nums.length - 1) return min_steps[i] + 1;
-            else if(cur_index > last_max_index){
-                for(int j=i+1; j<=cur_index;j++){
-                    if(min_steps[j] == 0) min_steps[j] = min_steps[i]+1;
-                    else min_steps[j] = Math.min(min_steps[j], min_steps[i] + 1);
-                }
-                last_max_index = cur_index;
-            }
-        }
-        return min_steps[nums.length-1];
-    }
-
-
+    // no company
     // more concise code added on 10/5/2016
     // greedy
     // 11 ms 91 / 91 test cases passed.
@@ -76,4 +55,28 @@ public class N45_JumpGame2 {
             return ret;
         }
     }
+
+    // 3 ms, DP
+    // can also use greedy, no need to store each point,
+    // just store the max
+    public int jump(int[] nums) {
+        if(nums == null || nums.length == 1) return 0;
+        int[] min_steps = new int[nums.length];
+        int last_max_index = 0;
+        for(int i=0;i<nums.length;i++){
+            int cur_index = i + nums[i];
+            if(cur_index >= nums.length - 1) return min_steps[i] + 1;
+            else if(cur_index > last_max_index){
+                for(int j=i+1; j<=cur_index;j++){
+                    if(min_steps[j] == 0) min_steps[j] = min_steps[i]+1;
+                    else min_steps[j] = Math.min(min_steps[j], min_steps[i] + 1);
+                }
+                last_max_index = cur_index;
+            }
+        }
+        return min_steps[nums.length-1];
+    }
+
+
+
 }

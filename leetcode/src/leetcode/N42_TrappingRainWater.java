@@ -13,6 +13,28 @@ import java.util.regex.Matcher;
 
  */
 public class N42_TrappingRainWater {
+    // Google, Amazon
+    // 2 ms
+    // kind of DP, keep track of leftmost and rightmost height at i,
+    // the water will be trapped at i= min(leftmost[i], rightmost[i]) - height[i]
+    public int trap2(int[] height){
+        if(height ==null || height.length<=2) return 0;
+        int[] leftMostHeight = new int[height.length];
+        for(int i=1; i<height.length;i++){
+            leftMostHeight[i] = Math.max(leftMostHeight[i-1], height[i-1]);
+        }
+
+        int ret = 0;
+        int[] rightMostHeight = new int[height.length];
+        for(int i=height.length-2; i>0; i--){
+            rightMostHeight[i] = Math.max(rightMostHeight[i+1], height[i+1]);
+            int waterTrappedAtI= Math.min(leftMostHeight[i], rightMostHeight[i]) - height[i];
+            ret += Math.max(waterTrappedAtI, 0);
+        }
+        return ret;
+    }
+
+
     //TLE, not right
     public int trap(int[] height) {
         if(height ==null || height.length<=1) return 0;
@@ -38,25 +60,7 @@ public class N42_TrappingRainWater {
     }
 
 
-    //2 ms
-    // kind of DP, keep track of leftmost and rightmost height at i,
-    // the water will be trapped at i= min(leftmost[i], rightmost[i]) - height[i]
-    public int trap2(int[] height){
-        if(height ==null || height.length<=2) return 0;
-        int[] leftMostHeight = new int[height.length];
-        for(int i=1; i<height.length;i++){
-            leftMostHeight[i] = Math.max(leftMostHeight[i-1], height[i-1]);
-        }
 
-        int ret = 0;
-        int[] rightMostHeight = new int[height.length];
-        for(int i=height.length-2; i>0; i--){
-            rightMostHeight[i] = Math.max(rightMostHeight[i+1], height[i+1]);
-            int waterTrappedAtI= Math.min(leftMostHeight[i], rightMostHeight[i]) - height[i];
-            ret += Math.max(waterTrappedAtI, 0);
-        }
-        return ret;
-    }
 
 
 }

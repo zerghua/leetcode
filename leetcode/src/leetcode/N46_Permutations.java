@@ -12,6 +12,36 @@ import java.util.*;
 
  */
 public class N46_Permutations {
+    // Microsoft, Linkedin
+    // version 2 added on 9/5/2016
+    // 3 ms  25 / 25 test cases passed.
+    // DFS and backtracking. use boolean[] to store visited node.
+    public class Solution {
+        public List<List<Integer>> permute(int[] nums) {
+            List<List<Integer>> ret = new ArrayList<>();
+            if(nums == null && nums.length == 0) return ret;
+            dfs(ret, nums, new ArrayList<>(), new boolean[nums.length]);
+            return ret;
+        }
+
+        public void dfs(List<List<Integer>> ret, int[] nums, List<Integer> cur_list, boolean[] used){
+            if(cur_list.size() == nums.length){
+                ret.add(new ArrayList<>(cur_list));
+                return;
+            }
+
+            for(int i=0;i<nums.length;i++){
+                if(used[i]) continue;
+                used[i] = true;
+                cur_list.add(nums[i]);
+                dfs(ret, nums, cur_list, used);
+                used[i] = false;
+                cur_list.remove(cur_list.size() - 1);
+            }
+        }
+    }
+
+
     //6 ms 19%
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> ret = new ArrayList<List<Integer>>();
@@ -52,33 +82,7 @@ public class N46_Permutations {
     }
 
 
-    // version 2 added on 9/5/2016
-    // 3 ms  25 / 25 test cases passed.
-    // DFS and backtracking. use boolean[] to store visited node.
-    public class Solution {
-        public List<List<Integer>> permute(int[] nums) {
-            List<List<Integer>> ret = new ArrayList<>();
-            if(nums == null && nums.length == 0) return ret;
-            dfs(ret, nums, new ArrayList<>(), new boolean[nums.length]);
-            return ret;
-        }
 
-        public void dfs(List<List<Integer>> ret, int[] nums, List<Integer> cur_list, boolean[] used){
-            if(cur_list.size() == nums.length){
-                ret.add(new ArrayList<>(cur_list));
-                return;
-            }
-
-            for(int i=0;i<nums.length;i++){
-                if(used[i]) continue;
-                used[i] = true;
-                cur_list.add(nums[i]);
-                dfs(ret, nums, cur_list, used);
-                used[i] = false;
-                cur_list.remove(cur_list.size() - 1);
-            }
-        }
-    }
 
 /* 2ms, 97%
 public List<List<Integer>> permute(int[] num) {
