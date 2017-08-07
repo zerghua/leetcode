@@ -22,6 +22,7 @@ package leetcode;
 
  */
 public class N9_PalindromeNumber {
+    // no company
     // 13 ms
     // math. get left and right digit of int, and compare/update.
     public boolean isPalindrome(int x) {
