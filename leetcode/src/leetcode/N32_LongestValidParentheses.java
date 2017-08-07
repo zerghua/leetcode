@@ -14,12 +14,27 @@ import java.util.Stack;
  which has length = 4.
 
 
-
-
-
  */
 
 public class N32_LongestValidParentheses {
+    // no company
+    //14 ms
+    public int longestValidParentheses_stack2(String s) {
+        int max = 0;
+        Stack<Integer> stack = new Stack<>();
+        char[] chars = s.toCharArray();
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i) == ')' && !stack.isEmpty() && chars[stack.peek()] == '('){
+                stack.pop();
+                if(stack.isEmpty()) max = i+1;
+                else max = Math.max(max, i-stack.peek());
+            }else{
+                stack.push(i);
+            }
+        }
+        return max;
+    }
+
     //TODO solve corner case: "()(()"   2
     public int longestValidParentheses(String s) {
         int max = 0;
@@ -59,22 +74,7 @@ public class N32_LongestValidParentheses {
         return max;
     }
 
-    //14 ms
-    public int longestValidParentheses_stack2(String s) {
-        int max = 0;
-        Stack<Integer> stack = new Stack<>();
-        char[] chars = s.toCharArray();
-        for(int i=0;i<s.length();i++){
-            if(s.charAt(i) == ')' && !stack.isEmpty() && chars[stack.peek()] == '('){
-                stack.pop();
-                if(stack.isEmpty()) max = i+1;
-                else max = Math.max(max, i-stack.peek());
-            }else{
-                stack.push(i);
-            }
-        }
-        return max;
-    }
+
 
 }
 

@@ -12,12 +12,13 @@ package leetcode;
  You may assume no duplicate exists in the array.
  */
 public class N33_SearchinRotatedSortedArray {
+    // Microsoft, Facebook
+    // 1 ms
+    // two situations, depends on where mid lands
     public int search(int[] nums, int target) {
         return search(nums, target, 0, nums.length-1);
     }
 
-    // 1 ms
-    // two situations, depends on where mid lands
     public int search(int[] nums, int target, int left, int right){
         if(left > right) return -1;
         int mid = (right-left)/2 + left;

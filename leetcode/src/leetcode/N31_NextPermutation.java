@@ -41,6 +41,7 @@ package leetcode;
 
  */
 
+// Google
 // http://www.programcreek.com/2014/06/leetcode-next-permutation-java/
 // 2 ms
 public class N31_NextPermutation {

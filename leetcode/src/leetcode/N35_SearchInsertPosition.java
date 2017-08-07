@@ -14,6 +14,24 @@ Here are few examples.
 
 // modified binary search
 public class N35_SearchInsertPosition {
+    // no company
+    // 62 / 62 test cases passed.
+    // 6 ms
+    public class Solution {
+        public int searchInsert(int[] nums, int target) {
+            if(nums == null) return 0;
+            int l=0, r=nums.length -1;
+            while(l<=r){
+                int mid = (r-l)/2 + l;
+                if(nums[mid] == target) return mid;
+                else if(nums[mid] < target) l = mid+1;
+                else r = mid-1;
+            }
+            return l;
+        }
+    }
+
+
     //0 ms
     public static int searchInsert(int[] nums, int target) {
         if(nums == null) return 0;
@@ -33,18 +51,7 @@ public class N35_SearchInsertPosition {
         return insertion_point;
     }
 
-    //0 ms 
-    public static int searchInsert2(int[] nums, int target) {
-        if(nums == null) return 0;
-        int l=0, r=nums.length -1;
-        while(l<=r){
-            int mid = (r-l)/2 + l;
-            if(nums[mid] == target) return mid;
-            else if(nums[mid] < target) l = mid+1;
-            else r = mid-1;
-        }
-        return l;
-    }
+
 
 
     public static void main(String[] args) {
