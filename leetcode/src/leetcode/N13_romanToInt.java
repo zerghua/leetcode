@@ -10,7 +10,19 @@ Input is guaranteed to be within the range from 1 to 3999.
 
 
 public class N13_romanToInt {
-	
+    // Google, Facebook, Mircosoft
+	// 444 ms ms  75%
+	public int romanToInt2(String s) {
+		int sum=0;
+		for(int i=0;i<s.length() -1 ;i++){
+			int c = getRomanInt(s.charAt(i));
+			if(c < getRomanInt(s.charAt(i+1))) sum -= c;
+			else sum+=c;
+		}
+		sum+= getRomanInt(s.charAt(s.length()-1));
+		return sum;
+	}
+
 	// 488 ms  35%
     public int romanToInt(String s) {
         HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
@@ -45,16 +57,5 @@ public class N13_romanToInt {
     	}
     	return ret;
     }
-    
-	// 444 ms ms  75%
-    public int romanToInt2(String s) {
-        int sum=0;
-        for(int i=0;i<s.length() -1 ;i++){
-        	int c = getRomanInt(s.charAt(i));
-        	if(c < getRomanInt(s.charAt(i+1))) sum -= c;
-        	else sum+=c;
-        }
-        sum+= getRomanInt(s.charAt(s.length()-1));
-    	return sum;
-    }    
+
 }
