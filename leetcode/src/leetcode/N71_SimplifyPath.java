@@ -21,6 +21,7 @@ import java.util.*;
 
  */
 public class N71_SimplifyPath {
+    // Facebook, Microsoft
     // 8 ms
     // StringTokenizer, or can use split as well.  String[] arr = path.split("/");
     // StringBuilder is unsynchronized(faster) and StringBuffer is synchronized(thread safe)

@@ -17,6 +17,7 @@ package leetcode;
 
  */
 public class N73_SetMatrixZeroes {
+    // Microsoft, Amazon
     // matrix in place update status. simiar to N289 Game of Life.
     // o(1) space, use first row and col as indicator
     // store if first row and col should be set to 0

@@ -26,7 +26,7 @@ import java.util.*;
 
 
 public class N78_Subsets {
-
+    // Facebook, Amazon
     public void get_subsets(int[] nums, int start,  List<List<Integer>> ret){
         if(start > nums.length-1) return;
 

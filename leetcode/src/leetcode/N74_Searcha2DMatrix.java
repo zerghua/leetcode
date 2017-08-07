@@ -27,7 +27,7 @@ package leetcode;
 // obviously use binary search
 // new on how to implement it on matrix rather than array
 public class N74_Searcha2DMatrix {
-
+    // no company
     // n start from 1
     public int get_matrix_value(int[][] matrix, int n){
         int col_size = matrix[0].length;

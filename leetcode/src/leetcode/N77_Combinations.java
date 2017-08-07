@@ -24,7 +24,7 @@ import java.util.List;
 
  */
 public class N77_Combinations {
-
+    // no company
     public void combine(LinkedList<Integer> list, int k, List<List<Integer>> ret,
                         LinkedList<Integer> ret_list, int start){
         if(k== ret_list.size()) {

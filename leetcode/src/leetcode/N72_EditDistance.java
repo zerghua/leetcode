@@ -14,6 +14,7 @@ package leetcode;
 
  */
 public class N72_EditDistance {
+    // no company
     //18 ms
     // 2-dimensional dp, dp[i][j] determines by its top, left and top-left.
     public int minDistance(String word1, String word2) {
