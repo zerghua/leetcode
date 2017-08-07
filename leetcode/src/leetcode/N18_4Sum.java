@@ -22,6 +22,7 @@ import java.util.*;
 
  */
 public class N18_4Sum {
+    // no company
     //41 ms
     //a more general solution of kSum with backtracking
     public List<List<Integer>> fourSum(int[] nums, int target) {
