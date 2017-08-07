@@ -15,8 +15,10 @@ import java.util.*;
  */
 
 
-// DFS on number of remaining left and right parentheses.
+
 public class N22_GenerateParentheses {
+    // Google, Uber
+    // DFS on number of remaining left and right parentheses.
     public List<String> generateParenthesis(int n) {
         List<String>  ret = new ArrayList<String>();
         generateParenthesis_helper(ret, "",  n, n);

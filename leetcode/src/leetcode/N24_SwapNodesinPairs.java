@@ -10,18 +10,7 @@ import leetcode.N0_data_strcture.*;
  You may not modify the values in the list, only nodes itself can be changed.
  */
 public class N24_SwapNodesinPairs {
-    //0 ms, modified value
-    public ListNode swapPairs(ListNode head) {
-        ListNode cur = head;
-        while(cur != null && cur.next!=null){
-            int tmp = cur.val;
-            cur.val = cur.next.val;
-            cur.next.val = tmp;
-            cur = cur.next.next;
-        }
-        return head;
-    }
-
+    // Microsoft, Uber
     // below comment added on 8/31/2016
     //  pre -->  cur --> next  --> next.next
     //  1.  pre/cur --> next --> next.next
@@ -45,6 +34,20 @@ public class N24_SwapNodesinPairs {
         }
         return dummy.next;
     }
+
+    //0 ms, modified value
+    public ListNode swapPairs(ListNode head) {
+        ListNode cur = head;
+        while(cur != null && cur.next!=null){
+            int tmp = cur.val;
+            cur.val = cur.next.val;
+            cur.next.val = tmp;
+            cur = cur.next.next;
+        }
+        return head;
+    }
+
+
 
 
 }

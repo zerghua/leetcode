@@ -19,7 +19,8 @@ import leetcode.N0_data_strcture.*;
  For k = 3, you should return: 3->2->1->4->5
  */
 public class N25_ReverseNodesinkGroup {
-    //1 ms
+    // Microsoft, Facebook
+    // 1 ms
     public ListNode reverseKGroup(ListNode head, int k) {
         ListNode dummy = new ListNode(0);
         dummy.next = head;

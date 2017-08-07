@@ -8,7 +8,8 @@ problem description added on 8/31/2016
  */
 
 public class N21_mergeTwoLists {
-	//280 ms 99%
+	// Amazon, Microsoft
+	// 280 ms 99%
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 		ListNode fakeHead = new ListNode(0);
 		ListNode p = fakeHead;

@@ -9,6 +9,35 @@ import java.util.*;
  * Analyze and describe its complexity.
  */
 public class N23_MergekSortedLists {
+    // Google, Facebook, Microsoft, Amazon
+    // added on 10/5/2016, improved the way heap is initialized.
+    // 24 ms  130 / 130 test cases passed.
+    // o(nklogk) time, o(k) space
+    public class Solution {
+        public ListNode mergeKLists(ListNode[] lists) {
+            if(lists == null || lists.length == 0) return null;
+
+            // min heap, natural ordering by val in ListNode
+            Queue<ListNode> heap = new PriorityQueue<ListNode>((o1,o2)-> o1.val - o2.val);
+
+            //put initial k into heap
+            for(ListNode e: lists){
+                if(e != null) heap.add(e);
+            }
+
+            // remove and add next of removed
+            ListNode dummy = new ListNode(0);
+            ListNode cur = dummy;
+            while(!heap.isEmpty()){
+                ListNode tmp = heap.poll();
+                cur.next = tmp;
+                if(tmp.next !=null) heap.add(tmp.next);
+                cur = cur.next;
+            }
+            return dummy.next;
+        }
+    }
+
     // 9 ms
     // custom PriorityQueue(heap)
     // time o(NlogK), space K, K is the size of lists
@@ -42,33 +71,6 @@ public class N23_MergekSortedLists {
         return dummy.next;
     }
 
-    // added on 10/5/2016, improved the way heap is initialized.
-    // 24 ms  130 / 130 test cases passed.
-    // o(nklogk) time, o(k) space
-    public class Solution {
-        public ListNode mergeKLists(ListNode[] lists) {
-            if(lists == null || lists.length == 0) return null;
-
-            // min heap, natural ordering by val in ListNode
-            Queue<ListNode> heap = new PriorityQueue<ListNode>((o1,o2)-> o1.val - o2.val);
-
-            //put initial k into heap
-            for(ListNode e: lists){
-                if(e != null) heap.add(e);
-            }
-
-            // remove and add next of removed
-            ListNode dummy = new ListNode(0);
-            ListNode cur = dummy;
-            while(!heap.isEmpty()){
-                ListNode tmp = heap.poll();
-                cur.next = tmp;
-                if(tmp.next !=null) heap.add(tmp.next);
-                cur = cur.next;
-            }
-            return dummy.next;
-        }
-    }
 
     // added on 10/7/2016
     // o(nklogk) time, o(1) space solution, divide and conquer.
