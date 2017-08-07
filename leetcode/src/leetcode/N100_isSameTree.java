@@ -8,8 +8,10 @@ Two binary trees are considered equal if they are structurally identical and the
 
  */
 
-//284ms, 54%
+
 public class N100_isSameTree {
+    // Bloomberg
+    // 284ms, 54%
     public boolean isSameTree(TreeNode p, TreeNode q) {
         if(p==null && q ==null) return true;
         else if(p==null || q == null) return false;

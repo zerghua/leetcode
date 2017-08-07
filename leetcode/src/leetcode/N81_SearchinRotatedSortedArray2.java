@@ -12,6 +12,7 @@ package leetcode;
 
  */
 public class N81_SearchinRotatedSortedArray2 {
+    // no company
     //1 ms
     public boolean search(int[] nums, int target) {
         return search(nums, target, 0, nums.length-1);

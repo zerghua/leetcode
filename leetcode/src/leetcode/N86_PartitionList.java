@@ -14,7 +14,7 @@ import leetcode.N0_data_strcture.*;
 
  */
 public class N86_PartitionList {
-
+    // no company
     // two pointers
     public ListNode partition(ListNode head, int x) {
         ListNode dummy = new ListNode(0);

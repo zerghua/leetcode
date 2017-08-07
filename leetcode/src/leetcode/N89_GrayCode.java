@@ -19,6 +19,7 @@ The gray code is a binary numeral system where two successive values differ in o
  *
  */
 public class N89_GrayCode {
+    // Amazon
     // 1 ms
     // f(n) += reverse(f(n-1)) + 2^(n-1)
     // each iteration doubles it, n is digit, one more digit will cause the size double

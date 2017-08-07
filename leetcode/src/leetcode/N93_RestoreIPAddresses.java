@@ -12,6 +12,7 @@ import java.util.*;
 
  */
 public class N93_RestoreIPAddresses {
+    // no company
     //5 ms, many corner cases.
     public List<String> restoreIpAddresses(String s) {
         List<String> ret = new LinkedList<>();

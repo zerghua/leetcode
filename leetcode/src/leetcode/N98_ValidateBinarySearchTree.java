@@ -30,6 +30,7 @@ import leetcode.N0_data_strcture.*;
 
  */
 public class N98_ValidateBinarySearchTree {
+    // Amazon, Facebook, Microsoft
     //1 ms
     public boolean isValidBST(TreeNode root) {
         return isValidBST(root, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);

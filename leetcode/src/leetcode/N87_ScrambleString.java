@@ -45,6 +45,7 @@ package leetcode;
 
  */
 public class N87_ScrambleString {
+    // no company
     // recursive
     // 4 ms
     // recursively compare sub string.

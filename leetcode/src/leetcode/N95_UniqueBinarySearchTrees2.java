@@ -21,32 +21,36 @@ import java.util.*;
 
  */
 public class N95_UniqueBinarySearchTrees2 {
-    public List<TreeNode> generateTrees(int start, int end) {
-        List<TreeNode> ret = new LinkedList<>();
-        if(start > end){
-            ret.add(null);
+    // no company
+    // 9 / 9 test cases passed.
+    // 5 ms
+    public class Solution {
+        public List<TreeNode> generateTrees(int start, int end) {
+            List<TreeNode> ret = new LinkedList<>();
+            if(start > end){
+                ret.add(null);
+                return ret;
+            }
+
+            for(int i=start; i<=end; i++){
+                List<TreeNode> lefts= generateTrees(start, i-1);
+                List<TreeNode> rights= generateTrees(i+1, end);
+
+                for(TreeNode left: lefts){
+                    for(TreeNode right: rights){
+                        TreeNode node = new TreeNode(i);
+                        node.left = left;
+                        node.right = right;
+                        ret.add(node);
+                    }
+                }
+            }
             return ret;
         }
 
-        for(int i=start; i<=end; i++){
-            List<TreeNode> lefts= generateTrees(start, i-1);
-            List<TreeNode> rights= generateTrees(i+1, end);
-
-            for(TreeNode left: lefts){
-                for(TreeNode right: rights){
-                    TreeNode node = new TreeNode(i);
-                    node.left = left;
-                    node.right = right;
-                    ret.add(node);
-                }
-            }
+        public List<TreeNode> generateTrees(int n) {
+            if(n<=0) return new LinkedList<>();
+            return generateTrees(1, n);
         }
-        return ret;
-    }
-
-
-    public List<TreeNode> generateTrees(int n) {
-        if(n<=0) return new LinkedList<>();
-        return generateTrees(1, n);
     }
 }

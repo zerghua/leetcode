@@ -9,6 +9,7 @@ You may assume that nums1 has enough space (size that is greater or equal to m +
  */
 
 public class N88_MergeSortedArray {
+	// Microsoft, Facebook
 	//0 ms
     public void merge(int[] nums1, int m, int[] nums2, int n) {
     	if (n+m >= 2){

@@ -11,6 +11,7 @@ Given 1->1->2->3->3, return 1->2->3.
  */
 
 public class N83_deleteDuplicates {
+    // no company
 	// 316 ms  83%
     // linked list skip next one if equals.
     public ListNode deleteDuplicates(ListNode head) {

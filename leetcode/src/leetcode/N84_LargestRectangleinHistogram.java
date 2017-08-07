@@ -17,6 +17,7 @@ import java.util.*;
  return 10.
  */
 public class N84_LargestRectangleinHistogram {
+    // no company
     //25 ms, stack, o(N)
     // if(h[i+1] < h[i]) pop stack and calculate area.
     public int largestRectangleArea(int[] heights) {

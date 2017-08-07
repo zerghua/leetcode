@@ -42,6 +42,7 @@ catalan[3] = catalan[0] * catalan[3] +
 
 
 public class N96_UniqueBinarySearchTrees {
+    // Snapchat
 	//0 ms
     // F(i, n) = G(i) * G(n-i-1)	0 <= i < n
     public int numTrees(int n) {

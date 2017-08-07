@@ -9,6 +9,7 @@ import java.util.Stack;
  * find the largest rectangle containing all ones and return its area.
  */
 public class N85_MaximalRectangle {
+    // Facebook
     // convert matrix to n rows of histogram
     // and solve it by N84 in o(N)
     // total time o(N^2)

@@ -19,7 +19,7 @@ Note: Recursive solution is trivial, could you do it iteratively?
 
  */
 public class N94_BinaryTreeInorderTraversal {
-	
+	// Microsoft
 	// iterative non extra space  2 ms
     public List<Integer> inorderTraversal3(TreeNode root) {
     	List<Integer> ret = new LinkedList<Integer>();

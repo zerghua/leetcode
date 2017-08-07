@@ -13,6 +13,7 @@ import leetcode.N0_data_strcture.*;
 
  */
 public class N82_RemoveDuplicatesfromSortedList2 {
+    // no company
     //1 ms
     public ListNode deleteDuplicates(ListNode head) {
         if(head ==null || head.next == null) return head;
