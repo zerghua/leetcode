@@ -28,6 +28,7 @@ Bonus points if you could solve it both recursively and iteratively.
 
  */
 public class N101_SymmetricTree {
+	// Microsoft, Bloomberg
 	//340 ms  37%
 	public boolean isSymmetricHelper(TreeNode l, TreeNode r){
 		if(l ==null &&  r==null){

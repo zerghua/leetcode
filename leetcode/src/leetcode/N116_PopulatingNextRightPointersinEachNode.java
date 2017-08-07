@@ -45,6 +45,7 @@ Note:
 
  */
 public class N116_PopulatingNextRightPointersinEachNode {
+    // Microsoft
 	//6 ms
     public void connect(TreeLinkNode root) {
     	if(root ==null)return;

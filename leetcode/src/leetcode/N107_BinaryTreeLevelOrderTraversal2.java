@@ -4,6 +4,7 @@ import leetcode.N0_data_strcture.*;
 
 // 5 ms
 public class N107_BinaryTreeLevelOrderTraversal2 {
+	// no company
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
     	List<List<Integer>> ret = new ArrayList<List<Integer>>();
     	if(root == null) return ret;

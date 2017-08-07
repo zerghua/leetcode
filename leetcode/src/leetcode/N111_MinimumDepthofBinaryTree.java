@@ -11,6 +11,7 @@ from the root node down to the nearest leaf node.
 
  */
 public class N111_MinimumDepthofBinaryTree {
+    // no company
 	//1 ms
     public int minDepth(TreeNode root) {
         if(root == null) return 0;

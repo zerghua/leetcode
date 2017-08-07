@@ -32,6 +32,7 @@ import java.util.*;
 
  */
 public class N117_PopulatingNextRightPointersinEachNode2 {
+    // Microsoft, Facebook
     // 7 ms
     // tree BFS, level by level, store size of each level and traverse within size.
     public void connect(TreeLinkNode root) {

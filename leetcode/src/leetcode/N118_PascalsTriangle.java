@@ -18,6 +18,7 @@ Return
  */
 
 public class N118_PascalsTriangle {
+	// Apple, Twitter
 	//2 ms
     public List<List<Integer>> generate(int numRows) {
     	List<List<Integer>> ret = new ArrayList<List<Integer>>();

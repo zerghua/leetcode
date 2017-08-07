@@ -9,24 +9,7 @@ a binary tree in which the depth of the two subtrees of every node never differ 
 
  */
 public class N110_BalancedBinaryTree {
-	/*  this is special case only compares depth difference from root, should consider every node
-	public int maxDepth(TreeNode root){
-		if(root == null) return 0;
-		return 1+ Math.max(maxDepth(root.left), maxDepth(root.right));
-	}
-
-	public int minDepth(TreeNode root){
-		if(root == null) return 0;
-		return 1+ Math.min(minDepth(root.left), minDepth(root.right));
-	}	
-	
-	
-    public boolean isBalanced(TreeNode root) {
-        return (maxDepth(root) - minDepth(root) <=1);
-    }
-    */
-    
-    
+    // Bloomberg
 	//404 ms 23%,  360ms 71%
 	public int getHeight(TreeNode root){
 		if(root == null) return 0;
@@ -64,4 +47,21 @@ public class N110_BalancedBinaryTree {
 			return dfs(root) >= 0;
 		}
 	}
+
+		/*  this is special case only compares depth difference from root, should consider every node
+	public int maxDepth(TreeNode root){
+		if(root == null) return 0;
+		return 1+ Math.max(maxDepth(root.left), maxDepth(root.right));
+	}
+
+	public int minDepth(TreeNode root){
+		if(root == null) return 0;
+		return 1+ Math.min(minDepth(root.left), minDepth(root.right));
+	}
+
+
+    public boolean isBalanced(TreeNode root) {
+        return (maxDepth(root) - minDepth(root) <=1);
+    }
+    */
 }

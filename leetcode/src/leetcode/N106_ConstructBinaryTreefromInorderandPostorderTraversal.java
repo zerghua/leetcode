@@ -10,6 +10,9 @@ import leetcode.N0_data_strcture.*;
  You may assume that duplicates do not exist in the tree.
  */
 public class N106_ConstructBinaryTreefromInorderandPostorderTraversal {
+    // Microsoft
+    // 202 / 202 test cases passed.
+    // 19 ms
     public TreeNode buildTree(int[] inorder, int inorder_start, int inorder_end,
                               int[] postorder, int postorder_start, int postorder_end) {
         if(inorder_start == inorder_end) return new TreeNode(inorder[inorder_start]);

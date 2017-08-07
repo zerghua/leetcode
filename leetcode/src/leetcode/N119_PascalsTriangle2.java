@@ -15,6 +15,7 @@ Could you optimize your algorithm to use only O(k) extra space?
 
 */
 public class N119_PascalsTriangle2 {
+	// Amazon
 	//4 ms
     public List<Integer> getRow(int rowIndex) {
     	ArrayList<Integer> list = new ArrayList<Integer>();

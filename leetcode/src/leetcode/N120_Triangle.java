@@ -23,6 +23,7 @@ import java.util.*;
 
  */
 public class N120_Triangle {
+    // no company
     //use botton-up, don't need to deal with corner cases. 23ms.
     public int minimumTotal(List<List<Integer>> triangle) {
         if(triangle == null) return 0;

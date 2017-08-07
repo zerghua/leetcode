@@ -17,6 +17,7 @@ package leetcode;
  http://blog.csdn.net/abcbc/article/details/8978146
  */
 public class N115_DistinctSubsequences {
+    // no company
     // 21 ms
     // two string, 2-d dp.
     // dp[i][j] = dp[i-1][j]
