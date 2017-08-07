@@ -18,6 +18,31 @@ version 2 added on 9/2/2016
  */
 
 public class N36_ValidSudoku {
+    // Apple, Uber
+	// 4 ms 501 / 501 test cases passed.
+	// concise and fast code.
+	public boolean isValidSudoku2(char[][] board) {
+		int row_size = board[0].length;
+		int col_size = board.length;
+
+		boolean[][] row = new boolean[row_size][col_size];
+		boolean[][] col = new boolean[row_size][col_size];
+		boolean[][] box = new boolean[row_size][col_size];
+
+		for(int i=0;i<row_size;i++){
+			for(int j=0;j<col_size;j++){
+				if(board[i][j] != '.'){
+					int num = board[i][j] - '0' -1; // change [1,9] to [0,8] to match index
+					int k = (i/3)*3 + j/3;          // smart part transfer box to [0,8] according to its index
+					if(row[i][num] || col[j][num] || box[k][num]) return false;
+					row[i][num] = col[j][num] = box[k][num] = true;
+				}
+			}
+		}
+		return true;
+	}
+
+
 	//15 ms
     public boolean isValidSudoku(char[][] board) {
     	int row_size = board.length;
@@ -51,26 +76,5 @@ public class N36_ValidSudoku {
     	return true;
     }
 
-    // 4 ms 501 / 501 test cases passed.
-    // concise and fast code.
-    public boolean isValidSudoku2(char[][] board) {
-        int row_size = board[0].length;
-        int col_size = board.length;
 
-        boolean[][] row = new boolean[row_size][col_size];
-        boolean[][] col = new boolean[row_size][col_size];
-        boolean[][] box = new boolean[row_size][col_size];
-
-        for(int i=0;i<row_size;i++){
-            for(int j=0;j<col_size;j++){
-                if(board[i][j] != '.'){
-                    int num = board[i][j] - '0' -1; // change [1,9] to [0,8] to match index
-                    int k = (i/3)*3 + j/3;          // smart part transfer box to [0,8] according to its index
-                    if(row[i][num] || col[j][num] || box[k][num]) return false;
-                    row[i][num] = col[j][num] = box[k][num] = true;
-                }
-            }
-        }
-        return true;
-    }
 }

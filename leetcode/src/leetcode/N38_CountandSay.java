@@ -25,8 +25,9 @@ package leetcode;
 
  */
 public class N38_CountandSay {
-    //8 ms
-    //count duplicate chars, and output.
+    // facebook
+    // 8 ms
+    // count duplicate chars, and output.
     public String countAndSay(int n) {
         if(n<1) return null;
         String ret = "1"; //base case when n=1

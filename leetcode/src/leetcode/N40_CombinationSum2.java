@@ -30,39 +30,37 @@ import java.util.List;
 
  */
 public class N40_CombinationSum2 {
-    public void combinationSum_helper_better(int[] candidates, int start, int target,
-                                             LinkedList<Integer> list, List<List<Integer>> ret){
-        if(0 == target) {
-            ret.add(new LinkedList<>(list));
-            return;
+    // snapchat
+    // 172 / 172 test cases passed.
+    // 16 ms
+    public class Solution {
+        public void combinationSum_helper_better(int[] candidates, int start, int target,
+                                                 LinkedList<Integer> list, List<List<Integer>> ret){
+            if(0 == target) {
+                ret.add(new LinkedList<>(list));
+                return;
+            }
+
+            for(int i=start;i<candidates.length;i++){
+                if(candidates[i] > target) return;
+                if(i>start && candidates[i]==candidates[i-1]) continue; // remove duplicate
+
+                list.add(candidates[i]);
+                combinationSum_helper_better(candidates, i+1, target-candidates[i],list,ret);
+                list.removeLast();
+            }
         }
 
-        for(int i=start;i<candidates.length;i++){
-            if(candidates[i] > target) return;
-            if(i>start && candidates[i]==candidates[i-1]) continue; // remove duplicate
+        public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+            List<List<Integer>> ret = new LinkedList<List<Integer>>();
+            LinkedList<Integer> list = new LinkedList<>();
+            if(candidates == null) return ret;
 
-            list.add(candidates[i]);
-            combinationSum_helper_better(candidates, i+1, target-candidates[i],list,ret);
-            list.removeLast();
+            Arrays.sort(candidates); //for OJ to compare results
+            combinationSum_helper_better(candidates, 0, target, list, ret);
+
+            return ret;
         }
     }
 
-
-    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        List<List<Integer>> ret = new LinkedList<List<Integer>>();
-        LinkedList<Integer> list = new LinkedList<>();
-        if(candidates == null) return ret;
-
-        Arrays.sort(candidates); //for OJ to compare results
-        combinationSum_helper_better(candidates, 0, target, list, ret);
-
-
-        /* remove duplicate using hashset
-        HashSet<ArrayList<Integer>> set = new HashSet<ArrayList<Integer>>(result);
-        //remove duplicate lists
-        result.clear();
-        result.addAll(set);
-        */
-        return ret;
-    }
 }
