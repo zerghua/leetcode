@@ -14,16 +14,17 @@ package leetcode;
  bool isMatch(const char *s, const char *p)
 
  Some examples:
- isMatch("aa","a") ¡ú false
- isMatch("aa","aa") ¡ú true
- isMatch("aaa","aa") ¡ú false
- isMatch("aa", "a*") ¡ú true
- isMatch("aa", ".*") ¡ú true
- isMatch("ab", ".*") ¡ú true
- isMatch("aab", "c*a*b") ¡ú true
+ isMatch("aa","a") ? false
+ isMatch("aa","aa") ? true
+ isMatch("aaa","aa") ? false
+ isMatch("aa", "a*") ? true
+ isMatch("aa", ".*") ? true
+ isMatch("ab", ".*") ? true
+ isMatch("aab", "c*a*b") ? true
 
  */
 public class N10_RegularExpressionMatching {
+    // google, facebook
     // recursive
     // 144 ms
     public boolean isMatch(String s, String p) {
