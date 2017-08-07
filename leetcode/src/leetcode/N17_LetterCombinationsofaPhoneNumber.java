@@ -19,6 +19,35 @@ import java.util.List;
 
  */
 public class N17_LetterCombinationsofaPhoneNumber {
+    // Google, Facebook, Amazon
+    // using string array  1ms.
+    public void letterCombinations2(String digits, int digit_start,
+                                    String[] map, String cur, List<String> ret){
+
+        if(cur.length() == digits.length()) {
+            ret.add(cur);
+            return;
+        }
+
+        String chars = map[digits.charAt(digit_start) - '0'];
+        for(int j=0; j<chars.length(); j++){
+            letterCombinations2(digits, digit_start + 1, map, cur + chars.charAt(j), ret);
+        }
+    }
+
+    public List<String> letterCombinations2(String digits) {
+        String[] hm = {"", "*", "abc",
+                "def", "ghi", "jkl",
+                "mno", "pqrs", "tuv","wxyz"};
+
+
+        List<String> ret = new LinkedList<>();
+        if(digits == null || digits.length()==0) return ret;
+
+        letterCombinations2(digits, 0, hm, "", ret);
+        return ret;
+    }
+
     //3 ms
     public void letterCombinations(String digits, int digit_start,
                                    HashMap<Character, String> map, String cur, List<String> ret){
@@ -57,33 +86,7 @@ public class N17_LetterCombinationsofaPhoneNumber {
 
 
 
-    //using string array  1ms.
-    public void letterCombinations2(String digits, int digit_start,
-                                   String[] map, String cur, List<String> ret){
 
-        if(cur.length() == digits.length()) {
-            ret.add(cur);
-            return;
-        }
-
-        String chars = map[digits.charAt(digit_start) - '0'];
-        for(int j=0; j<chars.length(); j++){
-            letterCombinations2(digits, digit_start + 1, map, cur + chars.charAt(j), ret);
-        }
-    }
-
-    public List<String> letterCombinations2(String digits) {
-        String[] hm = {"", "*", "abc",
-                "def", "ghi", "jkl",
-                "mno", "pqrs", "tuv","wxyz"};
-
-
-        List<String> ret = new LinkedList<>();
-        if(digits == null || digits.length()==0) return ret;
-
-        letterCombinations2(digits, 0, hm, "", ret);
-        return ret;
-    }
 
 
 }
