@@ -19,7 +19,8 @@ import java.util.*;
  *
  */
 public class N15_3Sum {
-    //8 ms  O(n^2) time
+    // Amazon, Microsoft, Facebook
+    // 8 ms  O(n^2) time
     // remember Arrays.asList to create a list with some initial values.
     // two pointers makes it o(n)
     // outer loop make it another o(n)
