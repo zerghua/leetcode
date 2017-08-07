@@ -35,6 +35,9 @@ package leetcode;
 import leetcode.N0_data_strcture.*;
 public class N654_MaximumBinaryTree {
     // leetcode contest 44, passed solution
+    // Microsoft
+    // 107 / 107 test cases passed.
+    // 14 ms
     public class Solution {
         public TreeNode constructMaximumBinaryTree(int[] nums) {
             return dfs(nums, 0, nums.length-1);

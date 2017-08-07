@@ -40,6 +40,9 @@ import java.util.*;
 
 public class N653_TwoSumIV_InputisaBST {
     // leetcode contest 44, passed solution
+    // facebook
+    // 421 / 421 test cases passed.
+    // 29 ms
     public class Solution {
         public boolean findTarget(TreeNode root, int k) {
             return dfs(root, k, new HashSet());

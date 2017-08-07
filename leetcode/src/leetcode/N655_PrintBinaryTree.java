@@ -67,6 +67,9 @@ import leetcode.N0_data_strcture.*;
 import java.util.*;
 public class N655_PrintBinaryTree {
     // leetcode contest 44, passed solution
+    // poynt
+    // 73 / 73 test cases passed.
+    // 9 ms
     public class Solution {
         public List<List<String>> printTree(TreeNode root) {
             int h = dfs(root); // get height of tree
@@ -106,6 +109,36 @@ public class N655_PrintBinaryTree {
         public int dfs(TreeNode node){
             if(node == null) return 0;
             return 1 + Math.max(dfs(node.left), dfs(node.right));
+        }
+    }
+
+
+    // much more concise solution
+    // 73 / 73 test cases passed.
+    // 9 ms
+    public class Solution2 {
+        public List<List<String>> printTree(TreeNode root) {
+            int height = getHeight(root);
+            String[][] ret = new String[height][(int)Math.pow(2, height) - 1];
+            for(String[] arr:ret)Arrays.fill(arr,"");
+
+            List<List<String>> ans = new ArrayList<>();
+            fill(ret, root, 0, 0, ret[0].length);
+
+            for(String[] arr:ret) ans.add(Arrays.asList(arr));
+            return ans;
+        }
+        public void fill(String[][] ret, TreeNode root, int i, int l, int r) {
+            if (root == null) return;
+
+            ret[i][(l + r) / 2] = "" + root.val;
+            fill(ret, root.left, i + 1, l, (l + r) / 2);
+            fill(ret, root.right, i + 1, (l + r + 1) / 2, r);
+        }
+
+        public int getHeight(TreeNode root) {
+            if (root == null) return 0;
+            return 1 + Math.max(getHeight(root.left), getHeight(root.right));
         }
     }
 }
