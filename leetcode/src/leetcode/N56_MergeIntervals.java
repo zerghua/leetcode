@@ -11,6 +11,7 @@ import java.util.*;
  *
  */
 public class N56_MergeIntervals {
+    // Google, Facebook, Microsoft
     public class Interval {
         int start;
         int end;

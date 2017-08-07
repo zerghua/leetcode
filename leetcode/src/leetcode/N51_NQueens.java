@@ -11,6 +11,7 @@ import java.util.*;
  Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate a queen and an empty space respectively.
  */
 public class N51_NQueens {
+    // no company
     //10 ms
     public List<List<String>> solveNQueens(int n) {
         List<List<String>> ret = new ArrayList<List<String>>();

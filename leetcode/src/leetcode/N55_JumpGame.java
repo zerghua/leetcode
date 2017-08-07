@@ -17,6 +17,7 @@ package leetcode;
 
  */
 public class N55_JumpGame {
+    // Microsoft
     public boolean canJump(int[] nums) {
         if(nums.length <= 1) return true;
 

@@ -13,7 +13,8 @@ return 5.
 
  */
 public class N58_LengthofLastWord {
-	//0 ms
+	// no company
+    //0 ms
     public int lengthOfLastWord(String s) {
         if(s.length() ==0 || s==null) return 0;
         

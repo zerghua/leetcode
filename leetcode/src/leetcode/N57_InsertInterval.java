@@ -17,7 +17,8 @@ import java.util.*;
  This is because the new interval [4,9] overlaps with [3,5],[6,7],[8,10].
  */
 public class N57_InsertInterval {
-    //4 ms
+    // Google, Facebook
+    // 4 ms
     // insert into sorted list first
     // then merge them as N56
     public class Interval {

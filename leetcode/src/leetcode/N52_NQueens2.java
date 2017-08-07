@@ -10,6 +10,7 @@ import java.util.*;
 
  */
 public class N52_NQueens2 {
+    // zenefits
     //5 ms
     //backtracking, time o(n!), space o(n)
     int ret = 0;
