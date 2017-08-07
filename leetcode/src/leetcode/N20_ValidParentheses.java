@@ -37,6 +37,27 @@ version 2,3 added on 8/31/2016
  */
 
 public class N20_ValidParentheses {
+    // Google, Facebook, Amazon, Microsoft
+    // concise code added on 10/9/2016
+    // 7 ms 65 / 65 test cases passed.
+    public class Solution {
+        public boolean isValid(String s) {
+            if(s==null || s.length()==0) return true;
+            HashMap<Character, Character> map = new HashMap(){{
+                put('(',')');
+                put('{','}');
+                put('[',']');
+            }};
+            Stack<Character> stack = new Stack();
+            for(char c : s.toCharArray()){
+                if(map.containsKey(c)) stack.push(c);
+                else if(stack.isEmpty() || map.get(stack.pop()) != c) return false; // concise code.
+            }
+            return stack.isEmpty();
+        }
+    }
+
+
 	//3 ms
 	public boolean isMatch(char left, char right){
 		if(left== '(' && right== ')' ) return true;
@@ -94,24 +115,7 @@ public class N20_ValidParentheses {
         return stack.isEmpty();
     }
 
-    // concise code added on 10/9/2016
-    // 7 ms 65 / 65 test cases passed.
-    public class Solution {
-        public boolean isValid(String s) {
-            if(s==null || s.length()==0) return true;
-            HashMap<Character, Character> map = new HashMap(){{
-                put('(',')');
-                put('{','}');
-                put('[',']');
-            }};
-            Stack<Character> stack = new Stack();
-            for(char c : s.toCharArray()){
-                if(map.containsKey(c)) stack.push(c);
-                else if(stack.isEmpty() || map.get(stack.pop()) != c) return false; // concise code.
-            }
-            return stack.isEmpty();
-        }
-    }
+
 
 
 
