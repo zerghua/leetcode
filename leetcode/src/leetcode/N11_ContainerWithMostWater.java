@@ -10,6 +10,23 @@ package leetcode;
  Note: You may not slant the container.
  */
 public class N11_ContainerWithMostWater {
+    // Bloomberg
+    // should be bug free
+    // greedy, can also be done in DP, but need extra space.
+    // 4 ms
+    public int maxArea3(int[] height) {
+        int left = 0, right = height.length-1;
+        int max = 0;
+        while(left < right){
+            int min = Math.min(height[right] , height[left]);
+            max = Math.max(max,  min * (right-left));
+
+            while(left<right && height[left]<= min) left++;
+            while(left<right && height[right]<= min) right--;
+        }
+        return max;
+    }
+
     //exceed time limit
     public int maxArea(int[] height) {
         int max=1;
@@ -40,21 +57,6 @@ public class N11_ContainerWithMostWater {
         return max;
     }
 
-    // should be bug free
-    // greedy, can also be done in DP, but need extra space.
-    // 4 ms
-    public int maxArea3(int[] height) {
-        int left = 0, right = height.length-1;
-        int max = 0;
-        while(left < right){
-            int min = Math.min(height[right] , height[left]);
-            max = Math.max(max,  min * (right-left));
-
-            while(left<right && height[left]<= min) left++;
-            while(left<right && height[right]<= min) right--;
-        }
-        return max;
-    }
 
 
 }
