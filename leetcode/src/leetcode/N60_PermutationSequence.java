@@ -22,6 +22,7 @@ import java.util.*;
  https://discuss.leetcode.com/topic/17348/explain-like-i-m-five-java-solution-in-o-n
  */
 public class N60_PermutationSequence {
+    // Twitter
     //4 ms, had to use hard-coded factorial, or will TLE
     //math, mod,  k / (n - 1)! for current  and k % (n - 1)! for next iteration
     public String getPermutation(int n, int k) {
