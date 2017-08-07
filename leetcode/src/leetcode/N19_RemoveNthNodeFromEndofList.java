@@ -18,6 +18,7 @@ Try to do this in one pass.
 
  */
 public class N19_RemoveNthNodeFromEndofList {
+	// no company
 	//1 ms
     public ListNode removeNthFromEnd(ListNode head, int n) {
     	if(n<=0) throw new IllegalArgumentException("n<=0");
