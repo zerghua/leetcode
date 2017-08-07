@@ -7,6 +7,7 @@ package leetcode;
  Note: You can only move either down or right at any point in time.
  */
 public class N64_MinimumPathSum {
+    // no company
     //DP 4 ms 56%  space O(col*row)
     public int minPathSum(int[][] grid) {
         if(grid ==null) return 0;

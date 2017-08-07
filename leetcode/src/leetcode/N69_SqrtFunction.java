@@ -9,9 +9,11 @@ package leetcode;
 
  */
 public class N69_SqrtFunction {
+    // Facebook, Bloomberg
+    // 1017 / 1017 test cases passed.
+    // 2 ms
     // TLE on 2147483647?
     // need to use long type for mid*mid, or possibly over flow.
-    // 3 ms
     public int mySqrt(int x) {
         if(x<=1) return x; // it seems OJ treat this way, not mathematically right
 

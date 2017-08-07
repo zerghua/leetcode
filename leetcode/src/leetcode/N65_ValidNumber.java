@@ -25,6 +25,7 @@ package leetcode;
 
 
 public class N65_ValidNumber {
+    // Linkedin
     // added on 10/4/2016
     // 3 ms 1481 / 1481 test cases passed.
     public class Solution {

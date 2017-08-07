@@ -12,6 +12,7 @@ package leetcode;
 
  */
 public class N67_AddBinary {
+    // Facebook
     // 4 ms
     // start from end
     // corner case: last carry is 1

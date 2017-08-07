@@ -7,7 +7,7 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
  */
 //fibonacci sequence
 public class N70_climbStairs {
-	
+	// Apple, Adobe
 	// 208 ms  62%
     public int climbStairs(int n) {
     	if (n<3) return n;

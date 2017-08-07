@@ -25,6 +25,7 @@ package leetcode;
 
  */
 public class N63_UniquePaths2 {
+    // Bloomberg
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int rows= obstacleGrid.length;
         int cols= obstacleGrid[0].length;

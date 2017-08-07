@@ -11,6 +11,7 @@ import leetcode.N0_data_strcture.*;
 
  */
 public class N61_RotateList {
+    // no company
     //1 ms
     public ListNode rotateRight(ListNode head, int k) {
         if(head == null) return head;

@@ -13,6 +13,7 @@ package leetcode;
  How many possible unique paths are there?
  */
 public class N62_UniquePaths {
+    // Bloomberg
     //1 ms
     public int uniquePaths2(int m, int n) {
         // corner cases

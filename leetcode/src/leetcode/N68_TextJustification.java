@@ -41,6 +41,7 @@ import java.util.*;
  */
 
 public class N68_TextJustification {
+    // Facebook, Airbnb
     // 6 ms
     // can use index to optimise speed.
     public List<String> fullJustify(String[] words, int maxWidth) {
