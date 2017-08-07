@@ -17,6 +17,23 @@ package leetcode;
 
  */
 public class N12_IntegertoRoman {
+    // Google, Twitter.
+    // 8 ms
+    public String intToRoman2(int num) {
+        String[] symbol={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+        int[]     value={1000,900,500,400, 100, 90,  50, 40,  10, 9,   5,  4,   1};
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;num!=0; i++){
+            while(num >= value[i]){
+                num -= value[i];
+                sb.append(symbol[i]);
+            }
+        }
+        return sb.toString();
+    }
+
+
+
     //13 ms
     public String constructRomanNumbers(int number, int position){
         String one = "", five= "",ten="";
@@ -53,18 +70,6 @@ public class N12_IntegertoRoman {
         return sb.toString();
     }
 
-    //8 ms
-    public String intToRoman2(int num) {
-        String[] symbol={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
-        int[]     value={1000,900,500,400, 100, 90,  50, 40,  10, 9,   5,  4,   1};
-        StringBuilder sb = new StringBuilder();
-        for(int i=0;num!=0; i++){
-            while(num >= value[i]){
-                num -= value[i];
-                sb.append(symbol[i]);
-            }
-        }
-        return sb.toString();
-    }
+
 
 }
