@@ -14,6 +14,7 @@ import java.util.Arrays;
 
  */
 public class N16_3SumClosest {
+    // Bloomberg
     // o(n^2) time,
     // assume there is a solution
     public int threeSumClosest(int[] nums, int target) {
