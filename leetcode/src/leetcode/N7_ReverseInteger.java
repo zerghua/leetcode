@@ -25,7 +25,23 @@ package leetcode;
 
  */
 public class N7_ReverseInteger {
-    //2 ms
+    // Bloomberg, Apple
+    // added on 10/7/2016
+    // 60 ms 1032 / 1032 test cases passed.
+    public class Solution {
+        public int reverse(int x) {
+            int ret = 0;
+            while(x != 0){
+                if(Math.abs(ret) > Integer.MAX_VALUE/10) return 0; // handle overflow/underflow
+                ret = ret*10 + x%10;
+                x /= 10;
+            }
+            return ret;
+        }
+    }
+
+
+    // 2 ms
     // 1. negative number?
     // 2. trailing zeros
     // 3. int overflow.
@@ -41,19 +57,7 @@ public class N7_ReverseInteger {
         return ret;
     }
 
-    // added on 10/7/2016
-    // 60 ms 1032 / 1032 test cases passed.
-    public class Solution {
-        public int reverse(int x) {
-            int ret = 0;
-            while(x != 0){
-                if(Math.abs(ret) > Integer.MAX_VALUE/10) return 0; // handle overflow/underflow
-                ret = ret*10 + x%10;
-                x /= 10;
-            }
-            return ret;
-        }
-    }
+
 
     public static void main(String[] args) {
         N7_ReverseInteger x= new N7_ReverseInteger();
