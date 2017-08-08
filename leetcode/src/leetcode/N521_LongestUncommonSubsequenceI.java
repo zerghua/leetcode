@@ -30,6 +30,7 @@ package leetcode;
 
  */
 public class N521_LongestUncommonSubsequenceI {
+    // Google
     // brain teaser
     public class Solution {
         public int findLUSlength(String a, String b) {

@@ -36,6 +36,7 @@ package leetcode;
 
  */
 public class N526_BeautifulArrangement {
+    // Google
     // back tracking, a little hard to imagine.
     // 15 / 15 test cases passed.
     // 8 ms

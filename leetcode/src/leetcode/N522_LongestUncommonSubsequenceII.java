@@ -28,6 +28,7 @@ import java.util.Arrays;
 
  */
 public class N522_LongestUncommonSubsequenceII {
+    // Google
     // Suppose we have some candidate X. We only need to check whether X is not a subsequence of any of the
     // other words Y. To save some time, we could have quickly ruled out Y when len(Y) < len(X), either by
     // adding "if len(w1) > len(w2): return False" or enumerating over A[:i] (and checking neighbors for equality.)

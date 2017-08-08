@@ -27,6 +27,7 @@ package leetcode;
  */
 import leetcode.N0_data_strcture.*;
 public class N530_MinimumAbsoluteDifferenceinBST {
+    // Google
     // in-order traversal, one trick is to set pre = -1 and avoid the first diff.
     // 186 / 186 test cases passed.
     // 14 ms

@@ -21,6 +21,7 @@ package leetcode;
 
  */
 public class N540_SingleElementinaSortedArray {
+    // no company
     // 7 / 7 test cases passed.
     // 1 ms
     // binary search, based on odd and even numbers of the two halves.

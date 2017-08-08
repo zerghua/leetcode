@@ -37,6 +37,7 @@ import java.util.HashMap;
 
  */
 public class N532_KdiffPairsinanArray {
+    // Amazon
     // hash table, interesting solution.
     // 72 / 72 test cases passed.
     // 35 ms

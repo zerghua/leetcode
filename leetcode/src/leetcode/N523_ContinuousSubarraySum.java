@@ -28,6 +28,7 @@ import java.util.HashSet;
 
  */
 public class N523_ContinuousSubarraySum {
+    // Facebook
     // tricky solution, similar to N560, subarray sum Equals K
     // 75 / 75 test cases passed.
     // 17 ms

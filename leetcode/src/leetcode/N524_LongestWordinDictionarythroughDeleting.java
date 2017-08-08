@@ -34,11 +34,12 @@ import java.util.*;
 
  */
 public class N524_LongestWordinDictionarythroughDeleting {
+    // Google
+    // time complexity o(nk) k is the length of string in dictionary
+    // tricky implementation
+    // 31 / 31 test cases passed.
+    // 72 ms
     public class Solution {
-        // time complexity o(nk) k is the length of string in dictionary
-        // tricky implementation
-        // 31 / 31 test cases passed.
-        // 72 ms
         public String findLongestWord(String s, List<String> d) {
             String ret = "";
             char[] a = s.toCharArray();

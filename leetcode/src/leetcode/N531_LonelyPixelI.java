@@ -29,6 +29,7 @@ package leetcode;
 
 import java.util.*;
 public class N531_LonelyPixelI {
+    // Google
     // 57 / 57 test cases passed.
     // 57 ms
     // hashmap o(n) time

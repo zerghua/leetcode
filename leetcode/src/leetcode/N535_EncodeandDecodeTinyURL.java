@@ -33,6 +33,7 @@ import java.util.*;
 
  */
 public class N535_EncodeandDecodeTinyURL {
+    // Google, Facebook, Amazon, Uber
     // 739 / 739 test cases passed.
     // 6 ms
     public class Codec {

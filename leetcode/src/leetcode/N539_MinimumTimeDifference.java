@@ -22,6 +22,7 @@ import java.util.List;
 
  */
 public class N539_MinimumTimeDifference {
+    // Palantir
     // sort or bucket sort
     // 112 / 112 test cases passed.
     // 51 ms
