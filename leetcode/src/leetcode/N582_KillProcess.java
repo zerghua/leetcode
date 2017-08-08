@@ -42,6 +42,7 @@ package leetcode;
 
 import java.util.*;
 public class N582_KillProcess {
+    // Bloomberg
     // hashtable + queue(BFS)
     // 166 / 166 test cases passed.
     // 88 ms

@@ -30,6 +30,7 @@ import java.util.HashSet;
 
  */
 public class N593_ValidSquare {
+    // Pure Storage
     // math, find pattern to code
     // 244 / 244 test cases passed.
     // 23 ms

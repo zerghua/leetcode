@@ -117,6 +117,7 @@ package leetcode;
 
  */
 public class N591_TagValidator {
+    // Microsoft
     // regular expression
     // can also to solved with stack?
     // 256 / 256 test cases passed.

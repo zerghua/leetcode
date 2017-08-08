@@ -28,6 +28,7 @@ package leetcode;
 
  */
 public class N583_DeleteOperationforTwoStrings {
+    // Google
     // this is equivalent to Longest Common Subsequence(LCS)
     // 1307 / 1307 test cases passed.
     // 70 ms

@@ -41,6 +41,7 @@ package leetcode;
 import leetcode.N0_data_strcture.*;
 import java.util.*;
 public class N587_ErecttheFence {
+    // Google
     // convex hull problem
     // 82 / 82 test cases passed.
     // 116 ms

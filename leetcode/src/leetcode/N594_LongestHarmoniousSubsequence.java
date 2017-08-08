@@ -21,6 +21,7 @@ package leetcode;
  */
 import java.util.*;
 public class N594_LongestHarmoniousSubsequence {
+    // LiveRamp
     // hashmap to check neighbour elements, no need to check both +1 and -1
     // 201 / 201 test cases passed.
     // 77 ms

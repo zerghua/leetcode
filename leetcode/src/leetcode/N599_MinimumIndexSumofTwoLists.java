@@ -36,6 +36,7 @@ package leetcode;
 
 import java.util.*;
 public class N599_MinimumIndexSumofTwoLists {
+    // Yelp
     // hashmap
     // 133 / 133 test cases passed.
     // 41 ms
