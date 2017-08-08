@@ -29,6 +29,7 @@ import java.util.HashSet;
 
  */
 public class N318_MaximumProductofWordLengths {
+    // Google
     // 288 ms
     // hashset o(n^2) time
     public int maxProduct(String[] words) {

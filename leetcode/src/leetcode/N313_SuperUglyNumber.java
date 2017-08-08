@@ -16,6 +16,7 @@ package leetcode;
 
  */
 public class N313_SuperUglyNumber {
+    // Google
     // 29 ms 83 / 83 test cases passed.
     // math. similar to N264. ugly number 2
     public class Solution {

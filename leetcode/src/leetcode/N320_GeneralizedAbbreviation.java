@@ -16,6 +16,7 @@ package leetcode;
  */
 import java.util.*;
 public class N320_GeneralizedAbbreviation {
+    // Google
     // o(2^n) time complexity
     // DFS + backtracking, not easy
     // 49 / 49 test cases passed.

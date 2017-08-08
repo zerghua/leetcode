@@ -39,6 +39,7 @@ package leetcode;
 
 import java.util.*;
 public class N311_SparseMatrixMultiplication {
+    // Facebook, Linkedin
     // math. not trivia
     // 12 / 12 test cases passed.
     // 69 ms

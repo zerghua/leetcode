@@ -23,6 +23,7 @@ package leetcode;
 
 
 public class N319_BulbSwitcher {
+    // no company
     // http://www.cnblogs.com/grandyang/p/5100098.html
     // math 0 ms
     public int bulbSwitch(int n) {

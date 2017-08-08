@@ -20,6 +20,7 @@ import java.util.stream.Collector;
 
  */
 public class N316_RemoveDuplicateLetters {
+    // Google
     // 4 ms
     // count each char first, save the condition if this char will come later or not
     public String removeDuplicateLetters(String s) {

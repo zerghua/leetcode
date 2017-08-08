@@ -26,6 +26,7 @@ package leetcode;
 
  */
 public class N307_RangeSumQueryMutable {
+    // no company
     // segment tree
     // 16 ms
     public class NumArray {

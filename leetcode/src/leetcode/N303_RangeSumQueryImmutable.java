@@ -25,7 +25,22 @@ package leetcode;
 
 
 public class N303_RangeSumQueryImmutable {
+    // Palantir
+    // cleaner code
+    // 3ms
+
     public int[] sum;
+    public N303_RangeSumQueryImmutable(int[] nums) {
+        sum = new int[nums.length + 1];
+        for (int i = 0; i < nums.length; i++) {
+            sum[i + 1] = sum[i] + nums[i];
+        }
+    }
+
+    public int sumRange(int i, int j) {
+        return sum[j + 1] - sum[i];
+    }
+
     //3 ms
     /*
     public N303_RangeSumQueryImmutable(int[] nums) {
@@ -48,18 +63,6 @@ public class N303_RangeSumQueryImmutable {
     */
 
 
-    // cleaner code
-    // 3ms
-    public N303_RangeSumQueryImmutable(int[] nums) {
-        sum = new int[nums.length + 1];
-        for (int i = 0; i < nums.length; i++) {
-            sum[i + 1] = sum[i] + nums[i];
-        }
-    }
-
-    public int sumRange(int i, int j) {
-        return sum[j + 1] - sum[i];
-    }
 
 
 

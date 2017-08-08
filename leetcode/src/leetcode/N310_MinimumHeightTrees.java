@@ -61,6 +61,7 @@ import java.util.*;
 
  */
 public class N310_MinimumHeightTrees {
+    // Google
     // 45 ms
     // BFS, remove all leaf node until remain node <=2 and return.
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
