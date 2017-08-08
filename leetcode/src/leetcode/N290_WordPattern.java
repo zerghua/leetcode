@@ -20,6 +20,7 @@ and str contains lowercase letters separated by a single space.
 
  */
 public class N290_WordPattern {
+    // Uber, Dropbox
 	//7 ms
     public static boolean wordPattern(String pattern, String str) {
         String[] splitStr = str.trim().split("\\s+");

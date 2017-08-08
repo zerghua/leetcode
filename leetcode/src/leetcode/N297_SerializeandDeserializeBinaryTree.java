@@ -34,6 +34,7 @@ import java.util.LinkedList;
 
  */
 public class N297_SerializeandDeserializeBinaryTree {
+    // Google, Amazon, Facebook, Microsoft
     // use level order traversal
     // OJ has test cases like, [5,2,3,null,null,2,4,3,1]
     // which will break the code assumption of left=2*i+1, right=2*i+2.

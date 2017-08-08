@@ -12,6 +12,7 @@ package leetcode;
 
  */
 public class N292_NimGame {
+    // Adobe
     // win when there is 1,2,3, 5,6,7
     // only lose there is 4, 8 and etc...
     // 0ms

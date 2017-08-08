@@ -31,6 +31,7 @@ import java.util.PriorityQueue;
 
  */
 public class N295_FindMedianfromDataStream {
+    // Google
     // 119 ms, 2 heaps, o(nlogn)
     public class MedianFinder {
         PriorityQueue<Integer> minHeap;

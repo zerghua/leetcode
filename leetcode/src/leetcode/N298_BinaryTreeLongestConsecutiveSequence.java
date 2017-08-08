@@ -34,6 +34,7 @@ package leetcode;
  */
 import leetcode.N0_data_strcture.*;
 public class N298_BinaryTreeLongestConsecutiveSequence {
+    // Google
     // 54 / 54 test cases passed.
     // 4 ms
     // longest increasing consecutive sequence.

@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
  */
 public class N300_LongestIncreasingSubsequence {
+    // Microsoft
     //33 ms
     // DP, o(n^2), inner loop [0,i-1]
     // important, make a note on how inner loop works in this case.

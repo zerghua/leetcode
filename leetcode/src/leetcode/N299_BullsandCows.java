@@ -38,6 +38,7 @@ import java.util.HashMap;
 
  */
 public class N299_BullsandCows {
+    // no company
     //14 ms
     public String getHint(String secret, String guess) {
         HashMap<Character,Integer> hm = new HashMap<>();

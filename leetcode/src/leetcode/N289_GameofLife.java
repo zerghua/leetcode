@@ -29,6 +29,7 @@ package leetcode;
 
  */
 public class N289_GameofLife {
+    // Google, Snapchat
     // with o(m*n) space
     // 1 ms
     public void gameOfLife(int[][] board) {

@@ -35,7 +35,7 @@ public class N284_PeekingIterator {
     private boolean isPeeked ;
     private Integer peekedElement;
     private Iterator<Integer> iterator;
-
+    // Google, Apple, Yahoo
     // 120 ms
     // Design: Decorator Pattern
     // cache next variable for iterator next.
