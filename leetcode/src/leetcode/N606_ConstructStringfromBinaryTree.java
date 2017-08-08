@@ -42,10 +42,11 @@ package leetcode;
  */
 import leetcode.N0_data_strcture.*;
 public class N606_ConstructStringfromBinaryTree {
+    // Amazon
+    // preorder tree traversal
+    // 162 / 162 test cases passed.
+    // 32 ms
     public class Solution {
-        // preorder tree traversal
-        // 162 / 162 test cases passed.
-        // 32 ms
         public String tree2str(TreeNode t) {
             if(t == null) return "";
             if(t.left == null && t.right ==null) return t.val + "";

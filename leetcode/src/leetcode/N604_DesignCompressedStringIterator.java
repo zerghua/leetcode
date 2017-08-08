@@ -43,6 +43,7 @@ package leetcode;
 
 import java.util.*;
 public class N604_DesignCompressedStringIterator {
+    // Google
     // 169 / 169 test cases passed.
     // 134 ms
     // dynamic update list

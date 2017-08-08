@@ -27,10 +27,11 @@ package leetcode;
 
  */
 public class N605_CanPlaceFlowers {
+    // Linkedin
+    // greedy
+    // 123 / 123 test cases passed.
+    // 16 ms
     public class Solution {
-        // greedy
-        // 123 / 123 test cases passed.
-        // 16 ms
         public boolean canPlaceFlowers(int[] flowerbed, int n) {
             int canPlace = 0;
             if(flowerbed[0] == 0){
