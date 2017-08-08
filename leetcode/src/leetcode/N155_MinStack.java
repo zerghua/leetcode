@@ -22,8 +22,10 @@ minStack.getMin();   --> Returns -2.
  */
 
 
-//12 ms
+
 public class N155_MinStack {
+    // Google, Amazon
+    // 12 ms
 	Stack<Integer> s = new Stack<Integer>();
 	Stack<Integer> min_stack = new Stack<Integer>();
 	

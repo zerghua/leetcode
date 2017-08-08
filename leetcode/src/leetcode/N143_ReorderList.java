@@ -13,6 +13,7 @@ import leetcode.N0_data_strcture.*;
 
  */
 public class N143_ReorderList {
+    // no company
     // find mid point
     // reverse second half list
     // merge two list

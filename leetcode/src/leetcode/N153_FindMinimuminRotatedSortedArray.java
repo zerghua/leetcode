@@ -10,6 +10,7 @@ package leetcode;
  You may assume no duplicate exists in the array.
  */
 public class N153_FindMinimuminRotatedSortedArray {
+    // Microsoft
     //1 ms
     public static int findMin(int[] nums) {
         if(nums == null || nums.length==0) return -1;

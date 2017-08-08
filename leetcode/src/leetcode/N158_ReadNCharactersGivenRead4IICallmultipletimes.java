@@ -15,7 +15,7 @@ package leetcode;
 
  */
 public class N158_ReadNCharactersGivenRead4IICallmultipletimes {
-
+    // Google, Facebook
     public class Reader4{
         /* The read4 API is defined in the parent class Reader4.
             int read4(char[] buf); */

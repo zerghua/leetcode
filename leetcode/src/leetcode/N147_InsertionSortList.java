@@ -8,6 +8,9 @@ import leetcode.N0_data_strcture.*;
 
  */
 public class N147_InsertionSortList {
+    // no company
+    // 21 / 21 test cases passed.
+    // 41 ms
     public ListNode insertionSortList(ListNode head) {
         if(head==null) return head;
 

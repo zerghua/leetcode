@@ -20,6 +20,7 @@ package leetcode;
 
  */
 public class N154_FindMinimuminRotatedSortedArray2 {
+    // no company
     // 1 ms
     // get rid of end, when nums[mid] == nums[end]
     public int findMin(int[] nums) {

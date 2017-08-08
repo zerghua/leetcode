@@ -9,6 +9,7 @@ Can you solve it without using extra space?
 
  */
 public class N141_LinkedListCycle {
+    // Amazon, Microsoft
 	//1 ms
     // two pointers, fast and slow.
     public boolean hasCycle(ListNode head) {

@@ -15,6 +15,7 @@ package leetcode;
     //[3,-1,4]
     //[2,-5,-2,-4,3]
 public class N152_MaximumProductSubarray {
+    // linkedin
     //4 ms
     //store cur max, and cur min and update
     // DP or greedy.

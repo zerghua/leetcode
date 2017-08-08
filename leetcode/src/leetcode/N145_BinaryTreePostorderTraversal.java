@@ -4,8 +4,25 @@ import java.util.*;
 
 /**
  * Created by Hua on 4/18/2016.
+
+ Given a binary tree, return the postorder traversal of its nodes' values.
+
+ For example:
+ Given binary tree {1,#,2,3},
+
+ 1
+  \
+   2
+  /
+ 3
+
+ return [3,2,1].
+
+ Note: Recursive solution is trivial, could you do it iteratively?
+
  */
 public class N145_BinaryTreePostorderTraversal {
+    // no company
     //1 ms
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> ret = new ArrayList<>();

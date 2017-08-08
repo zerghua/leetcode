@@ -26,6 +26,7 @@ import java.util.*;
  */
 
 public class N151_ReverseWordsinaString {
+    // Microsoft, Apple
     //12 ms
     public String reverseWords(String s) {
         String[] a = s.trim().split(" +");

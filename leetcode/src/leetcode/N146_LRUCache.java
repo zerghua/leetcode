@@ -17,9 +17,11 @@ import java.util.HashMap;
 
  */
 
-// 19 ms
-// double linked list and hashmap to store nodes
+
 public class N146_LRUCache {
+    // Google, Facebook, Amazon, Microsoft
+    // 19 ms
+    // double linked list and hashmap to store nodes
     class Node{
         Node pre;
         Node next;

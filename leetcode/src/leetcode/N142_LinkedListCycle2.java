@@ -14,6 +14,7 @@ import leetcode.N0_data_strcture.*;
 
  */
 public class N142_LinkedListCycle2 {
+    // no company
     // 1 ms
     // reset slow to head, one step of each, they will meet at the start.
     // if fast and slow start from the same point, they will meet at start

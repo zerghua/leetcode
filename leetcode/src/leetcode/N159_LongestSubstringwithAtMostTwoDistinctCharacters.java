@@ -13,7 +13,7 @@ import java.util.*;
 
  */
 public class N159_LongestSubstringwithAtMostTwoDistinctCharacters {
-    // google, sliding window
+    // google
     // sliding window only contains at most 2 unique chars with the help of hashmap.
     // 125 / 125 test cases passed.
     // 32 ms

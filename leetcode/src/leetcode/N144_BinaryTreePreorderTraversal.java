@@ -3,8 +3,26 @@ import java.util.LinkedList;
 import java.util.*;
 
 import leetcode.N0_data_strcture.*;
+/*
 
+Given a binary tree, return the preorder traversal of its nodes' values.
+
+For example:
+Given binary tree {1,#,2,3},
+
+   1
+    \
+     2
+    /
+   3
+
+return [1,2,3].
+
+Note: Recursive solution is trivial, could you do it iteratively?
+
+ */
 public class N144_BinaryTreePreorderTraversal {
+	// no company
 	//iterative 2 ms
     public List<Integer> preorderTraversal2(TreeNode root) {
     	List<Integer> ret = new LinkedList<Integer>();

@@ -23,6 +23,7 @@ Notes:
 
  */
 public class N160_IntersectionofTwoLinkedLists {
+	// Amazon, Microsoft
 	public int get_ListNode_length(ListNode node){
 		int len = 0;
 		while(node != null){

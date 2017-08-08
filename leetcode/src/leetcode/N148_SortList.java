@@ -12,6 +12,7 @@ import java.util.Comparator;
 
  */
 public class N148_SortList {
+    // no company
     //Memory limit exceed.
     public ListNode sortList2(ListNode head) {
         if(head == null) return null;

@@ -9,6 +9,7 @@ import java.util.HashMap;
  * find the maximum number of points that lie on the same straight line.
  */
 public class N149_MaxPointsonaLine {
+    // Apple, Twitter
     class Point {
          int x;
          int y;
