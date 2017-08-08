@@ -24,6 +24,7 @@ package leetcode;
  */
 import java.util.*;
 public class N363_MaxSumofRectangleNoLargerThanK {
+    // Google
     // BF is m^2 * n^2
     // treemap search, o(n) = m^2 * n * logn (m < n)
     // 27 / 27 test cases passed.

@@ -29,6 +29,8 @@ import java.util.PriorityQueue;
 
  */
 public class N378_KthSmallestElementinaSortedMatrix {
+    // Google, Twitter
+    // 36 ms heap
     public class Pair implements Comparable<Pair>{
         int x, y,val;
         public Pair(int x, int y, int val){
@@ -43,7 +45,7 @@ public class N378_KthSmallestElementinaSortedMatrix {
         }
     }
 
-    // 36 ms heap
+
     public int kthSmallest(int[][] matrix, int k) {
         int n = matrix.length;
         PriorityQueue<Pair> minHeap = new PriorityQueue<>();

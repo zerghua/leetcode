@@ -32,7 +32,7 @@ public class N374_GuessNumberHigherorLower {
     public int guess(int num){
         return 0;
     }
-
+    // Google
     // 1  ms
     // simple binary search
     public int guessNumber(int n) {

@@ -43,6 +43,7 @@ import java.util.*;
 
  */
 public class N380_InsertDeleteGetRandomO1 {
+    // Google, Facebook, Amazon, Uber
     // requirement:  insert, delete, getRandom all of average o(1) time.
     // hashtable can make insert and delete o(1), but getRandom will need o(n)
     // ArrayList can make getRandom o(1), o(1) to insert/delete at the end, o(n) at other places.

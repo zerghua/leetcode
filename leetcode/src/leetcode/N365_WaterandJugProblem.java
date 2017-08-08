@@ -31,6 +31,7 @@ https://discuss.leetcode.com/topic/49238/math-solution-java-solution/2
 
  */
 public class N365_WaterandJugProblem {
+    // Microsoft
     // math gcd 0ms
     public boolean canMeasureWater(int x, int y, int z) {
         if(x+y < z) return false;

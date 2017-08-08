@@ -25,6 +25,7 @@ import java.util.Stack;
 
  */
 public class N372_SuperPow {
+    // no company
     // 18 ms 54 / 54 test cases passed.
     // stack and recursion.
     public class Solution {

@@ -44,6 +44,7 @@ package leetcode;
 
  */
 public class N375_GuessNumberHigherorLower2 {
+    // Google
     // 16 ms
     // 2d dp, dp[1][n] = min{ k+ max(dp[1][k-1], dp[k+1][n])} for k = [1,n]
     public int getMoneyAmount(int n) {

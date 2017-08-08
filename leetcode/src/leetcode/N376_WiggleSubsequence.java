@@ -41,6 +41,7 @@ import java.util.Arrays;
 
  */
 public class N376_WiggleSubsequence {
+    // no company
     //0 ms
     public int wiggleMaxLength(int[] nums) {
         if(nums == null || nums.length==0) return 0;

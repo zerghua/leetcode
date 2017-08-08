@@ -21,6 +21,7 @@ package leetcode;
 import leetcode.N0_data_strcture.*;
 import java.util.*;
 public class N364_NestedListWeightSumII {
+    // Linkedin
     // 27 / 27 test cases passed.
     // 6 ms
     // find max depth first and then the same solution as N339. Nested List Weight Sum

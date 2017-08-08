@@ -41,6 +41,8 @@ import java.util.*;
 
  */
 public class N373_FindKPairswithSmallestSums {
+    // Google, Uber
+    // 126 ms  o(n^2) time,  priority queue
     class Pairs{
         int[] pair;
         int sumOfPair;
@@ -50,7 +52,7 @@ public class N373_FindKPairswithSmallestSums {
         }
     }
 
-    // 126 ms  o(n^2) time,  priority queue
+
     public List<int[]> kSmallestPairs(int[] nums1, int[] nums2, int k) {
         List<int[]> ret = new ArrayList<>();
         if(nums1 == null || nums1.length==0 || nums2 == null || nums2.length==0)  // corner case

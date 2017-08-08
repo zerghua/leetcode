@@ -21,6 +21,7 @@ package leetcode;
 
  */
 public class N367_ValidPerfectSquare {
+    // Linkedin
     // binary search, o(logn)
     // 2147483647
     public boolean isPerfectSquare(int num) {
