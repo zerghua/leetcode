@@ -17,6 +17,7 @@ package leetcode;
 
 import java.util.*;
 public class N346_MovingAveragefromDataStream {
+    // Google
     // 12 / 12 test cases passed.
     // 160 ms
     public class MovingAverage {

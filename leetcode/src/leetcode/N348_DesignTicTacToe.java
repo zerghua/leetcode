@@ -58,6 +58,7 @@ package leetcode;
 
  */
 public class N348_DesignTicTacToe {
+    // Google, Microsoft
     // the key is to set player 1 as 1, whicl player 2 as -1.
     // o(1) move
     // 32 / 32 test cases passed.

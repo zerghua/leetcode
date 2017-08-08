@@ -26,8 +26,8 @@ package leetcode;
 
  */
 public class N360_SortTransformedArray {
-    // math + two pointers
     // google
+    // math + two pointers
     // 110 / 110 test cases passed.
     // 1 ms
     public class Solution {

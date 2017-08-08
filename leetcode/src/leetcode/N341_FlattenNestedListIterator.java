@@ -29,6 +29,7 @@ import java.util.*;
 
 
 public class N341_FlattenNestedListIterator {
+    // Google, Facebook
     //24 ms
     public interface NestedInteger {
         // @return true if this NestedInteger holds a single integer,

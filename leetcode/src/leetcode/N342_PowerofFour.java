@@ -12,6 +12,7 @@ package leetcode;
  *
  */
 public class N342_PowerofFour {
+    // Two Sigma
     // 2 ms
     public boolean isPowerOfFour(int num) {
         if(num <= 0) return false;

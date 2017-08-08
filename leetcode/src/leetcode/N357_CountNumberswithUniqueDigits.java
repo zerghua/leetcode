@@ -26,6 +26,7 @@ package leetcode;
  https://www.hrwhisper.me/leetcode-count-numbers-unique-digits/
  */
 public class N357_CountNumberswithUniqueDigits {
+    // Google
     // 0 ms
     // math
     public int countNumbersWithUniqueDigits(int n) {

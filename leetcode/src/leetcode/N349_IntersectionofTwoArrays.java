@@ -17,6 +17,7 @@ import java.util.HashSet;
 
  */
 public class N349_IntersectionofTwoArrays {
+    // Two Sigma
     // 7 ms
     // hashset
     public int[] intersection(int[] nums1, int[] nums2) {

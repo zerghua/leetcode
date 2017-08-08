@@ -9,6 +9,7 @@ package leetcode;
  Given s = "hello", return "olleh".
  */
 public class N344_ReverseString {
+    // no company
     //5 ms
     public String reverseString(String s) {
         StringBuilder sb = new StringBuilder();

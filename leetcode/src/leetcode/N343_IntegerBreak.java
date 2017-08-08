@@ -18,6 +18,7 @@ package leetcode;
 
  */
 public class N343_IntegerBreak {
+    // no company
     // 0ms
     // math
     public int integerBreak(int n) {

@@ -21,6 +21,7 @@ package leetcode;
 
 import java.util.*;
 public class N352_DataStreamasDisjointIntervals {
+    // no company
     // very interesting problem using treemap(sorted hashmap, log(n) operation on add, remove, insert, search)
     // 9 / 9 test cases passed.
     // 203 ms

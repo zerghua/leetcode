@@ -48,6 +48,7 @@ import java.util.*;
 
  */
 public class N355_DesignTwitter {
+    // Amazon, Twitter
     // 195 ms
     // Design twitter.
     // Hashset for user-user relations

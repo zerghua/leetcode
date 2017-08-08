@@ -24,6 +24,7 @@ import java.util.*;
 
  */
 public class N350_IntersectionofTwoArrays2 {
+    // no company
     // 8 ms
     // hashmap
     public int[] intersect(int[] nums1, int[] nums2) {

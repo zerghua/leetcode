@@ -19,6 +19,10 @@ import java.util.*;
 
  */
 public class N347_TopKFrequentElements {
+    // Yelp
+    //43 ms
+    // hashmap + custom priority queue
+    // time nlogk
     class Pair{
         int key;
         int count;
@@ -28,9 +32,6 @@ public class N347_TopKFrequentElements {
         }
     }
 
-    //43 ms
-    // hashmap + custom priority queue
-    // time nlogk
     public List<Integer> topKFrequent(int[] nums, int k) {
         // hashmap to count
         HashMap<Integer, Integer> hm = new HashMap<>();
