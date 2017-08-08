@@ -60,6 +60,7 @@ package leetcode;
 
 import java.util.*;
 public class N505_TheMazeII {
+    // Google
     // BFS + heap, modified from N490 The Maze
     // 78 / 78 test cases passed.
     // 110 ms

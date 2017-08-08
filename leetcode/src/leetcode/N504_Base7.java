@@ -19,10 +19,11 @@ package leetcode;
 
  */
 public class N504_Base7 {
+    // no company
+    // cool recursion
+    // 241 / 241 test cases passed.
+    // 18 ms
     public class Solution {
-        // cool recursion
-        // 241 / 241 test cases passed.
-        // 18 ms
         public String convertToBase7(int num) {
             if(num < 0) return "-" + convertToBase7(-num);
             if(num < 7) return "" + num;

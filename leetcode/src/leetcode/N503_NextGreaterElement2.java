@@ -25,6 +25,7 @@ import java.util.Stack;
 
 
 public class N503_NextGreaterElement2 {
+    // Google
     // stack tricky solution, needs some proof from math side.
     // the lower element in stack is bigger than the upper one.
     // The second way is to use a stack to facilitate the look up. First we put all indexes into the stack,

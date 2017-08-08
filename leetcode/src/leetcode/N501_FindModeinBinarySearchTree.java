@@ -34,6 +34,7 @@ import leetcode.N0_data_strcture.*;
 import java.util.*;
 
 public class N501_FindModeinBinarySearchTree {
+    // Google
     // similar to N508, most frequent subtree sum.
     // 25 / 25 test cases passed.
     // 25 ms

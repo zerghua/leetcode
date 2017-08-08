@@ -30,6 +30,7 @@ package leetcode;
 
  */
 public class N516_LongestPalindromicSubsequence {
+    // Amazon, Uber
     // DP, not easy
     // 83 / 83 test cases passed.
     // 72 ms

@@ -26,6 +26,7 @@ import java.util.Collections;
 
  */
 public class N506_RelativeRanks {
+    // Google
     // custom sort with Integer[]
     // 17 / 17 test cases passed.
     // 113 ms

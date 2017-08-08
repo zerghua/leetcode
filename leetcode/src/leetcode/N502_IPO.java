@@ -37,6 +37,7 @@ import java.util.PriorityQueue;
 
  */
 public class N502_IPO {
+    // no company
     // two heaps, one sort by capital increasing, another sort by profit decreasing.
     // very interesting
     // 31 / 31 test cases passed.

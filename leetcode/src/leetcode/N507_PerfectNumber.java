@@ -16,6 +16,7 @@ package leetcode;
 
  */
 public class N507_PerfectNumber {
+    // Fallible
     // math.
     // 156 / 156 test cases passed.
     // 13 ms

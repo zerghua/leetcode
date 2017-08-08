@@ -67,6 +67,7 @@ package leetcode;
 
  */
 public class N517_SuperWashingMachines {
+    // Amazon
     // math? how to find pattern? hard
     // 120 / 120 test cases passed.
     // 15 ms

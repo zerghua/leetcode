@@ -26,6 +26,7 @@ package leetcode;
 
  */
 public class N520_DetectCapital {
+    // Google
     // String
     // 550 / 550 test cases passed.
     // 29 ms
