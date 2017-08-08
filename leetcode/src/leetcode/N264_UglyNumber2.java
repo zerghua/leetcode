@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
  */
 public class N264_UglyNumber2 {
+    // no company
     // 32 ms
     // math, DP.
     public int nthUglyNumber(int n) {

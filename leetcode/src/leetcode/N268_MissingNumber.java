@@ -14,6 +14,7 @@ Could you implement it using only constant extra space complexity?
 import java.math.BigInteger;
 
 public class N268_MissingNumber {
+    // Microsoft, Bloomberg
 	//16 ms
     public int missingNumber(int[] nums) {
         BigInteger ret = new BigInteger("0");

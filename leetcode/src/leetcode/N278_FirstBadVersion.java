@@ -21,7 +21,7 @@ boolean isBadVersion(int version); */
 
 public class N278_FirstBadVersion {
 	boolean isBadVersion(int version){return false;}
-	
+	// Facebook
 	//21 ms
     public int firstBadVersion(int n) {
     	int i=1, j=n, ret=1;

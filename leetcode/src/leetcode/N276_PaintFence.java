@@ -54,11 +54,11 @@ package leetcode;
 
  */
 public class N276_PaintFence {
+    // Google
     // 79 / 79 test cases passed.
     // 0 ms
     // DP, check last two can be the same color
     // similar problem.  House Robber, House Robber II, Paint House, Paint House II
-    // google
     public class Solution {
         public int numWays(int n, int k) {
             if(n == 0 || k == 0) return 0;

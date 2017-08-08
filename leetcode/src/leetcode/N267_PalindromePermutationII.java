@@ -16,6 +16,7 @@ package leetcode;
 
 import java.util.*;
 public class N267_PalindromePermutationII {
+    // no company
     // 29 / 29 test cases passed.
     // 4 ms
     // 1. check isPal of this string

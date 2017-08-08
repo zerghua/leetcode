@@ -9,6 +9,7 @@ Note that 1 is typically treated as an ugly number.
  */
 
 public class N262_UglyNumber {
+    // no company
 	public int getRemain(int num, int divisor){
 		while (num%divisor ==0){
 			num = num/divisor;

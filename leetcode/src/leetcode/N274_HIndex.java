@@ -30,6 +30,7 @@ import java.util.Comparator;
 
  */
 public class N274_HIndex {
+    // Google, Facebook
     // 11 ms
     // sort, space o(1), time o(nlogn)
     // https://en.wikipedia.org/wiki/H-index

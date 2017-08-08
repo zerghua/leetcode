@@ -13,6 +13,7 @@ package leetcode;
 
  */
 public class N275_HIndex2 {
+    // Facebook
     // binary search
     // 13 ms
     public int hIndex(int[] citations) {
