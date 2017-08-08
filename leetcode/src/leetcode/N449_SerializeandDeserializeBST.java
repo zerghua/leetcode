@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 public class N449_SerializeandDeserializeBST {
+    // Amazon
     // the same as N297_SerializeandDeserializeBinaryTree
     // 62 / 62 test cases passed.
     // 28 ms
