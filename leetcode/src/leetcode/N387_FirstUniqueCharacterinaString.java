@@ -18,6 +18,7 @@ package leetcode;
 
  */
 public class N387_FirstUniqueCharacterinaString {
+    // Amazon, Microsoft
     // 16 ms  o(n) time.
     public int firstUniqChar(String s) {
         int[] map = new int[128]; // contains all lowercase chars

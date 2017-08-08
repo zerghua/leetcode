@@ -19,6 +19,7 @@ package leetcode;
 
  */
 public class N383_RansomNote {
+    // Apple
     // 14 ms
     // hash table
     public boolean canConstruct(String ransomNote, String magazine) {

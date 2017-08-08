@@ -30,6 +30,7 @@ package leetcode;
 
  */
 public class N390_EliminationGame {
+    // no company
     // 92 ms  3377 / 3377 test cases passed.
     // o(logn) solution.
     // math and coding.

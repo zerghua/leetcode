@@ -23,6 +23,7 @@ package leetcode;
 
  */
 public class N389_FindtheDifference {
+    // Google
     // 7ms, hashmap o(n)
     public char findTheDifference(String s, String t) {
         int[] map = new int[128];

@@ -37,6 +37,7 @@ package leetcode;
 
  */
 public class N396_RotateFunction {
+    // Amazon
     // BF is o(n^2).
     // this is o(n) solution, with the math pattern for each F(n)
     // 6 ms  17 / 17 test cases passed.

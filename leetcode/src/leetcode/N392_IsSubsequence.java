@@ -29,6 +29,7 @@ package leetcode;
 
  */
 public class N392_IsSubsequence {
+    // Pinterest
     // 18 ms 13 / 13 test cases passed.
     // two pointers.
     public class Solution {

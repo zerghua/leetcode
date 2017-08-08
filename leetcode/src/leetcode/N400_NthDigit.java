@@ -33,6 +33,7 @@ package leetcode;
 
  */
 public class N400_NthDigit {
+    // Google
     // BF is to construct the sequence string and return it's char at index.
     // pure math
     // 70 / 70 test cases passed.

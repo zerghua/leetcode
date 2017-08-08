@@ -45,6 +45,7 @@ package leetcode;
 
  */
 public class N393_UTF8Validation {
+    // Google
     // find pattern. need a counter to record when to return false.
     // 8 ms 45 / 45 test cases passed.
     public class Solution {

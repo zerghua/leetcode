@@ -26,6 +26,7 @@ import java.util.Random;
 
  */
 public class N384_ShuffleanArray {
+    // no company
     // 311 ms
     // random ?
     public class Solution {

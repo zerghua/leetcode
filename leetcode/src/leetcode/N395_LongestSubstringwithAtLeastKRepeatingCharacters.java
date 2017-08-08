@@ -30,7 +30,7 @@ package leetcode;
  https://discuss.leetcode.com/topic/57735/c-recursive-solution
  */
 public class N395_LongestSubstringwithAtLeastKRepeatingCharacters {
-
+    // Baidu
     // divide and conquer, o(nlogn), impressive
     // count each char in String,
     // find first char which has less than K count, split by it, because it can't be the result.

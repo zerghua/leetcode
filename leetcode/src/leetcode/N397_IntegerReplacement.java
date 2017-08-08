@@ -39,6 +39,7 @@ package leetcode;
 
  */
 public class N397_IntegerReplacement {
+    // Google, Baidu
     // the way to think about this problem is to decide which way to go:
     // 1. even number, divide 2
     // 2. odd number +1, when last two binary digit is 11,  exception 3,  should -1

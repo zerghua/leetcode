@@ -24,6 +24,7 @@ package leetcode;
 
  */
 public class N394_DecodeString {
+    // Google
     // 3 ms 26 / 26 test cases passed.
     // DFS
     public class Solution {

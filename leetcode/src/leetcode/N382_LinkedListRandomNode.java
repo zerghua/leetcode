@@ -29,6 +29,7 @@ import java.util.Random;
 
  */
 public class N382_LinkedListRandomNode {
+    // Google
     // 159 ms random.nextInt()
     public class Solution {
         private ArrayList<Integer> list;

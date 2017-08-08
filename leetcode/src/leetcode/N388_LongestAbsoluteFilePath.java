@@ -49,6 +49,7 @@ package leetcode;
  */
 import java.util.*;
 public class N388_LongestAbsoluteFilePath {
+    // Google
     // 4 ms 25 / 25 test cases passed.
     public class Solution {
         public int lengthLongestPath(String input) {

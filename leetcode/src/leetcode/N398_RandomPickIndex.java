@@ -37,6 +37,7 @@ import java.util.Random;
 
  */
 public class N398_RandomPickIndex {
+    // Facebook
     // Hashtable<value, list_of_its_index> solution, time o(n), space o(n)
     // but good for multiple runs.
 
