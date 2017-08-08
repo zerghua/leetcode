@@ -33,6 +33,7 @@ package leetcode;
 
  */
 public class N553_OptimalDivision {
+    // Amazon
     // stupid question
     // 93 / 93 test cases passed.
     // 9 ms

@@ -33,6 +33,7 @@ package leetcode;
 
 import java.util.*;
 public class N548_SplitArraywithEqualSum {
+    // Alibaba
     // divide and conquer, find 1 and 4 segments are equal and then compare if 2 and 3 are equal to them.
     // 120 / 120 test cases passed.
     // 25 ms

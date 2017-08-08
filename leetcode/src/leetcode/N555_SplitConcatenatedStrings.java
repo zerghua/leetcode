@@ -34,8 +34,8 @@ package leetcode;
 
  */
 public class N555_SplitConcatenatedStrings {
+    // Alibaba
     // almost like a BF solution.
-    // alibaba
     // 50 / 50 test cases passed.
     // 255 ms
     public class Solution {

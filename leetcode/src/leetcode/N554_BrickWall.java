@@ -38,6 +38,7 @@ import java.util.*;
 
  */
 public class N554_BrickWall {
+    // Facebook
     // find the most common edge
     // hash table
     // 85 / 85 test cases passed.

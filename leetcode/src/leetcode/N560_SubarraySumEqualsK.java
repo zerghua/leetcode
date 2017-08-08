@@ -21,6 +21,7 @@ import java.util.HashMap;
 
  */
 public class N560_SubarraySumEqualsK {
+    // Google
     // hash table to store range. Kind of DP.
     // 80 / 80 test cases passed.
     // 70 ms

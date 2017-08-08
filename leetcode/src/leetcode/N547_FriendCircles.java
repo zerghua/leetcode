@@ -39,6 +39,7 @@ package leetcode;
 
  */
 public class N547_FriendCircles {
+    // Two Sigma
     // stack overflow for large data set
     public class Solution1 {
         public int findCircleNum(int[][] M) {

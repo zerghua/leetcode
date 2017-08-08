@@ -21,6 +21,7 @@ import java.util.*;
 
  */
 public class N556_NextGreaterElement3 {
+    // Bloomberg
     // From right to left, the idea is to find the number greater than num[i], swap it,
     // and sort the rest of the elements to the right.
     // tricky math

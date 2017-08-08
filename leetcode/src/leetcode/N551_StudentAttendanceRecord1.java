@@ -28,6 +28,7 @@ package leetcode;
 
  */
 public class N551_StudentAttendanceRecord1 {
+    // Google
     // simple question
     // 113 / 113 test cases passed.
     // 14 ms

@@ -29,6 +29,7 @@ import java.security.Policy;
 
  */
 public class N552_StudentAttendanceRecord2 {
+    // Google
     // DP + math, hard
     // 58 / 58 test cases passed.
     // 50 ms
