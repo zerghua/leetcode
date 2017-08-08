@@ -27,6 +27,7 @@ import java.util.Arrays;
 
  */
 public class N462_MinimumMovestoEqualArrayElementsII {
+    // no company
     // time o(nlogn), can't prove why it's minimum moves.
     // math
     // 9 ms  29 / 29 test cases passed.

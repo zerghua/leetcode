@@ -54,6 +54,7 @@ package leetcode;
 
  */
 public class N467_UniqueSubstringsinWraparoundString {
+    // MAQ software
     // tricky but interesting problem
     // 81 / 81 test cases passed.
     // 29 ms

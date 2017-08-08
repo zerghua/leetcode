@@ -28,6 +28,7 @@ package leetcode;
  that has a 0-bit and one that has a 1-bit. These bits will therefore contribute i * j towards the total of all the XORs.
  */
 public class N477_TotalHammingDistance {
+    // Facebook
     // BF is o(n^2)
     // this is o(n) solution
     // 47 / 47 test cases passed.

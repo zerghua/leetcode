@@ -62,6 +62,7 @@ import java.util.HashMap;
 
  */
 public class N446_ArithmeticSlicesIISubsequence {
+    // Baidu
     // DP, hard to code it right
     // 101 / 101 test cases passed.
     // 378 ms

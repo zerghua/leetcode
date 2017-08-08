@@ -22,6 +22,7 @@ package leetcode;
 import leetcode.N0_data_strcture.*;
 import java.util.*;
 public class N445_AddTwoNumbersII {
+    // Microsoft, Bloomberg
     // stack + linked list
     // 1563 / 1563 test cases passed.
     // 64 ms

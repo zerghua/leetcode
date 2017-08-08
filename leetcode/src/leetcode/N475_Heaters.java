@@ -38,6 +38,7 @@ import java.util.Arrays;
 
  */
 public class N475_Heaters {
+    // Google
     // find the nearest heater for each house, by comparing the next heater with the current heater.
     // tricky
     // time o(nlogn)

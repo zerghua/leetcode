@@ -21,6 +21,7 @@ package leetcode;
 
  */
 public class N479_LargestPalindromeProduct {
+    // Yahoo
     // 8 / 8 test cases passed.
     // 531 ms
     public class Solution {

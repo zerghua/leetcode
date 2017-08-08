@@ -30,6 +30,7 @@ package leetcode;
 
  */
 public class N466_CountTheRepetitions {
+    // no company
     // Brute force
     // 34 / 34 test cases passed.
     // 1166 ms

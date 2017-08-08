@@ -40,6 +40,7 @@ import java.util.Stack;
 
  */
 public class N456_132Pattern {
+    // no company
     // wrong result, only works for ak > ai and ak > aj,
     // but the problem requires ai < ak < aj
     public class Solution {

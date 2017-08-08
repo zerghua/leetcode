@@ -26,6 +26,7 @@ import java.util.HashMap;
 
  */
 public class N447_NumberofBoomerangs {
+    // Google
     // hashmap to store calculated distance, reduce o(n^3) to o(n^2)
     // 146 ms 31 / 31 test cases passed.
     public class Solution {

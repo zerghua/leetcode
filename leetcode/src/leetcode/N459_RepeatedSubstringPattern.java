@@ -32,6 +32,7 @@ package leetcode;
 
  */
 public class N459_RepeatedSubstringPattern {
+    // Amazon, Google
     // 63 ms 100 / 100 test cases passed.
     // String, o(n^2)
     public class Solution {

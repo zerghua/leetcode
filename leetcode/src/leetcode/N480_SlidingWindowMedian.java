@@ -45,6 +45,7 @@ import java.util.TreeSet;
 
  */
 public class N480_SlidingWindowMedian {
+    // Google
     // very simiar to N295, find median from data stream.
     // here use BST(treemap) to make time complexity to o(nlogk) rather than heap o(nk)
     // 42 / 42 test cases passed.

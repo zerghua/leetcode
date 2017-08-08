@@ -27,6 +27,7 @@ package leetcode;
 
  */
 public class N461_HammingDistance {
+    // Facebook
     // use Integer.bitCount
     // 10 ms 149 / 149 test cases passed.
     public class Solution {

@@ -29,6 +29,7 @@ package leetcode;
  */
 import java.util.*;
 public class N460_LFUCache {
+    // Amazon, Google
     // linkedhashset has o(1) remove/get and ordered list compared to linkedlist which has o(n) remove/get for any item.
     // 3 hashmap + linkedHashset.
     // 23 / 23 test cases passed.

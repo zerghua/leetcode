@@ -29,6 +29,7 @@ import java.util.*;
 
  */
 public class N472_ConcatenatedWords {
+    // no company
     // reuse DP solution from N139 word Break + some business logic, sort array and search from small words.
     // 44 / 44 test cases passed.
     // 605 ms

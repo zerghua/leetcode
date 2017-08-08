@@ -36,6 +36,7 @@ package leetcode;
 
  */
 public class N441_ArrangingCoins {
+    // Go Daddy
     // math.
     // 42 ms 1336 / 1336 test cases passed.
     public class Solution {

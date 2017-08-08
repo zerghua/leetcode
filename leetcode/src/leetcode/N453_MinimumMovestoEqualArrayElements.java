@@ -29,6 +29,7 @@ package leetcode;
 
  */
 public class N453_MinimumMovestoEqualArrayElements {
+    // Indeed, Coursera
     // math, and thinking from the opposite way.
     // 84 ms 84 / 84 test cases passed.
     public class Solution {

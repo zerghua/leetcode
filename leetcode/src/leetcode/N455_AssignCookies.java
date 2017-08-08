@@ -40,6 +40,7 @@ import java.util.Arrays;
 
  */
 public class N455_AssignCookies {
+    // no company
     // 19 ms 21 / 21 test cases passed.
     // greedy, o(nlogn) bounded by sort.
     public class Solution {
