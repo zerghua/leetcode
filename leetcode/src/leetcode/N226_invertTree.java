@@ -22,7 +22,7 @@ to
 
  */
 public class N226_invertTree {
-	
+	// no company
 	//260ms 81%
     public TreeNode invertTree(TreeNode root) {
         if(root == null) return root;

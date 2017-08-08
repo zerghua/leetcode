@@ -24,8 +24,10 @@ Notes:
 
  */
 
-//228 ms  6%
+
 public class N232_MyQueue {
+    // Microsoft, Bloomberg
+    //228 ms  6%
 	Stack<Integer> in_stack = new Stack<Integer>();
 	Stack<Integer> out_stack = new Stack<Integer>();
 

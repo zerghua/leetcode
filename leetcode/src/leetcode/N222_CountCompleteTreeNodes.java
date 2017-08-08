@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
  */
 public class N222_CountCompleteTreeNodes {
+    // no company
     // brute force, TLE for large data set.
     public int countNodes2(TreeNode root) {
         if(root == null) return 0;

@@ -19,8 +19,10 @@ Notes:
  */
 
 
-//34 ms  2 queues, o(1) push, o(n) top and pop
+
 public class N225_ImplementStackusingQueues {
+    // Bloomberg, Microsoft
+	// 34 ms  2 queues, o(1) push, o(n) top and pop
 	Queue<Integer> q1 = new LinkedList<Integer>();
 	Queue<Integer> q2 = new LinkedList<Integer>();	
     // Push element x onto stack.

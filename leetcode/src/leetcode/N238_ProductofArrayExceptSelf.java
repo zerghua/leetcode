@@ -11,6 +11,7 @@ Could you solve it with constant space complexity? (Note: The output array does 
 
  */
 public class N238_ProductofArrayExceptSelf {
+	// Amazon, Facebook, Microsoft
 	//2 ms
     public int[] productExceptSelf(int[] nums) {
     	if(nums == null || nums.length==0) return null;

@@ -17,6 +17,7 @@ package leetcode;
 
  */
 public class N221_MaximalSquare {
+    // Apple, Facebook
     //15 ms
     // DP:   dp[i][j] = 1+ min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])
     public int maximalSquare(char[][] matrix) {

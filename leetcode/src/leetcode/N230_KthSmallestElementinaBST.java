@@ -15,6 +15,7 @@ import java.util.*;
  How would you optimize the kthSmallest routine?
  */
 public class N230_KthSmallestElementinaBST {
+    // Google, Bloomger, Uber
     //use inorder traversal, 2 ms, 23%
     public int kthSmallest(TreeNode root, int k) {
         Stack<TreeNode> s = new Stack<TreeNode>();

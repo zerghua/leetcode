@@ -9,6 +9,7 @@ Could you do it in O(n) time and O(1) space?
  */
 
 public class N234_PalindromeLinkedList {
+	// Amazon, Facebook
 	//7 ms
     public boolean isPalindrome(ListNode head) {
     	if(head == null) return true;

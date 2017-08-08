@@ -19,6 +19,7 @@ package leetcode;
 
  */
 public class N223_RectangleArea {
+    // no company
     // 4 ms
     // math
     public int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {

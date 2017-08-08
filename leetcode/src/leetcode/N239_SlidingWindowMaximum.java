@@ -41,6 +41,7 @@ import java.util.Deque;
 
  */
 public class N239_SlidingWindowMaximum {
+    // Amazon, Google.
     // 30 ms
     // time o(n), space o(k), deque. pop smaller last element.
     // brute force, time o(k*n), space o(1)

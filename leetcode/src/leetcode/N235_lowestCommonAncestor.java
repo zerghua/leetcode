@@ -24,6 +24,7 @@ Another example is LCA of nodes 2 and 4 is 2, since a node can be a descendant o
 
 //this is Binary Search Tree, can be improved
 public class N235_lowestCommonAncestor {
+    // Amazon, Microsoft, Facebook
 	//504 ms 33% 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root == null) return null;

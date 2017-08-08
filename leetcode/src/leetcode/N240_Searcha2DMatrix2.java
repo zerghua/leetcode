@@ -26,6 +26,7 @@ package leetcode;
 
  */
 public class N240_Searcha2DMatrix2 {
+    // Amazon, Google, Apple.
     // binary search in each row, o(mlogn)  24%, means testing data is small
     public boolean searchMatrix(int[][] matrix, int target) {
         for(int row=0; row<matrix.length; row++){

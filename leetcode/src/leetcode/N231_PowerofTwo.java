@@ -7,6 +7,7 @@ package leetcode;
 
  */
 public class N231_PowerofTwo {
+    // Google
     public boolean isPowerOfTwo(int n) {
         if(n<1) return false;
         while(n!=1){

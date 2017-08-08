@@ -11,8 +11,10 @@ test case:
 [-2147483648,-2147483647,2147483647]
  */
 
-// 1 ms
+
 public class N228_SummaryRanges {
+    // Google
+    // 1 ms
 	public String build_string(int start, int end){
         String s;
 		if(start == end) s= String.valueOf(start);

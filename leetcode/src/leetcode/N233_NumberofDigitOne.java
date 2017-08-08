@@ -18,6 +18,7 @@ package leetcode;
 
  */
 public class N233_NumberofDigitOne {
+    // no company
     // 0 ms
     // math, be aware of overflow
     // https://discuss.leetcode.com/topic/18972/ac-short-java-solution

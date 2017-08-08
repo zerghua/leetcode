@@ -14,6 +14,7 @@ import java.util.*;
 
  */
 public class N229_MajorityElement2 {
+    // zenefits
     // https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm
     // similar to N169_MajorityElement
     // [0,2] answers
