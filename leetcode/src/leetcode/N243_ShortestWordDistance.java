@@ -18,6 +18,7 @@ package leetcode;
 
 import java.util.*;
 public class N243_ShortestWordDistance {
+    // Linkedin
     // binary search, o(nlogn)
     // 26 / 26 test cases passed.
     // 5 ms

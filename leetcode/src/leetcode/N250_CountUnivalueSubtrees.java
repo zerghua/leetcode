@@ -22,6 +22,7 @@ package leetcode;
 
 import leetcode.N0_data_strcture.*;
 public class N250_CountUnivalueSubtrees {
+    // no company
     // 197 / 197 test cases passed.
     // 1 ms
     // regular dfs

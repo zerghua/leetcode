@@ -34,6 +34,7 @@ import java.util.List;
 
  */
 public class N241_DifferentWaystoAddParentheses {
+    // no company
     // backtracking, divide string into 2 parts, and compute them.
     // 10 ms
     public List<Integer> diffWaysToCompute(String input) {

@@ -16,7 +16,7 @@ What if the inputs contain unicode characters? How would you adapt your solution
  */
 
 public class N242_isAnagram {
-	
+	// Amazon, Uber
 	// 324 ms 73%
     public boolean isAnagram(String s, String t) {
     	if(s.length() != t.length() ) return false;

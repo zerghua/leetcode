@@ -20,6 +20,7 @@ package leetcode;
 
  */
 public class N260_SingleNumberIII {
+    // no company
     // 1 ms 30 / 30 test cases passed.
     // bit manipulation
     public class Solution {

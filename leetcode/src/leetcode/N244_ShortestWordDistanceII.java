@@ -23,6 +23,7 @@ package leetcode;
 
 import java.util.*;
 public class N244_ShortestWordDistanceII {
+    // Linkedin
     // hashmap + treemap solution
     // 12 / 12 test cases passed.
     // 205 ms

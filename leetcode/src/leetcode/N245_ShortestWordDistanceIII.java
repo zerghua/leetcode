@@ -20,6 +20,7 @@ package leetcode;
 
  */
 public class N245_ShortestWordDistanceIII {
+    // Linkedin
     // 39 / 39 test cases passed.
     // 4 ms
     // similar to N243 ShortestWordDistance

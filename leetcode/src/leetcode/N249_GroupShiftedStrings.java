@@ -26,6 +26,7 @@ package leetcode;
 
 import java.util.*;
 public class N249_GroupShiftedStrings {
+    // Google, Uber
     // need a good hash function, my hash function: (s.charAt(i) - s.charAt(i-1) + 26) % 26 + 'a'
     // 23 / 23 test cases passed.
     // 5 ms
