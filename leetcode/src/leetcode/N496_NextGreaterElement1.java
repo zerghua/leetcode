@@ -35,6 +35,7 @@ package leetcode;
 
 import java.util.*;
 public class N496_NextGreaterElement1 {
+    // no company
     // pre-process nums, find next greater element for each item
     // 17 / 17 test cases passed.
     // 14 ms

@@ -24,6 +24,7 @@ package leetcode;
 
  */
 public class N498_DiagonalTraverse {
+    // Google
     // find walk pattern, need some time to figure it out.
     // 32 / 32 test cases passed.
     // 9 ms

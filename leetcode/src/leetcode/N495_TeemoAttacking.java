@@ -39,6 +39,7 @@ package leetcode;
 
  */
 public class N495_TeemoAttacking {
+    // Riot Games
     // 39 / 39 test cases passed.
     // 10 ms
     public class Solution {

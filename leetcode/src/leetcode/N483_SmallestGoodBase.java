@@ -126,6 +126,7 @@ package leetcode;
  which is O(logn); for each m, the binary search is O(logn) too; therefore our solution will run at O((logn)^2).
  */
 public class N483_SmallestGoodBase {
+    // Google
     // math, binary search
     // 106 / 106 test cases passed.
     // 15 ms

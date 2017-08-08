@@ -30,6 +30,7 @@ package leetcode;
 
  */
 public class N492_ConstructtheRectangle {
+    // no company
     // easy math
     // 50 / 50 test cases passed.
     // 7 ms

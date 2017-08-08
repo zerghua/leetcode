@@ -52,6 +52,7 @@ package leetcode;
 
  */
 public class N486_PredicttheWinner {
+    // Google
     // not easy to solve it. learn the thinking.
     // 61 / 61 test cases passed.
     // 75 ms

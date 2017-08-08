@@ -43,6 +43,7 @@ package leetcode;
 
  */
 public class N481_MagicalString {
+    // Google
     // very tricky question
     // 65 / 65 test cases passed.
     // 12 ms

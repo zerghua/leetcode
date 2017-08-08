@@ -40,6 +40,7 @@ package leetcode;
 
  */
 public class N482_LicenseKeyFormatting {
+    // Google
     // easy string
     // 35 / 35 test cases passed.
     // 16 ms

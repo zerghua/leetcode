@@ -30,6 +30,7 @@ package leetcode;
 
  */
 public class N494_TargetSum {
+    // Google, Facebook
     // DFS
     // 139 / 139 test cases passed.
     // 710 ms

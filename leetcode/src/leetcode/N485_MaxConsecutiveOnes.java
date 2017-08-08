@@ -19,6 +19,7 @@ package leetcode;
 
  */
 public class N485_MaxConsecutiveOnes {
+    // Google
     // easy array. 0(n)
     // 41 / 41 test cases passed.
     // 9 ms
