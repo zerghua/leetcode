@@ -21,6 +21,9 @@ import java.util.*;
 
  */
 public class N199_BinaryTreeRightSideView {
+    // Amazon
+    // 210 / 210 test cases passed.
+    // 2 ms
     public List<Integer> rightSideView(TreeNode root) {
         LinkedList<Integer> ret = new LinkedList<Integer>();
         if (root == null) return ret;

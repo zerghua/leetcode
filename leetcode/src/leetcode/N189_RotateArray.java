@@ -11,6 +11,7 @@ to solve this problem.
 
  */
 public class N189_RotateArray {
+	// Microsoft, Bloomberg
 	public void reverse_array(int nums[], int start, int end){
 		while(start < end){
 			int tmp = nums[start];

@@ -11,6 +11,7 @@ determine the maximum amount of money you can rob tonight without alerting the p
 
  */
 public class N198_HouseRobber {
+	// Linkedin, Airbnb
 	//0 ms
     public int rob(int[] nums) {
         if(nums.length < 1) return 0;

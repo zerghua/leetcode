@@ -41,6 +41,7 @@ import java.util.Arrays;
 
 
 public class N188_BestTimetoBuyandSellStock4 {
+    // no company
     // 7 ms
     public int maxProfit(int k, int[] prices) {
         if(k<0 || prices.length <= 1) return 0;

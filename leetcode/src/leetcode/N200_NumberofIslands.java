@@ -30,6 +30,7 @@ package leetcode;
     //["111","010","111"]
     // DFS, for each cell, do DFS on adjacent cells, and mark them as visited.
 public class N200_NumberofIslands {
+    // Google, Facebook, Mircosoft, Amazon
     //dfs, look at how predicate is pushed down, result a cleaner code
     public void dfs(char[][] grid, int i, int j,
                     boolean[][] is_visited_islands, int island_num) {

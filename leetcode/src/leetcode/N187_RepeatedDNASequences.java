@@ -21,6 +21,7 @@ import java.util.*;
 
 //remember how to iterate hashmap
 public class N187_RepeatedDNASequences {
+    // Linkedin
     //53 ms  o(n) time,
     //84 ms 32 / 32 test cases passed.  on 9/16/2016
     public List<String> findRepeatedDnaSequences(String s) {

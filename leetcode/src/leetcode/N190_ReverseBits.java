@@ -16,6 +16,7 @@ package leetcode;
 
  */
 public class N190_ReverseBits {
+    // Apple, Airbnb
     // you need treat n as an unsigned value
     // 2ms
     // bit manipulation.

@@ -17,6 +17,7 @@ package leetcode;
 
  */
 public class N191_Numberof1Bits {
+    // Microsoft, Apple.
     // 2ms
     public int hammingWeight(int n) {
         int count=0;
