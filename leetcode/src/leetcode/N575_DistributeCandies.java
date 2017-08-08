@@ -32,6 +32,7 @@ package leetcode;
 
 import java.util.*;
 public class N575_DistributeCandies {
+    // LiveRamp
     // easy. hashset.
     // 207 / 207 test cases passed.
     // 93 ms

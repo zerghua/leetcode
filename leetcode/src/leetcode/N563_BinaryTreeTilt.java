@@ -34,6 +34,7 @@ package leetcode;
 
 import leetcode.N0_data_strcture.*;
 public class N563_BinaryTreeTilt {
+    // Indeed
     // 75 / 75 test cases passed.
     // Runtime: 10 ms
     public class Solution {

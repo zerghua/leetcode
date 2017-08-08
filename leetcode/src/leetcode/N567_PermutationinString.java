@@ -29,6 +29,7 @@ import java.util.Arrays;
 
 
 public class N567_PermutationinString {
+    // Microsoft
     // a window with hashtable to match second string, and slide it one position each time.
     // 102 / 102 test cases passed.
     // Runtime: 36 ms

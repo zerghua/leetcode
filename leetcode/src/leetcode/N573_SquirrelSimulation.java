@@ -29,6 +29,7 @@ package leetcode;
 
  */
 public class N573_SquirrelSimulation {
+    // Square
     // 122 / 122 test cases passed.
     // 16 ms
     // it only matters on the first travel from squirrel to nut

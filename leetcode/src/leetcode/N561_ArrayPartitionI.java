@@ -23,6 +23,7 @@ import java.util.Arrays;
 
  */
 public class N561_ArrayPartitionI {
+    // no company
     // 81 / 81 test cases passed.
     // 42 ms
     // math, sort
