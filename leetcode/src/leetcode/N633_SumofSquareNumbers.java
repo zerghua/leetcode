@@ -20,6 +20,7 @@ package leetcode;
 
 import java.util.*;
 public class N633_SumofSquareNumbers {
+    // Linkedin
     // 124 / 124 test cases passed.
     // 151 ms
     // Hashtable

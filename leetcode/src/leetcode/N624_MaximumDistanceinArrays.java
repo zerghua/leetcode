@@ -28,6 +28,7 @@ package leetcode;
 
 import java.util.*;
 public class N624_MaximumDistanceinArrays {
+    // Yahoo
     // o(2*n), two loops(left->right and right->left)
     // 124 / 124 test cases passed.
     // 35 ms

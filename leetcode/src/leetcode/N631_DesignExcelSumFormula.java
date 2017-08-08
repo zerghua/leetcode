@@ -72,6 +72,7 @@ package leetcode;
 
 import java.util.*;
 public class N631_DesignExcelSumFormula {
+    // Microsoft
     // recursive update
     // 20 / 20 test cases passed.
     // 124 ms

@@ -26,6 +26,7 @@ package leetcode;
  */
 import java.util.*;
 public class N628_MaximumProductofThreeNumbers {
+    // Intuit
     // math
     // 83 / 83 test cases passed.
     // 39 ms
