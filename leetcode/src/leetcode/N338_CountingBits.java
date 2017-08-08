@@ -28,6 +28,7 @@ package leetcode;
  https://www.hrwhisper.me/leetcode-counting-bits/
  */
 public class N338_CountingBits {
+    // no company
     // DP and bit manipulation
     // 2 ms
     public int[] countBits(int num) {

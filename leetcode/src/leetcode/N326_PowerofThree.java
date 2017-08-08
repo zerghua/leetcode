@@ -11,6 +11,7 @@ package leetcode;
 
  */
 public class N326_PowerofThree {
+    // Google
     //19 ms
     public boolean isPowerOfThree(int n) {
         if(n<1) return false;

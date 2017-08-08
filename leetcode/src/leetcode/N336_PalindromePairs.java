@@ -20,6 +20,7 @@ import java.util.*;
 
  */
 public class N336_PalindromePairs {
+    // Google, Airbnb
     // 163 ms
     // hashtable and divide and conquer
     public List<List<Integer>> palindromePairs(String[] words) {

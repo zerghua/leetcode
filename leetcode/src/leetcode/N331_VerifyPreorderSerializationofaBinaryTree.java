@@ -43,6 +43,7 @@ import java.util.Stack;
 
  */
 public class N331_VerifyPreorderSerializationofaBinaryTree {
+    // Google
     // stack
     // 20 ms
     public boolean isValidSerialization(String preorder) {

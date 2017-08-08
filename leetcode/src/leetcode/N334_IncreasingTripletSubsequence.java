@@ -22,9 +22,11 @@ package leetcode;
 
  */
 
-// not require to be continuous,
-// equal size is avoid 1,1,1,1
+
 public class N334_IncreasingTripletSubsequence {
+    // Facebook
+    // not require to be continuous,
+    // equal size is avoid 1,1,1,1
     public boolean increasingTriplet(int[] nums) {
         if(nums.length < 3) return false;
 

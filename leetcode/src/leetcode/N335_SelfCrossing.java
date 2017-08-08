@@ -71,6 +71,7 @@ public class N335_SelfCrossing {
 
     */
     public class Solution {
+        // no company
         // find pattern, math
         // 29 / 29 test cases passed.
         // 2 ms

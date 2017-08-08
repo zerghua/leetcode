@@ -16,6 +16,7 @@ package leetcode;
 
  */
 public class N327_CountofRangeSum {
+    // Google
     // o(n^2) time
     // sum is in range [0, n+1], sum of [0, i)
     // once we converted it to sum array, it becomes point to point calculation

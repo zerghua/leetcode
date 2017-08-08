@@ -19,6 +19,7 @@ import leetcode.N0_data_strcture.*;
 import java.util.*;
 
 public class N339_NestedListWeightSum {
+    // linkedin
     // 27 / 27 test cases passed.
     // 2 ms
     // dfs

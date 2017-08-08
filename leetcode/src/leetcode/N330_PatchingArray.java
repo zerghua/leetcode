@@ -50,6 +50,7 @@ package leetcode;
 
  */
 public class N330_PatchingArray {
+    // Google
     // assumption array is sorted
     // greedy, +num[i] or double itself
     // 149 / 149 test cases passed.

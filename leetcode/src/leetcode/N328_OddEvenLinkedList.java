@@ -20,6 +20,7 @@ import leetcode.N0_data_strcture.*;
 
  */
 public class N328_OddEvenLinkedList {
+    // no company
     //1 ms
     public ListNode oddEvenList(ListNode head) {
         if(head == null || head.next == null) return head;

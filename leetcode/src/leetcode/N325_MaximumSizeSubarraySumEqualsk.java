@@ -25,6 +25,7 @@ package leetcode;
  */
 import java.util.*;
 public class N325_MaximumSizeSubarraySumEqualsk {
+    // Facebook, Palantir
     // hashmap + preSum
     // 35 / 35 test cases passed.
     // 29 ms

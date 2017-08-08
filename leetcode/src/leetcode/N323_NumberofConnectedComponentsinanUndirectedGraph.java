@@ -31,6 +31,7 @@ package leetcode;
 
 import java.util.*;
 public class N323_NumberofConnectedComponentsinanUndirectedGraph {
+    // Google, Twitter
     // this is a classic union find problem, check out algorithms 1 from Princeton U.
     // but here I use a general DFS to solve it.
     // 45 / 45 test cases passed.

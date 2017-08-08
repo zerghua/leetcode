@@ -19,6 +19,7 @@ import java.util.Arrays;
 
  */
 public class N324_WiggleSort2 {
+    // Google
     // 8 ms, o(nlogn) solution. sort and rearrange.
     public void wiggleSort(int[] nums) {
         if(nums == null || nums.length<=1) return;
