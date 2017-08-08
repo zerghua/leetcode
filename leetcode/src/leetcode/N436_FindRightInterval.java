@@ -50,6 +50,7 @@ package leetcode;
 import leetcode.N0_data_strcture.*;
 import java.util.*;
 public class N436_FindRightInterval {
+    // no company
     // treemap is red-black tree map implementation, map ordered by key,
     // guarantee o(logn) on containsKey,get, put, remove
     // sort by start of each interval, value is their original index.

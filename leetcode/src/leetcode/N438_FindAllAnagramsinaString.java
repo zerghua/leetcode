@@ -38,6 +38,7 @@ package leetcode;
  */
 import java.util.*;
 public class N438_FindAllAnagramsinaString {
+    // Amazon
     // sliding window size p and hashtable
     // 35 ms 29 / 29 test cases passed.
     public class Solution {

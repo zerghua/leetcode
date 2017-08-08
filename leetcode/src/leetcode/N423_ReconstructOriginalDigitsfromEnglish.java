@@ -28,6 +28,7 @@ package leetcode;
  https://discuss.leetcode.com/topic/63386/one-pass-o-n-java-solution-simple-and-clear
  */
 public class N423_ReconstructOriginalDigitsfromEnglish {
+    // no company
     // Math, find pattern of each word?
     // 25 ms 24 / 24 test cases passed.
     public class Solution {

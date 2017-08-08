@@ -20,6 +20,7 @@ package leetcode;
 
 import java.util.*;
 public class N432_AllOoneDataStructure {
+    // Uber
     // naive solution, get max and min are o(n)
     // all o(1) solution involves creates list of buckets hash to find them.
     // 15 / 15 test cases passed.

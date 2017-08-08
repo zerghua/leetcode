@@ -16,6 +16,7 @@ package leetcode;
 
  */
 public class N434_NumberofSegmentsinaString {
+    // no company
     // state machine
     // https://en.wikipedia.org/wiki/Finite-state_machine
     // 3 ms 26 / 26 test cases passed.

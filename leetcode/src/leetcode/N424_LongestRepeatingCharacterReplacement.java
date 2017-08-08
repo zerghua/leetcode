@@ -38,6 +38,7 @@ package leetcode;
 
  */
 public class N424_LongestRepeatingCharacterReplacement {
+    // Pocket Gems
     // sliding window + hashtable
     // the problem is equal to find a window which has (longest repeating chars + k)
     // window = (maxSizeOfRepeatingChars + k)

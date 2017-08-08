@@ -23,6 +23,7 @@ import java.util.HashSet;
 
  */
 public class N421_MaximumXORofTwoNumbersinanArray {
+    // Google
     // bit manipulation
     // require o(n) solution,
     // BF is o(n^2) solution

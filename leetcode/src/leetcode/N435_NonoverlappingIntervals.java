@@ -40,6 +40,7 @@ package leetcode;
 import leetcode.N0_data_strcture.*;
 import java.util.*;
 public class N435_NonoverlappingIntervals {
+    // no company
     // greedy, keep track of end interval.
     // sort by start and end, remove adjacent interval which has larger end.
     // very similar to N452.

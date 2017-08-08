@@ -36,6 +36,7 @@ package leetcode;
 
  */
 public class N440_KthSmallestinLexicographicalOrder {
+    // Hulu
     // denary tree(10-children tree) + math
     // 69 / 69 test cases passed.
     // 9 ms
