@@ -22,6 +22,7 @@ import java.util.*;
     // java substring, start is inclusive, end is exclusive
     // but the end can be the length of string, return to the end
 public class N131_PalindromePartitioning {
+    // Bloomberg
     //9 ms, backtracking
     public List<List<String>> partition(String s) {
         List<List<String>> ret = new LinkedList<List<String>>();

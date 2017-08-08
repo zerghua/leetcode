@@ -16,6 +16,7 @@ package leetcode;
 
  */
 public class N134_GasStation {
+    // no company
     // greedy
     // find the start point which can circulate the cycle.
     // read problem description carefully, because guaranteed solution to be unique

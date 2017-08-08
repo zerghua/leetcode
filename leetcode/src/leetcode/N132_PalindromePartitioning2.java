@@ -14,6 +14,30 @@ import java.util.List;
  Return 1 since the palindrome partitioning ["aa","b"] could be produced using 1 cut.
  */
 public class N132_PalindromePartitioning2 {
+    // no company
+    // DP
+    // 29 / 29 test cases passed.
+    // 34 ms
+    public class Solution {
+        public int minCut(String s) {
+            boolean[][] isPal = new boolean[s.length()][s.length()];
+            int[] cut = new int[s.length()];
+            for(int j=0;j<s.length();j++){
+                cut[j] = j; // max cut at j
+                for(int i=0;i<=j;i++){
+                    if(s.charAt(i) == s.charAt(j) && (j-i<=1 || isPal[i+1][j-1])){
+                        isPal[i][j] = true;
+
+                        if(i == 0) cut[j] = 0; // first row
+                        else cut[j] = Math.min(cut[j], cut[i-1] + 1);
+                    }
+                }
+            }
+            return cut[s.length()-1];
+        }
+    }
+
+
     int min_cut = Integer.MAX_VALUE;
 
     // TLE "ababababababababababababcbabababababababababababa"
@@ -45,24 +69,5 @@ public class N132_PalindromePartitioning2 {
         }
     }
 
-
-    //42 ms
-    //DP
-    public int minCut2(String s) {
-        boolean[][] isPal = new boolean[s.length()][s.length()];
-        int[] cut = new int[s.length()];
-        for(int j=0;j<s.length();j++){
-            cut[j] = j; // max cut at j
-            for(int i=0;i<=j;i++){
-                if(s.charAt(i) == s.charAt(j) && (j-i<=1 || isPal[i+1][j-1])){
-                    isPal[i][j] = true;
-
-                    if(i == 0) cut[j] = 0; // first row
-                    else cut[j] = Math.min(cut[j], cut[i-1] + 1);
-                }
-            }
-        }
-        return cut[s.length()-1];
-    }
 
 }

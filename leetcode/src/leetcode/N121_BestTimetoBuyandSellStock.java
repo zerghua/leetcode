@@ -8,6 +8,7 @@ package leetcode;
  design an algorithm to find the maximum profit.
  */
 public class N121_BestTimetoBuyandSellStock {
+    // Amazon, Facebook, Microsoft
     //2 ms
     public int maxProfit(int[] prices) {
         int previous_min = Integer.MAX_VALUE;

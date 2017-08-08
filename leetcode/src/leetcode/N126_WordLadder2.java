@@ -43,6 +43,7 @@ import java.util.*;
 
  */
 public class N126_WordLadder2 {
+    //Amazon, Yelp
     class Node{
         String word;
         Node pre;

@@ -17,6 +17,7 @@ import java.util.*;
 
  */
 public class N140_WordBreak2 {
+    // Google, Uber
     // http://www.programcreek.com/2014/03/leetcode-word-break-ii-java/
     // 21 ms
     // DP + backtracking. use Arraylist array to store previous words.

@@ -21,28 +21,32 @@ import leetcode.N0_data_strcture.*;
 
 
 public class N124_BinaryTreeMaximumPathSum {
-    int global_max =Integer.MIN_VALUE;
-
+    // Facebook, baidu
+    // 92 / 92 test cases passed.
     // 2ms
     // bottom up
-    public int maxPathSum(TreeNode root) {
-        helper(root);
-        return global_max;
-    }
+    public class Solution {
+        int global_max =Integer.MIN_VALUE;
 
-    public int helper(TreeNode node){
-        if(node == null) return 0;
+        public int maxPathSum(TreeNode root) {
+            helper(root);
+            return global_max;
+        }
 
-        int left_max = helper(node.left);
-        int right_max = helper(node.right);
+        public int helper(TreeNode node){
+            if(node == null) return 0;
 
-        // return partial max
-        int partial_max = Math.max(node.val, Math.max(node.val+left_max, node.val+right_max));
+            int left_max = helper(node.left);
+            int right_max = helper(node.right);
 
-        //update global max
-        global_max = Math.max(global_max, Math.max(node.val + left_max + right_max, partial_max));
+            // return partial max
+            int partial_max = Math.max(node.val, Math.max(node.val+left_max, node.val+right_max));
 
-        return partial_max;
+            //update global max
+            global_max = Math.max(global_max, Math.max(node.val + left_max + right_max, partial_max));
+
+            return partial_max;
+        }
     }
 
 }

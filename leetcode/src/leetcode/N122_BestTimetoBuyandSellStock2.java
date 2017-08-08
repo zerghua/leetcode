@@ -8,6 +8,7 @@ you may not engage in multiple transactions at the same time (ie, you must sell 
 
  */
 public class N122_BestTimetoBuyandSellStock2 {
+    // Bloomberg
 	//2 ms
     public int maxProfit(int[] prices) { 
         if(prices == null || prices.length <= 1) return 0;

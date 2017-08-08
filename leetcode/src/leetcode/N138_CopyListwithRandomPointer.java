@@ -12,6 +12,7 @@ import java.util.HashMap;
 
  */
 public class N138_CopyListwithRandomPointer {
+    // Amazon, Microsoft
     public class RandomListNode {
         int label;
         RandomListNode next, random;

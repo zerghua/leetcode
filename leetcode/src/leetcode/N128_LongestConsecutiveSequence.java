@@ -13,6 +13,7 @@ import java.util.*;
  Your algorithm should run in O(n) complexity.
  */
 public class N128_LongestConsecutiveSequence {
+    // Google, Facebook
     //13 ms
     // use hashset to make it O(N)
     // go through each ele in nums, find it's left and right from itself,

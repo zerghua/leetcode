@@ -13,6 +13,7 @@ package leetcode;
  What is the minimum candies you must give?
  */
 public class N135_Candy {
+    // no company
     // 4 ms
     // dp to store candy of each kid has
     // from two ways to make sure kid i has equal or more than kid i-1 and i+1

@@ -36,6 +36,7 @@ For the purpose of this problem, we define empty string as valid palindrome.
 
  */
 public class N125_ValidPalindrome {
+	// Microsoft, Facebook
 	//7 ms
     public boolean isValidChar(char c){
     	if((c >= 'a' && c<='z') || (c>='A' && c<='Z') || (c>='0' && c<='9')) return true;

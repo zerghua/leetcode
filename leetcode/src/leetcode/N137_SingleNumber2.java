@@ -12,6 +12,7 @@ package leetcode;
  *
  */
 public class N137_SingleNumber2 {
+    // no company
     //5 ms
     // bit manipulation
     // sum of each bit, should be 3n + (0 or 1),  mod 3 is the result.

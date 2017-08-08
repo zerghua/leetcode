@@ -30,6 +30,7 @@ import java.util.*;
     // start from 4 sides and mark all neighbors(BFS) from 'O' to 'P',
     // then set all 'O' to 'X', all 'P' to 'O'
 public class N130_SurroundedRegions {
+    // no company
     public static class Pair{
         int x; int y;
         Pair(int x, int y){this.x=x; this.y=y;}

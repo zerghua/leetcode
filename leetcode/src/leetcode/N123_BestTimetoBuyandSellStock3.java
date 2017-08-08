@@ -17,6 +17,7 @@ package leetcode;
 
  */
 public class N123_BestTimetoBuyandSellStock3 {
+    // no company
     // divide and conquer, two ways DP
     // profit before i and profit after i.
     // return sum of before i and after i.

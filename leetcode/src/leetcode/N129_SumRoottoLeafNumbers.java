@@ -26,6 +26,7 @@ import java.util.LinkedList;
 
  */
 public class N129_SumRoottoLeafNumbers {
+    // no company
     public int sumNumbers(TreeNode root) {
         if(root==null)return 0;
 
