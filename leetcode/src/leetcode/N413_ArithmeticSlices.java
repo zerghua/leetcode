@@ -35,6 +35,7 @@ package leetcode;
 
  */
 public class N413_ArithmeticSlices {
+    // Baidu, Aetion
     // 2 ms 15 / 15 test cases passed.
     // math
     public class Solution {

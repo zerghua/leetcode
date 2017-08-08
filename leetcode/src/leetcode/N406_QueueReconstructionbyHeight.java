@@ -26,6 +26,7 @@ import java.util.*;
 
  */
 public class N406_QueueReconstructionbyHeight {
+    // Google
     // sort + insertion. kind of insertion sort.
     // 82 ms 37 / 37 test cases passed.
     // time o(nlogn) bounded by sort. insertion is o(1) for n times.

@@ -36,8 +36,9 @@ package leetcode;
  */
 import java.util.*;
 public class N412_FizzBuzz {
+    // no company
+    // 4 ms 8 / 8 test cases passed.
     public class Solution {
-        // 4 ms 8 / 8 test cases passed.
         public List<String> fizzBuzz(int n) {
             List<String> ret = new ArrayList();
             for(int i=1;i<=n;i++){

@@ -33,6 +33,7 @@ package leetcode;
 
  */
 public class N405_ConvertaNumbertoHexadecimal {
+    // no company
     // 7 ms 100 / 100 test cases passed.
     // interesting way decimal to hexdecimal.
     public String toHex(int num) {

@@ -28,6 +28,7 @@ package leetcode;
 
  */
 public class N410_SplitArrayLargestSum {
+    // Facebook, Baidu
     // not sure why it's right, might need proof.
     // 9 ms 28 / 28 test cases passed.
     // binary search

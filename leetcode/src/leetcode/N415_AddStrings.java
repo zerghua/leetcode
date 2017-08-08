@@ -15,9 +15,10 @@ package leetcode;
 
  */
 public class N415_AddStrings {
+    // Google, Airbnb
+    // from right to left
+    // 32 ms 315 / 315 test cases passed.
     public class Solution {
-        // from right to left
-        // 32 ms 315 / 315 test cases passed.
         public String addStrings(String num1, String num2) {
             StringBuilder ret = new StringBuilder();
             int carry = 0, i=num1.length()-1, j=num2.length()-1;

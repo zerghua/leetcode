@@ -24,6 +24,7 @@ import java.util.PriorityQueue;
 
  */
 public class N407_TrappingRainWaterII {
+    // Google, Twitter
     // heap search. interesting.
     // a key clue is to start searching from the lowest height, and it can guarantee the one calculation.
     // 40 / 40 test cases passed.

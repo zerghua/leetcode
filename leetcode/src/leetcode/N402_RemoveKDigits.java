@@ -35,6 +35,7 @@ import java.util.Stack;
 
  */
 public class N402_RemoveKDigits {
+    // Google, Snapchat
     // remove larger number in stack, impressive
     // 60 ms 33 / 33 test cases passed.
     public class Solution {

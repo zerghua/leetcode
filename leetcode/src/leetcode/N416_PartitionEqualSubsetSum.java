@@ -31,6 +31,7 @@ package leetcode;
 
  */
 public class N416_PartitionEqualSubsetSum {
+    // Ebay
     // DP, locate target by sum/2;  o(n^2) time,  o(n) space.
     // 40 ms  115 / 115 test cases passed.
     public class Solution {

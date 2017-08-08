@@ -60,6 +60,7 @@ package leetcode;
 
  */
 public class N420_StrongPasswordChecker {
+    // no company
     // very hard, not sure how to do.
     // 42 / 42 test cases passed.
     // 5 ms

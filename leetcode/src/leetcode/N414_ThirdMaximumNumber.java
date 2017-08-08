@@ -33,6 +33,7 @@ package leetcode;
 
  */
 public class N414_ThirdMaximumNumber {
+    // Amazon
     // assume the max of array is fairly large, so we can't do counting sort.
     // array is non-empty by given
     // no information on if the array contains negative, should clarify that.

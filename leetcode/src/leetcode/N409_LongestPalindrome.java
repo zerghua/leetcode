@@ -25,6 +25,7 @@ package leetcode;
 
  */
 public class N409_LongestPalindrome {
+    // Google
     // longest = sum(even count) + sum(odd count-1) + 1(if has odd)
     // 10 ms 95 / 95 test cases passed.
     public int longestPalindrome(String s) {

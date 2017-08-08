@@ -30,6 +30,7 @@ import java.util.*;
 
  */
 public class N401_BinaryWatch {
+    // Google
     // hour[0-11]: 1,2,4,8,  can't have leading zeros
     // minutes[0-59]: 1,2,4,8,16,32,  should have leading zeros if less than 10
     // Key part is to combine hour and min to an array and go through them for DFS.
