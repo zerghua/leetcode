@@ -30,6 +30,7 @@ public ListNode removeElements(ListNode head, int val) {
  */
 
 public class N203_RemoveLinkedListElements {
+    // no company
 	// 1 ms
     public ListNode removeElements(ListNode head, int val) {
         while(head!=null && head.val == val) head = head.next;

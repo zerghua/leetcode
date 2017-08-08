@@ -21,6 +21,7 @@ You may assume both s and t have the same length.
 
  */
 public class N205_IsomorphicStrings {
+    // linkedin
 	//38 ms
     // test case:  aa and ab.
 	public boolean isIsomorphic(String s, String t){

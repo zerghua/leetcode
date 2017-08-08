@@ -26,6 +26,8 @@ package leetcode;
 
  */
 public class N211_AddandSearchWordDataStructureDesign {
+    // Facebook
+    // 21ms
     class TrieNode{
         boolean isLeaf;
         TrieNode[] children;
@@ -36,7 +38,7 @@ public class N211_AddandSearchWordDataStructureDesign {
         }
     }
 
-    // 21ms
+
     public class WordDictionary {
         private TrieNode root = new TrieNode();
 

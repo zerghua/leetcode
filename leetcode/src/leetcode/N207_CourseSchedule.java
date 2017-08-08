@@ -46,6 +46,7 @@ import java.util.*;
 
  */
 public class N207_CourseSchedule {
+    // Apple, Yelp
     // https://en.wikipedia.org/wiki/Topological_sorting#Algorithms
     // 25 ms DFS, record visited node. need convert input to Adjacency list
     public boolean canFinish(int numCourses, int[][] prerequisites) {

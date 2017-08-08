@@ -41,6 +41,7 @@ import java.util.*;
 
  */
 public class N218_TheSkylineProblem {
+    // Microsoft, Google, Facebook
     // hard on understanding the problem definition and put it into code
     // the key is to find top left of each rectangle and return the proper ones + bottom rightmost corner.
     // 36 / 36 test cases passed.

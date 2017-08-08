@@ -18,6 +18,7 @@ package leetcode;
 
  */
 public class N209_MinimumSizeSubarraySum {
+    // Facebook
     // store two pointers point to front and end which sum of between >=s
     // 1 ms
     // sliding window.

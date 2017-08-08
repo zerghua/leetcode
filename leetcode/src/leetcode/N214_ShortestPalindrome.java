@@ -18,6 +18,7 @@ package leetcode;
  "acdcd" return "dcdcacdcd"
  */
 public class N214_ShortestPalindrome {
+    // Google
     //TLE
     public String shortestPalindrome(String s) {
         if(s==null || s.length() <= 1) return s;

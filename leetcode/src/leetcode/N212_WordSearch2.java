@@ -36,6 +36,7 @@ import java.util.*;
  https://discuss.leetcode.com/topic/33246/java-15ms-easiest-solution-100-00/2
  */
 public class N212_WordSearch2 {
+    // Microsoft, Google, Airbnb
     // 20 ms
     // use '#' in board instead of another visited[][] array.
     // trie, dfs and backtracking.

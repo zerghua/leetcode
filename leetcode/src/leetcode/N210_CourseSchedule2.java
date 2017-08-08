@@ -30,46 +30,50 @@ import java.util.*;
 
  */
 public class N210_CourseSchedule2 {
-    int[] ret;
-    int index;
-    // 24 ms
+    // Facebook, zenefits
+    // 37 / 37 test cases passed.
+    // 20 ms
     // there is also a BFS solution, can take a look
-    public int[] findOrder(int numCourses, int[][] prerequisites) {
-        ret = new int[numCourses];
-        index = numCourses - 1;
-        if(numCourses == 0 || prerequisites.length == 0) {
-            for(int i=0;i<numCourses;i++) ret[i] = i;
+    public class Solution {
+        int[] ret;
+        int index;
+        public int[] findOrder(int numCourses, int[][] prerequisites) {
+            ret = new int[numCourses];
+            index = numCourses - 1;
+            if(numCourses == 0 || prerequisites.length == 0) {
+                for(int i=0;i<numCourses;i++) ret[i] = i;
+                return ret;
+            }
+
+            // convert input to create adjacency list in HashMap
+            HashMap<Integer, HashSet<Integer>> map = new HashMap<>();
+            for(int[] pair: prerequisites){
+                if(map.containsKey(pair[1])) map.get(pair[1]).add(pair[0]);
+                else map.put(pair[1], new HashSet<>(Arrays.asList(pair[0])));
+            }
+
+            int[] visited = new int[numCourses];
+            for(int i=0;i<numCourses;i++){
+                if(!canFinishDFS(map, visited, i)) return new int[0];
+            }
             return ret;
         }
 
-        // convert input to create adjacency list in HashMap
-        HashMap<Integer, HashSet<Integer>> map = new HashMap<>();
-        for(int[] pair: prerequisites){
-            if(map.containsKey(pair[1])) map.get(pair[1]).add(pair[0]);
-            else map.put(pair[1], new HashSet<>(Arrays.asList(pair[0])));
-        }
+        // visited = 1, currently visiting= -1
+        private boolean canFinishDFS(HashMap<Integer, HashSet<Integer>> map,
+                                     int[] visited, int i) {
+            if(visited[i] == -1) return false;
+            if(visited[i] == 1) return true;
 
-        int[] visited = new int[numCourses];
-        for(int i=0;i<numCourses;i++){
-            if(!canFinishDFS(map, visited, i)) return new int[0];
-        }
-        return ret;
-    }
-
-    // visited = 1, currently visiting= -1
-    private boolean canFinishDFS(HashMap<Integer, HashSet<Integer>> map,
-                                 int[] visited, int i) {
-        if(visited[i] == -1) return false;
-        if(visited[i] == 1) return true;
-
-        visited[i] = -1;
-        if(map.containsKey(i)){
-            for(int adjacent_node: map.get(i)){
-                if(!canFinishDFS(map, visited, adjacent_node)) return false;
+            visited[i] = -1;
+            if(map.containsKey(i)){
+                for(int adjacent_node: map.get(i)){
+                    if(!canFinishDFS(map, visited, adjacent_node)) return false;
+                }
             }
+            visited[i] = 1;
+            ret[index--] = i;
+            return true;
         }
-        visited[i] = 1;
-        ret[index--] = i;
-        return true;
     }
 }

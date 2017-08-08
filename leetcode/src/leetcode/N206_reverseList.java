@@ -12,6 +12,7 @@ A linked list can be reversed either iteratively or recursively. Could you imple
  */
 
 public class N206_reverseList {
+    // Facebook, Amazon, Microsoft
 	//308 ms 44%
     public ListNode reverseList(ListNode head) {
         if(head == null || head.next == null) return head;

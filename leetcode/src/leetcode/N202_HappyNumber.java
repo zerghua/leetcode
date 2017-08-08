@@ -13,6 +13,7 @@ ends in 1 are happy numbers.
 
 */
 public class N202_HappyNumber {
+	// Uber, Airbnb
 	//232 ms   86%
 	public int getHappy(int n){
 		int ret=0;

@@ -7,6 +7,7 @@ find out whether there are two distinct indices i and j in the array such that n
  */
 
 public class N219_ContainsDuplicate2 {
+	// Airbnb
 	//13 ms
     public boolean containsNearbyDuplicate(int[] nums, int k) {
     	if(nums ==null) return false;

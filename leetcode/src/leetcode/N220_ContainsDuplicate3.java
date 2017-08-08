@@ -12,6 +12,7 @@ import java.util.TreeSet;
 
  */
 public class N220_ContainsDuplicate3 {
+    // Airbnb
     // 52 ms TreeSet, time o(nlogk), space k
     // bucket o(n) solution,
     // https://discuss.leetcode.com/topic/15199/ac-o-n-solution-in-java-using-buckets-with-explanation

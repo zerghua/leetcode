@@ -15,6 +15,7 @@ package leetcode;
  111   7
  */
 public class N201_BitwiseANDofNumbersRange {
+    // no company
     //TLE 0, 2147483647
     public int rangeBitwiseAnd2(int m, int n) {
         int ret = m;

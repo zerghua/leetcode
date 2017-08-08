@@ -46,6 +46,7 @@ package leetcode;
 
  */
 public class N204_CountPrimes {
+    // Amazon, Microsoft
     //28 ms
     //https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
     public int countPrimes(int n) {

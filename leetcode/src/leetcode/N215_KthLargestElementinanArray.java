@@ -18,6 +18,7 @@ import java.util.Random;
 
  */
 public class N215_KthLargestElementinanArray {
+    // Facebook, Microsoft, Amazon
     // use heap, extra space but faster, space o(k), time o(nlogk)
     // 8 ms 31 / 31 test cases passed.  resubmitted on 10/22/2016
     public int findKthLargest_use_heap(int[] nums, int k) {

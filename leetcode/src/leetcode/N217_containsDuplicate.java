@@ -7,8 +7,10 @@ Your function should return true if any value appears at least twice in the arra
  */
 
 
-//400 ms 93%
+
 public class N217_containsDuplicate {
+	// Airbnb, yahoo
+	//400 ms 93%
     public boolean containsDuplicate(int[] nums) {
     	HashSet<Integer> hs = new HashSet<Integer>();
     	for(int i=0; i<nums.length; i++){
