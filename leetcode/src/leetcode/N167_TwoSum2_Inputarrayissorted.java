@@ -17,6 +17,7 @@ package leetcode;
 
  */
 public class N167_TwoSum2_Inputarrayissorted {
+    // Amazon
     // 2ms o(n) time, two pointers.
     public int[] twoSum(int[] numbers, int target) {
         int l=0, r=numbers.length-1, tmp=0;

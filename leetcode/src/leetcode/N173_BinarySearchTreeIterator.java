@@ -18,32 +18,37 @@ import java.util.Stack;
     // the reason the time is average o(1)
     // because each element is in stack once and pop out once, without extra looking.
 public class N173_BinarySearchTreeIterator {
-    Stack<TreeNode> st;
+    // Google, Facebook, Microsoft
+    // 61 / 61 test cases passed.
+    // 6 ms
+    public class BSTIterator {
+        Stack<TreeNode> st;
 
-    public N173_BinarySearchTreeIterator(TreeNode root) {
-        st = new Stack<TreeNode>();
-        while(root != null){
-            st.push(root);
-            root = root.left;
-        }
-    }
-
-    /** @return whether we have a next smallest number */
-    public boolean hasNext() {
-        return !st.empty();
-    }
-
-    /** @return the next smallest number */
-    public int next() {
-        TreeNode ret_node = st.pop();
-        if(ret_node.right!=null){
-            TreeNode tmp = ret_node.right;
-            while(tmp != null){
-                st.push(tmp);
-                tmp=tmp.left;
+        public BSTIterator(TreeNode root) {
+            st = new Stack<TreeNode>();
+            while(root != null){
+                st.push(root);
+                root = root.left;
             }
         }
 
-        return ret_node.val;
+        /** @return whether we have a next smallest number */
+        public boolean hasNext() {
+            return !st.empty();
+        }
+
+        /** @return the next smallest number */
+        public int next() {
+            TreeNode ret_node = st.pop();
+            if(ret_node.right!=null){
+                TreeNode tmp = ret_node.right;
+                while(tmp != null){
+                    st.push(tmp);
+                    tmp=tmp.left;
+                }
+            }
+
+            return ret_node.val;
+        }
     }
 }

@@ -37,28 +37,27 @@ package leetcode;
 
 
 public class N162_FindPeakElement {
-    public int findPeakElement(int[] nums) {
-        int left =0, right=nums.length-1;
-        while(left<= right){
-            int mid = (right-left)/2 + left;
+    // Microsoft, Google
+    // 58 / 58 test cases passed.
+    // 0 ms
+    public class Solution {
+        public int findPeakElement(int[] nums) {
+            int left =0, right=nums.length-1;
+            while(left<= right){
+                int mid = (right-left)/2 + left;
 
-            if( (mid==0 || nums[mid] > nums[mid-1]) &&
-                    (mid == nums.length-1 || nums[mid] > nums[mid+1])){
-                return mid;
+                if( (mid==0 || nums[mid] > nums[mid-1]) &&
+                        (mid == nums.length-1 || nums[mid] > nums[mid+1])){
+                    return mid;
+                }
+
+                else if(mid>0 && nums[mid] < nums[mid-1]) right = mid-1;
+                else left = mid+1;
             }
 
-            else if(mid>0 && nums[mid] < nums[mid-1]) right = mid-1;
-            else left = mid+1;
+            return 0;
         }
-
-        return 0;
     }
 
-    public static void main(String[] args) {
-        int[] a= {1,2};
-        //int[] a= {0,1,2,3,4,5};
-        N162_FindPeakElement x= new N162_FindPeakElement();
-        System.out.println(x.findPeakElement(a));
 
-    }
 }

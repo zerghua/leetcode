@@ -14,6 +14,7 @@ import java.util.*;
  and fit in the 32-bit signed integer range.
  */
 public class N164_MaximumGap {
+    // no company
     // direct solution
     // o(nlogn)
     // 4 ms

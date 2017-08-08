@@ -9,6 +9,7 @@ package leetcode;
 
  */
 public class N172_FactorialTrailingZeroes {
+    // Bloomberg
     //1 ms
     // count number of 5s, equal trailing zeros
     // time o(log5)

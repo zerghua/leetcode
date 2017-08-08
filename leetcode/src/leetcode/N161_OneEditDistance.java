@@ -8,8 +8,8 @@ package leetcode;
 
  */
 public class N161_OneEditDistance {
-    // a few conditions.
     // facebook, snapchat, uber, twitter
+    // a few conditions.
     // 131 / 131 test cases passed.
     // 4 ms
     public class Solution {

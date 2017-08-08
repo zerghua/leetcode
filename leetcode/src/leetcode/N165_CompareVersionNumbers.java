@@ -42,6 +42,7 @@ public int compareVersion(String version1, String version2) {
 }
  */
 public class N165_CompareVersionNumbers {
+    // Microsoft, Apple
 	//5 ms
     // test case:
     // 1.22 >  1.3   (because 22 > 3)

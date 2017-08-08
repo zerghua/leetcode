@@ -7,7 +7,7 @@ You may assume that the array is non-empty and the majority element always exist
 
  */
 public class N169_majorityElement {
-	
+	// Adobe, zenefits
 	// 396 ms  81%
     // counting number, count++ if the same, else count--, if count==0, ret=num[i],
     // because majority > n/2, so it will always win with such counting.

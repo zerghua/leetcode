@@ -16,6 +16,7 @@ For example:
 
 // base 26 to base 10
 public class N171_titleToNumber {
+	// Microsoft, Uber
 	//376 ms 20%
     public int titleToNumber(String s) {
     	int sum=0;
