@@ -16,7 +16,7 @@ public class N262_UglyNumber {
 		}
 		return num;
 	}
-	
+
 	//312 ms 13%
     public boolean isUgly(int num) {
     	if (num<=0) return false;
@@ -26,7 +26,7 @@ public class N262_UglyNumber {
         System.out.println(n);
     	return n==1;
     }
-    
+
     //236 ms 95%
     public boolean isUgly2(int num) {
     	if (num<=0) return false;
@@ -34,8 +34,8 @@ public class N262_UglyNumber {
         while(num%3 ==0) num/=3;
         while(num%2 ==0) num/=2;
     	return num==1;
-    }    
-    
+    }
+
     public static void main(String[] args){
     	N262_UglyNumber s = new N262_UglyNumber();
     	System.out.println(s.isUgly(23232323));
