@@ -25,8 +25,10 @@ package leetcode;
  */
 import java.util.*;
 public class N325_MaximumSizeSubarraySumEqualsk {
+    // BF is o(n^2)
+    // this is an interesting problem
     // Facebook, Palantir
-    // hashmap + preSum
+    // hashmap + preSum o(n)
     // 35 / 35 test cases passed.
     // 29 ms
     public class Solution {

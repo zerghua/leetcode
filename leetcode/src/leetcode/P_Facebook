@@ -1,6 +1,6 @@
 Facebook list sort by Frequency
-	283 	Move Zeroes 	49.7% 	Easy
-	325 	Maximum Size Subarray Sum Equals k 	42.3% 	Medium
+	283 	Move Zeroes 	49.7% 	Easy                                           [easy]
+	325 	Maximum Size Subarray Sum Equals k 	42.3% 	Medium                     [Interesting, hashmap + preSum]
 	301 	Remove Invalid Parentheses 	35.1% 	Hard
 	67  	Add Binary 	32.3% 	Easy
 	311 	Sparse Matrix Multiplication 	50.7% 	Medium
