@@ -79,6 +79,9 @@ import java.util.*;
 import leetcode.N0_data_strcture.*;
 public class N314_BinaryTreeVerticalOrderTraversal {
     // Google, Facebook
+    // level-order traversal with a little trick to track column index
+    // 212 / 212 test cases passed.
+    // 4 ms
     public class Solution {
         class Node{
             TreeNode node;
@@ -89,9 +92,6 @@ public class N314_BinaryTreeVerticalOrderTraversal {
             }
         }
 
-        // level-order traversal with a little trick to track column index
-        // 212 / 212 test cases passed.
-        // 4 ms
         public List<List<Integer>> verticalOrder(TreeNode root) {
             int min_index = 0;
             List<List<Integer>> ret = new LinkedList();
@@ -112,6 +112,57 @@ public class N314_BinaryTreeVerticalOrderTraversal {
                 if(node.node.right != null) q.add(new Node(node.node.right, node.index + 1));
             }
             return ret;
+        }
+    }
+
+    // easier to implement, store index level in hashmap
+    public class Solution2 {
+        public List<List<Integer>> verticalOrder(TreeNode root) {
+            List<List<Integer>> result = new ArrayList<List<Integer>>();
+            if (root == null) return result;
+
+            // level and list
+            HashMap<Integer, ArrayList<Integer>> map = new HashMap<Integer, ArrayList<Integer>>();
+            LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
+            LinkedList<Integer> level = new LinkedList<Integer>();
+
+            queue.offer(root);
+            level.offer(0);
+
+            int minLevel = 0;
+            int maxLevel = 0;
+
+            while (!queue.isEmpty()) {
+                TreeNode p = queue.poll();
+                int cur_level = level.poll();
+
+                //track min and max levels
+                minLevel = Math.min(minLevel, cur_level);
+                maxLevel = Math.max(maxLevel, cur_level);
+
+                if (map.containsKey(cur_level)) {
+                    map.get(cur_level).add(p.val);
+                } else {
+                    ArrayList<Integer> list = new ArrayList<Integer>();
+                    list.add(p.val);
+                    map.put(cur_level, list);
+                }
+
+                if (p.left != null) {
+                    queue.offer(p.left);
+                    level.offer(cur_level - 1);
+                }
+
+                if (p.right != null) {
+                    queue.offer(p.right);
+                    level.offer(cur_level + 1);
+                }
+            }
+
+            for (int i = minLevel; i <= maxLevel; i++) {
+                if (map.containsKey(i)) result.add(map.get(i));
+            }
+            return result;
         }
     }
 }

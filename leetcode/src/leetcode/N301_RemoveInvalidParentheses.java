@@ -20,11 +20,57 @@ import java.util.*;
  */
 public class N301_RemoveInvalidParentheses {
     // Facebook
+    // BFS, remove chars level by level. (remove 0 ~ n chars), slower but easier to understand.
+    // 125 / 125 test cases passed.
+    // 105 ms
+    public class Solution {
+        public List<String> removeInvalidParentheses(String s) {
+            List<String> ret = new ArrayList<>();
+            HashSet<String> visited = new HashSet<>(Arrays.asList(s));
+            List<String> list = new ArrayList<>(Arrays.asList(s));
+            boolean isFound = false;
+
+            while(!list.isEmpty()){
+                String cur = list.remove(0);
+                if(isValidParentheses(cur)){
+                    isFound = true;
+                    ret.add(cur);
+                }
+
+                // if not found in this level, continue adding substring
+                if(!isFound){
+                    for(int i=0;i<cur.length();i++){
+                        if(cur.charAt(i) == '(' || cur.charAt(i) == ')'){
+                            String next = cur.substring(0,i) + cur.substring(i+1);
+                            if(!visited.contains(next)){
+                                visited.add(next);
+                                list.add(next);
+                            }
+                        }
+                    }
+                }
+            }
+            return ret;
+        }
+
+        public boolean isValidParentheses(String s){
+            int count = 0;
+            for(char c: s.toCharArray()){
+                if(c == '(') count++;
+                else if(c == ')') count--;
+                if(count < 0 ) return false;
+            }
+            return count == 0;
+        }
+    }
+
+
+
     // https://discuss.leetcode.com/topic/34875/easy-short-concise-and-fast-java-dfs-3-ms-solution
     // DFS
     // 125 / 125 test cases passed.
     // 3ms
-    public class Solution {
+    public class Solution2 {
         public List<String> removeInvalidParentheses(String s) {
             List<String> ans = new ArrayList<>();
             remove(s, ans, 0, 0, new char[]{'(', ')'});
@@ -50,46 +96,7 @@ public class N301_RemoveInvalidParentheses {
     }
 
 
-    // BFS, remove chars level by level. (remove 0 ~ n chars)
-    // 103 ms
-    public List<String> removeInvalidParentheses(String s) {
-        List<String> ret = new ArrayList<>();
-        HashSet<String> visited = new HashSet<>(Arrays.asList(s));
-        List<String> list = new ArrayList<>(Arrays.asList(s));
-        boolean isFound = false;
 
-        while(!list.isEmpty()){
-            String cur = list.remove(0);
-            if(isValidParentheses(cur)){
-                isFound = true;
-                ret.add(cur);
-            }
-
-            // if not found in this level, continue adding substring
-            if(!isFound){
-                for(int i=0;i<cur.length();i++){
-                    if(cur.charAt(i) == '(' || cur.charAt(i) == ')'){
-                        String next = cur.substring(0,i) + cur.substring(i+1);
-                        if(!visited.contains(next)){
-                            visited.add(next);
-                            list.add(next);
-                        }
-                    }
-                }
-            }
-        }
-        return ret;
-    }
-
-    public boolean isValidParentheses(String s){
-        int count = 0;
-        for(char c: s.toCharArray()){
-            if(c == '(') count++;
-            else if(c == ')') count--;
-            if(count < 0 ) return false;
-        }
-        return count == 0;
-    }
 
 
 
