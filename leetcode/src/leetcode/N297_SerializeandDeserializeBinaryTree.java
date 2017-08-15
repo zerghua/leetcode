@@ -2,6 +2,7 @@ package leetcode;
 import leetcode.N0_data_strcture.*;
 
 import java.util.Arrays;
+import java.util.IllegalFormatException;
 import java.util.LinkedList;
 
 /**
@@ -35,6 +36,42 @@ import java.util.LinkedList;
  */
 public class N297_SerializeandDeserializeBinaryTree {
     // Google, Amazon, Facebook, Microsoft
+    // 24 ms
+    // preoder tree traversal and rebuild it.
+    public class Codec {
+        // Encodes a tree to a single string.
+        public String serialize(TreeNode root) {
+            return serialize(root,new StringBuilder()).toString();
+        }
+
+        public StringBuilder serialize(TreeNode node, StringBuilder sb){
+            if(node == null) return sb.append("null,");
+            sb.append(node.val).append(",");
+            serialize(node.left, sb);
+            serialize(node.right,sb);
+            return sb;
+        }
+
+        // Decodes your encoded data to tree.
+        public TreeNode deserialize(String data) {
+            LinkedList<String> list = new LinkedList<>(Arrays.asList(data.split(",")));
+            return deserialize(list);
+        }
+
+        public TreeNode deserialize(LinkedList<String> list){
+            if(list == null || list.isEmpty()) throw new IllegalArgumentException(""); // defensive programming
+            String cur = list.removeFirst();
+            if(cur.equals("null")) return null;
+
+            TreeNode node = new TreeNode(Integer.valueOf(cur));
+            node.left = deserialize(list);
+            node.right = deserialize(list);
+            return node;
+        }
+    }
+
+
+    // below is wrong
     // use level order traversal
     // OJ has test cases like, [5,2,3,null,null,2,4,3,1]
     // which will break the code assumption of left=2*i+1, right=2*i+2.
@@ -71,38 +108,7 @@ public class N297_SerializeandDeserializeBinaryTree {
         }
     }
 
-    // 24 ms
-    // preoder tree traversal and rebuild it.
-    public class Codec {
-        // Encodes a tree to a single string.
-        public String serialize(TreeNode root) {
-            return serialize(root,new StringBuilder()).toString();
-        }
 
-        public StringBuilder serialize(TreeNode node, StringBuilder sb){
-            if(node == null) return sb.append("null,");
-            sb.append(node.val).append(",");
-            serialize(node.left, sb);
-            serialize(node.right,sb);
-            return sb;
-        }
-
-        // Decodes your encoded data to tree.
-        public TreeNode deserialize(String data) {
-            LinkedList<String> list = new LinkedList<>(Arrays.asList(data.split(",")));
-            return deserialize(list);
-        }
-
-        public TreeNode deserialize(LinkedList<String> list){
-            String cur = list.removeFirst();
-            if(cur.equals("null")) return null;
-
-            TreeNode node = new TreeNode(Integer.valueOf(cur));
-            node.left = deserialize(list);
-            node.right = deserialize(list);
-            return node;
-        }
-    }
 // Your Codec object will be instantiated and called as such:
 // Codec codec = new Codec();
 // codec.deserialize(codec.serialize(root));

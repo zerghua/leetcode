@@ -17,8 +17,8 @@ Facebook list sort by Frequency
 	157 	Read N Characters Given Read4 	28.9% 	Easy                           [synced solution from N158]
 	158 	Read N Characters Given Read4 II - Call multiple times 	24.2% 	Hard   [class level variable]
 	200 	Number of Islands 	34.4% 	Medium                                     [easy, simple DFS]
-	297 	Serialize and Deserialize Binary Tree 	33.2% 	Hard
-	282 	Expression Add Operators 	29.6% 	Hard
+	297 	Serialize and Deserialize Binary Tree 	33.2% 	Hard                   [preorder traversal, separate by comma and leaf node as null]
+	282 	Expression Add Operators 	29.6% 	Hard                               [backtracking with some math and corner cases]
 	76  	Minimum Window Substring 	25.2% 	Hard
 	257 	Binary Tree Paths 	38.2% 	Easy
 	23  	Merge k Sorted Lists 	27.1% 	Hard
