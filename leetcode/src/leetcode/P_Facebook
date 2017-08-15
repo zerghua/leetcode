@@ -1,16 +1,17 @@
 Facebook list sort by Frequency
-	283 	Move Zeroes 	49.7% 	Easy                                           [easy]
+	283 	Move Zeroes 	49.7% 	Easy                                           [easy, simple array]
 	325 	Maximum Size Subarray Sum Equals k 	42.3% 	Medium                     [Interesting, hashmap + preSum]
 	301 	Remove Invalid Parentheses 	35.1% 	Hard                               [BFS to remove each Parentheses]
 	67  	Add Binary 	32.3% 	Easy                                               [easy, similar to AddOne]
 	311 	Sparse Matrix Multiplication 	50.7% 	Medium                         [tricky math]
 	314 	Binary Tree Vertical Order Traversal 	36.4% 	Medium                 [level order traversal storing min/max index]
 	273 	Integer to English Words 	22.0% 	Hard                               [mind blowing recursive code]
-	17  	Letter Combinations of a Phone Number 	34.3% 	Medium
-	278 	First Bad Version 	25.2% 	Easy
-	91  	Decode Ways 	19.6% 	Medium
-	10  	Regular Expression Matching 	24.1% 	Hard
-	253 	Meeting Rooms II 	38.8% 	Medium
+	17  	Letter Combinations of a Phone Number 	34.3% 	Medium                 [easy, simple backtracking]
+	278 	First Bad Version 	25.2% 	Easy                                       [easy, simple binary search]
+	91  	Decode Ways 	19.6% 	Medium                                         [DP, add from i-2 and i-1]
+	10  	Regular Expression Matching 	24.1% 	Hard                           [hard, fair complex logic]
+	252 	Meeting Rooms 	47.1% 	Easy                                           [easy, sort by start time]
+	253 	Meeting Rooms II 	38.8% 	Medium                                     [heap sort by end time, merge if possible]
 	15  	3Sum 	21.6% 	Medium
 	277 	Find the Celebrity 	35.3% 	Medium
 	158 	Read N Characters Given Read4 II - Call multiple times 	24.2% 	Hard
@@ -37,7 +38,6 @@ Facebook list sort by Frequency
 	43  	Multiply Strings 	27.0% 	Medium
 	206 	Reverse Linked List 	45.3% 	Easy
 	133 	Clone Graph 	25.1% 	Medium
-	252 	Meeting Rooms 	47.1% 	Easy
 	218 	The Skyline Problem 	27.0% 	Hard
 	236 	Lowest Common Ancestor of a Binary Tree 	29.7% 	Medium
 	49  	Group Anagrams 	34.5% 	Medium

@@ -20,6 +20,31 @@ import java.util.List;
  */
 public class N17_LetterCombinationsofaPhoneNumber {
     // Google, Facebook, Amazon
+    // simple backtracking
+    // 25 / 25 test cases passed.
+    // 5 ms
+    public class Solution {
+        public List<String> letterCombinations(String digits) {
+            List<String> ret = new LinkedList();
+            if(digits == null || digits.length() == 0) return ret;
+            String[] map = {"", "*", "abc",  "def", "ghi", "jkl", "mno", "pqrs", "tuv","wxyz"};
+            dfs(ret, digits, "", 0, map);
+            return ret;
+        }
+
+        public void dfs(List<String> ret, String digits, String cur, int start, String[] map){
+            if(cur.length() == digits.length()){
+                ret.add(cur);
+                return;
+            }
+
+            String chars = map[digits.charAt(start) - '0'];
+            for(int i=0; i<chars.length(); i++) dfs(ret, digits, cur + chars.charAt(i), start+1, map);
+        }
+    }
+
+
+
     // using string array  1ms.
     public void letterCombinations2(String digits, int digit_start,
                                     String[] map, String cur, List<String> ret){

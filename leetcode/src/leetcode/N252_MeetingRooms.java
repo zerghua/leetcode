@@ -28,6 +28,4 @@ public class N252_MeetingRooms {
         }
     }
 
-    // time o(n), space o(n) max(interval.end)
-    // boolean[] mark each interval true in range, return false if it's already true.
 }

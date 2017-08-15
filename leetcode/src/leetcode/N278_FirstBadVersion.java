@@ -20,20 +20,26 @@ boolean isBadVersion(int version); */
 
 
 public class N278_FirstBadVersion {
-	boolean isBadVersion(int version){return false;}
-	// Facebook
-	//21 ms
-    public int firstBadVersion(int n) {
-    	int i=1, j=n, ret=1;
-    	while(i<=j){
-    		int mid = (j-i)/2 + i;
-    		if(isBadVersion(mid)) {//continue look for the first bad one
-    			ret = mid;
-    			j = mid - 1;	
-    		}else i=mid+1;
-    		
-    	}
-        return ret;
+    public class VersionControl{
+        boolean isBadVersion(int version){return false;}
     }
 
+    // Facebook
+    // simple binary search
+    // 21 / 21 test cases passed.  on 8/15/2017
+    // 19 ms
+	public class Solution extends VersionControl {
+		public int firstBadVersion(int n) {
+            int i=1, j=n, ret=1;
+            while(i<=j){
+                int mid = (j-i)/2 + i;
+                if(isBadVersion(mid)) {//continue look for the first bad one
+                    ret = mid;
+                    j = mid - 1;
+                }else i=mid+1;
+
+            }
+            return ret;
+        }
+	}
 }
