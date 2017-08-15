@@ -31,6 +31,39 @@ package leetcode;
     // DFS, for each cell, do DFS on adjacent cells, and mark them as visited.
 public class N200_NumberofIslands {
     // Google, Facebook, Mircosoft, Amazon
+    // better coding, predicate pushdown  4 ms
+    // 47 / 47 test cases passed.  on 8/15/2017
+    // 5 ms
+    public class Solution {
+        public int numIslands(char[][] grid) {
+            if (grid == null || grid.length==0 || grid[0].length==0) return 0;
+            boolean[][] is_visited_islands = new boolean[grid.length][grid[0].length];
+            int islands_num = 0;
+            for (int i = 0; i < grid.length; i++) {
+                for (int j = 0; j < grid[i].length; j++) {
+                    if (is_visited_islands[i][j] == false && grid[i][j] == '1') {
+                        islands_num++;
+                        dfs(grid, i, j, is_visited_islands);
+                    }
+                }
+            }
+            return islands_num;
+        }
+
+        public void dfs(char[][] grid, int i, int j,  boolean[][] is_visited_islands) {
+            if(i<0 || j<0 || i>grid.length-1 || j>grid[0].length-1) return; // boundry checking
+            if(is_visited_islands[i][j] || grid[i][j] == '0') return;       // return if visited or not land.
+
+            is_visited_islands[i][j] = true;
+            dfs(grid, i - 1, j, is_visited_islands);
+            dfs(grid, i + 1, j, is_visited_islands);
+            dfs(grid, i, j - 1, is_visited_islands);
+            dfs(grid, i, j + 1, is_visited_islands);
+        }
+    }
+
+
+
     //dfs, look at how predicate is pushed down, result a cleaner code
     public void dfs(char[][] grid, int i, int j,
                     boolean[][] is_visited_islands, int island_num) {
@@ -70,38 +103,7 @@ public class N200_NumberofIslands {
         return islands_num;
     }
 
-    ///////////////////////////////////////////////////////////////////////////
-    // better coding, predicate pushdown  4 ms
-    public int numIslands2(char[][] grid) {
-        if (grid == null || grid.length==0 || grid[0].length==0) return 0;
-        boolean[][] is_visited_islands = new boolean[grid.length][grid[0].length];
-        int islands_num = 0;
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[i].length; j++) {
-                if (is_visited_islands[i][j] == false && grid[i][j] == '1') {
-                    islands_num++;
-                    dfs2(grid, i, j, is_visited_islands);
-                }
-            }
-        }
-        return islands_num;
-    }
 
-    public void dfs2(char[][] grid, int i, int j,
-                    boolean[][] is_visited_islands) {
 
-        //boundry checking
-        if(i<0 || j<0 || i>grid.length-1 || j>grid[0].length-1) return;
-
-        //return if visited or not land.
-        if(is_visited_islands[i][j] || grid[i][j] == '0') return;
-
-        is_visited_islands[i][j] = true;
-
-        dfs2(grid, i - 1, j, is_visited_islands);
-        dfs2(grid, i + 1, j, is_visited_islands);
-        dfs2(grid, i, j - 1, is_visited_islands);
-        dfs2(grid, i, j + 1, is_visited_islands);
-    }
 
 }

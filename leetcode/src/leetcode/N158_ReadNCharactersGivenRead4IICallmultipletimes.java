@@ -51,4 +51,29 @@ public class N158_ReadNCharactersGivenRead4IICallmultipletimes {
         }
     }
 
+
+    // better name to handle class level variable which stores previous i
+    public class Solution2 extends Reader4 {
+
+        /**
+         * @param buf Destination buffer
+         * @param n   Maximum number of characters to read
+         * @return    The number of characters read
+         */
+        int pre_i = 0, pre_n = 0;
+        char[] pre_buf = new char[4];
+        public int read(char[] buf, int n) {
+            int i=0;
+            while(i < n){
+                if(pre_i >= pre_n){
+                    pre_i = 0;
+                    pre_n = read4(pre_buf);
+                    if(pre_n == 0) break;
+                }
+                buf[i++] = pre_buf[pre_i++];
+            }
+            return i;
+        }
+    }
+
 }

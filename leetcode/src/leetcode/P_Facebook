@@ -12,17 +12,17 @@ Facebook list sort by Frequency
 	10  	Regular Expression Matching 	24.1% 	Hard                           [hard, fair complex logic]
 	252 	Meeting Rooms 	47.1% 	Easy                                           [easy, sort by start time]
 	253 	Meeting Rooms II 	38.8% 	Medium                                     [heap sort by end time, merge if possible]
-	15  	3Sum 	21.6% 	Medium
-	277 	Find the Celebrity 	35.3% 	Medium
-	158 	Read N Characters Given Read4 II - Call multiple times 	24.2% 	Hard
-	200 	Number of Islands 	34.4% 	Medium
+	15  	3Sum 	21.6% 	Medium                                                 [key is to skip duplicate]
+	277 	Find the Celebrity 	35.3% 	Medium                                     [greedy with some logic]
+	157 	Read N Characters Given Read4 	28.9% 	Easy                           [synced solution from N158]
+	158 	Read N Characters Given Read4 II - Call multiple times 	24.2% 	Hard   [class level variable]
+	200 	Number of Islands 	34.4% 	Medium                                     [easy, simple DFS]
 	297 	Serialize and Deserialize Binary Tree 	33.2% 	Hard
 	282 	Expression Add Operators 	29.6% 	Hard
 	76  	Minimum Window Substring 	25.2% 	Hard
 	257 	Binary Tree Paths 	38.2% 	Easy
 	23  	Merge k Sorted Lists 	27.1% 	Hard
 	161 	One Edit Distance 	31.2% 	Medium
-	157 	Read N Characters Given Read4 	28.9% 	Easy
 	285 	Inorder Successor in BST 	36.1% 	Medium
 	211 	Add and Search Word - Data structure design 	22.6% 	Medium
 	139 	Word Break 	29.8% 	Medium
