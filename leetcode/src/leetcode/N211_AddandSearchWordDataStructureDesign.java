@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.*;
+
 /**
  * Created by Hua on 8/14/16.
 
@@ -27,19 +29,69 @@ package leetcode;
  */
 public class N211_AddandSearchWordDataStructureDesign {
     // Facebook
-    // 21ms
-    class TrieNode{
-        boolean isLeaf;
-        TrieNode[] children;
+    // 13 / 13 test cases passed.  on 8/15/2017
+    // 242 ms
+    public class WordDictionary {
+        class TrieNode{
+            HashMap<Character, TrieNode> children;
+            boolean isEnd;
+            TrieNode(){
+                children = new HashMap();
+                isEnd = false;
+            }
+        }
 
-        public TrieNode(){
-            children = new TrieNode[26];
-            isLeaf = false;
+        TrieNode root;
+        public WordDictionary() {
+            root = new TrieNode();
+        }
+
+        public void addWord(String word) {
+            TrieNode node = root;
+            for(char c: word.toCharArray()) {
+                if (!node.children.containsKey(c)) node.children.put(c, new TrieNode());
+                node = node.children.get(c);
+            }
+            node.isEnd = true;
+        }
+
+        /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
+        public boolean search(String word) {
+            return dfs(word, root, 0);
+        }
+
+        public boolean dfs(String word, TrieNode node, int start){
+            if(start == word.length()) {
+                if(node.isEnd) return true;
+                return false;
+            }
+
+            char cur = word.charAt(start);
+            if(cur== '.'){
+                for(char c : node.children.keySet()){ // this is the key of this problem, bfs search
+                    if(dfs(word, node.children.get(c), start+1)) return true;
+                }
+            }else{
+                if(node.children.containsKey(cur)) return dfs(word, node.children.get(cur), start+1);
+            }
+            return false;
         }
     }
 
 
-    public class WordDictionary {
+
+    // 21ms
+    public class WordDictionary2 {
+        class TrieNode{
+            boolean isLeaf;
+            TrieNode[] children;
+
+            public TrieNode(){
+                children = new TrieNode[26];
+                isLeaf = false;
+            }
+        }
+
         private TrieNode root = new TrieNode();
 
         // Adds a word into the data structure.
