@@ -666,6 +666,8 @@ for(int i=0;i<32;i++){
 ---------------------------------------------------
 Design(reviewed on 10/27/2016)
 ---------------------------------------------------
+
+----------------------  Iterator --------------------------
 173. Binary Search Tree Iterator(next() return smallest in BST)(interesting)(stack)
 [medium] push all left node to stack until the left most.
 when pop, if node.right!=null, push all its left. It's o(1) time, because each element is visited only once.
@@ -674,13 +676,9 @@ when pop, if node.right!=null, push all its left. It's o(1) time, because each e
 [medium] the key is to cache(save) next element with element and isPeeked variables.
 
 341. Flatten Nested List Iterator(interesting)(how to use polymorphism)
-[medium] flatten nested list to an arraylist.
-void = dfs(List<NestedInteger> nestedList){
-    for(NestedInteger e: nestedList){
-        if(e.isInteger()) ret.add(e.getInteger());
-        else dfs(e.getList());
-    }
-}
+[medium] store iterator in stack.
+------------------------------------------------------------
+
 
 385. Mini Parser(interesting)(constructed NestedInteger from String)
 [medium-hard] stack to store each object.
@@ -689,12 +687,14 @@ if '[', add obj to stack,  if ',' || ']', add number to stack.peek() object, if 
 355. Design Twitter
 [medium-hard] [TODO] a few hashmap, hashset and priorityQueue.
 
-// Trie
+
+----------------------  Trie --------------------------
 208. Implement Trie (Prefix Tree)
 [medium-hard] class Trie{Trie[] children; boolean isEnd;}
 
 211. Add and Search Word - Data structure design
 [medium-hard] BFS on trie of wildcard(.)
+--------------------------------------------------------
 
 379. Design Phone Directory(VIP)
 [medium]

@@ -22,26 +22,6 @@ package leetcode;
  */
 public class N75_SortColors {
     // Microsoft, Facebook
-    public void swap(int[] a, int i, int j){
-        int tmp = a[i];
-        a[i] = a[j];
-        a[j] = tmp;
-    }
-
-    //1 ms
-    public void sortColors(int[] nums) {
-        int left=0, right=nums.length-1, i=0;
-        while(i<=right){
-            if(nums[i] == 0) {
-                swap(nums, i, left);
-                i++;left++;
-            }else if(nums[i] == 2){
-                swap(nums, i, right);
-                right--;
-            }else  i++;
-        }
-    }
-
     // added on 10/1/2016
     // 0 ms 86 / 86 test cases passed.
     public class Solution {
@@ -63,6 +43,7 @@ public class N75_SortColors {
         }
     }
 
+
     //counting sort added on 10/1/2016
     // 0 ms 86 / 86 test cases passed.
     public class Solution2 {
@@ -80,5 +61,30 @@ public class N75_SortColors {
             while(two-->0) nums[i++]=2;
         }
     }
+
+
+    public void swap(int[] a, int i, int j){
+        int tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
+    }
+
+    //1 ms
+    public void sortColors(int[] nums) {
+        int left=0, right=nums.length-1, i=0;
+        while(i<=right){
+            if(nums[i] == 0) {
+                swap(nums, i, left);
+                i++;left++;
+            }else if(nums[i] == 2){
+                swap(nums, i, right);
+                right--;
+            }else  i++;
+        }
+    }
+
+
+
+
 
 }
