@@ -10,8 +10,8 @@ Facebook list sort by Frequency
 	278 	First Bad Version 	25.2% 	Easy                                       [easy, simple binary search]
 	91  	Decode Ways 	19.6% 	Medium                                         [DP, add from i-2 and i-1]
 	10  	Regular Expression Matching 	24.1% 	Hard                           [hard, fair complex logic]
-	252 	Meeting Rooms 	47.1% 	Easy                                           [easy, sort by start time]
-	253 	Meeting Rooms II 	38.8% 	Medium                                     [heap sort by end time, merge if possible]
+	252 	Meeting Rooms 	47.1% 	Easy                                           [easy, interval, sort by start time]
+	253 	Meeting Rooms II 	38.8% 	Medium                                     [interval, heap sort by end time, merge if possible]
 	15  	3Sum 	21.6% 	Medium                                                 [key is to skip duplicate]
 	277 	Find the Celebrity 	35.3% 	Medium                                     [greedy with some logic]
 	157 	Read N Characters Given Read4 	28.9% 	Easy                           [synced solution from N158]
@@ -25,11 +25,11 @@ Facebook list sort by Frequency
 	161 	One Edit Distance 	31.2% 	Medium                                     [one diff or one more are only true cases]
 	285 	Inorder Successor in BST 	36.1% 	Medium                             [binary search until node == null, larger as candidate]
 	211 	Add and Search Word - Data structure design 	22.6% 	Medium         [trie + dfs/bfs search of wildcard]
-	139 	Word Break 	29.8% 	Medium
-	121 	Best Time to Buy and Sell Stock 	41.0% 	Easy
-	56  	Merge Intervals 	29.9% 	Medium
-	341 	Flatten Nested List Iterator 	41.3% 	Medium
-	1   	Two Sum 	34.3% 	Easy
+	139 	Word Break 	29.8% 	Medium                                             [DP, dp[j+1] = true when dp[i]==true && set.contains(s(i,j+1))]
+	121 	Best Time to Buy and Sell Stock 	41.0% 	Easy                       [greedy, buy before sell]
+	56  	Merge Intervals 	29.9% 	Medium                                     [easy, 3 conditions]
+	341 	Flatten Nested List Iterator 	41.3% 	Medium                         [iterator design with nested integer]
+	1   	Two Sum 	34.3% 	Easy                                               [easy, hashmap to store diff]
 	173 	Binary Search Tree Iterator 	41.2% 	Medium
 	125 	Valid Palindrome 	26.2% 	Easy
 	75  	Sort Colors 	37.9% 	Medium

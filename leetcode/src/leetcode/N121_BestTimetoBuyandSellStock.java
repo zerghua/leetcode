@@ -9,17 +9,6 @@ package leetcode;
  */
 public class N121_BestTimetoBuyandSellStock {
     // Amazon, Facebook, Microsoft
-    //2 ms
-    public int maxProfit(int[] prices) {
-        int previous_min = Integer.MAX_VALUE;
-        int max_profit = 0;
-        for(int i=0; i<prices.length; i++){
-            if(prices[i] < previous_min) previous_min = prices[i];
-            if(prices[i] - previous_min > max_profit) max_profit = prices[i] - previous_min;
-        }
-        return max_profit;
-    }
-
     // version 2 added on 9/13/2016
     // greedy. only need to store previous min value.
     // 3 ms  200 / 200 test cases passed.
@@ -55,6 +44,19 @@ public class N121_BestTimetoBuyandSellStock {
             return ret;
         }
     }
+
+
+    //2 ms
+    public int maxProfit(int[] prices) {
+        int previous_min = Integer.MAX_VALUE;
+        int max_profit = 0;
+        for(int i=0; i<prices.length; i++){
+            if(prices[i] < previous_min) previous_min = prices[i];
+            if(prices[i] - previous_min > max_profit) max_profit = prices[i] - previous_min;
+        }
+        return max_profit;
+    }
+
 
 
     public static void main(String[] args){

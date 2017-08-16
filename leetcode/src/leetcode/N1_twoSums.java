@@ -20,6 +20,23 @@ The return format had been changed to zero-based indices. Please read the above 
 
  */
 public class N1_twoSums {
+    // Facebook
+	// concise code added on 10/15/2016
+	// 8 ms 16 / 16 test cases passed.
+	// hashmap one pass.
+	public class Solution {
+		public int[] twoSum(int[] nums, int target) {
+			HashMap<Integer, Integer> map = new HashMap();
+			for(int i=0;i<nums.length;i++){
+				if(map.containsKey(nums[i])){
+					return new int[]{map.get(nums[i]), i};
+				}
+				map.put(target-nums[i], i);
+			}
+			throw new IllegalArgumentException("no solution");
+		}
+	}
+
 	public int[] twoSum(int[] nums, int target) {
 		int[] ret = new int[2];
 		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
@@ -41,19 +58,5 @@ public class N1_twoSums {
 		return ret;
 	}
 
-	// concise code added on 10/15/2016
-    // 8 ms 16 / 16 test cases passed.
-    // hashmap one pass.
-	public class Solution {
-		public int[] twoSum(int[] nums, int target) {
-            HashMap<Integer, Integer> map = new HashMap();
-            for(int i=0;i<nums.length;i++){
-                if(map.containsKey(nums[i])){
-                    return new int[]{map.get(nums[i]), i};
-                }
-                map.put(target-nums[i], i);
-            }
-            throw new IllegalArgumentException("no solution");
-		}
-	}
+
 }

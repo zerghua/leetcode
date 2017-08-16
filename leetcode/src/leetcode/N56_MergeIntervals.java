@@ -11,13 +11,41 @@ import java.util.*;
  *
  */
 public class N56_MergeIntervals {
-    // Google, Facebook, Microsoft
     public class Interval {
         int start;
         int end;
         Interval() { start = 0; end = 0; }
         Interval(int s, int e) { start = s; end = e; }
     }
+
+
+    // Google, Facebook, Microsoft
+    // added on 10/5/2016 new way to pass new comparator.
+    // 31 ms 168 / 168 test cases passed.
+    public class Solution {
+        public List<Interval> merge(List<Interval> intervals) {
+            List<Interval> ret = new ArrayList<>();
+            if(intervals == null || intervals.size() < 1) return ret;
+
+            Collections.sort(intervals, (Interval a, Interval b)-> a.start - b.start);
+
+            int start = intervals.get(0).start;
+            int end = intervals.get(0).end;
+            for(int i=1; i<intervals.size();i++){
+                if(end < intervals.get(i).start ){
+                    ret.add(new Interval(start, end));
+                    start = intervals.get(i).start;
+                    end = intervals.get(i).end;
+                }else if(end < intervals.get(i).end){
+                    end = intervals.get(i).end;
+                } //else  end > intervals, do nothing
+            }
+            ret.add(new Interval(start, end));
+
+            return ret;
+        }
+    }
+
 
     //15 ms
     public List<Interval> merge(List<Interval> intervals) {
@@ -46,30 +74,6 @@ public class N56_MergeIntervals {
         return ret;
     }
 
-    // added on 10/5/2016 new way to pass new comparator.
-    // 31 ms 168 / 168 test cases passed.
-    public class Solution {
-        public List<Interval> merge(List<Interval> intervals) {
-            List<Interval> ret = new ArrayList<>();
-            if(intervals == null || intervals.size() < 1) return ret;
 
-            Collections.sort(intervals, (Interval a, Interval b)-> a.start - b.start);
-
-            int start = intervals.get(0).start;
-            int end = intervals.get(0).end;
-            for(int i=1; i<intervals.size();i++){
-                if(end < intervals.get(i).start ){
-                    ret.add(new Interval(start, end));
-                    start = intervals.get(i).start;
-                    end = intervals.get(i).end;
-                }else if(end < intervals.get(i).end){
-                    end = intervals.get(i).end;
-                } //else  end > intervals, do nothing
-            }
-            ret.add(new Interval(start, end));
-
-            return ret;
-        }
-    }
 
 }

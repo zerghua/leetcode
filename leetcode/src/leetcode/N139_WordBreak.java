@@ -16,6 +16,48 @@ import java.util.*;
 
 public class N139_WordBreak {
     // Google, Facebook, Amazon
+    // dp[j+1] = true when dp[i] == true && s(i,j+1) is in dict.
+    // 34 / 34 test cases passed.  on 8/16/2017
+    // 11 ms
+    public class Solution {
+        public boolean wordBreak(String s, List<String> wordDict) {
+            Set<String> set = new HashSet(wordDict);
+            boolean[] dp = new boolean[s.length()+1];
+            dp[0] = true;
+            for(int j=0;j<s.length();j++){
+                for(int i=j; i>=0; i--){
+                    if(dp[i] && set.contains(s.substring(i,j+1))){
+                        dp[j+1] = true;
+                        break;
+                    }
+                }
+            }
+            return dp[s.length()];
+        }
+    }
+
+
+
+    // verions 3 added on 9/14/2016
+    // 5 ms  34 / 34 test cases passed.
+    // DP, dp[i+1] = true if dp[j]==true && dict.contains(substring[j,i+1)) for j in [0,i]
+    public class Solution3 {
+        public boolean wordBreak(String s, Set<String> wordDict) {
+            boolean[] dp = new boolean[s.length()+1];
+            dp[0] = true;
+            for(int i=0;i<s.length();i++){
+                for(int j=i;j>=0;j--){
+                    if(dp[j] && wordDict.contains(s.substring(j,i+1))) {  //important it's dp[j] instead of dp[i]
+                        dp[i+1] = true;
+                        break; // pruning
+                    }
+                }
+            }
+            return dp[s.length()];
+        }
+    }
+
+
     public boolean wordBreak(String s, Set<String> wordDict) {
         return wordBreak(0,s,wordDict);
     }
@@ -51,24 +93,6 @@ public class N139_WordBreak {
     }
 
 
-    // verions 3 added on 9/14/2016
-    // 5 ms  34 / 34 test cases passed.
-    // DP, dp[i+1] = true if dp[j]==true && dict.contains(substring[j,i+1)) for j in [0,i]
-    public class Solution {
-        public boolean wordBreak(String s, Set<String> wordDict) {
-            boolean[] dp = new boolean[s.length()+1];
-            dp[0] = true;
-            for(int i=0;i<s.length();i++){
-                for(int j=i;j>=0;j--){
-                    if(dp[j] && wordDict.contains(s.substring(j,i+1))) {  //important it's dp[j] instead of dp[i]
-                        dp[i+1] = true;
-                        break; // pruning
-                    }
-                }
-            }
-            return dp[s.length()];
-        }
-    }
 
     // added on 10/2/2016
     // 16 ms  34 / 34 test cases passed
