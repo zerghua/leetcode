@@ -19,11 +19,11 @@ Facebook list sort by Frequency
 	200 	Number of Islands 	34.4% 	Medium                                     [easy, simple DFS]
 	297 	Serialize and Deserialize Binary Tree 	33.2% 	Hard                   [preorder traversal, separate by comma and leaf node as null]
 	282 	Expression Add Operators 	29.6% 	Hard                               [backtracking with some math and corner cases]
-	76  	Minimum Window Substring 	25.2% 	Hard
-	257 	Binary Tree Paths 	38.2% 	Easy
-	23  	Merge k Sorted Lists 	27.1% 	Hard
-	161 	One Edit Distance 	31.2% 	Medium
-	285 	Inorder Successor in BST 	36.1% 	Medium
+	76  	Minimum Window Substring 	25.2% 	Hard                               [sliding window, move left when count=size]
+	257 	Binary Tree Paths 	38.2% 	Easy                                       [simple dfs, but not easy to get correct]
+	23  	Merge k Sorted Lists 	27.1% 	Hard                                   [easy, priority queue + dummy linked list]
+	161 	One Edit Distance 	31.2% 	Medium                                     [one diff or one more are only true cases]
+	285 	Inorder Successor in BST 	36.1% 	Medium                             [binary search until node == null, larger as candidate]
 	211 	Add and Search Word - Data structure design 	22.6% 	Medium
 	139 	Word Break 	29.8% 	Medium
 	121 	Best Time to Buy and Sell Stock 	41.0% 	Easy

@@ -21,6 +21,23 @@ All root-to-leaf paths are:
 
 public class N257_BinaryTreePaths {
 	// Google, Facebook, Apple
+    // 209 / 209 test cases passed.  on 8/15/2017
+    // 17 ms
+	public class Solution {
+		public List<String> binaryTreePaths(TreeNode root) {
+            List<String> ret = new LinkedList();
+            if(root != null) dfs(root, ret, "" );
+            return ret;
+		}
+
+		public void dfs(TreeNode node, List<String> ret, String cur){
+            if(node.left == null && node.right == null) ret.add(cur + node.val);
+            if(node.left != null) dfs(node.left, ret,   cur + node.val + "->");
+            if(node.right != null)dfs(node.right, ret,  cur + node.val + "->");
+        }
+	}
+
+
 	//2 ms, 3 ms
     public List<String> binaryTreePaths(TreeNode root) {
     	List<String> ret = new LinkedList<String>();   

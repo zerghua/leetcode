@@ -23,10 +23,49 @@ import java.util.HashMap;
  */
 public class N76_MinimumWindowSubstring {
     // Facebook, Uber
-    // the challenge of this problem is when to down size the window
+    // the challenge of this problem is find when to downsize the window
+    // move left until t is not fully counted.
+    // 268 / 268 test cases passed.  on 8/15/2017
+    // 39 ms
+    public class Solution {
+        public String minWindow(String s, String t) {
+            if(s==null || s.length() ==0) return "";
+            HashMap<Character, Integer> map = new HashMap();
+            for(char c : t.toCharArray()){
+                if(!map.containsKey(c)) map.put(c, 0);
+                map.put(c, map.get(c) + 1);
+            }
+
+            int count = 0, start = 0, left =0, len = Integer.MAX_VALUE;
+            for(int right = 0; right<s.length(); right++){
+                char c = s.charAt(right);
+                if(map.containsKey(c)){
+                    map.put(c, map.get(c) - 1);
+                    if(map.get(c) >= 0) count++;
+                }
+
+                while(count == t.length()){ // to move window
+                    if(right - left + 1 < len){
+                        len = right - left + 1;
+                        start = left;
+                    }
+
+                    c = s.charAt(left);
+                    if(map.containsKey(c)){
+                        map.put(c, map.get(c) + 1);
+                        if(map.get(c) > 0 ) count--; // at this point, each char count is 0, so we need > instead of >=
+                    }
+                    left++;
+                }
+            }
+            return len == Integer.MAX_VALUE ? "": s.substring(start, start+len);
+        }
+    }
+
+
     // concise code added on 10/23/2016
     // 3 ms 266 / 266 test cases passed.
-    public class Solution {
+    public class Solution2 {
         public String minWindow(String s, String t) {
             if(s == null || t.length() > s.length()) return "";
             int[] map = new int[128];

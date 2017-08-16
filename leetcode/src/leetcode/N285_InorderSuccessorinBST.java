@@ -25,9 +25,26 @@ package leetcode;
 import leetcode.N0_data_strcture.*;
 public class N285_InorderSuccessorinBST {
     // Microsoft, Facebook
+    // concise code
     // 29 / 29 test cases passed.
     // 4 ms
     public class Solution {
+        public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+            TreeNode candidate = null;
+            while(root != null){
+                if(root.val > p.val){
+                    candidate = root;
+                    root = root.left;
+                }else root = root.right;
+            }
+            return candidate;
+        }
+    }
+
+
+    // 29 / 29 test cases passed.
+    // 4 ms
+    public class Solution2 {
         public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
             TreeNode candidate = null;
             while(root != p){
@@ -47,21 +64,7 @@ public class N285_InorderSuccessorinBST {
     }
 
 
-    // concise code
-    // 29 / 29 test cases passed.
-    // 4 ms
-    public class Solution2 {
-        public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
-            TreeNode candidate = null;
-            while(root != null){
-                if(root.val > p.val){
-                    candidate = root;
-                    root = root.left;
-                }else root = root.right;
-            }
-            return candidate;
-        }
-    }
+
 
 
     // recursive successor
