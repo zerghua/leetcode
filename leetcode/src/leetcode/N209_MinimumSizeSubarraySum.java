@@ -19,7 +19,24 @@ package leetcode;
  */
 public class N209_MinimumSizeSubarraySum {
     // Facebook
-    // store two pointers point to front and end which sum of between >=s
+    // sliding window, store two pointers point to front and end which sum of between >=s
+    // 15 / 15 test cases passed. on 8/17/2017
+    // 5 ms
+    public class Solution {
+        public int minSubArrayLen(int s, int[] nums) {
+            int i=0, sum=0, ret= Integer.MAX_VALUE;
+            for(int j=0;j<nums.length;j++){
+                sum+= nums[j];
+                while(sum>=s){
+                    ret = Math.min(ret, j-i+1);
+                    sum -= nums[i++];
+                }
+            }
+            return ret==Integer.MAX_VALUE? 0 : ret;
+        }
+    }
+
+
     // 1 ms
     // sliding window.
     public int minSubArrayLen(int s, int[] nums) {
@@ -40,7 +57,7 @@ public class N209_MinimumSizeSubarraySum {
 
     // added on 10/1/2016
     // 1 ms 14 / 14 test cases passed.
-    public class Solution {
+    public class Solution2 {
         public int minSubArrayLen(int s, int[] nums) {
             int i=0, sum=0, ret= Integer.MAX_VALUE;
             for(int j=0;j<nums.length;j++){

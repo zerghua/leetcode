@@ -22,24 +22,47 @@ import java.util.*;
  */
 public class N71_SimplifyPath {
     // Facebook, Microsoft
+    // stack with some logic
+    // 252 / 252 test cases passed.  on 8/17/2017
+    // 13 ms
+    public class Solution {
+        public String simplifyPath(String path) {
+            LinkedList<String> list = new LinkedList();
+            HashSet<String> set = new HashSet(Arrays.asList(".", ""));
+            for(String str : path.split("/")){
+                if(str.equals("..")){
+                    if(!list.isEmpty())list.removeLast();
+                }
+                else if(!set.contains(str)) list.add(str);
+            }
+            StringBuilder  sb = new StringBuilder();
+            for(String s: list) sb.append("/").append(s);
+            return sb.length() == 0? "/" : sb.toString();
+        }
+    }
+
+
+    // 252 / 252 test cases passed.  on 8/17/2017
     // 8 ms
     // StringTokenizer, or can use split as well.  String[] arr = path.split("/");
     // StringBuilder is unsynchronized(faster) and StringBuffer is synchronized(thread safe)
-    public String simplifyPath(String path) {
-        StringTokenizer token =  new StringTokenizer(path, "/");
-        StringBuilder  sb = new StringBuilder();
-        Stack<String> stack = new Stack<>();
-        while(token.hasMoreTokens()){
-            String str = token.nextToken();
-            if(str.equals(".")) continue;
-            if(str.equals("..")){
-                if(!stack.isEmpty()) stack.pop();
+    public class Solution2 {
+        public String simplifyPath(String path) {
+            StringTokenizer token =  new StringTokenizer(path, "/");
+            StringBuilder  sb = new StringBuilder();
+            Stack<String> stack = new Stack<>();
+            while(token.hasMoreTokens()){
+                String str = token.nextToken();
+                if(str.equals(".")) continue;
+                if(str.equals("..")){
+                    if(!stack.isEmpty()) stack.pop();
+                }
+                else stack.push(str);
             }
-            else stack.push(str);
+
+            for(String s: stack) sb.append("/").append(s);
+
+            return sb.length() == 0? "/" : sb.toString();
         }
-
-        for(String s: stack) sb.append("/").append(s);
-
-        return sb.length() == 0? "/" : sb.toString();
     }
 }

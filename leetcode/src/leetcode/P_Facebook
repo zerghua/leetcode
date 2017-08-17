@@ -10,8 +10,6 @@ Facebook list sort by Frequency
 	278 	First Bad Version 	25.2% 	Easy                                       [easy, simple binary search]
 	91  	Decode Ways 	19.6% 	Medium                                         [DP, add from i-2 and i-1]
 	10  	Regular Expression Matching 	24.1% 	Hard                           [hard, fair complex logic]
-	252 	Meeting Rooms 	47.1% 	Easy                                           [easy, interval, sort by start time]
-	253 	Meeting Rooms II 	38.8% 	Medium                                     [interval, heap sort by end time, merge if possible]
 	15  	3Sum 	21.6% 	Medium                                                 [key is to skip duplicate]
 	277 	Find the Celebrity 	35.3% 	Medium                                     [greedy with some logic]
 	157 	Read N Characters Given Read4 	28.9% 	Easy                           [synced solution from N158]
@@ -20,7 +18,6 @@ Facebook list sort by Frequency
 	79  	Word Search 	26.7% 	Medium                                         [easy, simple backtracking. is word exist in char matrix]
 	297 	Serialize and Deserialize Binary Tree 	33.2% 	Hard                   [preorder traversal, separate by comma and leaf node as null]
 	282 	Expression Add Operators 	29.6% 	Hard                               [backtracking with some math and corner cases]
-	76  	Minimum Window Substring 	25.2% 	Hard                               [sliding window, move left when count=size]
 	257 	Binary Tree Paths 	38.2% 	Easy                                       [simple dfs, but not easy to get correct]
 	23  	Merge k Sorted Lists 	27.1% 	Hard                                   [easy, priority queue + dummy linked list]
 	161 	One Edit Distance 	31.2% 	Medium                                     [one diff or one more are only true cases]
@@ -28,7 +25,6 @@ Facebook list sort by Frequency
 	211 	Add and Search Word - Data structure design 	22.6% 	Medium         [trie + dfs/bfs search of wildcard]
 	139 	Word Break 	29.8% 	Medium                                             [DP, dp[j+1] = true when dp[i]==true && set.contains(s(i,j+1))]
 	121 	Best Time to Buy and Sell Stock 	41.0% 	Easy                       [greedy, buy before sell]
-	56  	Merge Intervals 	29.9% 	Medium                                     [easy, 3 conditions]
 	341 	Flatten Nested List Iterator 	41.3% 	Medium                         [iterator design with nested integer, stack to store iterator]
 	173 	Binary Search Tree Iterator 	41.2% 	Medium                         [iterator design(not really), stack to store TreeNode]
 	1   	Two Sum 	34.3% 	Easy                                               [easy, hashmap to store diff]
@@ -46,12 +42,16 @@ Facebook list sort by Frequency
 	49  	Group Anagrams 	34.5% 	Medium                                         [trick is to use counting sort on string and convert it back, new String(char[])]
 	238 	Product of Array Except Self 	48.9% 	Medium                         [trick is dp preSum, two passes, left and right]
 	38  	Count and Say 	34.5% 	Easy                                           [count adjacent duplicate and continue for n times]
-	57  	Insert Interval 	27.5% 	Hard
-	209 	Minimum Size Subarray Sum 	30.4% 	Medium
-	215 	Kth Largest Element in an Array 	39.1% 	Medium
-	71  	Simplify Path 	25.2% 	Medium
-	146 	LRU Cache 	17.6% 	Hard
-	13  	Roman to Integer 	45.6% 	Easy
+	252 	Meeting Rooms 	47.1% 	Easy                                           [easy, interval, sort by start time]
+	253 	Meeting Rooms II 	38.8% 	Medium                                     [interval, heap sort by end time, merge if possible]
+    56  	Merge Intervals 	29.9% 	Medium                                     [easy, interval, 3 conditions]
+	57  	Insert Interval 	27.5% 	Hard                                       [easy, interval, insert to sorted list first, then merge as N56]
+	76  	Minimum Window Substring 	25.2% 	Hard                               [sliding window, move left when count=size]
+	209 	Minimum Size Subarray Sum 	30.4% 	Medium                             [easy, sliding window, move left when sum>=t]
+	215 	Kth Largest Element in an Array 	39.1% 	Medium                     [top k, heap o(nlogk) or quicksort o(n)]
+	71  	Simplify Path 	25.2% 	Medium                                         [stack, pop when its "..", else push if not "", "." and ".."]
+	146 	LRU Cache 	17.6% 	Hard                                               [look again. hashmap<key, Node> + double linked list Node]
+	13  	Roman to Integer 	45.6% 	Easy                                       [if a[i] < a[i+1], sum-a[i] else sum+a[i]; sum+a[n-1]]
 	33  	Search in Rotated Sorted Array 	32.1% 	Medium
 	208 	Implement Trie (Prefix Tree) 	28.0% 	Medium
 	90  	Subsets II 	36.0% 	Medium
