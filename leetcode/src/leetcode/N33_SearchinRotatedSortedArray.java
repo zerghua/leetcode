@@ -13,6 +13,28 @@ package leetcode;
  */
 public class N33_SearchinRotatedSortedArray {
     // Microsoft, Facebook
+    // binary search
+    // 196 / 196 test cases passed.  on 8/17/2017
+    // 13 ms, iterative.
+    public class Solution {
+        public int search(int[] nums, int target){
+            int left=0, right=nums.length-1;
+            while(left<=right){
+                int mid= (right-left)/2 + left;
+                if(nums[mid] == target) return mid;
+                else if(nums[left] <= nums[mid]){        // mid in left larger array
+                    if(nums[left] <= target && target < nums[mid]) right = mid-1;
+                    else left = mid+1;
+                }else{                                   // mid in right smaller array
+                    if(nums[mid] < target && target <= nums[right]) left = mid+1;
+                    else right = mid-1;
+                }
+            }
+            return -1;
+        }
+    }
+
+
     // 1 ms
     // two situations, depends on where mid lands
     public int search(int[] nums, int target) {
@@ -35,21 +57,5 @@ public class N33_SearchinRotatedSortedArray {
         }
     }
 
-    //1 ms, iterative.
-    public int search2(int[] nums, int target){
-        int left=0, right=nums.length-1;
-        while(left<=right){
-            int mid= (right-left)/2 + left;
-            if(nums[mid] == target) return mid;
-            else if(nums[left] <= nums[mid]){        // mid in left larger array
-                if(nums[left] <= target && target < nums[mid]) right = mid-1;
-                else left = mid+1;
-            }else{                                   // mid in right smaller array
-                if(nums[mid] < target && target <= nums[right]) left = mid+1;
-                else right = mid-1;
-            }
-        }
-        return -1;
-    }
 
 }

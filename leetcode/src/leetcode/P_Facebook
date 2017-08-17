@@ -5,11 +5,13 @@ Facebook list sort by Frequency
 	67  	Add Binary 	32.3% 	Easy                                               [easy, similar to AddOne]
 	311 	Sparse Matrix Multiplication 	50.7% 	Medium                         [tricky math]
 	314 	Binary Tree Vertical Order Traversal 	36.4% 	Medium                 [level order traversal storing min/max index]
+	102 	Binary Tree Level Order Traversal 	39.5% 	Medium                     [easy, store size of each level to traversal]
 	273 	Integer to English Words 	22.0% 	Hard                               [mind blowing recursive code]
 	17  	Letter Combinations of a Phone Number 	34.3% 	Medium                 [easy, simple backtracking]
 	278 	First Bad Version 	25.2% 	Easy                                       [easy, simple binary search]
 	91  	Decode Ways 	19.6% 	Medium                                         [DP, add from i-2 and i-1]
 	10  	Regular Expression Matching 	24.1% 	Hard                           [hard, fair complex logic]
+	44  	Wildcard Matching 	20.0% 	Hard                                       [hard, string match, greedy]
 	15  	3Sum 	21.6% 	Medium                                                 [key is to skip duplicate]
 	277 	Find the Celebrity 	35.3% 	Medium                                     [greedy with some logic]
 	157 	Read N Characters Given Read4 	28.9% 	Easy                           [synced solution from N158]
@@ -31,6 +33,7 @@ Facebook list sort by Frequency
 	125 	Valid Palindrome 	26.2% 	Easy                                       [easy, but need to skip !Character.isLetterOrDigit()]
 	75  	Sort Colors 	37.9% 	Medium                                         [easy, sort 3 colors, counting sort 2 passes, swap 1 pass]
 	78  	Subsets 	40.3% 	Medium                                             [simple backtracking]
+	90  	Subsets II 	36.0% 	Medium                                             [backtracking, skip duplicate if(i>start && nums[i] == nums[i-1])continue;]
 	98  	Validate Binary Search Tree 	23.2% 	Medium                         [simple dfs, top-down, pass down low and high]
 	43  	Multiply Strings 	27.0% 	Medium                                     [simple math, large string multiplication]
 	206 	Reverse Linked List 	45.3% 	Easy                                   [iterative should be straight forward]
@@ -52,12 +55,9 @@ Facebook list sort by Frequency
 	71  	Simplify Path 	25.2% 	Medium                                         [stack, pop when its "..", else push if not "", "." and ".."]
 	146 	LRU Cache 	17.6% 	Hard                                               [look again. hashmap<key, Node> + double linked list Node]
 	13  	Roman to Integer 	45.6% 	Easy                                       [if a[i] < a[i+1], sum-a[i] else sum+a[i]; sum+a[n-1]]
-	33  	Search in Rotated Sorted Array 	32.1% 	Medium
-	208 	Implement Trie (Prefix Tree) 	28.0% 	Medium
-	90  	Subsets II 	36.0% 	Medium
-	44  	Wildcard Matching 	20.0% 	Hard
-	128 	Longest Consecutive Sequence 	36.7% 	Hard
-	102 	Binary Tree Level Order Traversal 	39.5% 	Medium
+	33  	Search in Rotated Sorted Array 	32.1% 	Medium                         [binary search, mid compare with left and right]
+	208 	Implement Trie (Prefix Tree) 	28.0% 	Medium                         [basic trie]
+	128 	Longest Consecutive Sequence 	36.7% 	Hard                           [add all nums to set, find num-- and num++ in set and sum, remove them afterwards]
 	380 	Insert Delete GetRandom O(1) 	39.1% 	Medium
 	88  	Merge Sorted Array 	32.0% 	Easy
 	377 	Combination Sum IV 	41.9% 	Medium

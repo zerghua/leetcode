@@ -25,6 +25,32 @@ import java.util.*;
  */
 public class N90_Subsets2 {
     // Facebook
+    // version 3 adde on 9/6/2016
+    // 4 ms  19 / 19 test cases passed.
+    // DFS + backtracking. skip duplicate when i>start && nums[i-1] == nums[i]
+    public class Solution {
+        public void dfs(List<List<Integer>> ret, int[] nums, List<Integer> cur_list, int start){
+            for(int i=start;i<nums.length;i++){
+                if(i>start && nums[i] == nums[i-1])continue; // to skip duplicate
+                cur_list.add(nums[i]);
+                ret.add(new ArrayList<>(cur_list));
+                dfs(ret, nums, cur_list, i+1);
+                cur_list.remove(cur_list.size()-1);
+            }
+        }
+
+        public List<List<Integer>> subsetsWithDup(int[] nums) {
+            List<Integer> cur_list = new ArrayList<>();
+            List<List<Integer>> ret = new ArrayList<>();
+            ret.add(cur_list);
+            if (nums == null || nums.length == 0) return ret;
+            Arrays.sort(nums);
+            dfs(ret, nums, cur_list, 0);
+            return ret;
+        }
+    }
+
+
     // version 1
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         List<List<Integer>> ret = new LinkedList<List<Integer>>();
@@ -93,31 +119,6 @@ public class N90_Subsets2 {
         return ret;
     }
 
-
-    // version 3 adde on 9/6/2016
-    // 4 ms  19 / 19 test cases passed.
-    // DFS + backtracking. skip duplicate when i>start && nums[i-1] == nums[i]
-    public class Solution {
-        public void dfs(List<List<Integer>> ret, int[] nums, List<Integer> cur_list, int start){
-            for(int i=start;i<nums.length;i++){
-                if(i>start && nums[i] == nums[i-1])continue; // to skip duplicate
-                cur_list.add(nums[i]);
-                ret.add(new ArrayList<>(cur_list));
-                dfs(ret, nums, cur_list, i+1);
-                cur_list.remove(cur_list.size()-1);
-            }
-        }
-
-        public List<List<Integer>> subsetsWithDup(int[] nums) {
-            List<Integer> cur_list = new ArrayList<>();
-            List<List<Integer>> ret = new ArrayList<>();
-            ret.add(cur_list);
-            if (nums == null || nums.length == 0) return ret;
-            Arrays.sort(nums);
-            dfs(ret, nums, cur_list, 0);
-            return ret;
-        }
-    }
 
 
 }

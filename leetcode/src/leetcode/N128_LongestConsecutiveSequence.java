@@ -14,36 +14,39 @@ import java.util.*;
  */
 public class N128_LongestConsecutiveSequence {
     // Google, Facebook
-    //13 ms
     // use hashset to make it O(N)
     // go through each ele in nums, find it's left and right from itself,
     // remove it from hashset to make it runs faster.
-    public int longestConsecutive(int[] nums) {
-        int max = 0;
-        HashSet<Integer> hs = new HashSet<>();
-        for(int e: nums) hs.add(e);
+    // 68 / 68 test cases passed. on 8/17/2017
+    // 11 ms
+    public class Solution {
+        public int longestConsecutive(int[] nums) {
+            int max = 0;
+            HashSet<Integer> hs = new HashSet<>();
+            for(int e: nums) hs.add(e);
 
-        for(int i=0;i<nums.length;i++){
-            int num = nums[i];
-            if(!hs.contains(num)) continue;
+            for(int i=0;i<nums.length;i++){
+                int num = nums[i];
+                if(!hs.contains(num)) continue;
 
-            int cur_max = 1;
-            int left=num-1;
-            while(hs.contains(left)){
-                cur_max++;
-                hs.remove(left);
-                left--;
+                int cur_max = 1;
+                int left=num-1;
+                while(hs.contains(left)){
+                    cur_max++;
+                    hs.remove(left);
+                    left--;
+                }
+
+                int right = num+1;
+                while(hs.contains(right)){
+                    cur_max++;
+                    hs.remove(right);
+                    right++;
+                }
+                max = Math.max(max, cur_max);
             }
 
-            int right = num+1;
-            while(hs.contains(right)){
-                cur_max++;
-                hs.remove(right);
-                right++;
-            }
-            max = Math.max(max, cur_max);
+            return max;
         }
-
-        return max;
     }
 }

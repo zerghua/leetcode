@@ -26,6 +26,30 @@ return its level order traversal as:
  */
 public class N102_BinaryTreeLevelOrderTraversal {
     // FaceBook, Amazon, Microsoft.
+    // version 2, BFS and DFS added on 9/12/2016
+    // 2 ms  34 / 34 test cases passed.
+    // BFS use queue, store size of each level.
+    public class Solution {
+        public List<List<Integer>> levelOrder(TreeNode root) {
+            List<List<Integer>> ret = new ArrayList<>();
+            Queue<TreeNode> queue  = new LinkedList<>();
+            if(root != null) queue.add(root);
+            while(!queue.isEmpty()){
+                int size = queue.size();
+                List<Integer> level_list = new ArrayList<>();
+                for(int i=0;i<size; i++){
+                    TreeNode cur = queue.remove();
+                    level_list.add(cur.val);
+                    if(cur.left != null) queue.add(cur.left);
+                    if(cur.right != null) queue.add(cur.right);
+                }
+                ret.add(level_list);
+            }
+            return ret;
+        }
+    }
+
+
 	//3 ms
     public List<List<Integer>> levelOrder(TreeNode root) {
     	List<List<Integer>> ret =  new LinkedList<List<Integer>>();
@@ -53,28 +77,6 @@ public class N102_BinaryTreeLevelOrderTraversal {
     }
 
 
-    // version 2, BFS and DFS added on 9/12/2016
-    // 2 ms  34 / 34 test cases passed.
-    // BFS use queue, store size of each level.
-    public class Solution {
-        public List<List<Integer>> levelOrder(TreeNode root) {
-            List<List<Integer>> ret = new ArrayList<>();
-            Queue<TreeNode> queue  = new LinkedList<>();
-            if(root != null) queue.add(root);
-            while(!queue.isEmpty()){
-                int size = queue.size();
-                List<Integer> level_list = new ArrayList<>();
-                for(int i=0;i<size; i++){
-                    TreeNode cur = queue.remove();
-                    level_list.add(cur.val);
-                    if(cur.left != null) queue.add(cur.left);
-                    if(cur.right != null) queue.add(cur.right);
-                }
-                ret.add(level_list);
-            }
-            return ret;
-        }
-    }
 
     // DFS, pass level as a argument.
     // 1 ms  34 / 34 test cases passed.

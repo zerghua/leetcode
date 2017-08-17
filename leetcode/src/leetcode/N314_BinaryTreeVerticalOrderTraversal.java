@@ -79,10 +79,48 @@ import java.util.*;
 import leetcode.N0_data_strcture.*;
 public class N314_BinaryTreeVerticalOrderTraversal {
     // Google, Facebook
+    // VIP, I can't test now.
+    public class Solution {
+        class Node{
+            TreeNode node;
+            int index;
+            Node(TreeNode node, int index){
+                this.node = node;
+                this.index = index;
+            }
+        }
+
+        public List<List<Integer>> verticalOrder(TreeNode root) {
+            List<List<Integer>> ret = new ArrayList();
+            if(root == null) return ret;
+
+            HashMap<Integer, ArrayList<Integer>> map = new HashMap();
+            LinkedList<Node> list = new LinkedList();
+            list.add(new Node(root, 0));
+            int min = 0, max = 0;
+
+            while(!list.isEmpty()){
+                Node node = list.removeFirst();
+                min = Math.min(min, node.index);
+                max = Math.max(max, node.index);
+
+                if(node.node.left != null ) list.add(new Node(node.node.left, node.index - 1));
+                if(node.node.right != null ) list.add(new Node(node.node.right, node.index + 1));
+
+                if(!map.containsKey(node.index)) map.put(node.index, new ArrayList());
+                map.get(node.index).add(node.node.val);
+            }
+
+            for(int i=min; i<=max; i++) if(map.containsKey(i))ret.add(map.get(i));
+            return ret;
+        }
+    }
+
+
     // level-order traversal with a little trick to track column index
     // 212 / 212 test cases passed.
     // 4 ms
-    public class Solution {
+    public class Solution2 {
         class Node{
             TreeNode node;
             int index;
@@ -116,7 +154,7 @@ public class N314_BinaryTreeVerticalOrderTraversal {
     }
 
     // easier to implement, store index level in hashmap
-    public class Solution2 {
+    public class Solution3 {
         public List<List<Integer>> verticalOrder(TreeNode root) {
             List<List<Integer>> result = new ArrayList<List<Integer>>();
             if (root == null) return result;
