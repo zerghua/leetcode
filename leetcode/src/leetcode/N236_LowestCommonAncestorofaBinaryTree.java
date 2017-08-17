@@ -26,10 +26,11 @@ import leetcode.N0_data_strcture.*;
  */
 public class N236_LowestCommonAncestorofaBinaryTree {
     // Amazon, Facebook, Microsoft.
-    //13 ms
-    // top to bottom,
+    // bottom-up
     // if current node left and right children contains each of q and p, then return current;
     // else if one of them is returned, then that one is the result.
+    // 31 / 31 test cases passed. on 8/17/2017
+    // 11 ms
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root == null || root == p || root == q) return root;
         TreeNode left = lowestCommonAncestor(root.left, p, q);

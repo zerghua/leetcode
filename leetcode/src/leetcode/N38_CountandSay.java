@@ -26,24 +26,27 @@ package leetcode;
  */
 public class N38_CountandSay {
     // facebook
-    // 8 ms
     // count duplicate chars, and output.
-    public String countAndSay(int n) {
-        if(n<1) return null;
-        String ret = "1"; //base case when n=1
-        int count=1;
-        for(int j=1;j<n;j++){
-            StringBuilder sb = new StringBuilder();
-            for(int i=0;i<ret.length();i++){
-                if(i<ret.length()-1 && ret.charAt(i) == ret.charAt(i+1)){
-                    count++;
-                }else{
-                    sb.append(count+ ""+ret.charAt(i));
-                    count=1;
+    // 18 / 18 test cases passed. on 8/17/2017
+    // 9 ms
+    public class Solution {
+        public String countAndSay(int n) {
+            if(n<1) return null;
+            String ret = "1"; //base case when n=1
+            int count=1;
+            for(int j=1;j<n;j++){
+                StringBuilder sb = new StringBuilder();
+                for(int i=0;i<ret.length();i++){
+                    if(i<ret.length()-1 && ret.charAt(i) == ret.charAt(i+1)){
+                        count++;
+                    }else{
+                        sb.append(count+ ""+ret.charAt(i));
+                        count=1;
+                    }
                 }
+                ret = sb.toString();
             }
-            ret = sb.toString();
+            return ret;
         }
-        return ret;
     }
 }

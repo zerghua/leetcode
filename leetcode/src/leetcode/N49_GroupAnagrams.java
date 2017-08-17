@@ -41,9 +41,11 @@ public class N49_GroupAnagrams {
         public List<List<String>> groupAnagrams(String[] strs) {
             HashMap<String, List<String>> map = new HashMap<>();
             for(String str: strs){
+
                 char[] a = new char[26];
                 for(char c: str.toCharArray()) a[c-'a']++;
-                String key = new String(a);
+                String key = new String(a);             // trick here, rearrange string in sorted order in o(n) time
+
                 if(!map.containsKey(key)){
                     map.put(key, new ArrayList());
                 }
