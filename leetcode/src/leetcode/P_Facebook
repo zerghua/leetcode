@@ -38,7 +38,9 @@ Facebook list sort by Frequency
 	43  	Multiply Strings 	27.0% 	Medium                                     [simple math, large string multiplication]
 	206 	Reverse Linked List 	45.3% 	Easy                                   [iterative should be straight forward]
 	133 	Clone Graph 	25.1% 	Medium                                         [map<node, new_node> to avoid duplicate copy]
-	218 	The Skyline Problem 	27.0% 	Hard
+	218 	The Skyline Problem 	27.0% 	Hard                                   [visit all points sorted by x, break tie by height,
+	                                                                                heap store global height in reversed order, add left height, remove end height
+	                                                                                if cur height is diff than previous, add to ret]
 	236 	Lowest Common Ancestor of a Binary Tree 	29.7% 	Medium
 	49  	Group Anagrams 	34.5% 	Medium
 	79  	Word Search 	26.7% 	Medium
