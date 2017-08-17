@@ -31,28 +31,6 @@ import leetcode.N0_data_strcture.*;
  */
 public class N98_ValidateBinarySearchTree {
     // Amazon, Facebook, Microsoft
-    //1 ms
-    public boolean isValidBST(TreeNode root) {
-        return isValidBST(root, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
-    }
-
-    public boolean isValidBST(TreeNode node, double min, double max){
-        if(node == null) return true;
-        if(node.val >= max || node.val <= min) return false;
-
-        if(isValidBST(node.left, min, node.val) == false) return false;
-        if(isValidBST(node.right, node.val, max) == false) return false;
-
-        return true;
-    }
-
-
-    public boolean isValidBST2(TreeNode node, double min, double max){
-        if(node == null) return true;
-        if(node.val >= max || node.val <= min) return false;
-        return isValidBST2(node.left, min, node.val) && isValidBST2(node.right, node.val, max);
-    }
-
     // clean solution added on 10/8/2016
     // use null to represent infinity
     // 1 ms  74 / 74 test cases passed.
@@ -86,5 +64,30 @@ public class N98_ValidateBinarySearchTree {
             return false;
         }
     }
+
+
+    //1 ms
+    public boolean isValidBST(TreeNode root) {
+        return isValidBST(root, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+    }
+
+    public boolean isValidBST(TreeNode node, double min, double max){
+        if(node == null) return true;
+        if(node.val >= max || node.val <= min) return false;
+
+        if(isValidBST(node.left, min, node.val) == false) return false;
+        if(isValidBST(node.right, node.val, max) == false) return false;
+
+        return true;
+    }
+
+
+    public boolean isValidBST2(TreeNode node, double min, double max){
+        if(node == null) return true;
+        if(node.val >= max || node.val <= min) return false;
+        return isValidBST2(node.left, min, node.val) && isValidBST2(node.right, node.val, max);
+    }
+
+
 
 }

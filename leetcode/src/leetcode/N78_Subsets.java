@@ -27,6 +27,29 @@ import java.util.*;
 
 public class N78_Subsets {
     // Facebook, Amazon
+    // version 4,  on 9/6/2016
+    // 3 ms   10 / 10 test cases passed.
+    // DFS + backtracking.
+    public class Solution {
+        public void dfs(List<List<Integer>> ret, int[] nums, List<Integer> cur_list, int start){
+            for(int i=start;i<nums.length;i++){
+                cur_list.add(nums[i]);
+                ret.add(new ArrayList<>(cur_list));
+                dfs(ret, nums, cur_list, i+1);
+                cur_list.remove(cur_list.size()-1);
+            }
+        }
+
+        public List<List<Integer>> subsets(int[] nums) {
+            List<Integer> cur_list = new ArrayList<>();
+            List<List<Integer>> ret = new ArrayList<>();
+            ret.add(cur_list);
+            if (nums == null || nums.length == 0) return ret;
+            dfs(ret, nums, cur_list, 0);
+            return ret;
+        }
+    }
+
     public void get_subsets(int[] nums, int start,  List<List<Integer>> ret){
         if(start > nums.length-1) return;
 
@@ -124,31 +147,6 @@ public class N78_Subsets {
         Arrays.sort(nums); //for OJ to compare results
         subsets3_backtracking_helper(nums, 0, list, ret);
         return ret;
-    }
-
-
-
-    // version 4,  on 9/6/2016
-    // 3 ms   10 / 10 test cases passed.
-    // DFS + backtracking.
-    public class Solution {
-        public void dfs(List<List<Integer>> ret, int[] nums, List<Integer> cur_list, int start){
-            for(int i=start;i<nums.length;i++){
-                cur_list.add(nums[i]);
-                ret.add(new ArrayList<>(cur_list));
-                dfs(ret, nums, cur_list, i+1);
-                cur_list.remove(cur_list.size()-1);
-            }
-        }
-
-        public List<List<Integer>> subsets(int[] nums) {
-            List<Integer> cur_list = new ArrayList<>();
-            List<List<Integer>> ret = new ArrayList<>();
-            ret.add(cur_list);
-            if (nums == null || nums.length == 0) return ret;
-            dfs(ret, nums, cur_list, 0);
-            return ret;
-        }
     }
 
 }

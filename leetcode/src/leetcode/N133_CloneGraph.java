@@ -35,6 +35,27 @@ import java.util.*;
  */
 public class N133_CloneGraph {
     // Google, Facebook
+    // added on 10/8/2016
+    // map<node, new_node> instead of map<new_node_label, new_node>
+    // 8 ms 12 / 12 test cases passed.
+    public class Solution {
+        public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+            if(node == null) return null;
+            return dfs(node, new HashMap());
+        }
+
+        public UndirectedGraphNode dfs(UndirectedGraphNode node,
+                                       HashMap<UndirectedGraphNode, UndirectedGraphNode> map){
+            if(map.containsKey(node)) return map.get(node);
+            UndirectedGraphNode newNode = new UndirectedGraphNode(node.label);
+            map.put(node, newNode);
+            for(UndirectedGraphNode n: node.neighbors){
+                newNode.neighbors.add(dfs(n, map));
+            }
+            return newNode;
+        }
+    }
+
      class UndirectedGraphNode {
          int label;
          List<UndirectedGraphNode> neighbors;
@@ -44,6 +65,8 @@ public class N133_CloneGraph {
              neighbors = new ArrayList<UndirectedGraphNode>();
          }
      }
+
+
 
 
     // BFS
@@ -94,27 +117,6 @@ public class N133_CloneGraph {
             map.put(newNode.label, newNode);
             for(UndirectedGraphNode neighbor: node.neighbors){
                 newNode.neighbors.add(dfs(neighbor, map));
-            }
-            return newNode;
-        }
-    }
-
-    // added on 10/8/2016
-    // map<node, new_node> instead of map<new_node_label, new_node>
-    // 8 ms 12 / 12 test cases passed.
-    public class Solution {
-        public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
-            if(node == null) return null;
-            return dfs(node, new HashMap());
-        }
-
-        public UndirectedGraphNode dfs(UndirectedGraphNode node,
-                                       HashMap<UndirectedGraphNode, UndirectedGraphNode> map){
-            if(map.containsKey(node)) return map.get(node);
-            UndirectedGraphNode newNode = new UndirectedGraphNode(node.label);
-            map.put(node, newNode);
-            for(UndirectedGraphNode n: node.neighbors){
-                newNode.neighbors.add(dfs(n, map));
             }
             return newNode;
         }

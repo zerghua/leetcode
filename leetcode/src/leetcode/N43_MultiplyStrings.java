@@ -19,27 +19,30 @@ import java.math.BigInteger;
  */
 public class N43_MultiplyStrings {
     // Facebook, Twitter
-    // 9 ms
+    // 311 / 311 test cases passed.
+    // 32 ms
     // the solution OJ wants
-    public String multiply2(String num1, String num2) {
-        int n = num1.length() + num2.length();
-        int[] ret = new int[n];
-        for(int i = num1.length()-1; i>=0;i--){
-            for(int j= num2.length()-1;j>=0;j--){
-                int product = (num1.charAt(i) - '0') * (num2.charAt(j)-'0');
-                int p1 = i+j, p2 = i+j+1;
-                int sum = product + ret[p2]; // add carry
-                ret[p1] += sum /10;
-                ret[p2] = sum % 10;
+    public class Solution {
+        public String multiply(String num1, String num2) {
+            int n = num1.length() + num2.length();
+            int[] ret = new int[n];
+            for(int i = num1.length()-1; i>=0;i--){
+                for(int j= num2.length()-1;j>=0;j--){
+                    int product = (num1.charAt(i) - '0') * (num2.charAt(j)-'0');
+                    int hi = i+j, low = i+j+1;
+                    int sum = product + ret[low]; // add carry
+                    ret[hi] += sum /10;
+                    ret[low] = sum % 10;
+                }
             }
+
+            int i=0;
+            while(i<n && ret[i] == 0) i++; // skip leading 0
+
+            StringBuilder sb = new StringBuilder();
+            while(i<n) sb.append(ret[i++]);
+            return sb.length() ==0? "0": sb.toString();
         }
-
-        int i=0;
-        while(i<n && ret[i] == 0) i++; // skip leading 0
-
-        StringBuilder sb = new StringBuilder();
-        while(i<n) sb.append(ret[i++]);
-        return sb.length() ==0? "0": sb.toString();
     }
 
     //21 ms
