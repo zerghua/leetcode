@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.Arrays;
+
 /**
  * Created by HuaZ on 8/17/2017.
 
@@ -40,23 +42,41 @@ package leetcode;
  */
 public class N377_CombinationSum4 {
     // Google, Facebook
-    // DP, o(n)
+    // DP, o(n*target)
     // 17 / 17 test cases passed. on 8/17/2017
-    // 6 ms
+    // 5 ms
     class Solution {
         public int combinationSum4(int[] nums, int target) {
             int[] dp = new int[target+1];
             dp[0] = 1;  //base case
             for(int i=1;i<=target;i++){
                 for(int n: nums){
-                    dp[i] += i - n >=0? dp[i-n] : 0;
+                    if(i>=n) dp[i] += dp[i-n];
                 }
             }
             return dp[target];
         }
     }
 
-    // 6 ms  DP  o(n)
+    // some optimization
+    // 17 / 17 test cases passed. on 8/17/2017
+    // 4 ms
+    class Solution2 {
+        public int combinationSum4(int[] nums, int target) {
+            Arrays.sort(nums);
+            int[] dp = new int[target+1];
+            dp[0] = 1;  //base case
+            for(int i=1;i<=target;i++){
+                for(int n: nums){
+                    if(i<n) break;
+                    dp[i] += dp[i-n];
+                }
+            }
+            return dp[target];
+        }
+    }
+
+    // 6 ms  DP
     public int combinationSum4(int[] nums, int target) {
         int[] dp = new int[target+1];
         for(int n: nums) if(n<= target) dp[n] = 1;

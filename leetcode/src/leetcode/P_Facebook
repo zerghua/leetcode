@@ -60,7 +60,7 @@ Facebook list sort by Frequency
 	128 	Longest Consecutive Sequence 	36.7% 	Hard                           [add all nums to set, find num-- and num++ in set and sum, remove them afterwards]
 	380 	Insert Delete GetRandom O(1) 	39.1% 	Medium                         [hashmap<val, index> + arraylist, swap last one with map.get(val) and remove]
 	88  	Merge Sorted Array 	32.0% 	Easy                                       [easy, fill from the end]
-	377 	Combination Sum IV 	41.9% 	Medium                                     [DP]
+	377 	Combination Sum IV 	41.9% 	Medium                                     [DP, similar to coin change]
 	28  	Implement strStr() 	28.0% 	Easy
 	334 	Increasing Triplet Subsequence 	39.1% 	Medium
 	127 	Word Ladder 	19.4% 	Medium
