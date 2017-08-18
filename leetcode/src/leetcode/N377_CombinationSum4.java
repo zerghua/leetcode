@@ -1,7 +1,7 @@
 package leetcode;
 
 /**
- * Created by HuaZ on 8/17/2016.
+ * Created by HuaZ on 8/17/2017.
 
  Given an integer array with all positive numbers and no duplicates,
  find the number of possible combinations that add up to a positive integer target.
@@ -29,17 +29,33 @@ package leetcode;
  How does it change the problem?
  What limitation we need to add to the question to allow negative numbers?
 
-corner case:
+ corner case:
  1.  [9]    3     return 0
  2.  [1,9]  3     return 1
 
-Performance/Memory follow up:
+ Performance/Memory follow up:
  1. [1000000, 20000000, 3000000]   80000000
 
 
  */
-public class N377_CombinationSum {
+public class N377_CombinationSum4 {
     // Google, Facebook
+    // DP, o(n)
+    // 17 / 17 test cases passed. on 8/17/2017
+    // 6 ms
+    class Solution {
+        public int combinationSum4(int[] nums, int target) {
+            int[] dp = new int[target+1];
+            dp[0] = 1;  //base case
+            for(int i=1;i<=target;i++){
+                for(int n: nums){
+                    dp[i] += i - n >=0? dp[i-n] : 0;
+                }
+            }
+            return dp[target];
+        }
+    }
+
     // 6 ms  DP  o(n)
     public int combinationSum4(int[] nums, int target) {
         int[] dp = new int[target+1];
@@ -52,15 +68,5 @@ public class N377_CombinationSum {
         return dp[target];
     }
 
-    // 7 ms
-    public int combinationSum4_2(int[] nums, int target) {
-        int[] dp = new int[target+1];
-        dp[0] = 1;  //base case
-        for(int i=1;i<=target;i++){
-            for(int n: nums){
-                dp[i] += i - n >=0? dp[i-n] : 0;
-            }
-        }
-        return dp[target];
-    }
+
 }

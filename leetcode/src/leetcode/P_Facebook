@@ -58,8 +58,8 @@ Facebook list sort by Frequency
 	33  	Search in Rotated Sorted Array 	32.1% 	Medium                         [binary search, mid compare with left and right]
 	208 	Implement Trie (Prefix Tree) 	28.0% 	Medium                         [basic trie]
 	128 	Longest Consecutive Sequence 	36.7% 	Hard                           [add all nums to set, find num-- and num++ in set and sum, remove them afterwards]
-	380 	Insert Delete GetRandom O(1) 	39.1% 	Medium
-	88  	Merge Sorted Array 	32.0% 	Easy
+	380 	Insert Delete GetRandom O(1) 	39.1% 	Medium                         [hashmap<val, index> + arraylist, swap last one with map.get(val) and remove]
+	88  	Merge Sorted Array 	32.0% 	Easy                                       [easy, fill from the end]
 	377 	Combination Sum IV 	41.9% 	Medium
 	28  	Implement strStr() 	28.0% 	Easy
 	334 	Increasing Triplet Subsequence 	39.1% 	Medium
