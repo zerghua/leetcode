@@ -33,6 +33,26 @@ import java.util.*;
  */
 public class N117_PopulatingNextRightPointersinEachNode2 {
     // Microsoft, Facebook
+    // version 2 added on 9/12/2016
+    // also works for 116.
+    // BFS level order traversal.
+    // 4 ms  61 / 61 test cases passed.
+    public class Solution {
+        public void connect(TreeLinkNode root) {
+            Queue<TreeLinkNode> q = new LinkedList<>();
+            if(root != null) q.add(root);
+            while(!q.isEmpty()){
+                int size = q.size();
+                for(int i=0;i<size;i++){
+                    TreeLinkNode node =q.remove();
+                    if(i<size-1) node.next = q.peek(); // extra line for this problem
+                    if(node.left != null) q.add(node.left);
+                    if(node.right != null) q.add(node.right);
+                }
+            }
+        }
+    }
+
     // 7 ms
     // tree BFS, level by level, store size of each level and traverse within size.
     public void connect(TreeLinkNode root) {
@@ -54,23 +74,5 @@ public class N117_PopulatingNextRightPointersinEachNode2 {
         }
     }
 
-    // version 2 added on 9/12/2016
-    // also works for 116.
-    // BFS level order traversal.
-    // 4 ms  61 / 61 test cases passed.
-    public class Solution {
-        public void connect(TreeLinkNode root) {
-            Queue<TreeLinkNode> q = new LinkedList<>();
-            if(root != null) q.add(root);
-            while(!q.isEmpty()){
-                int size = q.size();
-                for(int i=0;i<size;i++){
-                    TreeLinkNode node =q.remove();
-                    if(i<size-1) node.next = q.peek(); // extra line for this problem
-                    if(node.left != null) q.add(node.left);
-                    if(node.right != null) q.add(node.right);
-                }
-            }
-        }
-    }
+
 }

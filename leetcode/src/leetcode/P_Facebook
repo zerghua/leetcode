@@ -6,6 +6,7 @@ Facebook list sort by Frequency
 	311 	Sparse Matrix Multiplication 	50.7% 	Medium                         [tricky math]
 	314 	Binary Tree Vertical Order Traversal 	36.4% 	Medium                 [level order traversal storing min/max index]
 	102 	Binary Tree Level Order Traversal 	39.5% 	Medium                     [easy, store size of each level to traversal]
+	117 	Populating Next Right Pointers in Each Node II 	33.7% 	Medium         [easy, level order traversal, linked next: if(i<size-1) node.next = q.peek() ]
 	273 	Integer to English Words 	22.0% 	Hard                               [mind blowing recursive code]
 	17  	Letter Combinations of a Phone Number 	34.3% 	Medium                 [easy, simple backtracking]
 	278 	First Bad Version 	25.2% 	Easy                                       [easy, simple binary search]
@@ -72,8 +73,7 @@ Facebook list sort by Frequency
 	269 	Alien Dictionary 	23.8% 	Hard                                       [hard, Topological_sorting]
 	20  	Valid Parentheses 	33.3% 	Easy                                       [easy, stack to check match]
 	286 	Walls and Gates 	43.9% 	Medium                                     [easy, BFS shortest path]
-	117 	Populating Next Right Pointers in Each Node II 	33.7% 	Medium
-	68  	Text Justification 	19.0% 	Hard
+	68  	Text Justification 	19.0% 	Hard                                       [hard, long code, take a look again]
 	221 	Maximal Square 	28.7% 	Medium
 	274 	H-Index 	33.1% 	Medium
 	275 	H-Index II 	34.3% 	Medium
