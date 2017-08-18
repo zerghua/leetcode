@@ -38,19 +38,50 @@ package leetcode;
 
  */
 public class N424_LongestRepeatingCharacterReplacement {
-    // Pocket Gems
+    // Pocket Gems, Google
+    // slow, but very easy to understand.
+    // find the largest window size = max char count + k
+    // 37 / 37 test cases passed.  on 8/18/2017
+    // 821 ms
+    public class Solution {
+        public int characterReplacement(String s, int k) {
+            int ret = 0, left =0;
+            char[] a = s.toCharArray();
+            for(int right=0;right<a.length;right++){
+                while(maxCharCount(a, left, right) + k < right - left + 1) { // when max char count + k < window size, then down size window
+                    left++;
+                }
+                ret = Math.max(ret, right-left+1);  //update ret to window size
+            }
+            return ret;
+        }
+
+        public int maxCharCount(char[] a, int left, int right){
+            int max = 0;
+            int[] map = new int[128];
+            for(int i=left; i<=right; i++){
+                max = Math.max(max, ++map[a[i]]);
+            }
+            return max;
+        }
+    }
+
+
     // sliding window + hashtable
     // the problem is equal to find a window which has (longest repeating chars + k)
     // window = (maxSizeOfRepeatingChars + k)
+    // this is greedy, take example:
+    // k=1  AABACCDCC ->  |AABA|CCDCC  ->  |AABAC|CDCC  ->  A|ABACC|DCC ->  AA|BACCD|CC  -> AAB|ACCDC|C -> AABA|CCDCC|
+    //      max =0        max=3,window=4   max=3,window=5   max=3,window=5  max=3,window=5 max=3,window=5  max=4,window=5
     // 11 ms 37 / 37 test cases passed.
-    public class Solution {
+    public class Solution2 {
         public int characterReplacement(String s, int k) {
             int ret = 0, maxRepeatChar=0, left =0;
             int[] map = new int[128];
             char[] a = s.toCharArray();
             for(int i=0;i<a.length;i++){
                 maxRepeatChar = Math.max(maxRepeatChar,  ++map[a[i]]); // add window
-                while(i-left+1 - maxRepeatChar > k) { // downsize window if needed
+                while(k + maxRepeatChar < i-left+1) { // find the largest window size = maxCharCount + k
                     map[a[left]]--;
                     left++;
                 }

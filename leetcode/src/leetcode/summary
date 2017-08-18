@@ -1493,7 +1493,7 @@ sliding window with k size. use help of hashmap<char, count> or int[256] to move
     }
 
 424. Longest Repeating Character Replacement(real question)(google)(tricky to move window)[to think more]
-[medium-hard] store previous max length.
+[medium-hard] find largest window size == MaxCharCount + k, fix window size, increase it once found more maxCharCount
 for(int i=0;i<a.length;i++){
     maxRepeatChar = Math.max(maxRepeatChar,  ++map[a[i]]); // add window
     while(i-left+1 - maxRepeatChar > k) { // move window when (window_length - count > k)
