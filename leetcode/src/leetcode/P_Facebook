@@ -43,6 +43,7 @@ Facebook list sort by Frequency
 	                                                                                heap store global height in reversed order, add left height, remove end height
 	                                                                                if cur height is diff than previous, add to ret]
 	236 	Lowest Common Ancestor of a Binary Tree 	29.7% 	Medium             [dfs, bottom-up, pass p and q down]
+	235 	Lowest Common Ancestor of a Binary Search Tree 	38.9% 	Easy           [easy, BST property]
 	49  	Group Anagrams 	34.5% 	Medium                                         [trick is to use counting sort on string and convert it back, new String(char[])]
 	238 	Product of Array Except Self 	48.9% 	Medium                         [trick is dp preSum, two passes, left and right]
 	38  	Count and Say 	34.5% 	Easy                                           [count adjacent duplicate and continue for n times]
@@ -67,15 +68,15 @@ Facebook list sort by Frequency
 	127 	Word Ladder 	19.4% 	Medium                                         [easy, BFS, shortest path]
 	398 	Random Pick Index 	42.6% 	Medium                                     [reservoir sample, o(n) time, o(1) space. if(nums[i] == target && rand.nextInt(++count) == 0) ret=i]
 	50  	Pow(x, n) 	26.4% 	Medium                                             [binary search]
-	269 	Alien Dictionary 	23.8% 	Hard
-	20  	Valid Parentheses 	33.3% 	Easy
-	235 	Lowest Common Ancestor of a Binary Search Tree 	38.9% 	Easy
-	286 	Walls and Gates 	43.9% 	Medium
-	69  	Sqrt(x) 	27.8% 	Easy
+	69  	Sqrt(x) 	27.8% 	Easy                                               [binary search]
+	269 	Alien Dictionary 	23.8% 	Hard                                       [hard, Topological_sorting]
+	20  	Valid Parentheses 	33.3% 	Easy                                       [easy, stack to check match]
+	286 	Walls and Gates 	43.9% 	Medium                                     [easy, BFS shortest path]
 	117 	Populating Next Right Pointers in Each Node II 	33.7% 	Medium
 	68  	Text Justification 	19.0% 	Hard
 	221 	Maximal Square 	28.7% 	Medium
 	274 	H-Index 	33.1% 	Medium
+	275 	H-Index II 	34.3% 	Medium
 	85  	Maximal Rectangle 	27.7% 	Hard
 	210 	Course Schedule II 	27.8% 	Medium
 	25  	Reverse Nodes in k-Group 	30.7% 	Hard
@@ -101,7 +102,6 @@ Facebook list sort by Frequency
 	461 	Hamming Distance 	70.1% 	Easy
 	410 	Split Array Largest Sum 	36.8% 	Hard
 	404 	Sum of Left Leaves 	46.9% 	Easy
-	275 	H-Index II 	34.3% 	Medium
 	265 	Paint House II 	37.9% 	Hard
 	261 	Graph Valid Tree 	37.6% 	Medium
 	168 	Excel Sheet Column Title 	25.8% 	Easy
