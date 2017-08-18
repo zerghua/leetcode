@@ -1,6 +1,4 @@
 package leetcode;
-import sun.awt.image.ImageWatched;
-
 import java.util.*;
 /**
  * Created by Hua on 6/23/2016.
@@ -8,15 +6,15 @@ import java.util.*;
  Given two words (beginWord and endWord), and a dictionary's word list,
  find the length of shortest transformation sequence from beginWord to endWord, such that:
 
- Only one letter can be changed at a time
- Each intermediate word must exist in the word list
+ Only one letter can be changed at a time.
+ Each transformed word must exist in the word list. Note that beginWord is not a transformed word.
 
  For example,
 
  Given:
  beginWord = "hit"
  endWord = "cog"
- wordList = ["hot","dot","dog","lot","log"]
+ wordList = ["hot","dot","dog","lot","log","cog"]
 
  As one shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog",
  return its length 5.
@@ -26,11 +24,55 @@ import java.util.*;
  Return 0 if there is no such transformation sequence.
  All words have the same length.
  All words contain only lowercase alphabetic characters.
+ You may assume no duplicates in the word list.
+ You may assume beginWord and endWord are non-empty and are not the same.
+
+ UPDATE (2017/1/20):
+ The wordList parameter had been changed to a list of strings (instead of a set of strings).
+ Please reload the code definition to get the latest changes.
 
 
  */
 public class N127_WordLadder {
     // Amazon, Facebook
+    // BFS for shortest path
+    // 39 / 39 test cases passed.  on 8/18/2017
+    // 619 ms
+    class Solution {
+        public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+            boolean[] isUsed = new boolean[wordList.size()];
+
+            LinkedList<String> list = new LinkedList();
+            list.add(beginWord);
+            int ret = 0;
+
+            while(!list.isEmpty()){
+                ret++;
+                int size = list.size();
+                for(int i=0; i<size; i++){
+                    String cur = list.removeFirst();
+                    if(cur.equals(endWord)) return ret;
+
+                    // add neighbours
+                    for(int j=0; j<wordList.size(); j++){
+                        String s = wordList.get(j);
+                        if(!isUsed[j] && diff(cur, s) == 1){
+                            list.add(s);
+                            isUsed[j] = true;
+                        }
+                    }
+                }
+            }
+            return 0;
+        }
+
+        public int diff(String s, String t){
+            int diff =0;
+            for(int i=0; i<s.length(); i++) if(s.charAt(i) != t.charAt(i)) diff++;
+            return diff;
+        }
+    }
+
     // shortest path should use BFS, DFS will TLE
     // 90 ms  37 / 37 test cases passed.  on 9/13/2016
     static class bfs{
@@ -71,8 +113,6 @@ public class N127_WordLadder {
                 }
             }
         }
-
-
     }
 
     public static void main(String[] args) {

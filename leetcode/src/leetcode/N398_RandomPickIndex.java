@@ -43,7 +43,8 @@ public class N398_RandomPickIndex {
 
     // reservoir sample, make sure each item has the 1/n probability be chosen,
     // good for unknown/large n, time o(n), space o(1).
-    // 393 ms 13 / 13 test cases passed.
+    // 13 / 13 test cases passed.  on8/18/2017
+    // 288 ms
     public class Solution {
         int[] nums;
         Random rand;
@@ -56,8 +57,30 @@ public class N398_RandomPickIndex {
         public int pick(int target) {
             int ret = 0, count=0;
             for(int i=0;i<nums.length;i++){
+                if(nums[i] == target && rand.nextInt(++count) == 0){  // random on [0, n)
+                    ret = i;
+                }
+            }
+            return ret;
+        }
+    }
+
+
+    // 393 ms 13 / 13 test cases passed.
+    public class Solution2 {
+        int[] nums;
+        Random rand;
+
+        public Solution2(int[] nums) {
+            this.nums = nums;
+            rand = new Random();
+        }
+
+        public int pick(int target) {
+            int ret = 0, count=0;
+            for(int i=0;i<nums.length;i++){
                 if(nums[i] == target){
-                    int j = rand.nextInt(++count);
+                    int j = rand.nextInt(++count);   // random on [0, n)
                     if(j==0) ret = i;
                 }
             }

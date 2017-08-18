@@ -9,9 +9,37 @@ version 2 and 3 adds on 9/1/2016
 */
 public class N28_ImplementstrStr {
     // Microsoft, Facebook, Google.
+    // o(n*m) brute force
+    // 74 / 74 test cases passed.  on 8/18/2017
+    // 8 ms
+    public class Solution {
+        public int strStr(String haystack, String needle) {
+            if(haystack==null || needle ==null) return -1;
+            if(needle.length()==0 ) return 0;
+            if(haystack.length()==0 ) return -1;
+            int i=0, j=0;
+            char[] t = haystack.toCharArray();
+            char[] p = needle.toCharArray();
+            while(i<t.length && j<p.length){
+                if(t[i] == p[j]){
+                    i++;
+                    j++;
+                }else{
+                    i = i-j+1;
+                    j = 0;
+                }
+            }
+            int ret = -1;
+            if(j==p.length) ret = i-j;
+            return ret;
+        }
+    }
+
+
+
     // added on 10/4/2016  very concise solution
     // 18 ms  72 / 72 test cases passed.
-    public class Solution {
+    public class Solution2 {
         public int strStr(String haystack, String needle) {
             for(int i=0; ;i++){
                 for(int j=0; ;j++){
@@ -53,28 +81,6 @@ public class N28_ImplementstrStr {
 
 
 
-    // String match brute force
-    // 3 ms  72 / 72 test cases passed.
-    public int strStr2(String haystack, String needle) {
-        if(haystack==null || needle ==null) return -1;
-        if(needle.length()==0 ) return 0;
-        if(haystack.length()==0 ) return -1;
-        int i=0, j=0;
-        char[] t = haystack.toCharArray();
-        char[] p = needle.toCharArray();
-        while(i<t.length && j<p.length){
-            if(t[i] == p[j]){
-                i++;
-                j++;
-            }else{
-                i = i-j+1;
-                j = 0;
-            }
-        }
-        int ret = -1;
-        if(j==p.length) ret = i-j;
-        return ret;
-    }
 
 
 
