@@ -10,6 +10,10 @@ package leetcode;
 
  Expected runtime complexity is in O(log n) and the input is sorted.
 
+take example:
+ 0 1 3 5 6
+ 0 1 2 5 6
+ 0 1 4 5 6
 
  */
 public class N275_HIndex2 {
