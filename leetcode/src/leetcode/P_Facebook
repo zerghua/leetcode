@@ -74,10 +74,10 @@ Facebook list sort by Frequency
 	20  	Valid Parentheses 	33.3% 	Easy                                       [easy, stack to check match]
 	286 	Walls and Gates 	43.9% 	Medium                                     [easy, BFS shortest path]
 	68  	Text Justification 	19.0% 	Hard                                       [hard, long code, take a look again]
-	221 	Maximal Square 	28.7% 	Medium
+	221 	Maximal Square 	28.7% 	Medium                                         [max all 1 square in matrix, DP, dp[i][j] = 1+ min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])]
+	85  	Maximal Rectangle 	27.7% 	Hard                                       [DP, tricky. left[], right[], height[]]
 	274 	H-Index 	33.1% 	Medium
 	275 	H-Index II 	34.3% 	Medium
-	85  	Maximal Rectangle 	27.7% 	Hard
 	210 	Course Schedule II 	27.8% 	Medium
 	25  	Reverse Nodes in k-Group 	30.7% 	Hard
 	234 	Palindrome Linked List 	32.6% 	Easy

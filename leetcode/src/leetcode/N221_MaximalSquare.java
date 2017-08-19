@@ -18,8 +18,29 @@ package leetcode;
  */
 public class N221_MaximalSquare {
     // Apple, Facebook
-    //15 ms
+    // 10 ms  67 / 67 test cases passed.
     // DP:   dp[i][j] = 1+ min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])
+    // dummy first row/col makes code looks cleaner.
+    public class Solution3 {
+        public int maximalSquare(char[][] matrix) {
+            if(matrix ==null || matrix.length==0) return 0;
+            int ret = 0;
+            int rows = matrix.length, cols = matrix[0].length;
+            int[][] state = new int[rows+1][cols+1];
+
+            for(int i=1;i<=rows;i++){
+                for(int j=1;j<=cols;j++){
+                    if(matrix[i-1][j-1] == '1') {
+                        state[i][j] = 1 + Math.min(state[i - 1][j - 1], Math.min(state[i - 1][j], state[i][j - 1]));
+                        ret = Math.max(ret, state[i][j]);
+                    }
+                }
+            }
+            return ret*ret;
+        }
+    }
+
+    //15 ms
     public int maximalSquare(char[][] matrix) {
         if(matrix ==null || matrix.length==0) return 0;
         int ret = 0;
@@ -72,26 +93,7 @@ public class N221_MaximalSquare {
     }
 
 
-    // 10 ms  67 / 67 test cases passed.
-    // dummy first row/col makes code looks cleaner.
-    public class Solution3 {
-        public int maximalSquare(char[][] matrix) {
-            if(matrix ==null || matrix.length==0) return 0;
-            int ret = 0;
-            int rows = matrix.length, cols = matrix[0].length;
-            int[][] state = new int[rows+1][cols+1];
 
-            for(int i=1;i<=rows;i++){
-                for(int j=1;j<=cols;j++){
-                    if(matrix[i-1][j-1] == '1') {
-                        state[i][j] = 1 + Math.min(state[i - 1][j - 1], Math.min(state[i - 1][j], state[i][j - 1]));
-                        ret = Math.max(ret, state[i][j]);
-                    }
-                }
-            }
-            return ret*ret;
-        }
-    }
 
 
 }
