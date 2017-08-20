@@ -4,7 +4,7 @@ package leetcode;
  * Created by HuaZ on 8/12/2017.  9:30PM - 11:00PM EST
  Rank	    Name	Score	Finish Time 	Q1 (3)	    Q2 (6)	  Q3 (8)	Q4 (9)
  413 / 2292	zerghua	9	    0:14:26	        0:04:06 	0:14:26
-
+ 1535 were accepted of solution 1
  */
 
 import java.util.*;
