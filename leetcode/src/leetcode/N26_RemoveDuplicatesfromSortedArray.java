@@ -1,7 +1,8 @@
 package leetcode;
 /*
 
- Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
+ Given a sorted array, remove the duplicates in place such that each element
+ appear only once and return the new length.
 
 Do not allocate extra space for another array, you must do this in place with constant memory.
 
@@ -13,7 +14,6 @@ It doesn't matter what you leave beyond the new length.
 
  */
 public class N26_RemoveDuplicatesfromSortedArray {
-
     // Microsoft, Facebook
 	// version 2 added on 9/10/2016
 	// 2 ms  161 / 161 test cases passed.

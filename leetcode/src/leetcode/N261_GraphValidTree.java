@@ -16,14 +16,15 @@ package leetcode;
  [0, 1] is the same as [1, 0] and thus will not appear together in edges.
 
 
- a valid tree means: all nodes are connected and there is not cycle.
-
 
  */
 
 import java.util.*;
 public class N261_GraphValidTree {
     // Google, Facebook
+    // graph, check if graph is tree.
+    // a valid tree means: all nodes are connected and there is not circle.
+    // DFS visit all nodes, return false if find circle.
     // 44 / 44 test cases passed.
     // 15 ms
     public class Solution {

@@ -65,10 +65,15 @@ public class N265_PaintHouseII {
 
     /*
         If there's no constraint, we choose min cost for each house.
-        Since house[i] and house[i - 1] cannot have the same color j, we should choose 2nd min color for house[i - 1].
+
+        Since house[i] and house[i - 1] cannot have the same color j,
+        we should choose 2nd min color for house[i - 1].
+
         If we choose the 3rd min color for house[i - 1], we might miss potential min cost.
         min(i) = min(cost[i][j] + 1st min / 2nd min), 0 < j < n.
-        Since current row only relies on last row for getting mins and avoiding same color, O(1) space is enough.
+
+        Since current row only relies on last row for getting mins and avoiding same color,
+        O(1) space is enough.
 
     */
     // 105 / 105 test cases passed.
