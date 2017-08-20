@@ -9,6 +9,7 @@ import java.util.LinkedList;
  373 / 2389	zerghua	16	    1:23:58	        0:10:22 	1:08:58 	0:50:44 3
  1340 were accepted of solution 1
 
+ N661, N662, N663, N664
  */
 public class Contest_46 {
     class Solution {

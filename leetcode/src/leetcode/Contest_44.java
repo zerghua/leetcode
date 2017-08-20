@@ -8,6 +8,7 @@ import java.util.*;
  579 / 2272	zerghua	15	1:44:15	        0:09:17 	0:19:57 	1:29:15 3
  1323 were accepted of solution 1
 
+ N653, N654, N655, N656
  */
 public class Contest_44 {
     public class Solution {

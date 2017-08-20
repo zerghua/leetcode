@@ -5,6 +5,9 @@ package leetcode;
  Rank	    Name	Score	Finish Time 	Q1 (3)	    Q2 (6)	  Q3 (8)	Q4 (9)
  413 / 2292	zerghua	9	    0:14:26	        0:04:06 	0:14:26
  1535 were accepted of solution 1
+
+ N657, N658, N659, N660
+
  */
 
 import java.util.*;
