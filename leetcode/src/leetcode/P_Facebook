@@ -78,9 +78,9 @@ Facebook list sort by Frequency
 	85  	Maximal Rectangle 	27.7% 	Hard                                       [DP, tricky. left[], right[], height[]]
 	274 	H-Index 	33.1% 	Medium                                             [counting sort, return i when sum(count[n~0]) >= i]
 	275 	H-Index II 	34.3% 	Medium                                             [binary search]
-	210 	Course Schedule II 	27.8% 	Medium
-	25  	Reverse Nodes in k-Group 	30.7% 	Hard
-	234 	Palindrome Linked List 	32.6% 	Easy
+	210 	Course Schedule II 	27.8% 	Medium                                     [Topological sort, graph, hashmap adjacency list, dfs find circle]
+	25  	Reverse Nodes in k-Group 	30.7% 	Hard                               [easy, reverse linkedlist]
+	234 	Palindrome Linked List 	32.6% 	Easy                                   [easy]
     --------------------------------------------------------------------   Above are more Frequent
 
 	642 	Design Search Autocomplete System 	28.3% 	Hard

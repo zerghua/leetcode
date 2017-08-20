@@ -28,9 +28,20 @@ import java.util.*;
  both courses 1 and 2. Both courses 1 and 2 should be taken after you finished course 0.
  So one correct course order is [0,1,2,3]. Another correct ordering is[0,2,1,3].
 
+
+ This question asks for an order in which prerequisite courses must be taken first.
+ This prerequisite relationship reminds one of directed graphs.
+ Then, the problem reduces to find a topological sort order of the courses,
+ which would be a DAG if it has a valid order.
+
+
+
  */
 public class N210_CourseSchedule2 {
     // Facebook, zenefits
+    // topological sort, find it it's DAG.(no circle)
+    // convert input to create adjacency list in HashMap
+    // reverse order to track path
     // 37 / 37 test cases passed.
     // 20 ms
     // there is also a BFS solution, can take a look
@@ -45,7 +56,6 @@ public class N210_CourseSchedule2 {
                 return ret;
             }
 
-            // convert input to create adjacency list in HashMap
             HashMap<Integer, HashSet<Integer>> map = new HashMap<>();
             for(int[] pair: prerequisites){
                 if(map.containsKey(pair[1])) map.get(pair[1]).add(pair[0]);

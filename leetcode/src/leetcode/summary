@@ -29,12 +29,14 @@ Table of Contents(last reviewed on)
 21.Stack/Queue              10/27/2016
 22.String                   12/1/2016
 23.Two pointers             12/1/2016
-24.hard questions
+24.Topological sort(DAG)    8/19/2017
+25.hard questions
+
 
 TODO: gather all dfs tree problems and have a taste of top-down and bottom-up difference.
 
 ---------------------------------------------------
-Anagram(words group like: cat, act) (reviewed on 9/28/2016, 10/27/2016, 11/30/2016)
+1. Anagram(words group like: cat, act) (reviewed on 9/28/2016, 10/27/2016, 11/30/2016)
 ---------------------------------------------------
 49. Group Anagrams(important)(real question)
 [medium] hashmap<String, list>  or hashmap<int, list>.
@@ -801,27 +803,6 @@ public UndirectedGraphNode dfs(UndirectedGraphNode node,
 200. Number of Islands(matrix with 1(land) and 0(water), count number of islands, assume edges are water)(interesting)
 [medium] void = DFS(matrix, i_int, j_int, visited_matrix)
 DFS, for each cell(if not visited, islands++), do DFS on adjacent cells, and mark them as visited.
-
-207. Course Schedule (find cycle in a graph)(interesting)
-[medium-hard] boolean = canFinishDFS(node_int, map<node_int, adjacent_node_hashset_ofInt>, visitedNode_int_array)
-// visited = 1, visiting= -1
-private boolean canFinishDFS(HashMap<Integer, HashSet<Integer>> map,
-                             int[] visited, int i) {
-    if(visited[i] == -1) return false;
-    if(visited[i] == 1) return true;  //pruning, means this node has confirmed without cycle.
-
-    visited[i] = -1;
-    if(map.containsKey(i)){
-        for(int adjacent_node: map.get(i)){
-            if(!canFinishDFS(map, visited, adjacent_node)) return false;
-        }
-    }
-    visited[i] = 1;
-    return true;
-}
-
-210. Course Schedule II(return one possible route)
-[medium-hard] graph. similar to N207,  not sure why it's  "ret[index--]=i;" for backtracking. [TODO]
 
 241. Different Ways to Add Parentheses(given a string of numbers and operators, return all possible results by group them differently. operators are ""+-*")(very interesting)
 [medium-hard] List = DFS(string)   (divide and conquer)!!!    example: 2*3+5
@@ -1926,6 +1907,35 @@ public String addString(long from, long to){
 
 475. Heaters
 [easy-medium] two pointers or binary search. Math.
+
+
+
+---------------------------------------------------
+24.Topological sort(8/19/2017)
+---------------------------------------------------
+207. Course Schedule (find cycle in a graph)(interesting)
+[medium-hard] boolean = canFinishDFS(node_int, map<node_int, adjacent_node_hashset_ofInt>, visitedNode_int_array)
+// visited = 1, visiting= -1
+private boolean canFinishDFS(HashMap<Integer, HashSet<Integer>> map,
+                             int[] visited, int i) {
+    if(visited[i] == -1) return false;
+    if(visited[i] == 1) return true;  //pruning, means this node has confirmed without cycle.
+
+    visited[i] = -1;
+    if(map.containsKey(i)){
+        for(int adjacent_node: map.get(i)){
+            if(!canFinishDFS(map, visited, adjacent_node)) return false;
+        }
+    }
+    visited[i] = 1;
+    // ret[index--] = i;  // for N210
+    return true;
+}
+
+210. Course Schedule II(return one possible route)
+[medium-hard] graph. similar to N207,  not sure why it's  "ret[index--]=i;" for backtracking.
+extra line see above
+
 
 
 -----------------------------------------[hard]---------------------------------------------
