@@ -1,5 +1,4 @@
 Facebook list sort by Frequency
-   *283 	Move Zeroes 	49.7% 	Easy                                           [easy, simple array]
     325 	Maximum Size Subarray Sum Equals k 	42.3% 	Medium                     [Interesting, hashmap + preSum]
    *301 	Remove Invalid Parentheses 	35.1% 	Hard                               [BFS to remove each Parentheses]
    *67  	Add Binary 	32.3% 	Easy                                               [easy, similar to AddOne]
@@ -102,6 +101,7 @@ Facebook list sort by Frequency
     265 	Paint House II 	37.9% 	Hard                                           [hard, DP]
     261 	Graph Valid Tree 	37.6% 	Medium                                     [graph, adjacency list, dfs one node, if found no circle and all nodes are visited are valid tree.]
    *168 	Excel Sheet Column Title 	25.8% 	Easy                               [10-base to 26 base with corner case.]
+   *283 	Move Zeroes 	49.7% 	Easy                                           [easy, simple array]
    *26  	Remove Duplicates from Sorted Array 	35.5% 	Easy                   [easy, if(n != nums[i]) nums[++i] = n;]
     80  	Remove Duplicates from Sorted Array II 	35.9% 	Medium                 [duplicate are allowed at most twice, if(nums[i-1] != nums[j]) nums[++i] = nums[j];]
     534    Design TinyURL    N/A	Medium
