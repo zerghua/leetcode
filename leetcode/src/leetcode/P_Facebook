@@ -89,12 +89,11 @@ Facebook list sort by Frequency
 	602 	Friend Requests II: Who Has the Most Friends 	44.1% 	Medium         [SQL, union all two columns as one and group by]
 	597 	Friend Requests I: Overall Acceptance Rate 	30.0% 	Easy               [SQL, distinct col1, col2; ifnull(DDL, 0), round(ddl, 2)]
 	578 	Get Highest Answer Rate Question 	23.3% 	Medium                     [SQL, group by id order by count(id) limit 1]
-	572 	Subtree of Another Tree 	40.6% 	Easy
-	554 	Brick Wall 	44.6% 	Medium
-	543 	Diameter of Binary Tree 	43.4% 	Easy
-	535 	Encode and Decode TinyURL 	73.8% 	Medium
-	534 	Design TinyURL 	0.0% 	Medium
-	525 	Contiguous Array 	38.8% 	Medium
+	572 	Subtree of Another Tree 	40.6% 	Easy                               [easy, BF dfs. compare from each node]
+	554 	Brick Wall 	44.6% 	Medium                                             [map<length, count> in a list of list, find most count in certain length]
+	543 	Diameter of Binary Tree 	43.4% 	Easy                               [easy, bottom up dfs]
+	535 	Encode and Decode TinyURL 	73.8% 	Medium                             [design, map string to int id in list, database will handle distribution]	534 	Design TinyURL 	0.0% 	Medium
+	525 	Contiguous Array 	38.8% 	Medium                                     [map<preSum, index>, if(map.containsKey(sum-k)) update max. similar to N560]
 	523 	Continuous Subarray Sum 	22.6% 	Medium
 	477 	Total Hamming Distance 	46.5% 	Medium
 	461 	Hamming Distance 	70.1% 	Easy
