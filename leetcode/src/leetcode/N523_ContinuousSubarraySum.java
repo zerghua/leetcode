@@ -6,8 +6,10 @@ import java.util.HashSet;
 /**
  * Created by Hua on 5/11/2017.
 
- Given a list of non-negative numbers and a target integer k, write a function to check if the array has a continuous
- subarray of size at least 2 that sums up to the multiple of k, that is, sums up to n*k where n is also an integer.
+ Given a list of non-negative numbers and a target integer k,
+ write a function to check if the array has a continuous
+ subarray of size at least 2 that sums up to the multiple of k,
+ that is, sums up to n*k where n is also an integer.
 
  Example 1:
 
@@ -30,6 +32,7 @@ import java.util.HashSet;
 public class N523_ContinuousSubarraySum {
     // Facebook
     // tricky solution, similar to N560, subarray sum Equals K
+    // math: (x + n*k) mod k = x ,which x can be [0,k-1].
     // 75 / 75 test cases passed.
     // 17 ms
     public class Solution {

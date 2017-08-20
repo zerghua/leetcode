@@ -3,7 +3,8 @@ package leetcode;
 /**
  * Created by Hua on 5/16/2017.
 
- The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+ The Hamming distance between two integers is the number of positions at which
+ the corresponding bits are different.
 
  Now your job is to find the total Hamming distance between all pairs of the given numbers.
 
@@ -24,8 +25,10 @@ package leetcode;
 
 
  Suppose that i numbers have a rightmost 0-bit, and j numbers have a 1-bit. Then out of the pairs,
- i * j of them will have 1 in the rightmost bit of the XOR. This is because there are i * j ways to choose one number
- that has a 0-bit and one that has a 1-bit. These bits will therefore contribute i * j towards the total of all the XORs.
+ i * j of them will have 1 in the rightmost bit of the XOR.
+ This is because there are i * j ways to choose one number
+ that has a 0-bit and one that has a 1-bit. These bits will therefore contribute i * j
+ towards the total of all the XORs.
  */
 public class N477_TotalHammingDistance {
     // Facebook

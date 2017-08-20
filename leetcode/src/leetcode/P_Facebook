@@ -94,11 +94,11 @@ Facebook list sort by Frequency
 	543 	Diameter of Binary Tree 	43.4% 	Easy                               [easy, bottom up dfs]
 	535 	Encode and Decode TinyURL 	73.8% 	Medium                             [design, map string to int id in list, database will handle distribution]	534 	Design TinyURL 	0.0% 	Medium
 	525 	Contiguous Array 	38.8% 	Medium                                     [map<preSum, index>, if(map.containsKey(sum-k)) update max. similar to N560]
-	523 	Continuous Subarray Sum 	22.6% 	Medium
-	477 	Total Hamming Distance 	46.5% 	Medium
-	461 	Hamming Distance 	70.1% 	Easy
-	410 	Split Array Largest Sum 	36.8% 	Hard
-	404 	Sum of Left Leaves 	46.9% 	Easy
+	523 	Continuous Subarray Sum 	22.6% 	Medium                             [similar to N525 with math: (x + n*k) mod k = x]
+	477 	Total Hamming Distance 	46.5% 	Medium                                 [o(n), each bit contribute count(0)*count(1) to ret]
+	461 	Hamming Distance 	70.1% 	Easy                                       [easy, return Integer.bitCount(x^y)]
+	410 	Split Array Largest Sum 	36.8% 	Hard                               [hard, binary search. not sure.]
+	404 	Sum of Left Leaves 	46.9% 	Easy                                       [DFS, top-down, check node.left, node.left.left and node.left.right]
 	265 	Paint House II 	37.9% 	Hard
 	261 	Graph Valid Tree 	37.6% 	Medium
 	168 	Excel Sheet Column Title 	25.8% 	Easy
