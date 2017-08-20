@@ -1,159 +1,107 @@
 Facebook list sort by Frequency
-	283 	Move Zeroes 	49.7% 	Easy                                           [easy, simple array]
-	325 	Maximum Size Subarray Sum Equals k 	42.3% 	Medium                     [Interesting, hashmap + preSum]
-	301 	Remove Invalid Parentheses 	35.1% 	Hard                               [BFS to remove each Parentheses]
-	67  	Add Binary 	32.3% 	Easy                                               [easy, similar to AddOne]
-	311 	Sparse Matrix Multiplication 	50.7% 	Medium                         [tricky math]
-	314 	Binary Tree Vertical Order Traversal 	36.4% 	Medium                 [level order traversal storing min/max index]
-	102 	Binary Tree Level Order Traversal 	39.5% 	Medium                     [easy, store size of each level to traversal]
-	117 	Populating Next Right Pointers in Each Node II 	33.7% 	Medium         [easy, level order traversal, linked next: if(i<size-1) node.next = q.peek() ]
-	273 	Integer to English Words 	22.0% 	Hard                               [mind blowing recursive code]
-	17  	Letter Combinations of a Phone Number 	34.3% 	Medium                 [easy, simple backtracking]
-	278 	First Bad Version 	25.2% 	Easy                                       [easy, simple binary search]
-	91  	Decode Ways 	19.6% 	Medium                                         [DP, add from i-2 and i-1]
-	10  	Regular Expression Matching 	24.1% 	Hard                           [hard, fair complex logic]
-	44  	Wildcard Matching 	20.0% 	Hard                                       [hard, string match, greedy]
-	15  	3Sum 	21.6% 	Medium                                                 [key is to skip duplicate]
-	277 	Find the Celebrity 	35.3% 	Medium                                     [greedy with some logic]
-	157 	Read N Characters Given Read4 	28.9% 	Easy                           [synced solution from N158]
-	158 	Read N Characters Given Read4 II - Call multiple times 	24.2% 	Hard   [class level variable]
-	200 	Number of Islands 	34.4% 	Medium                                     [easy, simple backtracking]
-	79  	Word Search 	26.7% 	Medium                                         [easy, simple backtracking. is word exist in char matrix]
-	297 	Serialize and Deserialize Binary Tree 	33.2% 	Hard                   [preorder traversal, separate by comma and leaf node as null]
-	282 	Expression Add Operators 	29.6% 	Hard                               [backtracking with some math and corner cases]
-	494 	Target Sum 	43.8% 	Medium                                             [backtracking, multiple calls]
-	257 	Binary Tree Paths 	38.2% 	Easy                                       [simple dfs, but not easy to get correct]
-	23  	Merge k Sorted Lists 	27.1% 	Hard                                   [easy, priority queue + dummy linked list]
-	161 	One Edit Distance 	31.2% 	Medium                                     [one diff or one more are only true cases]
-	285 	Inorder Successor in BST 	36.1% 	Medium                             [binary search until node == null, larger as candidate]
-	208 	Implement Trie (Prefix Tree) 	28.0% 	Medium                         [basic trie, map<char, TrieNode> children, boolean isEnd]
-	211 	Add and Search Word - Data structure design 	22.6% 	Medium         [trie + dfs/bfs search of wildcard]
-	642 	Design Search Autocomplete System 	28.3% 	Hard                       [trie + map<String, count> + heap to return top k]
-	139 	Word Break 	29.8% 	Medium                                             [DP, dp[j+1] = true when dp[i]==true && set.contains(s(i,j+1))]
-	121 	Best Time to Buy and Sell Stock 	41.0% 	Easy                       [greedy, buy before sell]
-	341 	Flatten Nested List Iterator 	41.3% 	Medium                         [iterator design with nested integer, stack to store iterator]
-	173 	Binary Search Tree Iterator 	41.2% 	Medium                         [iterator design(not really), stack to store TreeNode]
-	1   	Two Sum 	34.3% 	Easy                                               [easy, hashmap to store diff]
-	125 	Valid Palindrome 	26.2% 	Easy                                       [easy, but need to skip !Character.isLetterOrDigit()]
-	75  	Sort Colors 	37.9% 	Medium                                         [easy, sort 3 colors, counting sort 2 passes, swap 1 pass]
-	78  	Subsets 	40.3% 	Medium                                             [simple backtracking]
-	90  	Subsets II 	36.0% 	Medium                                             [backtracking, skip duplicate if(i>start && nums[i] == nums[i-1])continue;]
-	98  	Validate Binary Search Tree 	23.2% 	Medium                         [simple dfs, top-down, pass down low and high]
-	43  	Multiply Strings 	27.0% 	Medium                                     [simple math, large string multiplication]
-	206 	Reverse Linked List 	45.3% 	Easy                                   [iterative should be straight forward]
-	133 	Clone Graph 	25.1% 	Medium                                         [map<node, new_node> to avoid duplicate copy]
-	218 	The Skyline Problem 	27.0% 	Hard                                   [visit all points sorted by x, break tie by height,
-	                                                                                heap store global height in reversed order, add left height, remove end height
-	                                                                                if cur height is diff than previous, add to ret]
-	236 	Lowest Common Ancestor of a Binary Tree 	29.7% 	Medium             [dfs, bottom-up, pass p and q down]
-	235 	Lowest Common Ancestor of a Binary Search Tree 	38.9% 	Easy           [easy, BST property]
-	49  	Group Anagrams 	34.5% 	Medium                                         [trick is to use counting sort on string and convert it back, new String(char[])]
-	238 	Product of Array Except Self 	48.9% 	Medium                         [trick is dp preSum, two passes, left and right]
-	38  	Count and Say 	34.5% 	Easy                                           [count adjacent duplicate and continue for n times]
-	252 	Meeting Rooms 	47.1% 	Easy                                           [easy, interval, sort by start time]
-	253 	Meeting Rooms II 	38.8% 	Medium                                     [interval, heap sort by end time, merge if possible]
-    56  	Merge Intervals 	29.9% 	Medium                                     [easy, interval, 3 conditions]
-	57  	Insert Interval 	27.5% 	Hard                                       [easy, interval, insert to sorted list first, then merge as N56]
-	76  	Minimum Window Substring 	25.2% 	Hard                               [sliding window, move left when count=size]
-	209 	Minimum Size Subarray Sum 	30.4% 	Medium                             [easy, sliding window, move left when sum>=t]
-	215 	Kth Largest Element in an Array 	39.1% 	Medium                     [top k, heap o(nlogk) or quicksort o(n)]
-	71  	Simplify Path 	25.2% 	Medium                                         [stack, pop when its "..", else push if not "", "." and ".."]
-	146 	LRU Cache 	17.6% 	Hard                                               [look again. hashmap<key, Node> + double linked list Node]
-	13  	Roman to Integer 	45.6% 	Easy                                       [if a[i] < a[i+1], sum-a[i] else sum+a[i]; sum+a[n-1]]
-	33  	Search in Rotated Sorted Array 	32.1% 	Medium                         [binary search, mid compare with left and right]
-	128 	Longest Consecutive Sequence 	36.7% 	Hard                           [add all nums to set, find num-- and num++ in set and sum, remove them afterwards]
-	380 	Insert Delete GetRandom O(1) 	39.1% 	Medium                         [hashmap<val, index> + arraylist, swap last one with map.get(val) and remove]
-	88  	Merge Sorted Array 	32.0% 	Easy                                       [easy, fill from the end]
-	377 	Combination Sum IV 	41.9% 	Medium                                     [DP, similar to coin change]
-	28  	Implement strStr() 	28.0% 	Easy                                       [easy, o(n^2) brute force, if a[i] != b[j]{i = i-j+1; j=0;}]
-	334 	Increasing Triplet Subsequence 	39.1% 	Medium                         [if num <= x; then x =num; else if num <=y; then y = num; else return true]
-	127 	Word Ladder 	19.4% 	Medium                                         [easy, BFS, shortest path]
-	398 	Random Pick Index 	42.6% 	Medium                                     [reservoir sample, o(n) time, o(1) space. if(nums[i] == target && rand.nextInt(++count) == 0) ret=i]
-	50  	Pow(x, n) 	26.4% 	Medium                                             [binary search]
-	69  	Sqrt(x) 	27.8% 	Easy                                               [binary search]
-	275 	H-Index II 	34.3% 	Medium                                             [binary search, sorted index]
-	269 	Alien Dictionary 	23.8% 	Hard                                       [hard, Topological sort]
-	210 	Course Schedule II 	27.8% 	Medium                                     [Topological sort, graph, hashmap adjacency list, dfs find circle]
-	20  	Valid Parentheses 	33.3% 	Easy                                       [easy, stack to check match]
-	286 	Walls and Gates 	43.9% 	Medium                                     [easy, BFS shortest path]
-	68  	Text Justification 	19.0% 	Hard                                       [hard, long code, take a look again]
-	221 	Maximal Square 	28.7% 	Medium                                         [max all 1 square in matrix, DP, dp[i][j] = 1+ min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])]
-	85  	Maximal Rectangle 	27.7% 	Hard                                       [DP, tricky. left[], right[], height[]]
-	274 	H-Index 	33.1% 	Medium                                             [counting sort, return i when sum(count[n~0]) >= i]
-	25  	Reverse Nodes in k-Group 	30.7% 	Hard                               [easy, reverse linkedlist]
-	234 	Palindrome Linked List 	32.6% 	Easy                                   [easy, medium for o(1) space solution, reverse second half and compare]
-	639 	Decode Ways II 	23.0% 	Hard                                           [hard, DP, look again]
-	637 	Average of Levels in Binary Tree 	56.7% 	Easy                       [easy, level order bfs search]
-	636 	Exclusive Time of Functions 	38.9% 	Medium                         [greedily add time between two starts time using stack<id>, and variable preStartTime]
-	621 	Task Scheduler 	41.7% 	Medium                                         [easy, greedy reduce from sorted array and count, corner case last one]
-	602 	Friend Requests II: Who Has the Most Friends 	44.1% 	Medium         [SQL, union all two columns as one and group by]
-	597 	Friend Requests I: Overall Acceptance Rate 	30.0% 	Easy               [SQL, distinct col1, col2; ifnull(DDL, 0), round(ddl, 2)]
-	578 	Get Highest Answer Rate Question 	23.3% 	Medium                     [SQL, group by id order by count(id) limit 1]
-	572 	Subtree of Another Tree 	40.6% 	Easy                               [easy, BF dfs. compare from each node]
-	554 	Brick Wall 	44.6% 	Medium                                             [map<length, count> in a list of list, find most count in certain length]
-	543 	Diameter of Binary Tree 	43.4% 	Easy                               [easy, bottom up dfs]
-	535 	Encode and Decode TinyURL 	73.8% 	Medium                             [design, map string to int id in list, database will handle distribution]	534 	Design TinyURL 	0.0% 	Medium
-	525 	Contiguous Array 	38.8% 	Medium                                     [map<preSum, index>, if(map.containsKey(sum-k)) update max. similar to N560]
-	523 	Continuous Subarray Sum 	22.6% 	Medium                             [similar to N525 with math: (x + n*k) mod k = x]
-	477 	Total Hamming Distance 	46.5% 	Medium                                 [o(n), each bit contribute count(0)*count(1) to ret]
-	461 	Hamming Distance 	70.1% 	Easy                                       [easy, return Integer.bitCount(x^y)]
-	410 	Split Array Largest Sum 	36.8% 	Hard                               [hard, binary search. not sure.]
-	404 	Sum of Left Leaves 	46.9% 	Easy                                       [DFS, top-down, check node.left, node.left.left and node.left.right]
-	265 	Paint House II 	37.9% 	Hard                                           [hard, DP]
-	261 	Graph Valid Tree 	37.6% 	Medium                                     [graph, adjacency list, dfs one node, if found no circle and all nodes are visited are valid tree.]
-	168 	Excel Sheet Column Title 	25.8% 	Easy                               [10-base to 26 base with corner case.]
-	26  	Remove Duplicates from Sorted Array 	35.5% 	Easy                   [easy, if(n != nums[i]) nums[++i] = n;]
-	80  	Remove Duplicates from Sorted Array II 	35.9% 	Medium                 [duplicate are allowed at most twice, if(nums[i-1] != nums[j]) nums[++i] = nums[j];]
-
-
-Top 50 Facebook Questions
-	534    Design TinyURL    N/A	Medium
-	1      Two Sum    34.3%	Easy
-	13     Roman to Integer    45.6%	Easy
-	461    Hamming Distance    70.1%	Easy
-	146    LRU Cache    17.6%	Hard
-	206    Reverse Linked List    45.3%	Easy
-	283    Move Zeroes    49.7%	Easy
-	20     Valid Parentheses    33.3%	Easy
-	121    Best Time to Buy and Sell Stock    41.0%	Easy
-	38     Count and Say    34.5%	Easy
-	238    Product of Array Except Self    48.9%	Medium
-	15     3Sum    21.6%	Medium
-	10     Regular Expression Matching    24.1%	Hard
-	535    Encode and Decode TinyURL    73.8%	Medium
-	139    Word Break    29.8%	Medium
-	50     Pow(x, n)    26.4%	Medium
-	17     Letter Combinations of a Phone Number    34.4%	Medium
-	200    Number of Islands    34.4%	Medium
-	23     Merge k Sorted Lists    27.1%	Hard
-	49     Group Anagrams    34.5%	Medium
-	67     Add Binary    32.3%	Easy
-	88     Merge Sorted Array    32.0%	Easy
-	26     Remove Duplicates from Sorted Array    35.5%	Easy
-	234    Palindrome Linked List    32.6%	Easy
-	173    Binary Search Tree Iterator    41.2%	Medium
-	85     Maximal Rectangle    27.7%	Hard
-	56     Merge Intervals    29.9%	Medium
-	235    Lowest Common Ancestor of a Binary Search Tree    38.9%	Easy
-	33     Search in Rotated Sorted Array    32.1%	Medium
-	128    Longest Consecutive Sequence    36.7%	Hard
-	28     Implement strStr()    28.0%	Easy
-	273    Integer to English Words    22.0%	Hard
-	218    The Skyline Problem    27.0%	Hard
-	79     Word Search    26.7%	Medium
-	69     Sqrt(x)    27.8%	Easy
-	43     Multiply Strings    27.0%	Medium
-	127    Word Ladder    19.4%	Medium
-	168    Excel Sheet Column Title    25.8%	Easy
-	236    Lowest Common Ancestor of a Binary Tree    29.7%	Medium
-	125    Valid Palindrome    26.2%	Easy
-	297    Serialize and Deserialize Binary Tree    33.2%	Hard
-	76     Minimum Window Substring    25.2%	Hard
-	278    First Bad Version    25.2%	Easy
-	215    Kth Largest Element in an Array    39.1%	Medium
-	301    Remove Invalid Parentheses    35.1%	Hard
-	102    Binary Tree Level Order Traversal    39.5%	Medium
-	78     Subsets    40.3%	Medium
-	282    Expression Add Operators    29.6%	Hard
-	91     Decode Ways    19.6%	Medium
-	334    Increasing Triplet Subsequence    39.1%	Medium
+   *283 	Move Zeroes 	49.7% 	Easy                                           [easy, simple array]
+    325 	Maximum Size Subarray Sum Equals k 	42.3% 	Medium                     [Interesting, hashmap + preSum]
+   *301 	Remove Invalid Parentheses 	35.1% 	Hard                               [BFS to remove each Parentheses]
+   *67  	Add Binary 	32.3% 	Easy                                               [easy, similar to AddOne]
+    311 	Sparse Matrix Multiplication 	50.7% 	Medium                         [tricky math]
+    314 	Binary Tree Vertical Order Traversal 	36.4% 	Medium                 [level order traversal storing min/max index]
+   *102 	Binary Tree Level Order Traversal 	39.5% 	Medium                     [easy, store size of each level to traversal]
+    117 	Populating Next Right Pointers in Each Node II 	33.7% 	Medium         [easy, level order traversal, linked next: if(i<size-1) node.next = q.peek() ]
+   *273 	Integer to English Words 	22.0% 	Hard                               [mind blowing recursive code]
+   *17  	Letter Combinations of a Phone Number 	34.3% 	Medium                 [easy, simple backtracking]
+   *278 	First Bad Version 	25.2% 	Easy                                       [easy, simple binary search]
+   *91  	Decode Ways 	19.6% 	Medium                                         [DP, add from i-2 and i-1]
+   *10  	Regular Expression Matching 	24.1% 	Hard                           [hard, fair complex logic]
+    44  	Wildcard Matching 	20.0% 	Hard                                       [hard, string match, greedy]
+   *15  	3Sum 	21.6% 	Medium                                                 [key is to skip duplicate]
+    277 	Find the Celebrity 	35.3% 	Medium                                     [greedy with some logic]
+    157 	Read N Characters Given Read4 	28.9% 	Easy                           [synced solution from N158]
+    158 	Read N Characters Given Read4 II - Call multiple times 	24.2% 	Hard   [class level variable]
+   *200 	Number of Islands 	34.4% 	Medium                                     [easy, simple backtracking]
+   *79  	Word Search 	26.7% 	Medium                                         [easy, simple backtracking. is word exist in char matrix]
+   *297 	Serialize and Deserialize Binary Tree 	33.2% 	Hard                   [preorder traversal, separate by comma and leaf node as null]
+   *282 	Expression Add Operators 	29.6% 	Hard                               [backtracking with some math and corner cases]
+    494 	Target Sum 	43.8% 	Medium                                             [backtracking, multiple calls]
+    257 	Binary Tree Paths 	38.2% 	Easy                                       [simple dfs, but not easy to get correct]
+   *23  	Merge k Sorted Lists 	27.1% 	Hard                                   [easy, priority queue + dummy linked list]
+    161 	One Edit Distance 	31.2% 	Medium                                     [one diff or one more are only true cases]
+    285 	Inorder Successor in BST 	36.1% 	Medium                             [binary search until node == null, larger as candidate]
+    208 	Implement Trie (Prefix Tree) 	28.0% 	Medium                         [basic trie, map<char, TrieNode> children, boolean isEnd]
+    211 	Add and Search Word - Data structure design 	22.6% 	Medium         [trie + dfs/bfs search of wildcard]
+    642 	Design Search Autocomplete System 	28.3% 	Hard                       [trie + map<String, count> + heap to return top k]
+   *139 	Word Break 	29.8% 	Medium                                             [DP, dp[j+1] = true when dp[i]==true && set.contains(s(i,j+1))]
+   *121 	Best Time to Buy and Sell Stock 	41.0% 	Easy                       [greedy, buy before sell]
+    341 	Flatten Nested List Iterator 	41.3% 	Medium                         [iterator design with nested integer, stack to store iterator]
+   *173 	Binary Search Tree Iterator 	41.2% 	Medium                         [iterator design(not really), stack to store TreeNode]
+   *1   	Two Sum 	34.3% 	Easy                                               [easy, hashmap to store diff]
+   *125 	Valid Palindrome 	26.2% 	Easy                                       [easy, but need to skip !Character.isLetterOrDigit()]
+    75  	Sort Colors 	37.9% 	Medium                                         [easy, sort 3 colors, counting sort 2 passes, swap 1 pass]
+   *78  	Subsets 	40.3% 	Medium                                             [simple backtracking]
+    90  	Subsets II 	36.0% 	Medium                                             [backtracking, skip duplicate if(i>start && nums[i] == nums[i-1])continue;]
+    98  	Validate Binary Search Tree 	23.2% 	Medium                         [simple dfs, top-down, pass down low and high]
+   *43  	Multiply Strings 	27.0% 	Medium                                     [simple math, large string multiplication]
+   *206 	Reverse Linked List 	45.3% 	Easy                                   [iterative should be straight forward]
+    133 	Clone Graph 	25.1% 	Medium                                         [map<node, new_node> to avoid duplicate copy]
+   *218 	The Skyline Problem 	27.0% 	Hard                                   [visit all points sorted by x, break tie by height,
+                                                                                    heap store global height in reversed order, add left height, remove end height
+                                                                                    if cur height is diff than previous, add to ret]
+   *236 	Lowest Common Ancestor of a Binary Tree 	29.7% 	Medium             [dfs, bottom-up, pass p and q down]
+   *235 	Lowest Common Ancestor of a Binary Search Tree 	38.9% 	Easy           [easy, BST property]
+   *49  	Group Anagrams 	34.5% 	Medium                                         [trick is to use counting sort on string and convert it back, new String(char[])]
+   *238 	Product of Array Except Self 	48.9% 	Medium                         [trick is dp preSum, two passes, left and right]
+   *38  	Count and Say 	34.5% 	Easy                                           [count adjacent duplicate and continue for n times]
+    252 	Meeting Rooms 	47.1% 	Easy                                           [easy, interval, sort by start time]
+    253 	Meeting Rooms II 	38.8% 	Medium                                     [interval, heap sort by end time, merge if possible]
+   *56  	Merge Intervals 	29.9% 	Medium                                     [easy, interval, 3 conditions]
+    57  	Insert Interval 	27.5% 	Hard                                       [easy, interval, insert to sorted list first, then merge as N56]
+   *76  	Minimum Window Substring 	25.2% 	Hard                               [sliding window, move left when count=size]
+    209 	Minimum Size Subarray Sum 	30.4% 	Medium                             [easy, sliding window, move left when sum>=t]
+   *215 	Kth Largest Element in an Array 	39.1% 	Medium                     [top k, heap o(nlogk) or quicksort o(n)]
+    71  	Simplify Path 	25.2% 	Medium                                         [stack, pop when its "..", else push if not "", "." and ".."]
+   *146 	LRU Cache 	17.6% 	Hard                                               [look again. hashmap<key, Node> + double linked list Node]
+   *13  	Roman to Integer 	45.6% 	Easy                                       [if a[i] < a[i+1], sum-a[i] else sum+a[i]; sum+a[n-1]]
+   *33  	Search in Rotated Sorted Array 	32.1% 	Medium                         [binary search, mid compare with left and right]
+   *128 	Longest Consecutive Sequence 	36.7% 	Hard                           [add all nums to set, find num-- and num++ in set and sum, remove them afterwards]
+    380 	Insert Delete GetRandom O(1) 	39.1% 	Medium                         [hashmap<val, index> + arraylist, swap last one with map.get(val) and remove]
+   *88  	Merge Sorted Array 	32.0% 	Easy                                       [easy, fill from the end]
+    377 	Combination Sum IV 	41.9% 	Medium                                     [DP, similar to coin change]
+   *28  	Implement strStr() 	28.0% 	Easy                                       [easy, o(n^2) brute force, if a[i] != b[j]{i = i-j+1; j=0;}]
+   *334 	Increasing Triplet Subsequence 	39.1% 	Medium                         [if num <= x; then x =num; else if num <=y; then y = num; else return true]
+   *127 	Word Ladder 	19.4% 	Medium                                         [easy, BFS, shortest path]
+    398 	Random Pick Index 	42.6% 	Medium                                     [reservoir sample, o(n) time, o(1) space. if(nums[i] == target && rand.nextInt(++count) == 0) ret=i]
+   *50  	Pow(x, n) 	26.4% 	Medium                                             [binary search]
+   *69  	Sqrt(x) 	27.8% 	Easy                                               [binary search]
+    275 	H-Index II 	34.3% 	Medium                                             [binary search, sorted index]
+    269 	Alien Dictionary 	23.8% 	Hard                                       [hard, Topological sort]
+    210 	Course Schedule II 	27.8% 	Medium                                     [Topological sort, graph, hashmap adjacency list, dfs find circle]
+   *20  	Valid Parentheses 	33.3% 	Easy                                       [easy, stack to check match]
+    286 	Walls and Gates 	43.9% 	Medium                                     [easy, BFS shortest path]
+    68  	Text Justification 	19.0% 	Hard                                       [hard, long code, take a look again]
+    221 	Maximal Square 	28.7% 	Medium                                         [max all 1 square in matrix, DP, dp[i][j] = 1+ min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])]
+   *85  	Maximal Rectangle 	27.7% 	Hard                                       [DP, tricky. left[], right[], height[]]
+    274 	H-Index 	33.1% 	Medium                                             [counting sort, return i when sum(count[n~0]) >= i]
+    25  	Reverse Nodes in k-Group 	30.7% 	Hard                               [easy, reverse linkedlist]
+   *234 	Palindrome Linked List 	32.6% 	Easy                                   [easy, medium for o(1) space solution, reverse second half and compare]
+    639 	Decode Ways II 	23.0% 	Hard                                           [hard, DP, look again]
+    637 	Average of Levels in Binary Tree 	56.7% 	Easy                       [easy, level order bfs search]
+    636 	Exclusive Time of Functions 	38.9% 	Medium                         [greedily add time between two starts time using stack<id>, and variable preStartTime]
+    621 	Task Scheduler 	41.7% 	Medium                                         [easy, greedy reduce from sorted array and count, corner case last one]
+    602 	Friend Requests II: Who Has the Most Friends 	44.1% 	Medium         [SQL, union all two columns as one and group by]
+    597 	Friend Requests I: Overall Acceptance Rate 	30.0% 	Easy               [SQL, distinct col1, col2; ifnull(DDL, 0), round(ddl, 2)]
+    578 	Get Highest Answer Rate Question 	23.3% 	Medium                     [SQL, group by id order by count(id) limit 1]
+    572 	Subtree of Another Tree 	40.6% 	Easy                               [easy, BF dfs. compare from each node]
+    554 	Brick Wall 	44.6% 	Medium                                             [map<length, count> in a list of list, find most count in certain length]
+    543 	Diameter of Binary Tree 	43.4% 	Easy                               [easy, bottom up dfs]
+   *535 	Encode and Decode TinyURL 	73.8% 	Medium                             [design, map string to int id in list, database will handle distribution]	534 	Design TinyURL 	0.0% 	Medium
+    525 	Contiguous Array 	38.8% 	Medium                                     [map<preSum, index>, if(map.containsKey(sum-k)) update max. similar to N560]
+    523 	Continuous Subarray Sum 	22.6% 	Medium                             [similar to N525 with math: (x + n*k) mod k = x]
+    477 	Total Hamming Distance 	46.5% 	Medium                                 [o(n), each bit contribute count(0)*count(1) to ret]
+   *461 	Hamming Distance 	70.1% 	Easy                                       [easy, return Integer.bitCount(x^y)]
+    410 	Split Array Largest Sum 	36.8% 	Hard                               [hard, binary search. not sure.]
+    404 	Sum of Left Leaves 	46.9% 	Easy                                       [DFS, top-down, check node.left, node.left.left and node.left.right]
+    265 	Paint House II 	37.9% 	Hard                                           [hard, DP]
+    261 	Graph Valid Tree 	37.6% 	Medium                                     [graph, adjacency list, dfs one node, if found no circle and all nodes are visited are valid tree.]
+   *168 	Excel Sheet Column Title 	25.8% 	Easy                               [10-base to 26 base with corner case.]
+   *26  	Remove Duplicates from Sorted Array 	35.5% 	Easy                   [easy, if(n != nums[i]) nums[++i] = n;]
+    80  	Remove Duplicates from Sorted Array II 	35.9% 	Medium                 [duplicate are allowed at most twice, if(nums[i-1] != nums[j]) nums[++i] = nums[j];]
+    534    Design TinyURL    N/A	Medium
