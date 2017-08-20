@@ -26,7 +26,9 @@ Facebook list sort by Frequency
 	23  	Merge k Sorted Lists 	27.1% 	Hard                                   [easy, priority queue + dummy linked list]
 	161 	One Edit Distance 	31.2% 	Medium                                     [one diff or one more are only true cases]
 	285 	Inorder Successor in BST 	36.1% 	Medium                             [binary search until node == null, larger as candidate]
+	208 	Implement Trie (Prefix Tree) 	28.0% 	Medium                         [basic trie, map<char, TrieNode> children, boolean isEnd]
 	211 	Add and Search Word - Data structure design 	22.6% 	Medium         [trie + dfs/bfs search of wildcard]
+	642 	Design Search Autocomplete System 	28.3% 	Hard                       [trie + map<String, count> + heap to return top k]
 	139 	Word Break 	29.8% 	Medium                                             [DP, dp[j+1] = true when dp[i]==true && set.contains(s(i,j+1))]
 	121 	Best Time to Buy and Sell Stock 	41.0% 	Easy                       [greedy, buy before sell]
 	341 	Flatten Nested List Iterator 	41.3% 	Medium                         [iterator design with nested integer, stack to store iterator]
@@ -59,7 +61,6 @@ Facebook list sort by Frequency
 	146 	LRU Cache 	17.6% 	Hard                                               [look again. hashmap<key, Node> + double linked list Node]
 	13  	Roman to Integer 	45.6% 	Easy                                       [if a[i] < a[i+1], sum-a[i] else sum+a[i]; sum+a[n-1]]
 	33  	Search in Rotated Sorted Array 	32.1% 	Medium                         [binary search, mid compare with left and right]
-	208 	Implement Trie (Prefix Tree) 	28.0% 	Medium                         [basic trie]
 	128 	Longest Consecutive Sequence 	36.7% 	Hard                           [add all nums to set, find num-- and num++ in set and sum, remove them afterwards]
 	380 	Insert Delete GetRandom O(1) 	39.1% 	Medium                         [hashmap<val, index> + arraylist, swap last one with map.get(val) and remove]
 	88  	Merge Sorted Array 	32.0% 	Easy                                       [easy, fill from the end]
@@ -70,27 +71,24 @@ Facebook list sort by Frequency
 	398 	Random Pick Index 	42.6% 	Medium                                     [reservoir sample, o(n) time, o(1) space. if(nums[i] == target && rand.nextInt(++count) == 0) ret=i]
 	50  	Pow(x, n) 	26.4% 	Medium                                             [binary search]
 	69  	Sqrt(x) 	27.8% 	Easy                                               [binary search]
-	269 	Alien Dictionary 	23.8% 	Hard                                       [hard, Topological_sorting]
+	275 	H-Index II 	34.3% 	Medium                                             [binary search, sorted index]
+	269 	Alien Dictionary 	23.8% 	Hard                                       [hard, Topological sort]
+	210 	Course Schedule II 	27.8% 	Medium                                     [Topological sort, graph, hashmap adjacency list, dfs find circle]
 	20  	Valid Parentheses 	33.3% 	Easy                                       [easy, stack to check match]
 	286 	Walls and Gates 	43.9% 	Medium                                     [easy, BFS shortest path]
 	68  	Text Justification 	19.0% 	Hard                                       [hard, long code, take a look again]
 	221 	Maximal Square 	28.7% 	Medium                                         [max all 1 square in matrix, DP, dp[i][j] = 1+ min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])]
 	85  	Maximal Rectangle 	27.7% 	Hard                                       [DP, tricky. left[], right[], height[]]
 	274 	H-Index 	33.1% 	Medium                                             [counting sort, return i when sum(count[n~0]) >= i]
-	275 	H-Index II 	34.3% 	Medium                                             [binary search]
-	210 	Course Schedule II 	27.8% 	Medium                                     [Topological sort, graph, hashmap adjacency list, dfs find circle]
 	25  	Reverse Nodes in k-Group 	30.7% 	Hard                               [easy, reverse linkedlist]
-	234 	Palindrome Linked List 	32.6% 	Easy                                   [easy]
-    --------------------------------------------------------------------   Above are more Frequent
-
-	642 	Design Search Autocomplete System 	28.3% 	Hard
-	639 	Decode Ways II 	23.0% 	Hard
-	637 	Average of Levels in Binary Tree 	56.7% 	Easy
-	636 	Exclusive Time of Functions 	38.9% 	Medium
-	621 	Task Scheduler 	41.7% 	Medium
-	602 	Friend Requests II: Who Has the Most Friends 	44.1% 	Medium
-	597 	Friend Requests I: Overall Acceptance Rate 	30.0% 	Easy
-	578 	Get Highest Answer Rate Question 	23.3% 	Medium
+	234 	Palindrome Linked List 	32.6% 	Easy                                   [easy, medium for o(1) space solution, reverse second half and compare]
+	639 	Decode Ways II 	23.0% 	Hard                                           [hard, DP, look again]
+	637 	Average of Levels in Binary Tree 	56.7% 	Easy                       [easy, level order bfs search]
+	636 	Exclusive Time of Functions 	38.9% 	Medium                         [greedily add time between two starts time using stack<id>, and variable preStartTime]
+	621 	Task Scheduler 	41.7% 	Medium                                         [easy, greedy reduce from sorted array and count, corner case last one]
+	602 	Friend Requests II: Who Has the Most Friends 	44.1% 	Medium         [SQL, union all two columns as one and group by]
+	597 	Friend Requests I: Overall Acceptance Rate 	30.0% 	Easy               [SQL, distinct col1, col2; ifnull(DDL, 0), round(ddl, 2)]
+	578 	Get Highest Answer Rate Question 	23.3% 	Medium                     [SQL, group by id order by count(id) limit 1]
 	572 	Subtree of Another Tree 	40.6% 	Easy
 	554 	Brick Wall 	44.6% 	Medium
 	543 	Diameter of Binary Tree 	43.4% 	Easy
