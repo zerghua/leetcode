@@ -1,5 +1,7 @@
 Facebook list sort by Frequency
-    325 	Maximum Size Subarray Sum Equals k 	42.3% 	Medium                     [Interesting, hashmap + preSum]
+    325 	Maximum Size Subarray Sum Equals k 	42.3% 	Medium                     [map<preSum, Index>, max sliding window]
+    523 	Continuous Subarray Sum 	22.6% 	Medium                             [map<preSum, Index>, window sum == multiple of k. similar to N325 with math: (x + n*k) mod k = x and check index for at least two items]
+    525 	Contiguous Array 	38.8% 	Medium                                     [map<preSum, index>, set to 0 to -1, then problem becomes N325. ]
    *301 	Remove Invalid Parentheses 	35.1% 	Hard                               [BFS to remove each Parentheses]
    *67  	Add Binary 	32.3% 	Easy                                               [easy, similar to AddOne]
     311 	Sparse Matrix Multiplication 	50.7% 	Medium                         [tricky math]
@@ -92,8 +94,6 @@ Facebook list sort by Frequency
     554 	Brick Wall 	44.6% 	Medium                                             [map<length, count> in a list of list, find most count in certain length]
     543 	Diameter of Binary Tree 	43.4% 	Easy                               [easy, bottom up dfs]
    *535 	Encode and Decode TinyURL 	73.8% 	Medium                             [design, map string to int id in list, database will handle distribution]	534 	Design TinyURL 	0.0% 	Medium
-    525 	Contiguous Array 	38.8% 	Medium                                     [map<preSum, index>, if(map.containsKey(sum-k)) update max. similar to N560]
-    523 	Continuous Subarray Sum 	22.6% 	Medium                             [similar to N525 with math: (x + n*k) mod k = x]
     477 	Total Hamming Distance 	46.5% 	Medium                                 [o(n), each bit contribute count(0)*count(1) to ret]
    *461 	Hamming Distance 	70.1% 	Easy                                       [easy, return Integer.bitCount(x^y)]
     410 	Split Array Largest Sum 	36.8% 	Hard                               [hard, binary search. not sure.]

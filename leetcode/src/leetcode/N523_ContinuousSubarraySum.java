@@ -32,6 +32,7 @@ import java.util.HashSet;
 public class N523_ContinuousSubarraySum {
     // Facebook
     // tricky solution, similar to N560, subarray sum Equals K
+    // map<preSum, index>
     // math: (x + n*k) mod k = x ,which x can be [0,k-1].
     // 75 / 75 test cases passed.
     // 17 ms
@@ -42,7 +43,7 @@ public class N523_ContinuousSubarraySum {
             int sum = 0;
             for(int i=0; i<nums.length; i++){
                 sum += nums[i];
-                if(k!= 0) sum %= k; // important math here
+                if(k!= 0) sum %= k; // important math here, multiple of k
                 if(!map.containsKey(sum))map.put(sum, i);
                 if(i - map.get(sum) > 1) return true;  // make sure at least 2 items
             }

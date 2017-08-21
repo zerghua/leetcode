@@ -24,7 +24,8 @@ import java.util.HashMap;
  */
 public class N525_ContiguousArray {
     // Facebook
-    // similar to N560 subarray sum equals k
+    // similar to N325 MaximumSizeSubarraySumEqualsk
+    // map<preSum, index>
     // The idea is to change 0 in the original array to -1. Thus, if we find SUM[i, j] == 0 then we know there are even
     // number of -1 and 1 between index i and j. Also put the sum to index mapping to a HashMap to make search faster.
     // 555 / 555 test cases passed.

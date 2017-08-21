@@ -19,17 +19,23 @@ import java.util.HashMap;
  The range of numbers in the array is [-1000, 1000] and the range of the integer k is [-1e7, 1e7].
 
 
+ Input:[1,2,1,2,1]
+ 3
+ Output:2
+ Expected:4
+
  */
 public class N560_SubarraySumEqualsK {
     // Google
-    // hash table to store range. Kind of DP.
+    // map<preSum, count>
+    // N523 and N525 are variations.  N325 is find max window, but this is to find total count of such subarray
     // 80 / 80 test cases passed.
     // 70 ms
     public class Solution {
         public int subarraySum(int[] nums, int k) {
             int ret = 0, sum= 0;
             HashMap<Integer, Integer> map = new HashMap();
-            map.put(0,1);
+            map.put(0,1);   // for the first preSum equal to k
 
             for(int i=0;i<nums.length;i++){
                 sum += nums[i];
@@ -41,4 +47,6 @@ public class N560_SubarraySumEqualsK {
             return ret;
         }
     }
+
+
 }
