@@ -38,7 +38,7 @@ public class N282_ExpressionAddOperators {
                 return;
             }
             for(int i=pos; i<num.length();i++){
-                if(num.charAt(pos) == '0' && pos != i) break; // skip corner case like 000
+                if(num.charAt(pos) == '0' && pos != i) break; // skip to parse case like 00 or 06 for cur
                 long cur = Long.parseLong(num.substring(pos,i+1));
                 if(pos == 0) dfs(ret, num, target, path + cur, i+1, cur, cur);  //first num, has to be i+1
                 else{
