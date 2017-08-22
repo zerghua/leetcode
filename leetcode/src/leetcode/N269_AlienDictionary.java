@@ -53,7 +53,7 @@ package leetcode;
 import java.util.*;
 public class N269_AlienDictionary {
     // google, facebook, airbnb
-    // https://en.wikipedia.org/wiki/Topological_sorting
+    // Topological sort, directed graph, no circle.
     // 117 / 117 test cases passed.
     // 10 ms
     public class Solution {

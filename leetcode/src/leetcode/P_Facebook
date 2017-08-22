@@ -50,6 +50,7 @@ Facebook list sort by Frequency
     261 	Graph Valid Tree 	37.6% 	Medium                                     [graph undirected, map<int, list>, DFS one node, if found no circle and all nodes are visited are valid tree.]
     133 	Clone Graph 	25.1% 	Medium                                         [graph undirected, DFS, map<node, new_node> to avoid duplicate copy]
     210 	Course Schedule II 	27.8% 	Medium                                     [graph directed, Topological sort, DFS, map<int, set>, visited=1, visiting=-1, nonVisited=0]
+    269 	Alien Dictionary 	23.8% 	Hard                                       [hard, graph directed, Topological sort, map<c, set> chars_after_c, map<c, int> count_before_c, parse input, BFS from c of count_before_c=0]
    *23  	Merge k Sorted Lists 	27.1% 	Hard                                   [easy, priority queue + dummy linked list]
     161 	One Edit Distance 	31.2% 	Medium                                     [easy, one diff or one more are only true cases]
     208 	Implement Trie (Prefix Tree) 	28.0% 	Medium                         [basic trie, map<char, TrieNode> children, boolean isEnd]
@@ -90,18 +91,15 @@ Facebook list sort by Frequency
    *283 	Move Zeroes 	49.7% 	Easy                                           [easy, simple array]
    *26  	Remove Duplicates from Sorted Array 	35.5% 	Easy                   [easy, if(n != nums[i]) nums[++i] = n;]
     80  	Remove Duplicates from Sorted Array II 	35.9% 	Medium                 [duplicate are allowed at most twice, if(nums[i-1] != nums[j]) nums[++i] = nums[j];]
-    380 	Insert Delete GetRandom O(1) 	39.1% 	Medium                         [hashmap<val, index> + arraylist, swap last one with map.get(val) and remove]
-   *146 	LRU Cache 	17.6% 	Hard                                               [look again. hashmap<key, Node> + double linked list Node]
-   *218 	The Skyline Problem 	27.0% 	Hard                                   [visit all points sorted by x, break tie by height,
-                                                                                    heap store global height in reversed order, add left height, remove end height
-                                                                                    if cur height is diff than previous, add to ret]
+    380 	Insert Delete GetRandom O(1) 	39.1% 	Medium                         [design, hashmap<val, index> + arraylist, swap last one with map.get(val) and remove]
+   *535 	Encode and Decode TinyURL 	73.8% 	Medium                             [design, map string to int id in list, database will handle distribution]
+    534     Design TinyURL    N/A	Medium
+   *146 	LRU Cache 	17.6% 	Hard                                               [least recent cache. hashmap<key, Node> + double linked list Node, get/set put new node on head, remove tail if short of capacity]
+   *218 	The Skyline Problem 	27.0% 	Hard                                   [visit all points sorted by x, break tie by height(left height is negative), heap store global height in reversed order, add left height, remove end height if cur height is diff than previous, add to ret]
    *10  	Regular Expression Matching 	24.1% 	Hard                           [hard, fair complex logic]
     44  	Wildcard Matching 	20.0% 	Hard                                       [hard, string match, greedy]
     410 	Split Array Largest Sum 	36.8% 	Hard                               [hard, binary search. not sure.]
-    269 	Alien Dictionary 	23.8% 	Hard                                       [hard, Topological sort]
     68  	Text Justification 	19.0% 	Hard                                       [hard, long code, take a look again]
-   *535 	Encode and Decode TinyURL 	73.8% 	Medium                             [design, map string to int id in list, database will handle distribution]
-    534     Design TinyURL    N/A	Medium
     602 	Friend Requests II: Who Has the Most Friends 	44.1% 	Medium         [SQL, union all two columns as one and group by]
     597 	Friend Requests I: Overall Acceptance Rate 	30.0% 	Easy               [SQL, distinct col1, col2; ifnull(DDL, 0), round(ddl, 2)]
     578 	Get Highest Answer Rate Question 	23.3% 	Medium                     [SQL, group by id order by count(id) limit 1]
