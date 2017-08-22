@@ -17,11 +17,37 @@ package leetcode;
 
 public class N157_ReadNCharactersGivenRead4 {
     // Facebook
+    // borrow solution from N158
+    public class Solution{
+        /*
+         * @param buf Destination buffer
+         * @param Maximum number of characters to read
+         * @return The number of characters read
+         */
+        public int read4(char[] buf){
+            return 0;
+        }
+
+        public int read(char[] buf, int n) {
+            int i=0, pre_i=0, pre_n=0;
+            char[] pre_buf = new char[4];
+            while(i < n){
+                if(pre_i >= pre_n){
+                    pre_i = 0;
+                    pre_n = read4(pre_buf);
+                    if(pre_n == 0) break;
+                }
+                buf[i++] = pre_buf[pre_i++];
+            }
+            return i;
+        }
+    }
+
     // read4 will read 4 chars from file to buf
     // goal is to implement read(char[] buf, int n) to read n chars from file and put it into buf.
     // 49 / 49 test cases passed.
     // 1 ms
-    public class Solution{
+    public class Solution2{
         /*
          * @param buf Destination buffer
          * @param Maximum number of characters to read
@@ -46,30 +72,6 @@ public class N157_ReadNCharactersGivenRead4 {
         }
     }
 
-    // borrow solution from N158
-    public class Solution2{
-        /*
-         * @param buf Destination buffer
-         * @param Maximum number of characters to read
-         * @return The number of characters read
-         */
-        public int read4(char[] buf){
-            return 0;
-        }
 
-        public int read(char[] buf, int n) {
-            int i=0, pre_i=0, pre_n=0;
-            char[] pre_buf = new char[4];
-            while(i < n){
-                if(pre_i >= pre_n){
-                    pre_i = 0;
-                    pre_n = read4(pre_buf);
-                    if(pre_n == 0) break;
-                }
-                buf[i++] = pre_buf[pre_i++];
-            }
-            return i;
-        }
-    }
 
 }
