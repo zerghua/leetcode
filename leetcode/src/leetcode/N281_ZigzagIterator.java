@@ -30,6 +30,30 @@ package leetcode;
 import java.util.*;
 public class N281_ZigzagIterator {
     // Google
+    // o(1) space which can handle k lists
+    // 125 / 125 test cases passed.
+    // 6 ms
+    public class ZigzagIterator2 {
+        LinkedList<Iterator> list;
+        public ZigzagIterator2(List<Integer> v1, List<Integer> v2) {
+            list = new LinkedList<Iterator>();
+            if(!v1.isEmpty()) list.add(v1.iterator());
+            if(!v2.isEmpty()) list.add(v2.iterator());
+        }
+
+        public int next() {
+            Iterator poll = list.removeFirst();
+            int result = (Integer)poll.next();
+            if(poll.hasNext()) list.add(poll);
+            return result;
+        }
+
+        public boolean hasNext() {
+            return !list.isEmpty();
+        }
+    }
+
+
     // 125 / 125 test cases passed.
     // 3 ms
     // o(n) space
@@ -63,27 +87,6 @@ public class N281_ZigzagIterator {
     }
 
 
-    // o(1) space which can handle k lists
-    // 125 / 125 test cases passed.
-    // 6 ms
-    public class ZigzagIterator2 {
-        LinkedList<Iterator> list;
-        public ZigzagIterator2(List<Integer> v1, List<Integer> v2) {
-            list = new LinkedList<Iterator>();
-            if(!v1.isEmpty()) list.add(v1.iterator());
-            if(!v2.isEmpty()) list.add(v2.iterator());
-        }
 
-        public int next() {
-            Iterator poll = list.remove();
-            int result = (Integer)poll.next();
-            if(poll.hasNext()) list.add(poll);
-            return result;
-        }
-
-        public boolean hasNext() {
-            return !list.isEmpty();
-        }
-    }
 
 }

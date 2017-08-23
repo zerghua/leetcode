@@ -22,10 +22,31 @@ import java.util.*;
  */
 public class N163_MissingRanges {
     // google
+    // fix max and min Integer using Long type
     // Two pointers, and two sentinels for concise code.
-    // cur-pre>=2
+    // cur-pre>1
+    // 40 / 40 test cases passed.  7/23/2017
+    // 1 ms
     public class Solution {
-        //  bug when lower=Integer.MIN_VALUE and upper = Integer.MAX_VALUE;
+        public List<String> findMissingRanges(int[] nums, int lower, int upper) {
+            List<String> ret = new ArrayList();
+            Long pre = (long)lower-1;  //for corner case of first one should be included
+            for(int i=0;i<=nums.length;i++){
+                long cur = (i == nums.length)?(long)upper+1 : nums[i];  // upper+1 for corner case of last one included
+                if(cur - pre > 1) ret.add(addString((long)pre+1, (long)cur-1));
+                pre = cur;
+            }
+            return ret;
+        }
+        public String addString(long from, long to){
+            return (from == to)? ""+from : from + "->" + to;
+        }
+    }
+
+
+
+    //  bug when lower=Integer.MIN_VALUE and upper = Integer.MAX_VALUE;
+    public class Solution2 {
         public List<String> findMissingRanges(int[] nums, int lower, int upper) {
             List<String> ret = new ArrayList();
             int pre = lower-1;
@@ -41,24 +62,7 @@ public class N163_MissingRanges {
         }
     }
 
-    // fix max and min Integer using Long type
-    // 40 / 40 test cases passed.  7/23/2017
-    // 1 ms
-    public class Solution2 {
-        public List<String> findMissingRanges(int[] nums, int lower, int upper) {
-            List<String> ret = new ArrayList();
-            Long pre = (long)lower-1;
-            for(int i=0;i<=nums.length;i++){
-                long cur = (i == nums.length)?(long)upper+1 : nums[i];
-                if(cur - pre >= 2) ret.add(addString((long)pre+1, (long)cur-1));
-                pre = cur;
-            }
-            return ret;
-        }
-        public String addString(long from, long to){
-            return (from == to)? ""+from : from + "->" + to;
-        }
-    }
+
 
 
     public static void main(String[] args){

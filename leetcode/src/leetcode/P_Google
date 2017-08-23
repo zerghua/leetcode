@@ -3,16 +3,16 @@ Google list sort by Frequency(198)
 	340 	Longest Substring with At Most K Distinct Characters 	38.7% 	Hard    [max sliding window]
 	308 	Range Sum Query 2D - Mutable 	22.4% 	Hard                            [hard, preSumCol, o(m)+o(n), binary indexed tree o(lognm)]
 	482 	License Key Formatting 	41.4% 	Medium                                  [easy, string reformat to k groups]
+	418 	Sentence Screen Fitting 	27.6% 	Medium                              [tricky, flatten matrix and greedy add.]
 	298 	Binary Tree Longest Consecutive Sequence 	40.8% 	Medium              [DFS top-down, pass down cur_count and next expected val]
-	281 	Zigzag Iterator 	50.3% 	Medium
-	418 	Sentence Screen Fitting 	27.6% 	Medium
-	361 	Bomb Enemy 	38.9% 	Medium
-	425 	Word Squares 	42.5% 	Hard
-	346 	Moving Average from Data Stream 	58.6% 	Easy
-	163 	Missing Ranges 	24.6% 	Medium
-	66 	    Plus One 	38.5% 	Easy
-	394 	Decode String 	41.2% 	Medium
-	288 	Unique Word Abbreviation 	16.6% 	Medium
+	281 	Zigzag Iterator 	50.3% 	Medium                                      [easy, iterator design, list<Iterator> cyclic rotation]
+	361 	Bomb Enemy 	38.9% 	Medium                                              [tricky, rowHits and colHits[], if left or top is wall, reset rowHits and colHits[] and search right and bottom]
+	425 	Word Squares 	42.5% 	Hard                                            [hard, backtracking with trie to do fast prefix search]
+	346 	Moving Average from Data Stream 	58.6% 	Easy                        [easy, queue as window with sum variable ]
+	163 	Missing Ranges 	24.6% 	Medium                                          [two corner cases, first and last should be included, pre = lo-1; last = hi+1;]
+	66 	    Plus One 	38.5% 	Easy                                                [easy, a few cases, 288, 198, 199, 999]
+	394 	Decode String 	41.2% 	Medium                                          [dfs when it's '[', return when it's ']', with global index]
+	288 	Unique Word Abbreviation 	16.6% 	Medium                              [skip identical word, return false only when length and first/last char equal]
 	317 	Shortest Distance from All Buildings 	33.9% 	Hard
 	271 	Encode and Decode Strings 	26.1% 	Medium
 	351 	Android Unlock Patterns 	43.6% 	Medium

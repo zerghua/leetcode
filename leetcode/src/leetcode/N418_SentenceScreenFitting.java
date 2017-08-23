@@ -68,11 +68,34 @@ BF TLE
  20000
 
 
+
+
  */
 public class N418_SentenceScreenFitting {
     // google
-    // BF, TLE
+    // string, greedy.
+    // example:  rows = 4, cols = 5, sentence = ["I", "had", "apple", "pie"]
+    // [I had apple pie ]; n =15; start = [[5], [10, 6], [11], [16,15]]
+    //  0123456789012345
+    // 51 / 51 test cases passed.
+    // 20 ms
     public class Solution {
+        public int wordsTyping(String[] sentence, int rows, int cols) {
+            String s = String.join(" ", sentence) + " ";
+            int start = 0, n = s.length();
+            for(int i=0; i<rows; i++){ // try to fit each row as much as possible
+                start += cols;
+                if(s.charAt(start % n) == ' ') start++; // all previous chars fit in one row
+                else{
+                    while(start > 0 && s.charAt((start - 1)%n) != ' ') start--; //prepare for the next start char
+                }
+            }
+            return start / n;
+        }
+    }
+
+    // BF, TLE
+    public class Solution2 {
         public int wordsTyping(String[] sentence, int rows, int cols) {
             int i = 1, j=0, remainSpaces = cols;
             while(i <= rows) {
@@ -89,22 +112,6 @@ public class N418_SentenceScreenFitting {
         }
     }
 
-    // string, greedy.
-    // 51 / 51 test cases passed.
-    // 20 ms
-    public class Solution2 {
-        public int wordsTyping(String[] sentence, int rows, int cols) {
-            String s = String.join(" ", sentence) + " ";
-            int start = 0, n = s.length();
-            for(int i=0; i<rows; i++){ // try to fit each row as much as possible
-                start += cols;
-                if(s.charAt(start % n) == ' ') start++; // all previous chars fit in one row
-                else{
-                    while(start > 0 && s.charAt((start - 1)%n) != ' ') start--; //prepare for the next start char
-                }
-            }
-            return start / n;
-        }
-    }
+
 
 }

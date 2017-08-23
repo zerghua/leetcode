@@ -96,7 +96,8 @@ package leetcode;
  The picture below shows how the prefix are matched while building the sequence.
 
 
- In order for this to work, we need to fast retrieve all the words with a given prefix. There could be 2 ways doing this:
+ In order for this to work, we need to fast retrieve all the words with a given prefix.
+ There could be 2 ways doing this:
 
  Using a hashtable, key is prefix, value is a list of words with that prefix.
  Trie, we store a list of words with the prefix on each trie node.
