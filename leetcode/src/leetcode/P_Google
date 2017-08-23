@@ -11,9 +11,10 @@ Google list sort by Frequency(198)
 	346 	Moving Average from Data Stream 	58.6% 	Easy                        [easy, queue as window with sum variable ]
 	163 	Missing Ranges 	24.6% 	Medium                                          [two corner cases, first and last should be included, pre = lo-1; last = hi+1;]
 	66 	    Plus One 	38.5% 	Easy                                                [easy, a few cases, 288, 198, 199, 999]
-	394 	Decode String 	41.2% 	Medium                                          [dfs when it's '[', return when it's ']', with global index]
+	394 	Decode String 	41.2% 	Medium                                          [DFS when it's '[', return when it's ']', with global index]
 	288 	Unique Word Abbreviation 	16.6% 	Medium                              [skip identical word, return false only when length and first/last char equal]
-	317 	Shortest Distance from All Buildings 	33.9% 	Hard
+	317 	Shortest Distance from All Buildings 	33.9% 	Hard                    [BFS from each building, each empty cell stores total distance to all buildings and number of buildings can be reached]
+    307  	Range Sum Query - Mutable   20.6%	Medium
 	271 	Encode and Decode Strings 	26.1% 	Medium
 	351 	Android Unlock Patterns 	43.6% 	Medium
 	305 	Number of Islands II 	38.8% 	Hard
