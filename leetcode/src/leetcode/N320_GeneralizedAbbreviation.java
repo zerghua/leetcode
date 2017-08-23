@@ -34,8 +34,8 @@ public class N320_GeneralizedAbbreviation {
                 ret.add(cur);
                 return;
             }
-            dfs(ret, word, start + 1, cur, count + 1);
-            dfs(ret ,word, start + 1, cur + (count > 0 ? count: "") + word.charAt(start), 0);
+            dfs(ret, word, start + 1, cur, count + 1);                                          // skip char
+            dfs(ret ,word, start + 1, cur + (count > 0 ? count: "") + word.charAt(start), 0);   // not skip char
         }
     }
 }

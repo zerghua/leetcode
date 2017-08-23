@@ -34,9 +34,40 @@ package leetcode;
 public class N329_LongestIncreasingPathinaMatrix {
     // Google
     // DFS + memo
+    // slight code improvement
+    // 137 / 137 test cases passed.
+    // 22 ms
+    public class Solution {
+        int[][] dirs = {{1,0}, {-1,0}, {0,1},{0,-1}};
+        public int longestIncreasingPath(int[][] matrix) {
+            if(matrix == null || matrix.length == 0) return 0;
+            int row = matrix.length, col = matrix[0].length, ret = 0;;
+            int[][] memo = new int[row][col];
+            for(int i=0;i<row; i++){
+                for(int j=0;j<col;j++){
+                    ret = Math.max(ret, dfs(matrix, memo, i, j));
+                }
+            }
+            return ret;
+        }
+
+        public int dfs(int[][] matrix, int[][] memo, int i, int j){
+            if(memo[i][j] > 0) return memo[i][j];
+            int row = matrix.length, col = matrix[0].length, max = 1; // max has to 1, not always trigger dfs here
+            for(int[] dir : dirs){
+                int x = i + dir[0], y = j + dir[1];
+                if(x<0 || x>=row || y<0 || y>= col || matrix[x][y] <= matrix[i][j]) continue;
+                max = Math.max(max, 1 + dfs(matrix, memo, x, y));
+            }
+
+            memo[i][j] = max;
+            return max;
+        }
+    }
+
     // 137 / 137 test cases passed.
     // 26 ms
-    public class Solution {
+    public class Solution2 {
         int ret = 0;
         public int longestIncreasingPath(int[][] matrix) {
             if(matrix == null || matrix.length == 0) return 0;
@@ -68,34 +99,5 @@ public class N329_LongestIncreasingPathinaMatrix {
     }
 
 
-    // slight code improvement
-    // 137 / 137 test cases passed.
-    // 22 ms
-    public class Solution2 {
-        int[][] dirs = {{1,0}, {-1,0}, {0,1},{0,-1}};
-        public int longestIncreasingPath(int[][] matrix) {
-            if(matrix == null || matrix.length == 0) return 0;
-            int row = matrix.length, col = matrix[0].length, ret = 0;;
-            int[][] memo = new int[row][col];
-            for(int i=0;i<row; i++){
-                for(int j=0;j<col;j++){
-                    ret = Math.max(ret, dfs(matrix, memo, i, j));
-                }
-            }
-            return ret;
-        }
 
-        public int dfs(int[][] matrix, int[][] memo, int i, int j){
-            if(memo[i][j] > 0) return memo[i][j];
-            int row = matrix.length, col = matrix[0].length, max = 1; // max has to 1, not always trigger dfs here
-            for(int[] dir : dirs){
-                int x = i + dir[0], y = j + dir[1];
-                if(x<0 || x>=row || y<0 || y>= col || matrix[x][y] <= matrix[i][j]) continue;
-                max = Math.max(max, 1 + dfs(matrix, memo, x, y));
-            }
-
-            memo[i][j] = max;
-            return max;
-        }
-    }
 }

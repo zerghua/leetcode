@@ -15,6 +15,7 @@ Google list sort by Frequency(198)
 	394 	Decode String 	41.2% 	Medium                                          [DFS when it's '[', return when it's ']', with global index]
 	288 	Unique Word Abbreviation 	16.6% 	Medium                              [skip identical word, return false only when length and first/last char equal]
 	317 	Shortest Distance from All Buildings 	33.9% 	Hard                    [BFS from each building, each empty cell stores total distance to all buildings and number of buildings can be reached]
+	417 	Pacific Atlantic Water Flow 	33.7% 	Medium                          [backtracking, start from 4 edges and store (i,j) can be reached from both sides,similar to N317]
 	271 	Encode and Decode Strings 	26.1% 	Medium                              [encode list string with length and delimiter]
 	351 	Android Unlock Patterns 	43.6% 	Medium                              [Backtracking with skip matrix, if(!isVisited[i] && (skip[cur][i] == 0 || isVisited[skip[cur][i]]))]
 	305 	Number of Islands II 	38.8% 	Hard                                    [union find(add and union land), 2D->1D using n*row+col, root = findRoot(a, new_key); if(key != root){a[key] = root;  key = root; count--;}]
@@ -31,10 +32,9 @@ Google list sort by Frequency(198)
 	391 	Perfect Rectangle 	26.2% 	Hard                                        [convert problem to 2 conditions. 1, sum of all small areas == total area. 2. 4 corners exist once(use set to add and remove point string (p1 + " " + p2))]
 	345 	Reverse Vowels of a String 	38.4% 	Easy                                [easy, two pointers to reverse certain chars in a string]
 	286 	Walls and Gates 	43.9% 	Medium                                      [easy, BFS, shortest path to set of points]
-	56 	    Merge Intervals 	29.9% 	Medium
-	320 	Generalized Abbreviation 	44.8% 	Medium
-	329 	Longest Increasing Path in a Matrix 	36.3% 	Hard
-	417 	Pacific Atlantic Water Flow 	33.7% 	Medium
+	56 	    Merge Intervals 	29.9% 	Medium                                      [easy, interval, 3 conditions]
+	320 	Generalized Abbreviation 	44.8% 	Medium                              [backtracking, skip char or not. dfs(ret, word, start + 1, cur, count + 1);  dfs(ret ,word, start + 1, cur + (count > 0 ? count: "") + word.charAt(start), 0); ]
+	329 	Longest Increasing Path in a Matrix 	36.3% 	Hard                    [backtracking with memo[i][j] stores visited max]
 	399 	Evaluate Division 	40.9% 	Medium
 	297 	Serialize and Deserialize Binary Tree 	33.2% 	Hard
 	362 	Design Hit Counter 	53.7% 	Medium
