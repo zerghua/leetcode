@@ -26,9 +26,9 @@ package leetcode;
 
  */
 public class N307_RangeSumQueryMutable {
-    // no company
+    // Google
     // segment tree
-    // 16 ms
+    // 10 / 10 test cases passed. 141 ms 8/23/2017
     public class NumArray {
         public class SegmentTreeNode{
             int start, end, sum;
@@ -69,14 +69,14 @@ public class N307_RangeSumQueryMutable {
         }
 
         void update(SegmentTreeNode root, int i, int val){
-            if(root == null) return;
-            int mid = root.start + (root.end - root.start)/2;
-            if(i<=mid) update(root.left, i, val);
-            else update(root.right, i, val);
+            if(root == null || i < root.start || i > root.end) return;
             if(root.start == root.end && root.start == i){
                 root.sum = val;
                 return;
             }
+
+            update(root.left, i, val);
+            update(root.right, i, val);
             root.sum = root.left.sum + root.right.sum;
         }
 
@@ -89,18 +89,90 @@ public class N307_RangeSumQueryMutable {
             if(i<= root.start && j>= root.end) return root.sum;
 
             int mid = root.start + (root.end - root.start)/2;
-
-            /* TLE in this format? why?
-            return sumRange(root.left, i, Math.min(mid, j)) +
-                    sumRange(root.right, Math.max(mid+1, i), j);
-            */
-
-            int ret = sumRange(root.left, i, Math.min(mid, j)) +
-                    sumRange(root.right, Math.max(mid+1, i), j);
-            return ret;
+            return sumRange(root.left, i, Math.min(mid, j)) + sumRange(root.right, Math.max(mid+1, i), j);
         }
 
     }
+
+
+    // Google
+    // given a data stream which contains all positive integer,
+    // design a data structure is able query the count of each number
+    // in a range
+    // solution is segment tree, o(logn) insert, o(logn) query
+    /*
+                                     [0,5]
+                                   /       \
+                              [0,3]        [4,5]
+                             /    \        /   \
+                        [0,1]     [2,3]  [4,4] [5,5]
+                       /    \     /    \
+                    [0,0] [1,1] [2,2]  [3,3]
+     */
+    public class RangeCount {
+        class SegTreeNode{
+            int start, end, sum;
+            SegTreeNode left, right;
+            SegTreeNode(int start, int end){
+                this.start = start;
+                this.end = end;
+                this.sum = 0;
+            }
+        }
+
+        // init, assume are all positive integers
+        // all sum are 0 initially
+        SegTreeNode root;
+        RangeCount(){
+            root = buildTree(0, Integer.MAX_VALUE);
+        }
+
+        SegTreeNode buildTree(int lo, int hi){
+            if(lo > hi) return null;
+            if(lo == hi) return new SegTreeNode(lo, lo);
+
+            int mid = (hi-lo)/2 + lo;
+            root = new SegTreeNode(lo,hi);
+            root.left = buildTree(lo, mid);
+            root.right = buildTree(mid+1, hi);
+            return root;
+        }
+
+        // increase 1 count for that number
+        void update(int num){
+            update(num, root);
+        }
+
+        void update(int num, SegTreeNode node){
+            if(node == null || num < node.start || num > node.end) return;
+            if(num == node.start && num ==  node.end){
+                node.sum++;
+                return;
+            }
+
+            update(num, node.left);
+            update(num, node.right);
+            node.sum = node.left.sum + node.right.sum;
+        }
+
+        // query count of each number between i and j
+        int query(int i, int j){
+            return query(i,j, root);
+        }
+
+        int query(int i, int j, SegTreeNode node){
+            if(node==null || i > j || i > node.end || j<node.start) return 0;
+
+            int lo = node.start, hi = node.end, mid = (hi-lo)/2 + lo;
+            if(i <= lo && j>= hi) return node.sum;
+
+            // the min and max are important
+            return query(i, Math.min(mid, j), node.left) + query(Math.max(i,mid+1), hi, node.right);
+        }
+
+
+    }
+
 
     //another solution. Binary indexed tree
 
