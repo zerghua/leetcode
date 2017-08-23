@@ -16,6 +16,20 @@ public class N280_WiggleSort {
     public class Solution {
         public void wiggleSort(int[] nums) {
             for(int i=1; i<nums.length; i++){
+                if((i % 2 == 1 && nums[i-1] > nums[i]) || (i % 2 == 0 && nums[i-1] < nums[i])){ //swap
+                    int tmp = nums[i-1];
+                    nums[i - 1] = nums[i];
+                    nums[i] = tmp;
+                }
+            }
+        }
+    }
+
+    // 126 / 126 test cases passed.
+    // 1 ms
+    public class Solution2 {
+        public void wiggleSort(int[] nums) {
+            for(int i=1; i<nums.length; i++){
                 int a = nums[i-1];
                 if((i % 2 == 1) == (a > nums[i])){ // two situations to switch with previous one
                     nums[i - 1] = nums[i];

@@ -2,6 +2,7 @@ Google list sort by Frequency(198)
 	388 	Longest Absolute File Path 	36.4% 	Medium                              [map<level, count>]
 	340 	Longest Substring with At Most K Distinct Characters 	38.7% 	Hard    [max sliding window]
 	308 	Range Sum Query 2D - Mutable 	22.4% 	Hard                            [hard, preSumCol, o(m)+o(n), binary indexed tree o(lognm)]
+    307  	Range Sum Query - Mutable   20.6%	Medium                              [Segment tree, build, update, query(remember min(mid,j) and max(mid,i))]
 	482 	License Key Formatting 	41.4% 	Medium                                  [easy, string reformat to k groups]
 	418 	Sentence Screen Fitting 	27.6% 	Medium                              [tricky, flatten matrix and greedy add.]
 	298 	Binary Tree Longest Consecutive Sequence 	40.8% 	Medium              [DFS top-down, pass down cur_count and next expected val]
@@ -14,13 +15,12 @@ Google list sort by Frequency(198)
 	394 	Decode String 	41.2% 	Medium                                          [DFS when it's '[', return when it's ']', with global index]
 	288 	Unique Word Abbreviation 	16.6% 	Medium                              [skip identical word, return false only when length and first/last char equal]
 	317 	Shortest Distance from All Buildings 	33.9% 	Hard                    [BFS from each building, each empty cell stores total distance to all buildings and number of buildings can be reached]
-    307  	Range Sum Query - Mutable   20.6%	Medium                              [Segment tree, build, update, query(remember min(mid,j) and max(mid,i))]
-	271 	Encode and Decode Strings 	26.1% 	Medium
-	351 	Android Unlock Patterns 	43.6% 	Medium
-	305 	Number of Islands II 	38.8% 	Hard
-	280 	Wiggle Sort 	56.9% 	Medium
-	200 	Number of Islands 	34.4% 	Medium
-	259 	3Sum Smaller 	41.3% 	Medium
+	271 	Encode and Decode Strings 	26.1% 	Medium                              [encode list string with length and delimiter]
+	351 	Android Unlock Patterns 	43.6% 	Medium                              [Backtracking with skip matrix, if(!isVisited[i] && (skip[cur][i] == 0 || isVisited[skip[cur][i]]))]
+	305 	Number of Islands II 	38.8% 	Hard                                    [union find(add and union land), 2D->1D using n*row+col, root = findRoot(a, new_key); if(key != root){a[key] = root;  key = root; count--;}]
+	200 	Number of Islands 	34.4% 	Medium                                      [easy, DFS]
+	280 	Wiggle Sort 	56.9% 	Medium                                          [swap with prev and cur based on odd/even and value difference]
+	259 	3Sum Smaller 	41.3% 	Medium                                          [easy, similar to 3sum, but add range of numbers]
 	393 	UTF-8 Validation 	34.9% 	Medium
 	289 	Game of Life 	36.8% 	Medium
 	246 	Strobogrammatic Number 	39.7% 	Easy
