@@ -12,7 +12,7 @@ package leetcode;
  This is how the UTF-8 encoding would work:
 
  Char. number range  |        UTF-8 octet sequence
- (hexadecimal)    |              (binary)
+    (hexadecimal)    |              (binary)
  --------------------+---------------------------------------------
  0000 0000-0000 007F | 0xxxxxxx
  0000 0080-0000 07FF | 110xxxxx 10xxxxxx
@@ -43,10 +43,27 @@ package leetcode;
  But the second continuation byte does not start with 10, so it is invalid.
 
 
+
+ Rule 2:
+ Record the count of consecutive of 1.
+ Move the number 5 bit right, if it equals "110" means there is one '1'.
+ Move the number 4 bit right, if it equals "1110" means there are two '1'.
+ ...
+ Move the number 7 bit right, if it equals "1" means it is "10000000" which has no meaning, return false.
+
+ Rule 1:
+ If it is not started with "10", return false;
+
+
  */
 public class N393_UTF8Validation {
     // Google
     // find pattern. need a counter to record when to return false.
+    // the only thing to verify is:
+    // if 4 bytes, start with 0b11110, it should follow 3 of start with 0b10
+    // if 3 bytes, start with 0b1110, it should follow 2 of start with 0b10
+    // if 2 bytes, start with 0b110, it should follow 1 of start with 0b10
+    // if none above and first is 1, it's also invalid
     // 8 ms 45 / 45 test cases passed.
     public class Solution {
         public boolean validUtf8(int[] data) {

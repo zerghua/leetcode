@@ -5,11 +5,12 @@ import java.util.HashSet;
 /**
  * Created by Hua on 6/7/2017.
 
- Given N axis-aligned rectangles where N > 0, determine if they all together form an exact cover of
- a rectangular region.
+ Given N axis-aligned rectangles where N > 0,
+ determine if they all together form an exact cover of a rectangular region.
 
- Each rectangle is represented as a bottom-left point and a top-right point. For example, a unit square is represented
- as [1,1,2,2]. (coordinate of bottom-left point is (1, 1) and top-right point is (2, 2)).
+ Each rectangle is represented as a bottom-left point and a top-right point.
+ For example, a unit square is represented as [1,1,2,2].
+ (coordinate of bottom-left point is (1, 1) and top-right point is (2, 2)).
 
  Example 1:
 
@@ -60,7 +61,7 @@ import java.util.HashSet;
  The right answer must satisfy two conditions:
 
      1. the large rectangle area should be equal to the sum of small rectangles
-     2. count of all the points should be even, and that of all the four corner points should be one
+     2. count of all the points should be even, and that of all the four corner points should exist once
 
  */
 public class N391_PerfectRectangle {
@@ -90,8 +91,8 @@ public class N391_PerfectRectangle {
                 String p3 = ret[2] + " " + ret[1];
                 String p4 = ret[2] + " " + ret[3];
 
-                if(!set.add(p1)) set.remove(p1);
-                if(!set.add(p2)) set.remove(p2);
+                if(!set.add(p1)) set.remove(p1); // 1 line code, or needs two lines
+                if(!set.add(p2)) set.remove(p2); // if not contains then add, else remove
                 if(!set.add(p3)) set.remove(p3);
                 if(!set.add(p4)) set.remove(p4);
             }

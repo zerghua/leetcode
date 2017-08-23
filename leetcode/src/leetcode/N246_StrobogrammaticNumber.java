@@ -14,10 +14,10 @@ package leetcode;
 import java.util.*;
 public class N246_StrobogrammaticNumber {
     // google
+    // similar to palindrome checking but more conditions
     // 47 / 47 test cases passed.
     // 1 ms
     public class Solution {
-        // similar to palindrome checking but more conditions
         public boolean isStrobogrammatic(String num) {
             HashSet<Integer> set = new HashSet(Arrays.asList(new Integer[]{0, 1, 8}));  // can't use new int[]
             int i=0, j = num.length()-1;

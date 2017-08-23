@@ -35,7 +35,7 @@ max = (right - left) * height
 public class N85_MaximalRectangle {
     // Facebook
     // tricky DP, left[n], right[n], height[n]
-    // 66 / 66 test cases passed.  on 8/19/2018
+    // 66 / 66 test cases passed.  on 8/19/2017
     // 9 ms
     class Solution {
         public int maximalRectangle(char[][] matrix) {

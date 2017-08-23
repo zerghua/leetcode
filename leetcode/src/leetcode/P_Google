@@ -21,17 +21,17 @@ Google list sort by Frequency(198)
 	200 	Number of Islands 	34.4% 	Medium                                      [easy, DFS]
 	280 	Wiggle Sort 	56.9% 	Medium                                          [swap with prev and cur based on odd/even and value difference]
 	259 	3Sum Smaller 	41.3% 	Medium                                          [easy, similar to 3sum, but add range of numbers]
-	393 	UTF-8 Validation 	34.9% 	Medium
-	289 	Game of Life 	36.8% 	Medium
-	246 	Strobogrammatic Number 	39.7% 	Easy
-	218 	The Skyline Problem 	27.0% 	Hard
-	279 	Perfect Squares 	36.7% 	Medium
-	406 	Queue Reconstruction by Height 	55.5% 	Medium
-	391 	Perfect Rectangle 	26.2% 	Hard
-	345 	Reverse Vowels of a String 	38.4% 	Easy
-	286 	Walls and Gates 	43.9% 	Medium
+	393 	UTF-8 Validation 	34.9% 	Medium                                      [cursively verify a pattern follow a format]
+	289 	Game of Life 	36.8% 	Medium                                          [in place, use 2ed bit store next status]
+	246 	Strobogrammatic Number 	39.7% 	Easy                                    [easy, similar to isPalindrome]
+	247 	Strobogrammatic Number II 	39.7% 	Medium                              [backtracking, build inside out. find all such numbers in n digit.]
+	218 	The Skyline Problem 	27.0% 	Hard                                    [visit all points sorted by x, break tie by height(left height is negative), heap store global height in reversed order, add left height, remove end height if cur height is diff than previous, add to ret]
+	279 	Perfect Squares 	36.7% 	Medium                                      [DP 1D. dp[i+j*j] = Math.min(dp[i+j*j], dp[i]+1);]
+	406 	Queue Reconstruction by Height 	55.5% 	Medium                          [sort by height reversely break tie by rank, for each p, insert by smaller people to front by rank]
+	391 	Perfect Rectangle 	26.2% 	Hard                                        [convert problem to 2 conditions. 1, sum of all small areas == total area. 2. 4 corners exist once(use set to add and remove point string (p1 + " " + p2))]
+	345 	Reverse Vowels of a String 	38.4% 	Easy                                [easy, two pointers to reverse certain chars in a string]
+	286 	Walls and Gates 	43.9% 	Medium                                      [easy, BFS, shortest path to set of points]
 	56 	    Merge Intervals 	29.9% 	Medium
-	247 	Strobogrammatic Number II 	39.7% 	Medium
 	320 	Generalized Abbreviation 	44.8% 	Medium
 	329 	Longest Increasing Path in a Matrix 	36.3% 	Hard
 	417 	Pacific Atlantic Water Flow 	33.7% 	Medium

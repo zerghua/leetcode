@@ -16,6 +16,32 @@ package leetcode;
 import java.util.*;
 public class N247_StrobogrammaticNumberII {
     // google
+    // more concise code
+    // build string inside out
+    // 13 / 13 test cases passed.
+    // 24 ms
+    public class Solution2 {
+        public List<String> findStrobogrammatic(int n) {
+            return dfs(n, n);
+        }
+
+        public List<String> dfs(int m, int n){
+            if(m == 0) return new ArrayList(Arrays.asList(""));  // important, can't be empty
+            if(m == 1) return new ArrayList(Arrays.asList("0", "1", "8"));
+
+            List<String> list = dfs(m - 2, n);
+            List<String> ret = new ArrayList();
+            for(String s : list){
+                if(m != n) ret.add("0" + s + "0");
+                ret.add("1" + s + "1");
+                ret.add("8" + s + "8");
+                ret.add("6" + s + "9");
+                ret.add("9" + s + "6");
+            }
+            return ret;
+        }
+    }
+
     // 13 / 13 test cases passed.
     // 33 ms
     // dfs, build left and right
@@ -30,7 +56,6 @@ public class N247_StrobogrammaticNumberII {
             if(cur.length() == length){
                 if(isOdd) {
                     for(String s : Arrays.asList("1", "0", "8")){
-
                         ret.add(cur + s + getReverse(cur));
                     }
                     return;
@@ -57,29 +82,5 @@ public class N247_StrobogrammaticNumberII {
     }
 
 
-    // more concise code
-    // build string inside out
-    // 13 / 13 test cases passed.
-    // 24 ms
-    public class Solution2 {
-        public List<String> findStrobogrammatic(int n) {
-            return dfs(n, n);
-        }
 
-        public List<String> dfs(int m, int n){
-            if(m == 0) return new ArrayList(Arrays.asList(""));  // important, can't be empty
-            if(m == 1) return new ArrayList(Arrays.asList("0", "1", "8"));
-
-            List<String> list = dfs(m - 2, n);
-            List<String> ret = new ArrayList();
-            for(String s : list){
-                if(m != n) ret.add("0" + s + "0");
-                ret.add("1" + s + "1");
-                ret.add("8" + s + "8");
-                ret.add("6" + s + "9");
-                ret.add("9" + s + "6");
-            }
-            return ret;
-        }
-    }
 }

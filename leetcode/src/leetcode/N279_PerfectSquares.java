@@ -13,6 +13,21 @@ package leetcode;
  */
 public class N279_PerfectSquares {
     // Google
+    // DP
+    // 69 ms
+    public int numSquares2(int n) {
+        if(n<=0) return 0;
+        int[] dp = new int[n+1];
+        for(int i=1;i<=n;i++) dp[i] = Integer.MAX_VALUE;  // dp[0] = 0;
+
+        for(int i=0;i<=n;i++){
+            for(int j=1;i+j*j<=n;j++){
+                dp[i+j*j] = Math.min(dp[i+j*j], dp[i]+1);
+            }
+        }
+        return dp[n];
+    }
+
     //https://en.wikipedia.org/wiki/Lagrange's_four-square_theorem
     //2 ms
     //math solution
@@ -30,19 +45,6 @@ public class N279_PerfectSquares {
         return 3;
     }
 
-    // DP
-    // 69 ms
-    public int numSquares2(int n) {
-        if(n<=0) return 0;
-        int[] dp = new int[n+1];
-        for(int i=1;i<=n;i++) dp[i] = Integer.MAX_VALUE;  // dp[0] = 0;
 
-        for(int i=0;i<=n;i++){
-            for(int j=1;i+j*j<=n;j++){
-                dp[i+j*j] = Math.min(dp[i+j*j], dp[i]+1);
-            }
-        }
-        return dp[n];
-    }
 
 }

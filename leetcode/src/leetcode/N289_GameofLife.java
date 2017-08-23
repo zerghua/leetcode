@@ -30,45 +30,6 @@ package leetcode;
  */
 public class N289_GameofLife {
     // Google, Snapchat
-    // with o(m*n) space
-    // 1 ms
-    public void gameOfLife(int[][] board) {
-        if(board == null || board.length==0) return;
-        int row = board.length;
-        int col = board[0].length;
-        int[][] new_board = new int[row][col];
-
-        // count each cell's neighbors, and play with rule.
-        for(int i=0; i<row; i++){
-            for(int j=0;j<col;j++){
-                int num = get_num_of_live_neighbors(i,j,board);
-                if(num==3) new_board[i][j]= 1;
-                else if(num==2) new_board[i][j] = board[i][j];
-                else new_board[i][j]=0;
-            }
-        }
-
-        // copy it back
-        for(int i=0; i<row; i++){
-            for(int j=0;j<col;j++){
-                board[i][j] = new_board[i][j];
-            }
-        }
-    }
-
-    // at most 8 neighbors
-    public int get_num_of_live_neighbors(int x, int y, int[][] board){
-        int ret=0;
-        for(int i=x-1;i<=x+1;i++){
-            for(int j=y-1;j<=y+1;j++){
-                if(i==x && j==y) continue;
-                if(i<0 || i>=board.length || j<0 || j>=board[0].length) continue;
-                ret+=board[i][j];
-            }
-        }
-        return ret;
-    }
-
     // in place, use second bit in int to store updated status.
     // 0 -> 00 or 10  which is 0 or 2 integer
     // 1 -> 01 or 11  which is 1 or 3 integer
@@ -108,6 +69,48 @@ public class N289_GameofLife {
         }
         return ret;
     }
+
+
+    // with o(m*n) space
+    // 1 ms
+    public void gameOfLife(int[][] board) {
+        if(board == null || board.length==0) return;
+        int row = board.length;
+        int col = board[0].length;
+        int[][] new_board = new int[row][col];
+
+        // count each cell's neighbors, and play with rule.
+        for(int i=0; i<row; i++){
+            for(int j=0;j<col;j++){
+                int num = get_num_of_live_neighbors(i,j,board);
+                if(num==3) new_board[i][j]= 1;
+                else if(num==2) new_board[i][j] = board[i][j];
+                else new_board[i][j]=0;
+            }
+        }
+
+        // copy it back
+        for(int i=0; i<row; i++){
+            for(int j=0;j<col;j++){
+                board[i][j] = new_board[i][j];
+            }
+        }
+    }
+
+    // at most 8 neighbors
+    public int get_num_of_live_neighbors(int x, int y, int[][] board){
+        int ret=0;
+        for(int i=x-1;i<=x+1;i++){
+            for(int j=y-1;j<=y+1;j++){
+                if(i==x && j==y) continue;
+                if(i<0 || i>=board.length || j<0 || j>=board[0].length) continue;
+                ret+=board[i][j];
+            }
+        }
+        return ret;
+    }
+
+
 
 
 
