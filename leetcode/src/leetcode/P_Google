@@ -36,7 +36,7 @@ Google list sort by Frequency(198)
 	320 	Generalized Abbreviation 	44.8% 	Medium                              [backtracking, skip char or not. dfs(ret, word, start + 1, cur, count + 1);  dfs(ret ,word, start + 1, cur + (count > 0 ? count: "") + word.charAt(start), 0); ]
 	329 	Longest Increasing Path in a Matrix 	36.3% 	Hard                    [backtracking with memo[i][j] stores visited max]
 	399 	Evaluate Division 	40.9% 	Medium                                      [graph directed, backtracking with hashset, map<str1, map<str2, double>>]
-	297 	Serialize and Deserialize Binary Tree 	33.2% 	Hard
+	297 	Serialize and Deserialize Binary Tree 	33.2% 	Hard                    [preorder traversal, separate by comma and leaf node as null]
 	362 	Design Hit Counter 	53.7% 	Medium
 	471 	Encode String with Shortest Length 	41.8% 	Hard
 	295 	Find Median from Data Stream 	26.4% 	Hard
