@@ -1,7 +1,5 @@
 package leetcode;
-
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.*;
 
 /**
  * Created by HuaZ on 7/23/2016.
@@ -42,12 +40,30 @@ import java.util.Deque;
  */
 public class N239_SlidingWindowMaximum {
     // Amazon, Google.
-    // 30 ms
     // time o(n), space o(k), deque. pop smaller last element.
     // brute force, time o(k*n), space o(1)
     // maintain a descending deque as  [max, second max ... min]  with K elements.
     // remove first if out of K, always get max from the first.
     // similar to the min stack problem.
+    // 18 / 18 test cases passed. on 8/25/2017
+    // 21 ms
+    class Solution {
+        public int[] maxSlidingWindow(int[] nums, int k) {
+            if(nums == null || k<=0 ) return new int[0];
+            int[] ret = new int[nums.length - k + 1];
+            LinkedList<Integer> list = new LinkedList();
+            for(int i=0, j = 0; i<nums.length; i++){
+                if(!list.isEmpty() && i - list.getFirst() >= k) list.removeFirst(); // remove left if out of window k
+                while(!list.isEmpty() && nums[i] > nums[list.getLast()]) list.removeLast(); // pop smaller out
+                list.add(i);
+                if(i >= k -1) ret[j++] = nums[list.getFirst()];  // add max in list to ret
+            }
+            return ret;
+        }
+    }
+
+
+    // 30 ms
     public int[] maxSlidingWindow(int[] nums, int k) {
         if(nums == null || k<=0) return new int[0];
         int[] ret = new int[nums.length - k + 1];

@@ -55,8 +55,8 @@ Google list sort by Frequency(198)
 	407 	Trapping Rain Water II 	37.0% 	Hard                                    [BFS with heap sorted by height and isVisited[][]. trap water in matrix]
 	276 	Paint Fence 	34.3% 	Easy                                            [DP 1D, sameColor, diffColor]
 	274 	H-Index 	33.1% 	Medium                                              [counting sort, return i when sum(count[n~0]) >= i]
-	249 	Group Shifted Strings 	41.2% 	Medium
-	239 	Sliding Window Maximum 	32.8% 	Hard
+	249 	Group Shifted Strings 	41.2% 	Medium                                  [hash string to a key, similar to N49 group anagrams. offset = s.charAt(0) - 'a'; for(int i=0;i<s.length();i++)sb.append((s.charAt(i) - offset + 26) % 26 + 'a');]
+	239 	Sliding Window Maximum 	32.8% 	Hard                                    [kind of reversely sorted list but store index, remove left if out of window, pop all previous smaller.]
 	360 	Sort Transformed Array 	43.9% 	Medium
 	269 	Alien Dictionary 	23.8% 	Hard
 	212 	Word Search II 	23.3% 	Hard
