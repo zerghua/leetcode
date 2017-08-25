@@ -36,22 +36,22 @@ Google list sort by Frequency(198)
 	286 	Walls and Gates 	43.9% 	Medium                                      [easy, BFS, shortest path to set of points]
 	56 	    Merge Intervals 	29.9% 	Medium                                      [easy, interval, 3 conditions]
 	320 	Generalized Abbreviation 	44.8% 	Medium                              [backtracking, skip char or not. dfs(ret, word, start + 1, cur, count + 1);  dfs(ret ,word, start + 1, cur + (count > 0 ? count: "") + word.charAt(start), 0); ]
+	411 	Minimum Unique Word Abbreviation 	32.7% 	Hard                        [hard, backtracking + trie]
 	329 	Longest Increasing Path in a Matrix 	36.3% 	Hard                    [backtracking with memo[i][j] stores visited max]
 	399 	Evaluate Division 	40.9% 	Medium                                      [graph directed, backtracking with hashset, map<str1, map<str2, double>>]
 	297 	Serialize and Deserialize Binary Tree 	33.2% 	Hard                    [preorder traversal, separate by comma and leaf node as null]
+	359 	Logger Rate Limiter 	59.6% 	Easy                                    [design, map<string, timestamp_int>]
 	362 	Design Hit Counter 	53.7% 	Medium                                      [design, int[300] times%300, int[300] hits, if(timestamp - times[i] < 300), or treemap, total - map.floorEntry(timestamp - 300).getValue()]
 	471 	Encode String with Shortest Length 	41.8% 	Hard                        [hard, DP 2D]
 	295 	Find Median from Data Stream 	26.4% 	Hard                            [two heaps to find a median]
 	465 	Optimal Account Balancing 	36.1% 	Hard                                [backtracking + greedy. map<person, debt/credit>, put one's debt/credit to next credit/debt person and continue]
 	146 	LRU Cache 	17.6% 	Hard                                                [least recent cache. hashmap<key, Node> + double linked list Node, get/set put new node on head, remove tail if short of capacity]
 	284 	Peeking Iterator 	35.4% 	Medium                                      [iterator design. cache peek item and it's status boolean isPeeked]
+	341 	Flatten Nested List Iterator 	41.3% 	Medium                          [iterator design, stack of iterator]
 	293 	Flip Game 	55.7% 	Easy                                                [easy, flip adjacent two char if meet condition]
 	294 	Flip Game II 	46.2% 	Medium                                          [backtracking, let player1 to try all combinations, if(!dfs(player2)), player1 wins.]
-	42 	    Trapping Rain Water 	36.6% 	Hard
-	407 	Trapping Rain Water II 	37.0% 	Hard
-	411 	Minimum Unique Word Abbreviation 	32.7% 	Hard
-	359 	Logger Rate Limiter 	59.6% 	Easy
-	341 	Flatten Nested List Iterator 	41.3% 	Medium
+	42 	    Trapping Rain Water 	36.6% 	Hard                                    [DP 1D, two sides, leftMost[] and rightMost[]]
+	407 	Trapping Rain Water II 	37.0% 	Hard                                    [BFS with heap sorted by height and isVisited[][]. trap water in matrix]
 	315 	Count of Smaller Numbers After Self 	34.4% 	Hard
 	276 	Paint Fence 	34.3% 	Easy
 	274 	H-Index 	33.1% 	Medium
