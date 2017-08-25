@@ -37,9 +37,9 @@ Google list sort by Frequency(198)
 	329 	Longest Increasing Path in a Matrix 	36.3% 	Hard                    [backtracking with memo[i][j] stores visited max]
 	399 	Evaluate Division 	40.9% 	Medium                                      [graph directed, backtracking with hashset, map<str1, map<str2, double>>]
 	297 	Serialize and Deserialize Binary Tree 	33.2% 	Hard                    [preorder traversal, separate by comma and leaf node as null]
-	362 	Design Hit Counter 	53.7% 	Medium
-	471 	Encode String with Shortest Length 	41.8% 	Hard
-	295 	Find Median from Data Stream 	26.4% 	Hard
+	362 	Design Hit Counter 	53.7% 	Medium                                      [design, int[300] times%300, int[300] hits, if(timestamp - times[i] < 300), or treemap, total - map.floorEntry(timestamp - 300).getValue()]
+	471 	Encode String with Shortest Length 	41.8% 	Hard                        [hard, DP 2D]
+	295 	Find Median from Data Stream 	26.4% 	Hard                            [two heaps to find a median]
 	228 	Summary Ranges 	29.7% 	Medium
 	159 	Longest Substring with At Most Two Distinct Characters 	41.0% 	Hard
 	465 	Optimal Account Balancing 	36.1% 	Hard
