@@ -14,6 +14,31 @@ import java.util.*;
  */
 public class N159_LongestSubstringwithAtMostTwoDistinctCharacters {
     // google
+    // sliding window, hashmap to count size of distinct char in window
+    // on 7/24/2017
+    // 125 / 125 test cases passed.
+    // 52 ms
+    public class Solution3 {
+        public int lengthOfLongestSubstringTwoDistinct(String s) {
+            int ret = 0, left = 0;
+            HashMap<Character, Integer> map = new HashMap();
+            for(int i=0; i<s.length(); i++){
+                char key = s.charAt(i);
+                if(!map.containsKey(key)) map.put(key, 0);
+                map.put(key, map.get(key) + 1);
+                while(map.size() > 2){
+                    char c = s.charAt(left);
+                    map.put(c, map.get(c) - 1);
+                    if(map.get(c) == 0) map.remove(c);
+                    left++;
+                }
+                ret = Math.max(ret, i - left + 1);
+            }
+            return ret;
+        }
+    }
+
+
     // sliding window only contains at most 2 unique chars with the help of hashmap.
     // 125 / 125 test cases passed.
     // 32 ms
@@ -62,29 +87,7 @@ public class N159_LongestSubstringwithAtMostTwoDistinctCharacters {
     }
 
 
-    // sliding window
-    // on 7/24/2017
-    // 125 / 125 test cases passed.
-    // 52 ms
-    public class Solution3 {
-        public int lengthOfLongestSubstringTwoDistinct(String s) {
-            int ret = 0, left = 0;
-            HashMap<Character, Integer> map = new HashMap();
-            for(int i=0; i<s.length(); i++){
-                char key = s.charAt(i);
-                if(!map.containsKey(key)) map.put(key, 0);
-                map.put(key, map.get(key) + 1);
-                while(map.size() > 2){
-                    char c = s.charAt(left);
-                    map.put(c, map.get(c) - 1);
-                    if(map.get(c) == 0) map.remove(c);
-                    left++;
-                }
-                ret = Math.max(ret, i - left + 1);
-            }
-            return ret;
-        }
-    }
+
 
     public static void main(String[] args){
         N159_LongestSubstringwithAtMostTwoDistinctCharacters.Solution x=

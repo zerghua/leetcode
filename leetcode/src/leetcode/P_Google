@@ -1,6 +1,7 @@
 Google list sort by Frequency(198)
 	388 	Longest Absolute File Path 	36.4% 	Medium                              [map<level, count>]
-	340 	Longest Substring with At Most K Distinct Characters 	38.7% 	Hard    [max sliding window]
+	159 	Longest Substring with At Most Two Distinct Characters 	41.0% 	Hard    [max sliding window, map<char, count> to measure window size, update ret when window size is fixed in k]
+	340 	Longest Substring with At Most K Distinct Characters 	38.7% 	Hard    [max sliding window, similar to N159]
 	308 	Range Sum Query 2D - Mutable 	22.4% 	Hard                            [hard, preSumCol, o(m)+o(n), binary indexed tree o(lognm)]
     307  	Range Sum Query - Mutable   20.6%	Medium                              [Segment tree, build, update, query(remember min(mid,j) and max(mid,i))]
 	482 	License Key Formatting 	41.4% 	Medium                                  [easy, string reformat to k groups]
@@ -11,6 +12,7 @@ Google list sort by Frequency(198)
 	425 	Word Squares 	42.5% 	Hard                                            [hard, backtracking with trie to do fast prefix search]
 	346 	Moving Average from Data Stream 	58.6% 	Easy                        [easy, queue as window with sum variable ]
 	163 	Missing Ranges 	24.6% 	Medium                                          [two corner cases, first and last should be included, pre = lo-1; last = hi+1;]
+	228 	Summary Ranges 	29.7% 	Medium                                          [similar to N163.]
 	66 	    Plus One 	38.5% 	Easy                                                [easy, a few cases, 288, 198, 199, 999]
 	394 	Decode String 	41.2% 	Medium                                          [DFS when it's '[', return when it's ']', with global index]
 	288 	Unique Word Abbreviation 	16.6% 	Medium                              [skip identical word, return false only when length and first/last char equal]
@@ -40,11 +42,9 @@ Google list sort by Frequency(198)
 	362 	Design Hit Counter 	53.7% 	Medium                                      [design, int[300] times%300, int[300] hits, if(timestamp - times[i] < 300), or treemap, total - map.floorEntry(timestamp - 300).getValue()]
 	471 	Encode String with Shortest Length 	41.8% 	Hard                        [hard, DP 2D]
 	295 	Find Median from Data Stream 	26.4% 	Hard                            [two heaps to find a median]
-	228 	Summary Ranges 	29.7% 	Medium
-	159 	Longest Substring with At Most Two Distinct Characters 	41.0% 	Hard
-	465 	Optimal Account Balancing 	36.1% 	Hard
-	146 	LRU Cache 	17.6% 	Hard
-	284 	Peeking Iterator 	35.4% 	Medium
+	465 	Optimal Account Balancing 	36.1% 	Hard                                [backtracking + greedy. map<person, debt/credit>, put one's debt/credit to next credit/debt person and continue]
+	146 	LRU Cache 	17.6% 	Hard                                                [least recent cache. hashmap<key, Node> + double linked list Node, get/set put new node on head, remove tail if short of capacity]
+	284 	Peeking Iterator 	35.4% 	Medium                                      [iterator design. cache peek item and it's status boolean isPeeked]
 	294 	Flip Game II 	46.2% 	Medium
 	407 	Trapping Rain Water II 	37.0% 	Hard
 	293 	Flip Game 	55.7% 	Easy

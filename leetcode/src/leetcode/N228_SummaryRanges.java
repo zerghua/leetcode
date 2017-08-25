@@ -14,6 +14,44 @@ test case:
 
 public class N228_SummaryRanges {
     // Google
+    // basic programming
+    // 28 / 28 test cases passed.  on 8/25/2017
+    // 1 ms
+    class Solution {
+        public List<String> summaryRanges(int[] nums) {
+            List<String> ret = new ArrayList();
+            for(int i=0;i<nums.length;i++){
+                int start = nums[i];
+                while(i<nums.length-1 && nums[i] + 1 == nums[i+1]) i++; // key here
+
+                if(start == nums[i]) ret.add(start + "");
+                else ret.add(start + "->" + nums[i]);
+            }
+            return ret;
+        }
+    }
+
+
+
+
+    // concise code added on 10/1/2016
+    // 0 ms 27 / 27 test cases passed.
+    public class Solution2 {
+        public List<String> summaryRanges(int[] nums) {
+            List<String> ret = new ArrayList<>();
+            int start=0;
+            for(int i=1; i<=nums.length;i++){
+                if(i == nums.length || nums[i] != nums[i-1]+1){
+                    if(i-1 == start) ret.add(""+ nums[i-1]); // case when last one is single.
+                    else ret.add(nums[start] + "->" + nums[i-1]);
+                    start = i;
+                }
+            }
+            return ret;
+        }
+    }
+
+
     // 1 ms
 	public String build_string(int start, int end){
         String s;
@@ -45,20 +83,5 @@ public class N228_SummaryRanges {
         return ret;
     }
 
-    // concise code added on 10/1/2016
-    // 0 ms 27 / 27 test cases passed.
-    public class Solution {
-        public List<String> summaryRanges(int[] nums) {
-            List<String> ret = new ArrayList<>();
-            int start=0;
-            for(int i=1; i<=nums.length;i++){
-                if(i == nums.length || nums[i] != nums[i-1]+1){
-                    if(i-1 == start) ret.add(""+ nums[i-1]); // case when last one is single.
-                    else ret.add(nums[start] + "->" + nums[i-1]);
-                    start = i;
-                }
-            }
-            return ret;
-        }
-    }
+
 }

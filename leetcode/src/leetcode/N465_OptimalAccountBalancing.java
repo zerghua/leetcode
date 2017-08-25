@@ -50,7 +50,7 @@ package leetcode;
 import java.util.*;
 public class N465_OptimalAccountBalancing {
     // google
-    // fair complex backtracking
+    // backtracking with greedy, put one's debt/credit to the next negative person, and continue
     // 29 / 29 test cases passed.
     // 85 ms
     public class Solution {
@@ -72,14 +72,15 @@ public class N465_OptimalAccountBalancing {
             return dfs(list, 0, 0);
         }
 
+
         public int dfs(ArrayList<Long> list, int start, int count){
             while(start < list.size() && list.get(start) == 0) start++;
-            if(start >= list.size()) return count; // everyone are debt fre
+            if(start >= list.size()) return count; // everyone are debt free
 
             int ret = Integer.MAX_VALUE;
             for(int i=start+1; i<list.size(); i++){
                 if(list.get(i) * list.get(start) < 0){
-                    list.set(i, list.get(i) + list.get(start));
+                    list.set(i, list.get(i) + list.get(start));   // set start free, put all start's debt/credit to i and continue
                     ret = Math.min(ret, dfs(list, start+1, count+1));
                     list.set(i, list.get(i) - list.get(start));
                 }
