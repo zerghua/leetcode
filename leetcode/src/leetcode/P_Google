@@ -45,10 +45,10 @@ Google list sort by Frequency(198)
 	465 	Optimal Account Balancing 	36.1% 	Hard                                [backtracking + greedy. map<person, debt/credit>, put one's debt/credit to next credit/debt person and continue]
 	146 	LRU Cache 	17.6% 	Hard                                                [least recent cache. hashmap<key, Node> + double linked list Node, get/set put new node on head, remove tail if short of capacity]
 	284 	Peeking Iterator 	35.4% 	Medium                                      [iterator design. cache peek item and it's status boolean isPeeked]
-	294 	Flip Game II 	46.2% 	Medium
-	407 	Trapping Rain Water II 	37.0% 	Hard
-	293 	Flip Game 	55.7% 	Easy
+	293 	Flip Game 	55.7% 	Easy                                                [easy, flip adjacent two char if meet condition]
+	294 	Flip Game II 	46.2% 	Medium                                          [backtracking, let player1 to try all combinations, if(!dfs(player2)), player1 wins.]
 	42 	    Trapping Rain Water 	36.6% 	Hard
+	407 	Trapping Rain Water II 	37.0% 	Hard
 	411 	Minimum Unique Word Abbreviation 	32.7% 	Hard
 	359 	Logger Rate Limiter 	59.6% 	Easy
 	341 	Flatten Nested List Iterator 	41.3% 	Medium
