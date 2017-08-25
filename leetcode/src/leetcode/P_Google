@@ -4,6 +4,7 @@ Google list sort by Frequency(198)
 	340 	Longest Substring with At Most K Distinct Characters 	38.7% 	Hard    [max sliding window, similar to N159]
 	308 	Range Sum Query 2D - Mutable 	22.4% 	Hard                            [hard, preSumCol, o(m)+o(n), binary indexed tree o(lognm)]
     307  	Range Sum Query - Mutable   20.6%	Medium                              [Segment tree, build, update, query(remember min(mid,j) and max(mid,i))]
+	315 	Count of Smaller Numbers After Self 	34.4% 	Hard                    [augmented binary tree, with smallerCount property. build BST while compare with value]
 	482 	License Key Formatting 	41.4% 	Medium                                  [easy, string reformat to k groups]
 	418 	Sentence Screen Fitting 	27.6% 	Medium                              [tricky, flatten matrix and greedy add.]
 	298 	Binary Tree Longest Consecutive Sequence 	40.8% 	Medium              [DFS top-down, pass down cur_count and next expected val]
@@ -52,9 +53,8 @@ Google list sort by Frequency(198)
 	294 	Flip Game II 	46.2% 	Medium                                          [backtracking, let player1 to try all combinations, if(!dfs(player2)), player1 wins.]
 	42 	    Trapping Rain Water 	36.6% 	Hard                                    [DP 1D, two sides, leftMost[] and rightMost[]]
 	407 	Trapping Rain Water II 	37.0% 	Hard                                    [BFS with heap sorted by height and isVisited[][]. trap water in matrix]
-	315 	Count of Smaller Numbers After Self 	34.4% 	Hard
-	276 	Paint Fence 	34.3% 	Easy
-	274 	H-Index 	33.1% 	Medium
+	276 	Paint Fence 	34.3% 	Easy                                            [DP 1D, sameColor, diffColor]
+	274 	H-Index 	33.1% 	Medium                                              [counting sort, return i when sum(count[n~0]) >= i]
 	249 	Group Shifted Strings 	41.2% 	Medium
 	239 	Sliding Window Maximum 	32.8% 	Hard
 	360 	Sort Transformed Array 	43.9% 	Medium
