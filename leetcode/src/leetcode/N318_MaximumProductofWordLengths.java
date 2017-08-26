@@ -30,49 +30,60 @@ import java.util.HashSet;
  */
 public class N318_MaximumProductofWordLengths {
     // Google
-    // 288 ms
-    // hashset o(n^2) time
-    public int maxProduct(String[] words) {
-        HashSet<Character>[]  map = new HashSet[words.length];
-        for(int i=0; i<words.length;i++){
-            char[] chars = words[i].toCharArray();
-            map[i] = new HashSet<>();
-            for(char c: chars) {
-                map[i].add(c);
+    // bit manipulation,  o(n^2)
+    // int has 32 bit, store 1 char as one bit, lower case char has 26.
+    // move 1 to left by n position:  1 << n
+    // 174 / 174 test cases passed.  on 8/26/2017
+    // 36 ms
+    public class Solution {
+        public int maxProduct(String[] words) {
+            int[]  map = new int[words.length];
+            for(int i=0; i<words.length;i++){
+                char[] chars = words[i].toCharArray();
+                for(char c: chars) map[i] |= 1 << (c - 'a');
             }
-        }
 
-        int max = 0;
-        for(int i=0;i<words.length;i++){
-            for(int j=i+1;j<words.length;j++){
-                boolean isIntersected = false;
-                for(char c: map[j]) {
-                    if(map[i].contains(c)) {
-                        isIntersected = true;
-                        break;
-                    }
+            int max = 0;
+            for(int i=0;i<words.length;i++){
+                for(int j=i+1;j<words.length;j++){
+                    if((map[i] & map[j]) == 0) max = Math.max(max, words[i].length() * words[j].length());
                 }
-                if(!isIntersected) max = Math.max(max, words[i].length() * words[j].length());
             }
+            return max;
         }
-        return max;
     }
 
-    // bit manipulation,  46 ms  o(n^2)
-    // int has 64 bit, store 1 char as one bit.
-    public int maxProduct2(String[] words) {
-        int[]  map = new int[words.length];
-        for(int i=0; i<words.length;i++){
-            char[] chars = words[i].toCharArray();
-            for(char c: chars) map[i] |= 1<< (c - 'a');
-        }
 
-        int max = 0;
-        for(int i=0;i<words.length;i++){
-            for(int j=i+1;j<words.length;j++){
-                if((map[i] & map[j]) == 0) max = Math.max(max, words[i].length() * words[j].length());
+    // hashset o(n^2) time
+    // 174 / 174 test cases passed.  on 8/26/2017
+    // 240 ms
+    public class Solution2 {
+        public int maxProduct(String[] words) {
+            HashSet<Character>[]  map = new HashSet[words.length];
+            for(int i=0; i<words.length;i++){
+                char[] chars = words[i].toCharArray();
+                map[i] = new HashSet<>();
+                for(char c: chars) {
+                    map[i].add(c);
+                }
             }
+
+            int max = 0;
+            for(int i=0;i<words.length;i++){
+                for(int j=i+1;j<words.length;j++){
+                    boolean isIntersected = false;
+                    for(char c: map[j]) {
+                        if(map[i].contains(c)) {
+                            isIntersected = true;
+                            break;
+                        }
+                    }
+                    if(!isIntersected) max = Math.max(max, words[i].length() * words[j].length());
+                }
+            }
+            return max;
         }
-        return max;
     }
+
+
 }
