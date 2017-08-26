@@ -3,7 +3,8 @@ package leetcode;
 /**
  * Created by Hua on 7/10/2017.
 
- Given a non-empty binary search tree and a target value, find the value in the BST that is closest to the target.
+ Given a non-empty binary search tree and a target value,
+ find the value in the BST that is closest to the target.
 
  Note:
 

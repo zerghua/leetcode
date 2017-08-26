@@ -7,16 +7,34 @@ import java.util.*;
  Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
 
  Note:
- You may assume k is always valid, 1 �� k �� BST's total elements.
+ You may assume k is always valid, 1 < k < BST's total elements.
 
  Follow up:
  What if the BST is modified (insert/delete operations) often and
  you need to find the kth smallest frequently?
  How would you optimize the kthSmallest routine?
+
  */
 public class N230_KthSmallestElementinaBST {
-    // Google, Bloomger, Uber
-    //use inorder traversal, 2 ms, 23%
+    // Google, Bloomgerg, Uber
+    // divide and conquer
+    // 91 / 91 test cases passed.  on 8/26/2017
+    // 1 ms
+    class Solution {
+        public int kthSmallest(TreeNode root, int k) {
+            int count = dfs(root.left) + 1;
+            if(count == k) return root.val;
+            else if(count > k) return kthSmallest(root.left, k);
+            else return kthSmallest(root.right, k - count);
+        }
+        public int dfs(TreeNode node){  // count nodes
+            if(node == null) return 0;
+            return dfs(node.left) + dfs(node.right) + 1;
+        }
+    }
+
+
+    // use inorder traversal, 2 ms, 23%
     public int kthSmallest(TreeNode root, int k) {
         Stack<TreeNode> s = new Stack<TreeNode>();
         int count=0, ret=0;
@@ -25,7 +43,7 @@ public class N230_KthSmallestElementinaBST {
             if(p!= null){
                     s.push(p);
                     p= p.left;
-                }else{
+            }else{
                     p = s.pop();
                     ret = p.val;
                     p=p.right;

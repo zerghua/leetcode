@@ -65,11 +65,11 @@ Google list sort by Frequency(198)
 	128 	Longest Consecutive Sequence 	36.7% 	Hard                            [add all nums to set, find num-- and num++ in set and sum, remove them afterwards]
 	253 	Meeting Rooms II 	38.8% 	Medium                                      [interval(min needed room), heap sort by end time, merge if possible]
 	389 	Find the Difference 	50.5% 	Easy                                    [easy, map<char,count>]
-	401 	Binary Watch 	44.8% 	Easy
-	230 	Kth Smallest Element in a BST 	43.7% 	Medium
-	270 	Closest Binary Search Tree Value 	39.3% 	Easy
-	400 	Nth Digit 	30.1% 	Easy
-	139 	Word Break 	29.8% 	Medium
+	401 	Binary Watch 	44.8% 	Easy                                            [Integer.bitCount(i) + Integer.bitCount(j) == num or backtracking combine hour and minute to one array]
+	230 	Kth Smallest Element in a BST 	43.7% 	Medium                          [tree. binary search. count number of nodes in left, and compare with k]
+	270 	Closest Binary Search Tree Value 	39.3% 	Easy                        [easy, tree. min diff between node and target]
+	400 	Nth Digit 	30.1% 	Easy                                                [math, find the length of digit, find the actual number and locate its digit]
+	139 	Word Break 	29.8% 	Medium                                              [DP, 1D. dp[j+1] = true when dp[i]==true && set.contains(s(i,j+1))]
 	484 	Find Permutation 	53.8% 	Medium
 	20 	    Valid Parentheses 	33.3% 	Easy
 	162 	Find Peak Element 	37.3% 	Medium

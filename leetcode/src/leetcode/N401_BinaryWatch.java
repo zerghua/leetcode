@@ -1,5 +1,7 @@
 package leetcode;
 
+import javafx.beans.binding.IntegerBinding;
+
 import java.util.*;
 
 /**
@@ -31,11 +33,30 @@ import java.util.*;
  */
 public class N401_BinaryWatch {
     // Google
+    // Integer.bitCount(i) + Integer.bitCount(j) == num
+    // 10 / 10 test cases passed.  on 8/26/2017
+    // 31 ms
+    public class Solution {
+        public List<String> readBinaryWatch(int num) {
+            List<String> ret = new LinkedList();
+            for(int i=0; i<= 11; i++){
+                for(int j=0; j<= 59;j++){
+                    if(Integer.bitCount(i) + Integer.bitCount(j) == num){
+                        ret.add(String.format("%d:%02d",i,j));
+                    }
+                }
+            }
+            return ret;
+        }
+    }
+
+
+    // 3 ms  10 / 10 test cases passed.
     // hour[0-11]: 1,2,4,8,  can't have leading zeros
     // minutes[0-59]: 1,2,4,8,16,32,  should have leading zeros if less than 10
     // Key part is to combine hour and min to an array and go through them for DFS.
-    // 3 ms  10 / 10 test cases passed.
-    public class Solution {
+    // has to have a count
+    public class Solution2 {
         public List<String> readBinaryWatch(int num) {
             List<String> ret = new ArrayList();
             int[] time =  new int[]{1,2,4,8,1,2,4,8,16,32};
@@ -57,14 +78,13 @@ public class N401_BinaryWatch {
                 int newMM = (i<4)? min : min + time[i];
                 dfs(ret, newHH, newMM, i+1, num, count+1, time);
             }
-
         }
     }
 
     // interesting
     // 2 ms 10 / 10 test cases passed.
     // https://discuss.leetcode.com/topic/59761/just-for-fun-java-1ms-beats-100
-    public class Solution2 {
+    public class Solution3 {
         String[][] hour = {{"0"},
                 {"1", "2", "4", "8"},
                 {"3", "5", "6", "9", "10"},

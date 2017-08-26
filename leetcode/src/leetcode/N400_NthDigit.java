@@ -6,21 +6,18 @@ package leetcode;
  Find the nth digit of the infinite integer sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...
 
  Note:
- n is positive and will fit within the range of a 32-bit signed integer (n < 231).
+ n is positive and will fit within the range of a 32-bit signed integer (n < 2^31).
 
  Example 1:
-
  Input:
  3
-
  Output:
  3
 
- Example 2:
 
+ Example 2:
  Input:
  11
-
  Output:
  0
 
@@ -30,6 +27,16 @@ package leetcode;
  find the length of the number where the nth digit is from
  find the actual number where the nth digit is from
  find the nth digit and return
+
+
+ 1 ~ 9 include 9 one digit number;
+ 10 ~ 99 include 90 two digits number;
+ 100 ~ 999 include 900 three digits number;
+ 1000 ~ 9999 include 9000 four digits number;
+ ...
+
+ len is how many digits:1 or 2 or 3 ..., count is 9 or 90 or 900 ...
+
 
  */
 public class N400_NthDigit {
@@ -48,8 +55,8 @@ public class N400_NthDigit {
                 start *= 10;
                 count *= 10;
             }
-            start += (n-1)/len;
-            return (start + "").charAt((n-1)%len) - '0';
+            start += (n-1)/len;                                 // find the actual number
+            return (start + "").charAt((n-1)%len) - '0';        // find the digit from this number
         }
     }
 
