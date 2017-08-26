@@ -15,7 +15,31 @@ import java.util.ArrayList;
 
  */
 public class N222_CountCompleteTreeNodes {
-    // no company
+    // Google phone
+    // key is return 1 + dfs(root.left) + dfs(root.right) if height_left != height_right
+    // 18 / 18 test cases passed.
+    // 102 ms
+    class Solution {
+        public int countNodes(TreeNode root) {
+            if(root == null) return 0;
+            TreeNode left = root, right = root;
+            int left_height = 0, right_height = 0;
+            while(left != null){
+                left = left.left;
+                left_height++;
+            }
+
+            while(right != null){
+                right = right.right;
+                right_height++;
+            }
+
+            //if(left_height == right_height) return (int)Math.pow(2, left_height) - 1;  // TLE.. not sure why
+            if(left_height == right_height) return (1<< left_height) - 1;
+            return countNodes(root.left) + countNodes(root.right) + 1;
+        }
+    }
+
     // brute force, TLE for large data set.
     public int countNodes2(TreeNode root) {
         if(root == null) return 0;

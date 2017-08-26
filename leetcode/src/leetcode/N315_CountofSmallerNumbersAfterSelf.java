@@ -20,7 +20,7 @@ import java.util.*;
 public class N315_CountofSmallerNumbersAfterSelf {
     // Google
     // BF is o(n^2)
-    // BST is average o(logn), worst o(n^2)
+    // BST is average o(nlogn), worst o(n^2)
     // 16 / 16 test cases passed.
     // 13 ms
     public class Solution {
@@ -49,7 +49,7 @@ public class N315_CountofSmallerNumbersAfterSelf {
             }else if(num >= node.val){
                 node.right = dfs(num, node.right, ret, i, preCount + node.smallerCount + (num > node.val ? 1 : 0));
             }else{
-                node.smallerCount++;
+                node.smallerCount++;  // important
                 node.left = dfs(num, node.left, ret, i, preCount);
             }
             return node;

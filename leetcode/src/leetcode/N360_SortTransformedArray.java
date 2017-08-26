@@ -21,8 +21,8 @@ package leetcode;
  Result: [-23, -5, 1, 7]
 
  Key:
- If a >= 0; the smallest number must be at two ends of orgin array;
- If a < 0; the largest number must be at two ends of orgin array;
+ If a >= 0; the smallest number must be at two ends of original array;
+ If a < 0; the largest number must be at two ends of original array;
 
  */
 public class N360_SortTransformedArray {

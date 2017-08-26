@@ -4,7 +4,7 @@ Google list sort by Frequency(198)
 	340 	Longest Substring with At Most K Distinct Characters 	38.7% 	Hard    [max sliding window, similar to N159]
 	308 	Range Sum Query 2D - Mutable 	22.4% 	Hard                            [hard, preSumCol, o(m)+o(n), binary indexed tree o(lognm)]
     307  	Range Sum Query - Mutable   20.6%	Medium                              [Segment tree, build, update, query(remember min(mid,j) and max(mid,i))]
-	315 	Count of Smaller Numbers After Self 	34.4% 	Hard                    [augmented binary tree, with smallerCount property. build BST while compare with value]
+	315 	Count of Smaller Numbers After Self 	34.4% 	Hard                    [augmented binary tree, with smallerCount property. Top-down DFS, pass down preCount.]
 	482 	License Key Formatting 	41.4% 	Medium                                  [easy, string reformat to k groups]
 	418 	Sentence Screen Fitting 	27.6% 	Medium                              [tricky, flatten matrix and greedy add.]
 	298 	Binary Tree Longest Consecutive Sequence 	40.8% 	Medium              [DFS top-down, pass down cur_count and next expected val]
@@ -57,7 +57,7 @@ Google list sort by Frequency(198)
 	274 	H-Index 	33.1% 	Medium                                              [counting sort, return i when sum(count[n~0]) >= i]
 	249 	Group Shifted Strings 	41.2% 	Medium                                  [hash string to a key, similar to N49 group anagrams. offset = s.charAt(0) - 'a'; for(int i=0;i<s.length();i++)sb.append((s.charAt(i) - offset + 26) % 26 + 'a');]
 	239 	Sliding Window Maximum 	32.8% 	Hard                                    [kind of reversely sorted list but store index, remove left if out of window, pop all previous smaller.]
-	360 	Sort Transformed Array 	43.9% 	Medium
+	360 	Sort Transformed Array 	43.9% 	Medium                                  [return sorted max(a*x^2+b*x+c), if(a>=0) ret[index--]=max(two sides); else ret[index++]=max(two sides)]
 	269 	Alien Dictionary 	23.8% 	Hard
 	212 	Word Search II 	23.3% 	Hard
 	380 	Insert Delete GetRandom O(1) 	39.1% 	Medium
@@ -200,7 +200,7 @@ Google list sort by Frequency(198)
 	314 	Binary Tree Vertical Order Traversal 	36.4% 	Medium
 	312 	Burst Balloons 	42.5% 	Hard
 	310 	Minimum Height Trees 	28.8% 	Medium
-
+    222     Count Complete Tree Nodes 	27.5%	Medium                  [return 1 + dfs(root.left) + dfs(root.right) if height_left != height_right]
 
 Top 50 Google Questions
 	534    Design TinyURL    N/A	Medium
