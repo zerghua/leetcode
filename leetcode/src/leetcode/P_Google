@@ -70,13 +70,13 @@ Google list sort by Frequency(198)
 	270 	Closest Binary Search Tree Value 	39.3% 	Easy                        [easy, tree. min diff between node and target]
 	400 	Nth Digit 	30.1% 	Easy                                                [math, find the length of digit, find the actual number and locate its digit]
 	139 	Word Break 	29.8% 	Medium                                              [DP, 1D. dp[j+1] = true when dp[i]==true && set.contains(s(i,j+1))]
-	484 	Find Permutation 	53.8% 	Medium
-	20 	    Valid Parentheses 	33.3% 	Easy
-	162 	Find Peak Element 	37.3% 	Medium
-	158 	Read N Characters Given Read4 II - Call multiple times 	24.2% 	Hard
-	369 	Plus One Linked List 	54.3% 	Medium
-	463 	Island Perimeter 	57.1% 	Easy
-	266 	Palindrome Permutation 	56.8% 	Easy
+	484 	Find Permutation 	53.8% 	Medium                                      [reverse group of increasing number. preset all to increasing order, reverse continuous 'D']
+	20 	    Valid Parentheses 	33.3% 	Easy                                        [easy, stack to check match]
+	162 	Find Peak Element 	37.3% 	Medium                                      [binary search]
+	158 	Read N Characters Given Read4 II - Call multiple times 	24.2% 	Hard    [class level variable,pre_i, pre_n, pre_buf]
+	369 	Plus One Linked List 	54.3% 	Medium                                  [easy, stack<LinkedList Node>]
+	463 	Island Perimeter 	57.1% 	Easy                                        [DFS, ret = 4*island - 2*neighbour. neighbour = right and bottom]
+	266 	Palindrome Permutation 	56.8% 	Easy                                    [easy, map<char, count>, if this string can form palindrome.]
 	358 	Rearrange String k Distance Apart 	31.9% 	Hard
 	373 	Find K Pairs with Smallest Sums 	30.6% 	Medium
 	10 	    Regular Expression Matching 	24.1% 	Hard
