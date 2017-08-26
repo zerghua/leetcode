@@ -62,9 +62,9 @@ Google list sort by Frequency(198)
 	212 	Word Search II 	23.3% 	Hard                                            [backtracking + trie(for pruning)]
 	380 	Insert Delete GetRandom O(1) 	39.1% 	Medium                          [design, hashmap<val, index> + arraylist, swap last one with map.get(val) and remove]
 	318 	Maximum Product of Word Lengths 	44.1% 	Medium                      [bit, 1<<n(move 1 to left by n position), use each bit in int to store each lower-case char. or hashset o(n^2)]
-	128 	Longest Consecutive Sequence 	36.7% 	Hard
-	253 	Meeting Rooms II 	38.8% 	Medium
-	389 	Find the Difference 	50.5% 	Easy
+	128 	Longest Consecutive Sequence 	36.7% 	Hard                            [add all nums to set, find num-- and num++ in set and sum, remove them afterwards]
+	253 	Meeting Rooms II 	38.8% 	Medium                                      [interval(min needed room), heap sort by end time, merge if possible]
+	389 	Find the Difference 	50.5% 	Easy                                    [easy, map<char,count>]
 	401 	Binary Watch 	44.8% 	Easy
 	230 	Kth Smallest Element in a BST 	43.7% 	Medium
 	270 	Closest Binary Search Tree Value 	39.3% 	Easy
