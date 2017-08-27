@@ -77,18 +77,18 @@ Google list sort by Frequency(198)
 	369 	Plus One Linked List 	54.3% 	Medium                                  [easy, stack<LinkedList Node>]
 	463 	Island Perimeter 	57.1% 	Easy                                        [DFS, ret = 4*island - 2*neighbour. neighbour = right and bottom]
 	266 	Palindrome Permutation 	56.8% 	Easy                                    [easy, map<char, count>, if this string can form palindrome.]
-	358 	Rearrange String k Distance Apart 	31.9% 	Hard
-	373 	Find K Pairs with Smallest Sums 	30.6% 	Medium
-	10 	    Regular Expression Matching 	24.1% 	Hard
-	327 	Count of Range Sum 	29.7% 	Hard
-	155 	Min Stack 	28.5% 	Easy
-	4 	    Median of Two Sorted Arrays 	21.7% 	Hard
-	332 	Reconstruct Itinerary 	29.1% 	Medium
-	23 	    Merge k Sorted Lists 	27.1% 	Hard
-	166 	Fraction to Recurring Decimal 	17.4% 	Medium
-	505 	The Maze II 	36.7% 	Medium
+	358 	Rearrange String k Distance Apart 	31.9% 	Hard                        [easy, heap<Node<char, count>, greedily rearrange> ]
+	373 	Find K Pairs with Smallest Sums 	30.6% 	Medium                      [easy, min_heap<sum_of_pair>]
+	10 	    Regular Expression Matching 	24.1% 	Hard                            [hard, fair complex logic]
+	327 	Count of Range Sum 	29.7% 	Hard                                        [merge sort, look again how the problem is converted to merge sort.]
+	155 	Min Stack 	28.5% 	Easy                                                [2 stacks, one stack to track min, push only when smaller than top]
+	4 	    Median of Two Sorted Arrays 	21.7% 	Hard                            [hard, binary search]
+	332 	Reconstruct Itinerary 	29.1% 	Medium                                  [graph, map<str, min_heap>(heap for lexical order). add path in reverse order. similar to N210 course schedule 2]
+	23 	    Merge k Sorted Lists 	27.1% 	Hard                                    [easy, priority queue + dummy linked list]
+	166 	Fraction to Recurring Decimal 	17.4% 	Medium                          [map<long, index>, map.put(remainder, sb.length()), sb.insert(map.get(remainder), "("); return sb.toString().replace("(0)","")]
+	415 	Add Strings 	41.3% 	Easy                                            [easy, sum of two large num, similar to addOne]
 	490 	The Maze 	42.9% 	Medium
-	415 	Add Strings 	41.3% 	Easy
+	505 	The Maze II 	36.7% 	Medium
 	240 	Search a 2D Matrix II 	38.5% 	Medium
 	324 	Wiggle Sort II 	26.0% 	Medium
 	140 	Word Break II 	23.2% 	Hard

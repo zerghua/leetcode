@@ -1,5 +1,4 @@
 package leetcode;
-
 import java.util.HashMap;
 
 /**
@@ -25,26 +24,31 @@ import java.util.HashMap;
  */
 public class N166_FractiontoRecurringDecimal {
     // Google
-    // 6 ms
-    // math, hash table
-    public String fractionToDecimal(int numerator, int denominator) {
-        if(numerator == 0) return "0";
-        StringBuilder sb = new StringBuilder();
-        long num = Math.abs((long) numerator);
-        long den = Math.abs((long) denominator);
-        if((numerator ^ denominator)<0) sb.append("-");  // sign
-        sb.append(num/den);              // decimal part
-        long remainder = num % den;
-        if(remainder == 0) return sb.toString();
-        sb.append(".");
-        HashMap<Long, Integer> map = new HashMap<>();
-        while(!map.containsKey(remainder)){
-            map.put(remainder, sb.length());  //sequence should not be changed here.
-            sb.append(10*remainder/den);
-            remainder = 10*remainder % den;
+    // math, hash table<long, index>
+    // 35 / 35 test cases passed.  on 8/26/2017
+    // 5 ms
+    class Solution {
+        public String fractionToDecimal(int numerator, int denominator) {
+            if(numerator == 0) return "0";
+            StringBuilder sb = new StringBuilder();
+            long num = Math.abs((long) numerator);
+            long den = Math.abs((long) denominator);
+            if((numerator ^ denominator)<0) sb.append("-");  // sign
+
+            sb.append(num/den);              // decimal part
+            long remainder = num % den;
+            if(remainder == 0) return sb.toString();
+
+            sb.append(".");
+            HashMap<Long, Integer> map = new HashMap<>();
+            while(!map.containsKey(remainder)){
+                map.put(remainder, sb.length());  //sequence should not be changed here.
+                sb.append(10*remainder/den);
+                remainder = 10*remainder % den;
+            }
+            sb.insert(map.get(remainder), "(");
+            sb.append(")");
+            return sb.toString().replace("(0)","");  // 1/5   0.2(0)
         }
-        sb.insert(map.get(remainder), "(");
-        sb.append(")");
-        return sb.toString().replace("(0)","");
     }
 }

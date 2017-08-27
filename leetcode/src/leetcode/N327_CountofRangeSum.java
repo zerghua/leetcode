@@ -7,7 +7,7 @@ package leetcode;
  Range sum S(i, j) is defined as the sum of the elements in nums between indices i and j (i ≤ j), inclusive.
 
  Note:
- A naive algorithm of O(n2) is trivial. You MUST do better than that.
+ A naive algorithm of O(n^2) is trivial. You MUST do better than that.
 
  Example:
  Given nums = [-2, 5, -1], lower = -2, upper = 2,
@@ -17,27 +17,6 @@ package leetcode;
  */
 public class N327_CountofRangeSum {
     // Google
-    // o(n^2) time
-    // sum is in range [0, n+1], sum of [0, i)
-    // once we converted it to sum array, it becomes point to point calculation
-    // so we can effectively sort it even breaking the relative position
-    public class Solution_BF {
-        public int countRangeSum(int[] nums, int lower, int upper) {
-            int ret = 0;
-            long[] sum = new long[nums.length+1];
-            for(int i=0;i<nums.length;i++){
-                sum[i+1] = sum[i] + nums[i];
-            }
-
-            for(int i=0;i<nums.length;i++){
-                for(int j = i+1; j<=nums.length; j++){
-                    if(sum[j] - sum[i] >= lower && sum[j] - sum[i] <= upper) ret++;
-                }
-            }
-            return ret;
-        }
-    }
-
     // there is also an sentinel element
     // merge sort, o(nlogn)
     // 61 / 61 test cases passed.
@@ -71,4 +50,28 @@ public class N327_CountofRangeSum {
             return ret;
         }
     }
+
+
+    // o(n^2) time
+    // sum is in range [0, n+1], sum of [0, i)
+    // once we converted it to sum array, it becomes point to point calculation
+    // so we can effectively sort it even breaking the relative position
+    public class Solution_BF {
+        public int countRangeSum(int[] nums, int lower, int upper) {
+            int ret = 0;
+            long[] sum = new long[nums.length+1];
+            for(int i=0;i<nums.length;i++){
+                sum[i+1] = sum[i] + nums[i];
+            }
+
+            for(int i=0;i<nums.length;i++){
+                for(int j = i+1; j<=nums.length; j++){
+                    if(sum[j] - sum[i] >= lower && sum[j] - sum[i] <= upper) ret++;
+                }
+            }
+            return ret;
+        }
+    }
+
+
 }

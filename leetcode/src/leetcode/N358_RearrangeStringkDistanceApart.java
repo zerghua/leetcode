@@ -80,7 +80,7 @@ public class N358_RearrangeStringkDistanceApart {
 
             StringBuilder ret = new StringBuilder();
             while(!heap.isEmpty()){
-                if(heap.size() < k && heap.peek().count > 1) return "";
+                if(heap.size() < k && heap.peek().count > 1) return ""; // means next round will be invalid
                 LinkedList<Node> list = new LinkedList();
                 int size = heap.size();
                 for(int i=0; i<Math.min(k, size); i++){

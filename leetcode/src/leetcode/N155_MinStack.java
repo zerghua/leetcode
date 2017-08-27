@@ -10,14 +10,14 @@ import java.util.*;
 
 Example:
 
-MinStack minStack = new MinStack();
-minStack.push(-2);
-minStack.push(0);
-minStack.push(-3);
-minStack.getMin();   --> Returns -3.
-minStack.pop();
-minStack.top();      --> Returns 0.
-minStack.getMin();   --> Returns -2.
+    MinStack minStack = new MinStack();
+    minStack.push(-2);
+    minStack.push(0);
+    minStack.push(-3);
+    minStack.getMin();   --> Returns -3.
+    minStack.pop();
+    minStack.top();      --> Returns 0.
+    minStack.getMin();   --> Returns -2.
 
  */
 
@@ -25,6 +25,36 @@ minStack.getMin();   --> Returns -2.
 
 public class N155_MinStack {
     // Google, Amazon
+    // concise code added on 10/15/2016
+    // 113 ms 18 / 18 test cases passed.
+    // pop and min when stack is empty is undefined.
+    public class MinStack {
+        Stack<Integer> s, minStack;
+        public MinStack() {
+            s = new Stack();
+            minStack = new Stack();
+        }
+
+        public void push(int x) {
+            s.push(x);
+            if(minStack.isEmpty() || x <= minStack.peek() ) minStack.push(x); // >= to handle duplicate
+        }
+
+        public void pop() {
+            int e = s.pop();
+            if(e == minStack.peek()) minStack.pop();
+        }
+
+        public int top() {
+            return s.peek();
+        }
+
+        public int getMin() {
+            return minStack.peek();
+        }
+    }
+
+
     // 12 ms
 	Stack<Integer> s = new Stack<Integer>();
 	Stack<Integer> min_stack = new Stack<Integer>();
@@ -53,33 +83,6 @@ public class N155_MinStack {
     }
 
 
-    // concise code added on 10/15/2016
-    // 113 ms 18 / 18 test cases passed.
-    // pop and min when stack is empty is undefined.
-    public class MinStack {
-        Stack<Integer> s, minStack;
-        public MinStack() {
-            s = new Stack();
-            minStack = new Stack();
-        }
 
-        public void push(int x) {
-            s.push(x);
-            if(minStack.isEmpty() || minStack.peek() >= x) minStack.push(x); // >= to handle duplicate
-        }
-
-        public void pop() {
-            int e = s.pop();
-            if(e == minStack.peek()) minStack.pop();
-        }
-
-        public int top() {
-            return s.peek();
-        }
-
-        public int getMin() {
-            return minStack.peek();
-        }
-    }
 
 }
