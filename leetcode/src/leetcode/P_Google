@@ -8,7 +8,6 @@ Google list sort by Frequency(198)
 	482 	License Key Formatting 	41.4% 	Medium                                  [easy, string reformat to k groups]
 	418 	Sentence Screen Fitting 	27.6% 	Medium                              [tricky, flatten matrix and greedy add.]
 	298 	Binary Tree Longest Consecutive Sequence 	40.8% 	Medium              [DFS top-down, pass down cur_count and next expected val]
-	281 	Zigzag Iterator 	50.3% 	Medium                                      [easy, iterator design, list<Iterator> cyclic rotation]
 	361 	Bomb Enemy 	38.9% 	Medium                                              [tricky, rowHits and colHits[], if left or top is wall, reset rowHits and colHits[] and search right and bottom]
 	425 	Word Squares 	42.5% 	Hard                                            [hard, backtracking with trie to do fast prefix search]
 	346 	Moving Average from Data Stream 	58.6% 	Easy                        [easy, queue as window with sum variable ]
@@ -24,6 +23,7 @@ Google list sort by Frequency(198)
 	305 	Number of Islands II 	38.8% 	Hard                                    [union find(add and union land), 2D->1D using n*row+col, root = findRoot(a, new_key); if(key != root){a[key] = root;  key = root; count--;}]
 	200 	Number of Islands 	34.4% 	Medium                                      [easy, DFS]
 	280 	Wiggle Sort 	56.9% 	Medium                                          [swap with prev and cur based on odd/even and value difference]
+	324 	Wiggle Sort II 	26.0% 	Medium                                          [with duplicate, sort; left=(len-1)/2, right=len-1; tmp[i] = (i & 1) == 0 ? nums[left--] : nums[right--];]
 	259 	3Sum Smaller 	41.3% 	Medium                                          [easy, similar to 3sum, but add range of numbers]
 	393 	UTF-8 Validation 	34.9% 	Medium                                      [cursively verify a pattern follow a format]
 	289 	Game of Life 	36.8% 	Medium                                          [in place, use 2ed bit store next status]
@@ -39,7 +39,6 @@ Google list sort by Frequency(198)
 	320 	Generalized Abbreviation 	44.8% 	Medium                              [backtracking, skip char or not. dfs(ret, word, start + 1, cur, count + 1);  dfs(ret ,word, start + 1, cur + (count > 0 ? count: "") + word.charAt(start), 0); ]
 	411 	Minimum Unique Word Abbreviation 	32.7% 	Hard                        [hard, backtracking + trie]
 	329 	Longest Increasing Path in a Matrix 	36.3% 	Hard                    [backtracking with memo[i][j] stores visited max]
-	399 	Evaluate Division 	40.9% 	Medium                                      [graph directed, backtracking with hashset, map<str1, map<str2, double>>]
 	297 	Serialize and Deserialize Binary Tree 	33.2% 	Hard                    [preorder traversal, separate by comma and leaf node as null]
 	359 	Logger Rate Limiter 	59.6% 	Easy                                    [design, map<string, timestamp_int>]
 	362 	Design Hit Counter 	53.7% 	Medium                                      [design, int[300] times%300, int[300] hits, if(timestamp - times[i] < 300), or treemap, total - map.floorEntry(timestamp - 300).getValue()]
@@ -47,8 +46,10 @@ Google list sort by Frequency(198)
 	295 	Find Median from Data Stream 	26.4% 	Hard                            [two heaps to find a median]
 	465 	Optimal Account Balancing 	36.1% 	Hard                                [backtracking + greedy. map<person, debt/credit>, put one's debt/credit to next credit/debt person and continue]
 	146 	LRU Cache 	17.6% 	Hard                                                [least recent cache. hashmap<key, Node> + double linked list Node, get/set put new node on head, remove tail if short of capacity]
+	281 	Zigzag Iterator 	50.3% 	Medium                                      [easy, iterator design, list<Iterator> cyclic rotation]
 	284 	Peeking Iterator 	35.4% 	Medium                                      [iterator design. cache peek item and it's status boolean isPeeked]
 	341 	Flatten Nested List Iterator 	41.3% 	Medium                          [iterator design, stack of iterator]
+	173 	Binary Search Tree Iterator 	41.2% 	Medium                          [iterator design, stack of TreeNode]
 	293 	Flip Game 	55.7% 	Easy                                                [easy, flip adjacent two char if meet condition]
 	294 	Flip Game II 	46.2% 	Medium                                          [backtracking, let player1 to try all combinations, if(!dfs(player2)), player1 wins.]
 	42 	    Trapping Rain Water 	36.6% 	Hard                                    [DP 1D, two sides, leftMost[] and rightMost[]]
@@ -58,6 +59,9 @@ Google list sort by Frequency(198)
 	249 	Group Shifted Strings 	41.2% 	Medium                                  [hash string to a key, similar to N49 group anagrams. offset = s.charAt(0) - 'a'; for(int i=0;i<s.length();i++)sb.append((s.charAt(i) - offset + 26) % 26 + 'a');]
 	239 	Sliding Window Maximum 	32.8% 	Hard                                    [kind of reversely sorted list but store index, remove left if out of window, pop all previous smaller.]
 	360 	Sort Transformed Array 	43.9% 	Medium                                  [return sorted max(a*x^2+b*x+c), if(a>=0) ret[index--]=max(two sides); else ret[index++]=max(two sides)]
+	399 	Evaluate Division 	40.9% 	Medium                                      [graph directed, backtracking with hashset, map<str1, map<str2, double>>]
+	332 	Reconstruct Itinerary 	29.1% 	Medium                                  [graph, map<str, min_heap>(heap for lexical order). add path in reverse order. similar to N210 course schedule 2]
+	133 	Clone Graph 	25.1% 	Medium                                          [graph undirected, DFS, map<node, new_node> to avoid duplicate copy]
 	269 	Alien Dictionary 	23.8% 	Hard                                        [hard, graph directed, Topological sort, map<c, set> chars_after_c, map<c, int> count_before_c, parse input, BFS from c of count_before_c=0]
 	212 	Word Search II 	23.3% 	Hard                                            [backtracking + trie(for pruning)]
 	380 	Insert Delete GetRandom O(1) 	39.1% 	Medium                          [design, hashmap<val, index> + arraylist, swap last one with map.get(val) and remove]
@@ -70,6 +74,7 @@ Google list sort by Frequency(198)
 	270 	Closest Binary Search Tree Value 	39.3% 	Easy                        [easy, tree. min diff between node and target]
 	400 	Nth Digit 	30.1% 	Easy                                                [math, find the length of digit, find the actual number and locate its digit]
 	139 	Word Break 	29.8% 	Medium                                              [DP, 1D. dp[j+1] = true when dp[i]==true && set.contains(s(i,j+1))]
+	140 	Word Break II 	23.2% 	Hard                                            [DP + backtracking, look again.]
 	484 	Find Permutation 	53.8% 	Medium                                      [reverse group of increasing number. preset all to increasing order, reverse continuous 'D']
 	20 	    Valid Parentheses 	33.3% 	Easy                                        [easy, stack to check match]
 	162 	Find Peak Element 	37.3% 	Medium                                      [binary search]
@@ -83,20 +88,15 @@ Google list sort by Frequency(198)
 	327 	Count of Range Sum 	29.7% 	Hard                                        [merge sort, look again how the problem is converted to merge sort.]
 	155 	Min Stack 	28.5% 	Easy                                                [2 stacks, one stack to track min, push only when smaller than top]
 	4 	    Median of Two Sorted Arrays 	21.7% 	Hard                            [hard, binary search]
-	332 	Reconstruct Itinerary 	29.1% 	Medium                                  [graph, map<str, min_heap>(heap for lexical order). add path in reverse order. similar to N210 course schedule 2]
 	23 	    Merge k Sorted Lists 	27.1% 	Hard                                    [easy, priority queue + dummy linked list]
 	166 	Fraction to Recurring Decimal 	17.4% 	Medium                          [map<long, index>, map.put(remainder, sb.length()), sb.insert(map.get(remainder), "("); return sb.toString().replace("(0)","")]
 	415 	Add Strings 	41.3% 	Easy                                            [easy, sum of two large num, similar to addOne]
-	490 	The Maze 	42.9% 	Medium
-	505 	The Maze II 	36.7% 	Medium
-	240 	Search a 2D Matrix II 	38.5% 	Medium
-	324 	Wiggle Sort II 	26.0% 	Medium
-	140 	Word Break II 	23.2% 	Hard
-	409 	Longest Palindrome 	45.3% 	Easy
-	336 	Palindrome Pairs 	26.1% 	Hard
-	231 	Power of Two 	40.1% 	Easy
-	173 	Binary Search Tree Iterator 	41.2% 	Medium
-	133 	Clone Graph 	25.1% 	Medium
+	490 	The Maze 	42.9% 	Medium                                              [BFS(Is able to reach destination?) with a while loop to continue rolling, remember step back when hit wall.]
+	505 	The Maze II 	36.7% 	Medium                                          [BFS(shortest distance to destination) with heap<min_step>]
+	240 	Search a 2D Matrix II 	38.5% 	Medium                                  [search from top-right, of a sorted matrix(to find value if exist in matrix)]
+	409 	Longest Palindrome 	45.3% 	Easy                                        [easy, map<char, count>]
+	336 	Palindrome Pairs 	26.1% 	Hard                                        [map<str, index>, divide each word to two substring, if one part is Pal and the reverse other can be found in map, they would form a valid pair]
+	231 	Power of Two 	40.1% 	Easy                                            [easy, return n>0 && (n & n-1) == 0;]
 	57 	    Insert Interval 	27.5% 	Hard
 	422 	Valid Word Square 	36.2% 	Easy
 	54 	    Spiral Matrix 	25.9% 	Medium

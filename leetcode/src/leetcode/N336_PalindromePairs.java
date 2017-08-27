@@ -21,40 +21,44 @@ import java.util.*;
  */
 public class N336_PalindromePairs {
     // Google, Airbnb
-    // 163 ms
     // hashtable and divide and conquer
-    public List<List<Integer>> palindromePairs(String[] words) {
-        HashSet<List<Integer>> ret = new HashSet<List<Integer>>();
-        if(words == null || words.length ==0) return null;
-        HashMap<String, Integer> map = new HashMap<>();
-        for(int i=0;i<words.length;i++) map.put(words[i],i);
-        for(int i=0;i<words.length;i++){
-            for(int j=0;j<=words[i].length();j++){
-                String str1 = words[i].substring(0,j);
-                String str2 = words[i].substring(j);
-                if(isPalindrome(str1)){
-                    String reverseStr = new StringBuilder(str2).reverse().toString();
-                    if(map.containsKey(reverseStr) && map.get(reverseStr) != i){
-                        ret.add(Arrays.asList(map.get(reverseStr),i));
-                    }
-                }
+    // 134 / 134 test cases passed.  on 8/26/2017
+    // 147 ms
+    public class Solution {
+        public List<List<Integer>> palindromePairs(String[] words) {
+            HashSet<List<Integer>> ret = new HashSet<List<Integer>>();
+            if(words == null || words.length ==0) return null;
+            HashMap<String, Integer> map = new HashMap<>();
+            for(int i=0;i<words.length;i++) map.put(words[i],i);
 
-                if(isPalindrome(str2)){
-                    String reverseStr = new StringBuilder(str1).reverse().toString();
-                    if(map.containsKey(reverseStr) && map.get(reverseStr) != i){
-                        ret.add(Arrays.asList(i, map.get(reverseStr)));
+            for(int i=0;i<words.length;i++){            // for each word
+                for(int j=0;j<=words[i].length();j++){  // divide each word to two string
+                    String str1 = words[i].substring(0,j);
+                    String str2 = words[i].substring(j);
+                    if(isPalindrome(str1)){
+                        String reverseStr = new StringBuilder(str2).reverse().toString();
+                        if(map.containsKey(reverseStr) && map.get(reverseStr) != i){
+                            ret.add(Arrays.asList(map.get(reverseStr),i));
+                        }
+                    }
+
+                    if(isPalindrome(str2)){
+                        String reverseStr = new StringBuilder(str1).reverse().toString();
+                        if(map.containsKey(reverseStr) && map.get(reverseStr) != i){
+                            ret.add(Arrays.asList(i,map.get(reverseStr)));
+                        }
                     }
                 }
             }
+            return new ArrayList<List<Integer>>(ret); // to get rid of duplicate
         }
-        return new ArrayList<List<Integer>>(ret); // to get rid of duplicate
-    }
 
-    public boolean isPalindrome(String s){
-        int left =0, right=s.length()-1;
-        while(left<=right){
-            if(s.charAt(left++) != s.charAt(right--)) return false;
+        public boolean isPalindrome(String s){
+            int left =0, right=s.length()-1;
+            while(left<=right){
+                if(s.charAt(left++) != s.charAt(right--)) return false;
+            }
+            return true;
         }
-        return true;
     }
 }

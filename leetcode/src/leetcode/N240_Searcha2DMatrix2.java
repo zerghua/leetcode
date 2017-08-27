@@ -3,7 +3,8 @@ package leetcode;
 /**
  * Created by Hua on 3/18/2016.
 
- Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
+ Write an efficient algorithm that searches for a value in an m x n matrix.
+ This matrix has the following properties:
 
  Integers in each row are sorted in ascending from left to right.
  Integers in each column are sorted in ascending from top to bottom.
@@ -27,6 +28,24 @@ package leetcode;
  */
 public class N240_Searcha2DMatrix2 {
     // Amazon, Google, Apple.
+    // start from top right,  o(m+n)
+    // 129 / 129 test cases passed.  on 8/26/2017
+    // 12 ms  %95
+    class Solution {
+        public boolean searchMatrix(int[][] matrix, int target) {
+            if(matrix == null || matrix.length == 0) return false;
+            int col=matrix[0].length-1, row=0;
+
+            while(col>=0 && row<matrix.length){
+                if(matrix[row][col] == target) return true;
+                else if(matrix[row][col] > target) col--;
+                else row++;
+            }
+
+            return false;
+        }
+    }
+
     // binary search in each row, o(mlogn)  24%, means testing data is small
     public boolean searchMatrix(int[][] matrix, int target) {
         for(int row=0; row<matrix.length; row++){
@@ -41,18 +60,7 @@ public class N240_Searcha2DMatrix2 {
         return false;
     }
 
-    // start from top right,  o(m+n)  93%
-    public boolean searchMatrix2(int[][] matrix, int target) {
-        int col=matrix[0].length-1, row=0;
 
-        while(col>=0 && row<matrix.length){
-            if(matrix[row][col] == target) return true;
-            else if(matrix[row][col] > target) col--;
-            else row++;
-        }
-
-        return false;
-    }
 
 
 

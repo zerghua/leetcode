@@ -32,4 +32,5 @@ public class N324_WiggleSort2 {
         System.arraycopy(tmp,0,nums,0,nums.length);
     }
 
+    // o(n) seems to be rather complicated
 }
