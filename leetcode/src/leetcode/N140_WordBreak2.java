@@ -18,6 +18,36 @@ import java.util.*;
  */
 public class N140_WordBreak2 {
     // Google, Uber
+    // find all possible answers are usually backtracking
+    // backtracking + memo(to speed up)
+    // 37 / 37 test cases passed.  on 8/27/2017
+    // 11 ms
+    class Solution {
+        public List<String> wordBreak(String s, List<String> wordDict) {
+            return dfs(s, wordDict, new HashMap());
+        }
+
+        public List<String> dfs(String s, List<String> wordDict, HashMap<String, List<String>> map){
+            if(map.containsKey(s)) return map.get(s);
+
+            List<String> ret = new ArrayList();
+            if(s.length() == 0){
+                ret.add("");
+                return ret;
+            }
+
+            for(String word : wordDict){
+                if(s.startsWith(word)){
+                    List<String> subList = dfs(s.substring(word.length()), wordDict, map);
+                    for(String str : subList)
+                        ret.add(word + (str.isEmpty() ? "" : " ") + str); // sublist has only one string
+                }
+            }
+            map.put(s, ret);
+            return ret;
+        }
+    }
+
     // http://www.programcreek.com/2014/03/leetcode-word-break-ii-java/
     // 21 ms
     // DP + backtracking. use Arraylist array to store previous words.

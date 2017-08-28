@@ -9,6 +9,7 @@ Google list sort by Frequency(198)
 	418 	Sentence Screen Fitting 	27.6% 	Medium                              [tricky, flatten matrix and greedy add.]
 	298 	Binary Tree Longest Consecutive Sequence 	40.8% 	Medium              [DFS top-down, pass down cur_count and next expected val]
 	361 	Bomb Enemy 	38.9% 	Medium                                              [tricky, rowHits and colHits[], if left or top is wall, reset rowHits and colHits[] and search right and bottom]
+	422 	Valid Word Square 	36.2% 	Easy                                        [easy, check char in diagonal]
 	425 	Word Squares 	42.5% 	Hard                                            [hard, backtracking with trie to do fast prefix search]
 	346 	Moving Average from Data Stream 	58.6% 	Easy                        [easy, queue as window with sum variable ]
 	163 	Missing Ranges 	24.6% 	Medium                                          [two corner cases, first and last should be included, pre = lo-1; last = hi+1;]
@@ -74,7 +75,7 @@ Google list sort by Frequency(198)
 	270 	Closest Binary Search Tree Value 	39.3% 	Easy                        [easy, tree. min diff between node and target]
 	400 	Nth Digit 	30.1% 	Easy                                                [math, find the length of digit, find the actual number and locate its digit]
 	139 	Word Break 	29.8% 	Medium                                              [DP, 1D. dp[j+1] = true when dp[i]==true && set.contains(s(i,j+1))]
-	140 	Word Break II 	23.2% 	Hard                                            [DP + backtracking, look again.]
+	140 	Word Break II 	23.2% 	Hard                                            [backtracking + map<str, List<String>(actually only one string in list)>, go through each word in dict and check if(s.startsWith(word))]
 	484 	Find Permutation 	53.8% 	Medium                                      [reverse group of increasing number. preset all to increasing order, reverse continuous 'D']
 	20 	    Valid Parentheses 	33.3% 	Easy                                        [easy, stack to check match]
 	162 	Find Peak Element 	37.3% 	Medium                                      [binary search]
@@ -97,11 +98,10 @@ Google list sort by Frequency(198)
 	409 	Longest Palindrome 	45.3% 	Easy                                        [easy, map<char, count>]
 	336 	Palindrome Pairs 	26.1% 	Hard                                        [map<str, index>, divide each word to two substring, if one part is Pal and the reverse other can be found in map, they would form a valid pair]
 	231 	Power of Two 	40.1% 	Easy                                            [easy, return n>0 && (n & n-1) == 0;]
-	57 	    Insert Interval 	27.5% 	Hard
-	422 	Valid Word Square 	36.2% 	Easy
-	54 	    Spiral Matrix 	25.9% 	Medium
-	348 	Design Tic-Tac-Toe 	45.8% 	Medium
-	421 	Maximum XOR of Two Numbers in an Array 	45.7% 	Medium
+	57 	    Insert Interval 	27.5% 	Hard                                        [easy, interval, insert to sorted list first, then merge as N56]
+	54 	    Spiral Matrix 	25.9% 	Medium                                          [4 loops inside one loop]
+	348 	Design Tic-Tac-Toe 	45.8% 	Medium                                      [design(check who wins in o(1)), need 4 variables, int[] rows, cols, and int diagonal/anti-diagonal, player 1 is 1, player 2 is -1, check if they == abs(n)]
+	421 	Maximum XOR of Two Numbers in an Array 	45.7% 	Medium                  [bit, a^b=c, then a^c=b, b^c=a. need to look again]
 	22 	    Generate Parentheses 	44.8% 	Medium
 	31 	    Next Permutation 	28.8% 	Medium
 	460 	LFU Cache 	23.5% 	Hard
