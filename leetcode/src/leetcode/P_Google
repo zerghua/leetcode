@@ -117,11 +117,11 @@ Google list sort by Frequency(198)
 	302 	Smallest Rectangle Enclosing Black Pixels 	45.4% 	Hard                [binary search, look again]
 	444 	Sequence Reconstruction 	19.8% 	Medium                              [map<val, index>(each val is distinct, so ok), verify each adjacent edge are exist in subsequence]
 	379 	Design Phone Directory 	32.5% 	Medium                                  [design. set(maintain in-use number) + list(maintain un-used number)]
-	353 	Design Snake Game 	26.4% 	Medium
-	375 	Guess Number Higher or Lower II 	35.8% 	Medium
-	356 	Line Reflection 	30.1% 	Medium
-	354 	Russian Doll Envelopes 	32.2% 	Hard
-	397 	Integer Replacement 	30.1% 	Medium
+	353 	Design Snake Game 	26.4% 	Medium                                      [design. serialize point as (x+":"+y)]
+	375 	Guess Number Higher or Lower II 	35.8% 	Medium                      [DP 2D]
+	356 	Line Reflection 	30.1% 	Medium                                      [hashmap. set<x + ":" + y> and all valid pairs should == minX + maxX]
+	354 	Russian Doll Envelopes 	32.2% 	Hard                                    [DP 1D]
+	397 	Integer Replacement 	30.1% 	Medium                                  [if even n=/2, odd if is 3 or second last bit is 0, n--; else n++]
 	408 	Valid Word Abbreviation 	28.0% 	Easy
 	282 	Expression Add Operators 	29.6% 	Hard
 	368 	Largest Divisible Subset 	33.7% 	Medium

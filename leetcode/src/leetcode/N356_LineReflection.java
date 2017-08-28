@@ -6,7 +6,7 @@ import java.util.HashSet;
  * Created by HuaZ on 7/22/2017.
 
  Given n points on a 2D plane, find if there is such a line parallel to y-axis
- that reflect(对称) the given points.
+ that reflect(对称) all the given points.
 
  Example 1:
 
@@ -17,12 +17,19 @@ import java.util.HashSet;
  Given points = [[1,1],[-1,-1]], return false.
 
  Follow up:
- Could you do better than O(n2)?
+ Could you do better than O(n^2)?
+
+ Hint:
+
+ Find the smallest and largest x-value for all points.
+ If there is a line then it should be at x = (minX + maxX) / 2.
+ For each point, make sure that it has a reflected point in the opposite side.
+
 
  */
 public class N356_LineReflection {
     // google
-    // math and hashtable
+    // math all valid pair should == minX + maxX  and set<x + ":" + y>
     // 37 / 37 test cases passed.
     // 21 ms
     public class Solution {

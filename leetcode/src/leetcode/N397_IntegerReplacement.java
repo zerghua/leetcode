@@ -42,13 +42,12 @@ public class N397_IntegerReplacement {
     // Google, Baidu
     // the way to think about this problem is to decide which way to go:
     // 1. even number, divide 2
-    // 2. odd number +1, when last two binary digit is 11,  exception 3,  should -1
-    // 3. odd number -1, when last two binary digit is 01
+    // 2. odd number -1, when last two binary digit is 01 or 3
+    // 3. odd number +1, when last two binary digit is 11.
     // corner case, Integer.MAX_VALUE + 1 will overflow to negative. how to handle?
     // >>> is unsigned-shift; it'll insert 0. >> is signed, and will extend the sign bit.
-
+    // 5 ms 47 / 47 test cases passed.
     public class Solution {
-        // 5 ms 47 / 47 test cases passed.
         public int integerReplacement(int n) {
             int ret = 0;
             while(n != 1){
