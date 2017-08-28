@@ -7,7 +7,10 @@ package leetcode;
  It should support the following operations: get and put.
 
  get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
- put(key, value) - Set or insert the value if the key is not already present. When the cache reaches its capacity, it should invalidate the least frequently used item before inserting a new item. For the purpose of this problem, when there is a tie (i.e., two or more keys that have the same frequency), the least recently used key would be evicted.
+ put(key, value) - Set or insert the value if the key is not already present. When the cache reaches its capacity,
+ it should invalidate the least frequently used item before inserting a new item. For the purpose of this problem,
+ when there is a tie (i.e., two or more keys that have the same frequency),
+ the least recently used key would be evicted.
 
  Follow up:
  Could you do both operations in O(1) time complexity?
@@ -30,7 +33,8 @@ package leetcode;
 import java.util.*;
 public class N460_LFUCache {
     // Amazon, Google
-    // linkedhashset has o(1) remove/get and ordered list compared to linkedlist which has o(n) remove/get for any item.
+    // linkedhashset has o(1) remove/get and ordered list compared to
+    // linkedlist which has o(n) remove/get for any item.
     // 3 hashmap + linkedHashset.
     // 23 / 23 test cases passed.
     // 277 ms

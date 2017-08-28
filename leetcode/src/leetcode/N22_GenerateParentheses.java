@@ -19,13 +19,13 @@ import java.util.*;
 public class N22_GenerateParentheses {
     // Google, Uber
     // DFS on number of remaining left and right parentheses.
+    // backtracking 2 ms 51%
     public List<String> generateParenthesis(int n) {
         List<String>  ret = new ArrayList<String>();
         generateParenthesis_helper(ret, "",  n, n);
         return ret;
     }
 
-    //backtracking 2 ms 51%
     public void generateParenthesis_helper(List<String> ret, String s, int left, int right) {
         if(right < left) return ;
 

@@ -30,13 +30,40 @@ import java.util.Random;
  */
 public class N382_LinkedListRandomNode {
     // Google
-    // 159 ms random.nextInt()
+    // Reservoir_sampling, if(rand.nextInt(++count) == 0) ret = this.
+    // o(n) time, o(1) space
+    // 7 / 7 test cases passed.  on 8/28/2017
+    // 139 ms
     public class Solution {
+        Random rand;
+        ListNode head;
+        /** @param head The linked list's head.
+        Note that the head is guaranteed to be not null, so it contains at least one node. */
+        public Solution(ListNode head) {
+            rand = new Random();
+            this.head = head;
+        }
+
+        /** Returns a random node's value. */
+        public int getRandom() {
+            int ret=0, i=0;
+            ListNode cur = head;
+            while(cur != null){
+                if(rand.nextInt(++i) == 0) ret = cur.val;
+                cur = cur.next;
+            }
+            return ret;
+        }
+    }
+
+
+    // 159 ms random.nextInt()
+    public class Solution2 {
         private ArrayList<Integer> list;
 
         /** @param head The linked list's head.
         Note that the head is guaranteed to be not null, so it contains at least one node. */
-        public Solution(ListNode head) {
+        public Solution2(ListNode head) {
             list = new ArrayList<>();
             while(head!=null) {
                 list.add(head.val);
@@ -52,28 +79,5 @@ public class N382_LinkedListRandomNode {
         }
     }
 
-    // Reservoir_sampling added on 10/27/2016, not tested
-    // o(n) time, o(1) space
-    public class Solution2 {
-        private int count;
-        Random rand;
-        ListNode cur;
-        /** @param head The linked list's head.
-        Note that the head is guaranteed to be not null, so it contains at least one node. */
-        public Solution2(ListNode head) {
-            count = 0;
-            rand = new Random();
-            cur = head;
-        }
 
-        /** Returns a random node's value. */
-        public int getRandom() {
-            int ret=0;
-            while(cur != null){
-                if(rand.nextInt(++count) == 0) ret = cur.val;
-                cur=cur.next;
-            }
-            return ret;
-        }
-    }
 }

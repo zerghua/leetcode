@@ -102,11 +102,11 @@ Google list sort by Frequency(198)
 	54 	    Spiral Matrix 	25.9% 	Medium                                          [4 loops inside one loop]
 	348 	Design Tic-Tac-Toe 	45.8% 	Medium                                      [design(check who wins in o(1)), need 4 variables, int[] rows, cols, and int diagonal/anti-diagonal, player 1 is 1, player 2 is -1, check if they == abs(n)]
 	421 	Maximum XOR of Two Numbers in an Array 	45.7% 	Medium                  [bit, a^b=c, then a^c=b, b^c=a. need to look again]
-	22 	    Generate Parentheses 	44.8% 	Medium
-	31 	    Next Permutation 	28.8% 	Medium
-	460 	LFU Cache 	23.5% 	Hard
-	224 	Basic Calculator 	26.9% 	Hard
-	382 	Linked List Random Node 	46.9% 	Medium
+	22 	    Generate Parentheses 	44.8% 	Medium                                  [backtracking, pass num of left/right parentheses down]
+	31 	    Next Permutation 	28.8% 	Medium                                      [find the correct one to do array swap and reverse]
+	460 	LFU Cache 	23.5% 	Hard                                                [design(Least Frequently Used), map<key, val>, map<key, count>, map<key, linkedHashSet<count>>, minCount to track lowest count for remove]
+	224 	Basic Calculator 	26.9% 	Hard                                        [stack<int>, store sign as 1 and -1, when '(', push ret and sign, when ')' ret = ret*stack.pop() + stack.pop()]
+	382 	Linked List Random Node 	46.9% 	Medium                              [reservoir sample, similar to N398, while(cur != null) if(rand.nextInt(++i) == 0) ret = cur.val; cur = cur.next;]
 	17 	    Letter Combinations of a Phone Number 	34.3% 	Medium
 	251 	Flatten 2D Vector 	40.3% 	Medium
 	272 	Closest Binary Search Tree Value II 	38.8% 	Hard
