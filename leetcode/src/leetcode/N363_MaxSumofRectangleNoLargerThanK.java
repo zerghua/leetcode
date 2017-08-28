@@ -14,7 +14,8 @@ package leetcode;
  ]
  k = 2
 
- The answer is 2. Because the sum of rectangle [[0, 1], [-2, 3]] is 2 and 2 is the max number no larger than k (k = 2).
+ The answer is 2.
+ Because the sum of rectangle [[0, 1], [-2, 3]] is 2 and 2 is the max number no larger than k (k = 2).
 
  Note:
 

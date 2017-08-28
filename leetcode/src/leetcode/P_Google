@@ -122,11 +122,11 @@ Google list sort by Frequency(198)
 	356 	Line Reflection 	30.1% 	Medium                                      [hashmap. set<x + ":" + y> and all valid pairs should == minX + maxX]
 	354 	Russian Doll Envelopes 	32.2% 	Hard                                    [DP 1D]
 	397 	Integer Replacement 	30.1% 	Medium                                  [if even n=/2, odd if is 3 or second last bit is 0, n--; else n++]
-	408 	Valid Word Abbreviation 	28.0% 	Easy
-	282 	Expression Add Operators 	29.6% 	Hard
-	368 	Largest Divisible Subset 	33.7% 	Medium
-	363 	Max Sum of Rectangle No Larger Than K 	33.1% 	Hard
-	208 	Implement Trie (Prefix Tree) 	28.0% 	Medium
+	408 	Valid Word Abbreviation 	28.0% 	Easy                                [easy, two string compare]
+	282 	Expression Add Operators 	29.6% 	Hard                                [backtracking with some math and corner cases, dfs(path + "+" + cur, i+1, sum+cur, cur), dfs(path + "*" + cur, i+1, sum-lastNum + lastNum*cur, lastNum*cur)]
+	368 	Largest Divisible Subset 	33.7% 	Medium                              [DP 1D]
+	363 	Max Sum of Rectangle No Larger Than K 	33.1% 	Hard                    [binary search using treeset. look again]
+	208 	Implement Trie (Prefix Tree) 	28.0% 	Medium                          [basic trie, map<char, TrieNode> children, boolean isEnd]
 	214 	Shortest Palindrome 	24.1% 	Hard
 	313 	Super Ugly Number 	37.7% 	Medium
 	261 	Graph Valid Tree 	37.6% 	Medium
