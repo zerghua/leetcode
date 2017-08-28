@@ -6,7 +6,9 @@ import java.util.Stack;
 /**
  * Created by Hua on 6/3/2016.
 
- One way to serialize a binary tree is to use pre-order traversal. When we encounter a non-null node, we record the node's value. If it is a null node, we record using a sentinel value such as #.
+ One way to serialize a binary tree is to use pre-order traversal.
+ When we encounter a non-null node, we record the node's value.
+ If it is a null node, we record using a sentinel value such as #.
 
        _9_
       /   \
