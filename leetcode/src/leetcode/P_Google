@@ -112,11 +112,11 @@ Google list sort by Frequency(198)
 	272 	Closest Binary Search Tree Value II 	38.8% 	Hard                    [tree, inorder traversal with early return. if(dfs(left)) return true;]
 	50 	    Pow(x, n) 	26.4% 	Medium                                              [DFS bottom up, divide and conquer]
 	44 	    Wildcard Matching 	20.0% 	Hard                                        [hard, string match, greedy]
-	309 	Best Time to Buy and Sell Stock with Cooldown 	40.6% 	Medium
-	402 	Remove K Digits 	26.2% 	Medium
-	302 	Smallest Rectangle Enclosing Black Pixels 	45.4% 	Hard
-	444 	Sequence Reconstruction 	19.8% 	Medium
-	379 	Design Phone Directory 	32.5% 	Medium
+	309 	Best Time to Buy and Sell Stock with Cooldown 	40.6% 	Medium          [DP 1D, look again]
+	402 	Remove K Digits 	26.2% 	Medium                                      [stack<int>, pop() if incoming is smaller than stack.peek()]
+	302 	Smallest Rectangle Enclosing Black Pixels 	45.4% 	Hard                [binary search, look again]
+	444 	Sequence Reconstruction 	19.8% 	Medium                              [map<val, index>(each val is distinct, so ok), verify each adjacent edge are exist in subsequence]
+	379 	Design Phone Directory 	32.5% 	Medium                                  [design. set(maintain in-use number) + list(maintain un-used number)]
 	353 	Design Snake Game 	26.4% 	Medium
 	375 	Guess Number Higher or Lower II 	35.8% 	Medium
 	356 	Line Reflection 	30.1% 	Medium

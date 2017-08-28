@@ -40,7 +40,7 @@ import java.util.*;
 
 public class N379_DesignPhoneDirectory {
     // google
-    // hashset + linkedlist
+    // hashset(maintain in use number) + linkedlist(maintain used number)
     // 18 / 18 test cases passed.  7/21/2017
     // 557 ms
     public class PhoneDirectory {
@@ -54,7 +54,7 @@ public class N379_DesignPhoneDirectory {
             set = new HashSet<Integer>();
             queue = new LinkedList<Integer>();
             for(int i=0; i<maxNumbers; i++){
-                queue.offer(i);
+                queue.add(i);
             }
             max=maxNumbers-1;
         }
