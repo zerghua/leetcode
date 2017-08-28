@@ -24,6 +24,7 @@ public class N272_ClosestBinarySearchTreeValueII {
     // 68 / 68 test cases passed.
     // 3 ms
     // inorder traversal with early return less than o(n)
+    // like keep a window with size==k, left is largest diff, right is smallest diff
     public class Solution {
         public List<Integer> closestKValues(TreeNode root, double target, int k) {
             LinkedList<Integer> ret = new LinkedList();

@@ -107,11 +107,11 @@ Google list sort by Frequency(198)
 	460 	LFU Cache 	23.5% 	Hard                                                [design(Least Frequently Used), map<key, val>, map<key, count>, map<key, linkedHashSet<count>>, minCount to track lowest count for remove]
 	224 	Basic Calculator 	26.9% 	Hard                                        [stack<int>, store sign as 1 and -1, when '(', push ret and sign, when ')' ret = ret*stack.pop() + stack.pop()]
 	382 	Linked List Random Node 	46.9% 	Medium                              [reservoir sample, similar to N398, while(cur != null) if(rand.nextInt(++i) == 0) ret = cur.val; cur = cur.next;]
-	17 	    Letter Combinations of a Phone Number 	34.3% 	Medium
-	251 	Flatten 2D Vector 	40.3% 	Medium
-	272 	Closest Binary Search Tree Value II 	38.8% 	Hard
-	50 	    Pow(x, n) 	26.4% 	Medium
-	44 	    Wildcard Matching 	20.0% 	Hard
+	17 	    Letter Combinations of a Phone Number 	34.3% 	Medium                  [easy, simple backtracking]
+	251 	Flatten 2D Vector 	40.3% 	Medium                                      [iterator design. Iterator<List<Integer>> i,  Iterator<Integer> j, while((j == null || !j.hasNext()) && i.hasNext()) j = i.next().iterator();]
+	272 	Closest Binary Search Tree Value II 	38.8% 	Hard                    [tree, inorder traversal with early return. if(dfs(left)) return true;]
+	50 	    Pow(x, n) 	26.4% 	Medium                                              [DFS bottom up, divide and conquer]
+	44 	    Wildcard Matching 	20.0% 	Hard                                        [hard, string match, greedy]
 	309 	Best Time to Buy and Sell Stock with Cooldown 	40.6% 	Medium
 	402 	Remove K Digits 	26.2% 	Medium
 	302 	Smallest Rectangle Enclosing Black Pixels 	45.4% 	Hard

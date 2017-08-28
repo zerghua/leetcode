@@ -14,7 +14,8 @@ package leetcode;
      [4,5,6]
  ]
 
- By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,2,3,4,5,6].
+ By calling next repeatedly until hasNext returns false,
+ the order of elements returned by next should be: [1,2,3,4,5,6].
 
  Follow up:
  As an added challenge, try to code it using only iterators in C++ or iterators in Java.
@@ -45,6 +46,6 @@ public class N251_Flatten2DVector {
         public boolean hasNext() {
             while((j == null || !j.hasNext()) && i.hasNext()) j = i.next().iterator();
             return j != null && j.hasNext();
-        }
+    }
     }
 }
