@@ -127,11 +127,11 @@ Google list sort by Frequency(198)
 	368 	Largest Divisible Subset 	33.7% 	Medium                              [DP 1D]
 	363 	Max Sum of Rectangle No Larger Than K 	33.1% 	Hard                    [binary search using treeset. look again]
 	208 	Implement Trie (Prefix Tree) 	28.0% 	Medium                          [basic trie, map<char, TrieNode> children, boolean isEnd]
-	214 	Shortest Palindrome 	24.1% 	Hard
-	313 	Super Ugly Number 	37.7% 	Medium
-	261 	Graph Valid Tree 	37.6% 	Medium
-	451 	Sort Characters By Frequency 	50.8% 	Medium
-	321 	Create Maximum Number 	24.5% 	Hard
+	214 	Shortest Palindrome 	24.1% 	Hard                                    [return new StringBuilder(suffix).reverse().toString() + shortestPalindrome(s.substring(0, i)) +suffix]
+	313 	Super Ugly Number 	37.7% 	Medium                                      [heap, each prime with a index to times ret[index]]
+	261 	Graph Valid Tree 	37.6% 	Medium                                      [graph undirected, map<int, list>, DFS one node, if found no circle and all nodes are visited are valid tree.]
+	451 	Sort Characters By Frequency 	50.8% 	Medium                          [count sort + map<count, list_of_char>, list max-min by going through len in [n-0] of map]
+	321 	Create Maximum Number 	24.5% 	Hard                                    [hard, greedy. look again]
 	378 	Kth Smallest Element in a Sorted Matrix 	44.5% 	Medium
 	459 	Repeated Substring Pattern 	38.1% 	Easy
 	377 	Combination Sum IV 	41.9% 	Medium

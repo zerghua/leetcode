@@ -74,7 +74,7 @@ public class N451_SortCharactersByFrequency {
 
             // go through count from [n,0], add to result
             StringBuilder ret = new StringBuilder();
-            for(int i=s.length(); i>0 ;i--){
+            for(int i=s.length(); i>0 ;i--){   // trick here by get sorted char count from string len count down.
                 if(!map.containsKey(i)) continue;
                 for(Character c: map.get(i)){
                     for(int j=0;j<i;j++) ret.append(c);

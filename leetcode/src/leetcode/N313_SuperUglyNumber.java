@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.PriorityQueue;
+
 /**
  * Created by HuaZ on 12/8/2016.
 
@@ -12,31 +14,62 @@ package leetcode;
  Note:
  (1) 1 is a super ugly number for any given primes.
  (2) The given numbers in primes are in ascending order.
- (3) 0 < k ≤ 100, 0 < n ≤ 106, 0 < primes[i] < 1000.
+ (3) 0 < k ≤ 100, 0 < n ≤ 10^6, 0 < primes[i] < 1000.
 
  */
 public class N313_SuperUglyNumber {
     // Google
+    // topk, use heap
+    // o(nlogk)
+    // 83 / 83 test cases passed.
+    // 132 ms
+    public class Solution {
+        class Node{
+            int val, prime, index;
+            Node(int val, int prime, int index){
+                this.val = val;
+                this.prime = prime;
+                this.index = index;
+            }
+        }
+
+        public int nthSuperUglyNumber(int n, int[] primes) {
+            int[] ret = new int[n];
+            ret[0] = 1;
+            PriorityQueue<Node> heap = new PriorityQueue<Node>((a,b) -> a.val - b.val);
+            for(int e : primes) heap.add(new Node(e, e, 1));
+            for(int i=1; i<n; i++){
+                ret[i] = heap.peek().val;
+                while(ret[i] == heap.peek().val){  // while is important here to skip duplicate
+                    Node node = heap.remove();
+                    heap.add(new Node(node.prime * ret[node.index], node.prime, node.index + 1));
+                }
+            }
+            return ret[n-1];
+        }
+    }
+
+
     // 29 ms 83 / 83 test cases passed.
     // math. similar to N264. ugly number 2
-    public class Solution {
+    public class Solution2 {
         public int nthSuperUglyNumber(int n, int[] primes) {
-            int[] ugly = new int[n];
+            int[] ret = new int[n];
             int[] index = new int[primes.length];
-            ugly[0] = 1;
+            ret[0] = 1;
             for(int i=1;i<n;i++){
 
-                ugly[i] = Integer.MAX_VALUE;
+                ret[i] = Integer.MAX_VALUE;
                 // find next min
                 for(int j=0; j<primes.length; j++)
-                    ugly[i] = Math.min(ugly[i], primes[j] * ugly[index[j]]);
+                    ret[i] = Math.min(ret[i], primes[j] * ret[index[j]]);
 
                 // update index
                 for(int j=0; j<primes.length; j++) {
-                    while (primes[j] * ugly[index[j]] <= ugly[i]) index[j]++;
+                    while (primes[j] * ret[index[j]] <= ret[i]) index[j]++;
                 }
             }
-            return ugly[n-1];
+            return ret[n-1];
         }
     }
 }

@@ -19,6 +19,48 @@ package leetcode;
  */
 public class N214_ShortestPalindrome {
     // Google
+    // string, find suffix and reverse suffix to prefix, return prefix + dfs(s(0,i)) + suffix
+    // 120 / 120 test cases passed.  on 8/28/2017
+    // 4 ms
+    class Solution {
+        public String shortestPalindrome(String s) {
+            int i=0;
+            for(int j=s.length()-1; j>=0; j--){
+                if(s.charAt(i)==s.charAt(j)) i++;
+            }
+
+            if(i==s.length())  return s;
+            String suffix = s.substring(i);
+            return new StringBuilder(suffix).reverse().toString() + shortestPalindrome(s.substring(0, i)) +suffix;
+        }
+    }
+
+
+    // 120 / 120 test cases passed.  on 8/28/2017
+    // 5 ms
+    // very smart solution
+    class Solution2 {
+        public String shortestPalindrome(String s) {
+            int i=0;
+            int j=s.length()-1;
+
+            while(j>=0){
+                if(s.charAt(i)==s.charAt(j)){
+                    i++;
+                }
+                j--;
+            }
+
+            if(i==s.length())  return s;
+
+            String suffix = s.substring(i);
+            String prefix = new StringBuilder(suffix).reverse().toString();
+            String mid = shortestPalindrome(s.substring(0, i));
+            return prefix+mid+suffix;
+        }
+    }
+
+
     //TLE
     public String shortestPalindrome(String s) {
         if(s==null || s.length() <= 1) return s;
@@ -71,24 +113,5 @@ public class N214_ShortestPalindrome {
         return sb.toString() + s;
     }
 
-    // 5 ms
-    // very smart solution
-    public String shortestPalindrome3(String s) {
-        int i=0;
-        int j=s.length()-1;
 
-        while(j>=0){
-            if(s.charAt(i)==s.charAt(j)){
-                i++;
-            }
-            j--;
-        }
-
-        if(i==s.length())  return s;
-
-        String suffix = s.substring(i);
-        String prefix = new StringBuilder(suffix).reverse().toString();
-        String mid = shortestPalindrome(s.substring(0, i));
-        return prefix+mid+suffix;
-    }
 }
