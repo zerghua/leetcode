@@ -139,12 +139,10 @@ Google list sort by Frequency(198)
 	331 	Verify Preorder Serialization of a Binary Tree 	36.1% 	Medium          [tree, indegree and outdegree, look again]
 	326 	Power of Three 	40.2% 	Easy                                            [easy with loops]
 	257 	Binary Tree Paths 	38.2% 	Easy                                        [easy, DFS top-down, 1 node case]
-    --------------------------------------------------------------------   Above are more Frequent
-
-	652 	Find Duplicate Subtrees 	28.4% 	Medium
-	651 	4 Keys Keyboard 	44.8% 	Medium
-	644 	Maximum Average Subarray II 	18.6% 	Hard
-	643 	Maximum Average Subarray I 	39.0% 	Easy
+	652 	Find Duplicate Subtrees 	28.4% 	Medium                              [Tree. DFS, bottom-up. use map<pre order serialize tree, count> to identify identical subtree.]
+	651 	4 Keys Keyboard 	44.8% 	Medium                                      [math, dp[i] = Math.max(dp[i-4] * 3 ,  dp[i-5] * 4);]
+    643 	Maximum Average Subarray I 	39.0% 	Easy                                [easy, sliding window(fixed) with max sum]
+	644 	Maximum Average Subarray II 	18.6% 	Hard                            [hard, binary search]
 	638 	Shopping Offers 	41.1% 	Medium
 	616 	Add Bold Tag in String 	37.3% 	Medium
 	604 	Design Compressed String Iterator 	30.8% 	Easy
