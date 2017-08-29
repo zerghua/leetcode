@@ -12,8 +12,8 @@ package leetcode;
  Example 1:
 
  Input:
- 1
- / \
+   1
+  / \
  2   3
  Output: 2
  Explanation: The longest consecutive path is [1, 2] or [2, 1].
@@ -21,23 +21,58 @@ package leetcode;
  Example 2:
 
  Input:
- 2
- / \
+   2
+  / \
  1   3
  Output: 3
  Explanation: The longest consecutive path is [1, 2, 3] or [3, 2, 1].
 
- Note: All the values of tree nodes are in the range of [-1e7, 1e7].
+ Note: All the values of tree nodes are in the range of [-1e^7, 1e^7].
 
  */
 
 import leetcode.N0_data_strcture.*;
 public class N549_BinaryTreeLongestConsecutiveSequenceII {
     // Google
+    // concise code, return two parameters, increase and decrease count
+    // 159 / 159 test cases passed.
+    // 16 ms
+    public class Solution {
+        int maxval = 0;
+        public int longestConsecutive(TreeNode root) {
+            longestPath(root);
+            return maxval;
+        }
+        public int[] longestPath(TreeNode root) {
+            if (root == null) return new int[] {0,0};
+            int inr = 1, dcr = 1;
+
+            if (root.left != null) {
+                int[] l = longestPath(root.left);
+                if (root.val == root.left.val + 1)
+                    dcr = l[1] + 1;
+                else if (root.val == root.left.val - 1)
+                    inr = l[0] + 1;
+            }
+
+            if (root.right != null) {
+                int[] r = longestPath(root.right);
+                if (root.val == root.right.val + 1)
+                    dcr = Math.max(dcr, r[1] + 1);
+                else if (root.val == root.right.val - 1)
+                    inr = Math.max(inr, r[0] + 1);
+            }
+
+            maxval = Math.max(maxval, dcr + inr - 1);
+            return new int[] {inr, dcr};
+        }
+    }
+
+
     // 159 / 159 test cases passed.
     // 13 ms
     // dfs, I wrote too complex code
-    public class Solution {
+    public class Solution2 {
         int ret  = 0;
         public int longestConsecutive(TreeNode root) {
             if(root == null) return 0;
@@ -74,37 +109,5 @@ public class N549_BinaryTreeLongestConsecutiveSequenceII {
     }
 
 
-    // concise code, return two parameters, increase and decrease count
-    // 159 / 159 test cases passed.
-    // 16 ms
-    public class Solution2 {
-        int maxval = 0;
-        public int longestConsecutive(TreeNode root) {
-            longestPath(root);
-            return maxval;
-        }
-        public int[] longestPath(TreeNode root) {
-            if (root == null) return new int[] {0,0};
-            int inr = 1, dcr = 1;
 
-            if (root.left != null) {
-                int[] l = longestPath(root.left);
-                if (root.val == root.left.val + 1)
-                    dcr = l[1] + 1;
-                else if (root.val == root.left.val - 1)
-                    inr = l[0] + 1;
-            }
-
-            if (root.right != null) {
-                int[] r = longestPath(root.right);
-                if (root.val == root.right.val + 1)
-                    dcr = Math.max(dcr, r[1] + 1);
-                else if (root.val == root.right.val - 1)
-                    inr = Math.max(inr, r[0] + 1);
-            }
-
-            maxval = Math.max(maxval, dcr + inr - 1);
-            return new int[] {inr, dcr};
-        }
-    }
 }

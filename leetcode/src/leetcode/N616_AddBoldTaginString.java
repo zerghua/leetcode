@@ -35,6 +35,7 @@ public class N616_AddBoldTaginString {
     // 26 ms
     // key is to solve the overlap wrap.
     // tricky string problem
+    // I think loop through each dict can be optimized with trie
     public class Solution {
         public String addBoldTag(String s, String[] dict) {
             boolean[] isBold = new boolean[s.length()];

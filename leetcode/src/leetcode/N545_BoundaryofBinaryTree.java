@@ -85,7 +85,7 @@ public class N545_BoundaryofBinaryTree {
 
         // top-down DFS, left visit first
         public void left(TreeNode node, List<Integer> ret){
-            if(node == null || (node.left == null && node.right == null)) return;
+            if(node == null || (node.left == null && node.right == null)) return;  // not add the left most leaf
             ret.add(node.val);
             if(node.left != null) left(node.left, ret);
             else left(node.right, ret);
@@ -100,7 +100,7 @@ public class N545_BoundaryofBinaryTree {
 
         // bottom up DFS, also the visit sequence matters, right first
         public void right(TreeNode node, List<Integer> ret){
-            if(node == null || (node.left == null && node.right == null)) return;
+            if(node == null || (node.left == null && node.right == null)) return;   // not add the right most leaf
             if(node.right != null) right(node.right, ret);
             else right(node.left, ret);
             ret.add(node.val);

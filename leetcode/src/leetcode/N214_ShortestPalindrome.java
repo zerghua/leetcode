@@ -35,11 +35,27 @@ public class N214_ShortestPalindrome {
         }
     }
 
+    // simple BF solution, but TLE on large data set.
+    class Solution2 {
+        public String shortestPalindrome(String s) {
+            if(s == null || s.length() <= 1) return s;
+            for(int j=s.length()-1; j>0; j--){
+                if(isPal(s, 0, j)) return new StringBuilder(s.substring(j+1)).reverse().toString() +  s;
+            }
+            return new StringBuilder(s.substring(1)).reverse().toString() +  s;
+        }
+
+        public boolean isPal(String s, int i, int j){
+            while(i < j) if(s.charAt(i++) != s.charAt(j--)) return false;
+            return true;
+        }
+    }
+
 
     // 120 / 120 test cases passed.  on 8/28/2017
     // 5 ms
     // very smart solution
-    class Solution2 {
+    class Solution3 {
         public String shortestPalindrome(String s) {
             int i=0;
             int j=s.length()-1;

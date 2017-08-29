@@ -7,7 +7,8 @@ Google list sort by Frequency(198)
 	315 	Count of Smaller Numbers After Self 	34.4% 	Hard                    [augmented binary tree, with smallerCount property. Top-down DFS, pass down preCount.]
 	482 	License Key Formatting 	41.4% 	Medium                                  [easy, string reformat to k groups]
 	418 	Sentence Screen Fitting 	27.6% 	Medium                              [tricky, flatten matrix and greedy add.]
-	298 	Binary Tree Longest Consecutive Sequence 	40.8% 	Medium              [DFS top-down, pass down cur_count and next expected val]
+	298 	Binary Tree Longest Consecutive Sequence 	40.8% 	Medium              [tree, DFS top-down, pass down cur_count and next expected val]
+	549 	Binary Tree Longest Consecutive Sequence II 	39.8% 	Medium          [tree, DFS bottom-up, return int[]{increase, decrease}]
 	361 	Bomb Enemy 	38.9% 	Medium                                              [tricky, rowHits and colHits[], if left or top is wall, reset rowHits and colHits[] and search right and bottom]
 	422 	Valid Word Square 	36.2% 	Easy                                        [easy, check char in diagonal]
 	425 	Word Squares 	42.5% 	Hard                                            [hard, backtracking with trie to do fast prefix search]
@@ -149,15 +150,13 @@ Google list sort by Frequency(198)
 	587 	Erect the Fence 	31.0% 	Hard                                        [convex hull, look again]
 	583 	Delete Operation for Two Strings 	43.9% 	Medium                      [DP 2D, similar to LCS(Longest Common Subsequence)]
 	581 	Shortest Unsorted Continuous Subarray 	29.5% 	Easy                    [o(n) end_index= num[i] < preMax and start_index = num[i] > nextMin, o(nlogn) sort array and compare boundary]
-	569 	Median Employee Salary 	25.7% 	Hard
-	568 	Maximum Vacation Days 	40.8% 	Hard
-	562 	Longest Line of Consecutive One in Matrix 	39.4% 	Medium
-	560 	Subarray Sum Equals K 	40.7% 	Medium
-	552 	Student Attendance Record II 	30.4% 	Hard
-	551 	Student Attendance Record I 	43.7% 	Easy
-	549 	Binary Tree Longest Consecutive Sequence II 	39.8% 	Medium
-	545 	Boundary of Binary Tree 	30.9% 	Medium
-	544 	Output Contest Matches 	72.2% 	Medium
+	568 	Maximum Vacation Days 	40.8% 	Hard                                    [DP 2D]
+	562 	Longest Line of Consecutive One in Matrix 	39.4% 	Medium              [DP 3D]
+	560 	Subarray Sum Equals K 	40.7% 	Medium                                  [map<preSum, count>, return count of continuous subarray == k]
+	551 	Student Attendance Record I 	43.7% 	Easy                            [easy, count adjacent identical char]
+	552 	Student Attendance Record II 	30.4% 	Hard                            [DP 1D]
+	545 	Boundary of Binary Tree 	30.9% 	Medium                              [Tree. DFS, both top-down and bottom-up and leaf_dfs(). ]
+	544 	Output Contest Matches 	72.2% 	Medium                                  [easy, DFS with two points of a list]
 	543 	Diameter of Binary Tree 	43.4% 	Easy
 	542 	01 Matrix 	33.0% 	Medium
 	541 	Reverse String II 	43.8% 	Easy
@@ -199,6 +198,7 @@ Google list sort by Frequency(198)
 	312 	Burst Balloons 	42.5% 	Hard
 	310 	Minimum Height Trees 	28.8% 	Medium
     222     Count Complete Tree Nodes 	27.5%	Medium                  [return 1 + dfs(root.left) + dfs(root.right) if height_left != height_right]
+	569 	Median Employee Salary 	25.7% 	Hard                        [SQL]
 
 Top 50 Google Questions
 	534    Design TinyURL    N/A	Medium
