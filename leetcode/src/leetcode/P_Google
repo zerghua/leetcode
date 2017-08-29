@@ -167,16 +167,16 @@ Google list sort by Frequency(198)
 	530 	Minimum Absolute Difference in BST 	47.0% 	Easy                        [tree, in-order, set global pre = -1 to avoid the first compare.]
 	527 	Word Abbreviation 	40.1% 	Hard                                        [hard, later]
 	526 	Beautiful Arrangement 	55.2% 	Medium                                  [backtracking, similar to all subset]
-	524 	Longest Word in Dictionary through Deleting 	42.4% 	Medium
-	522 	Longest Uncommon Subsequence II 	30.9% 	Medium
-	521 	Longest Uncommon Subsequence I 	55.1% 	Easy
-	520 	Detect Capital 	51.9% 	Easy
-	514 	Freedom Trail 	38.3% 	Hard
-	506 	Relative Ranks 	46.6% 	Easy
-	503 	Next Greater Element II 	47.0% 	Medium
-	501 	Find Mode in Binary Search Tree 	38.1% 	Easy
-	498 	Diagonal Traverse 	46.0% 	Medium
-	494 	Target Sum 	43.8% 	Medium
+	524 	Longest Word in Dictionary through Deleting 	42.4% 	Medium          [string, compare each dicWord to string, find the min diff and smallest lexicographical by dicString.compareTo(ret) < 0]
+	521 	Longest Uncommon Subsequence I 	55.1% 	Easy                            [string, return max_len(str1, str2)]
+	522 	Longest Uncommon Subsequence II 	30.9% 	Medium                      [string, similar to N524. look again]
+	520 	Detect Capital 	51.9% 	Easy                                            [easy, string check]
+	514 	Freedom Trail 	38.3% 	Hard                                            [DP 2D or backtracking + memo]
+	506 	Relative Ranks 	46.6% 	Easy                                            [sort array value while keep their index, ]
+	503 	Next Greater Element II 	47.0% 	Medium                              [stack, find next larger int in a circular array, look again]
+	501 	Find Mode in Binary Search Tree 	38.1% 	Easy                        [tree, map<node.val, count>, return the node with most count]
+	498 	Diagonal Traverse 	46.0% 	Medium                                      [traverse in matrix. look again]
+	494 	Target Sum 	43.8% 	Medium                                              [backtracking, multiple calls, simplified N282, with + and -]
 	493 	Reverse Pairs 	20.1% 	Hard
 	487 	Max Consecutive Ones II 	45.1% 	Medium
 	486 	Predict the Winner 	44.9% 	Medium

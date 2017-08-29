@@ -3,8 +3,8 @@ package leetcode;
 /**
  * Created by Hua on 5/15/2017.
 
- Given a matrix of M x N elements (M rows, N columns), return all elements of the matrix in diagonal order as shown
- in the below image.
+ Given a matrix of M x N elements (M rows, N columns),
+ return all elements of the matrix in diagonal order as shown in the below image.
 
  Example:
 
