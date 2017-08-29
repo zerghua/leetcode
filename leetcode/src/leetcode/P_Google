@@ -157,16 +157,16 @@ Google list sort by Frequency(198)
 	552 	Student Attendance Record II 	30.4% 	Hard                            [DP 1D]
 	545 	Boundary of Binary Tree 	30.9% 	Medium                              [Tree. DFS, both top-down and bottom-up and leaf_dfs(). ]
 	544 	Output Contest Matches 	72.2% 	Medium                                  [easy, DFS with two points of a list]
-	543 	Diameter of Binary Tree 	43.4% 	Easy
-	542 	01 Matrix 	33.0% 	Medium
-	541 	Reverse String II 	43.8% 	Easy
-	535 	Encode and Decode TinyURL 	73.8% 	Medium
-	534 	Design TinyURL 	0.0% 	Medium
-	533 	Lonely Pixel II 	42.4% 	Medium
-	531 	Lonely Pixel I 	54.4% 	Medium
-	530 	Minimum Absolute Difference in BST 	47.0% 	Easy
-	527 	Word Abbreviation 	40.1% 	Hard
-	526 	Beautiful Arrangement 	55.2% 	Medium
+	543 	Diameter of Binary Tree 	43.4% 	Easy                                [easy, DFS bottom-up, longest path from leaf to leaf]
+	542 	01 Matrix 	33.0% 	Medium                                              [BFS, matrix. enlist all 0, and bfs from them.]
+	541 	Reverse String II 	43.8% 	Easy                                        [string, reverse group of strings]
+	535 	Encode and Decode TinyURL 	73.8% 	Medium                              [design, map string to int id in list, database will handle distribution]
+	534 	Design TinyURL 	0.0% 	Medium                                          [design]
+	531 	Lonely Pixel I 	54.4% 	Medium                                          [matrix, map<row, b_count>, map<col,b_count>, ret++ when map<row>==1 && map<col>==1]
+	533 	Lonely Pixel II 	42.4% 	Medium                                      [matrix, map, look again]
+	530 	Minimum Absolute Difference in BST 	47.0% 	Easy                        [tree, in-order, set global pre = -1 to avoid the first compare.]
+	527 	Word Abbreviation 	40.1% 	Hard                                        [hard, later]
+	526 	Beautiful Arrangement 	55.2% 	Medium                                  [backtracking, similar to all subset]
 	524 	Longest Word in Dictionary through Deleting 	42.4% 	Medium
 	522 	Longest Uncommon Subsequence II 	30.9% 	Medium
 	521 	Longest Uncommon Subsequence I 	55.1% 	Easy
