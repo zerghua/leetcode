@@ -46,6 +46,7 @@ Google list sort by Frequency(198)
 	362 	Design Hit Counter 	53.7% 	Medium                                      [design, int[300] times%300, int[300] hits, if(timestamp - times[i] < 300), or treemap, total - map.floorEntry(timestamp - 300).getValue()]
 	471 	Encode String with Shortest Length 	41.8% 	Hard                        [hard, DP 2D]
 	295 	Find Median from Data Stream 	26.4% 	Hard                            [two heaps to find a median]
+	480 	Sliding Window Median 	31.5% 	Hard                                    [find median in a moving window. 2 treeset, similar to N295]
 	465 	Optimal Account Balancing 	36.1% 	Hard                                [backtracking + greedy. map<person, debt/credit>, put one's debt/credit to next credit/debt person and continue]
 	146 	LRU Cache 	17.6% 	Hard                                                [least recent cache. hashmap<key, Node> + double linked list Node, get/set put new node on head, remove tail if short of capacity]
 	281 	Zigzag Iterator 	50.3% 	Medium                                      [easy, iterator design, list<Iterator> cyclic rotation]
@@ -147,6 +148,7 @@ Google list sort by Frequency(198)
 	638 	Shopping Offers 	41.1% 	Medium                                      [backtracking, for each special, use it and dfs.]
 	616 	Add Bold Tag in String 	37.3% 	Medium                                  [string. boolean[] isBold to mark if each char should be bold, s.startsWith(word) to mark the end of bold char.]
 	604 	Design Compressed String Iterator 	30.8% 	Easy                        [iterator design. store as a list of node, or dynamic parsing string when num==0]
+	469 	Convex Polygon 	32.1% 	Medium                                          [convex polygon.]
 	587 	Erect the Fence 	31.0% 	Hard                                        [convex hull, look again]
 	583 	Delete Operation for Two Strings 	43.9% 	Medium                      [DP 2D, similar to LCS(Longest Common Subsequence)]
 	581 	Shortest Unsorted Continuous Subarray 	29.5% 	Easy                    [o(n) end_index= num[i] < preMax and start_index = num[i] > nextMin, o(nlogn) sort array and compare boundary]
@@ -177,16 +179,14 @@ Google list sort by Frequency(198)
 	501 	Find Mode in Binary Search Tree 	38.1% 	Easy                        [tree, map<node.val, count>, return the node with most count]
 	498 	Diagonal Traverse 	46.0% 	Medium                                      [traverse in matrix. look again]
 	494 	Target Sum 	43.8% 	Medium                                              [backtracking, multiple calls, simplified N282, with + and -]
-	493 	Reverse Pairs 	20.1% 	Hard
-	487 	Max Consecutive Ones II 	45.1% 	Medium
-	486 	Predict the Winner 	44.9% 	Medium
-	485 	Max Consecutive Ones 	54.1% 	Easy
-	483 	Smallest Good Base 	32.5% 	Hard
-	481 	Magical String 	45.3% 	Medium
-	480 	Sliding Window Median 	31.5% 	Hard
-	475 	Heaters 	29.6% 	Easy
-	474 	Ones and Zeroes 	38.9% 	Medium
-	469 	Convex Polygon 	32.1% 	Medium
+	493 	Reverse Pairs 	20.1% 	Hard                                            [BF is o(n^2), merge sort is o(nlogn)  p = mid+1; while(p <= r && nums[i] > 2* (long)nums[p]) p++; ret += p - (mid + 1);]
+	485 	Max Consecutive Ones 	54.1% 	Easy                                    [array, find continuous char. if is char count++, else count=0]
+	487 	Max Consecutive Ones II 	45.1% 	Medium                              [sliding window, count number of zeros in current window, if exceeds k, move left window.]
+	486 	Predict the Winner 	44.9% 	Medium                                      [backtracking, can only choose first and last, predict who will win]
+	483 	Smallest Good Base 	32.5% 	Hard                                        [hard, binary search]
+	481 	Magical String 	45.3% 	Medium                                          [math, bit. look again]
+	475 	Heaters 	29.6% 	Easy                                                [array, greedy, adjacent distance]
+	474 	Ones and Zeroes 	38.9% 	Medium                                      [DP 2D]
 	448 	Find All Numbers Disappeared in an Array 	51.5% 	Easy
 	447 	Number of Boomerangs 	45.0% 	Easy
 	370 	Range Addition 	55.4% 	Medium
