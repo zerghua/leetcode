@@ -9,15 +9,14 @@ package leetcode;
  Also, if two substrings wrapped by bold tags are consecutive, you need to combine them.
 
  Example 1:
-
  Input:
  s = "abcxyz123"
  dict = ["abc","123"]
  Output:
  "<b>abc</b>xyz<b>123</b>"
 
- Example 2:
 
+ Example 2:
  Input:
  s = "aaabbcc"
  dict = ["aaa","aab","bc"]

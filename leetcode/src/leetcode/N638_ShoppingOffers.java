@@ -66,7 +66,8 @@ public class N638_ShoppingOffers {
                     if(diff < 0) break;
                     clone.add(diff);
                 }
-                if(clone.size() == needs.size()) ret = Math.min(ret, list.get(list.size()-1) + dfs(price, special, clone));
+                if(clone.size() == needs.size())
+                    ret = Math.min(ret, list.get(list.size()-1) + dfs(price, special, clone));  // special price + dfs(remain)
             }
             return ret;
         }
@@ -88,7 +89,8 @@ public class N638_ShoppingOffers {
             return dfs(price, special, needs, map);
         }
 
-        public int dfs(List<Integer> price, List<List<Integer>> special, List<Integer> needs, HashMap<List<Integer>, Integer> map){
+        public int dfs(List<Integer> price, List<List<Integer>> special,
+                       List<Integer> needs, HashMap<List<Integer>, Integer> map){
             if(map.containsKey(needs)) return map.get(needs);
 
             int ret = getPriceWithoutSpecial(needs, price);
@@ -99,7 +101,8 @@ public class N638_ShoppingOffers {
                     if(diff < 0) break;
                     clone.add(diff);
                 }
-                if(clone.size() == needs.size()) ret = Math.min(ret, list.get(list.size()-1) + dfs(price, special, clone, map));
+                if(clone.size() == needs.size())
+                    ret = Math.min(ret, list.get(list.size()-1) + dfs(price, special, clone, map));
             }
             map.put(needs, ret);
             return ret;
