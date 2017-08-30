@@ -187,16 +187,16 @@ Google list sort by Frequency(198)
 	481 	Magical String 	45.3% 	Medium                                          [math, bit. look again]
 	475 	Heaters 	29.6% 	Easy                                                [array, greedy, adjacent distance]
 	474 	Ones and Zeroes 	38.9% 	Medium                                      [DP 2D]
-	448 	Find All Numbers Disappeared in an Array 	51.5% 	Easy
-	447 	Number of Boomerangs 	45.0% 	Easy
-	370 	Range Addition 	55.4% 	Medium
-	357 	Count Numbers with Unique Digits 	45.9% 	Medium
-	330 	Patching Array 	32.0% 	Hard
-	323 	Number of Connected Components in an Undirected Graph 	47.9% 	Medium
-	316 	Remove Duplicate Letters 	29.4% 	Hard
-	314 	Binary Tree Vertical Order Traversal 	36.4% 	Medium
-	312 	Burst Balloons 	42.5% 	Hard
-	310 	Minimum Height Trees 	28.8% 	Medium
+	448 	Find All Numbers Disappeared in an Array 	51.5% 	Easy                [array, o(1) space is tricky to do]
+	447 	Number of Boomerangs 	45.0% 	Easy                                    [find all three points(a,b,c) which dist(a,b) == dist(b,c), use map<distance,count> in first loop, to reduce from o(n^3) to o(n^2)]
+	370 	Range Addition 	55.4% 	Medium                                          [array, range update. set a rule update ret[i]+=val means [i~n], counter with ret[i+1]-=val]
+	357 	Count Numbers with Unique Digits 	45.9% 	Medium                      [math]
+	330 	Patching Array 	32.0% 	Hard                                            [if(i < nums.length && nums[i] <= max){max += nums[i++];}else{max += max;ret++;}]
+	323 	Number of Connected Components in an Undirected Graph 	47.9% 	Medium  [union find, or DFS on graph, similar to find number of island]
+	316 	Remove Duplicate Letters 	29.4% 	Hard                                [string, look again]
+	314 	Binary Tree Vertical Order Traversal 	36.4% 	Medium                  [BFS, level order traversal storing min/max index]
+	312 	Burst Balloons 	42.5% 	Hard                                            [DFS + memo]
+	310 	Minimum Height Trees 	28.8% 	Medium                                  [graph undirected.]
     222     Count Complete Tree Nodes 	27.5%	Medium                  [return 1 + dfs(root.left) + dfs(root.right) if height_left != height_right]
 	569 	Median Employee Salary 	25.7% 	Hard                        [SQL]
 

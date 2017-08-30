@@ -21,12 +21,12 @@ package leetcode;
  Return 167
 
  nums = [3,1,5,8] --> [3,5,8] -->   [3,8]   -->  [8]  --> []
- coins =  3*1*5      +  3*5*8    +  1*3*8      + 1*8*1   = 167
+ coins = 3*1*5      +  3*5*8    +  1*3*8      + 1*8*1   = 167
 
  */
 public class N312_BurstBalloons {
     // Google, Snapchat
-    // hard. DP + memo + divide and conquer
+    // hard. dfs + memo + divide and conquer
     // 70 / 70 test cases passed.
     // 9 ms
     public class Solution {
