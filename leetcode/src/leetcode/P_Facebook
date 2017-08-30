@@ -4,7 +4,7 @@ Facebook list sort by Frequency
     525 	Contiguous Array 	38.8% 	Medium                                     [map<preSum, index>, set to 0 to -1, then problem becomes N325. ]
    *238 	Product of Array Except Self 	48.9% 	Medium                         [preSum, two sides, left and right]
    *67  	Add Binary 	32.3% 	Easy                                               [easy, similar to AddOne]
-    311 	Sparse Matrix Multiplication 	50.7% 	Medium                         [tricky math, if (B[k][j] != 0) C[i][j] += A[i][k] * B[k][j];]
+   *311 	Sparse Matrix Multiplication 	50.7% 	Medium                         [math, [m*k]*[k*n] = [m*n], A[i][k] !=0 and if (B[k][j] != 0) C[i][j] += A[i][k] * B[k][j];]
    *43  	Multiply Strings 	27.0% 	Medium                                     [simple math, large string multiplication]
    *301 	Remove Invalid Parentheses 	35.1% 	Hard                               [BFS to remove one Parentheses at a time until find a valid one, return all valid on in that level]
    *273 	Integer to English Words 	22.0% 	Hard                               [recursive code, <10, <20, <100, <1000, <1M, <1B]
