@@ -1,7 +1,6 @@
 package leetcode;
 
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 
 /**
  * Created by Hua on 5/11/2017.
@@ -27,10 +26,40 @@ import java.util.Collections;
  */
 public class N506_RelativeRanks {
     // Google
+    // sort array value with index
+    // 17 / 17 test cases passed.  on 8/31/2017
+    // 90 ms
+    class Solution {
+        class Node{
+            int val, index;
+            Node(int val, int index){
+                this.val = val;
+                this.index = index;
+            }
+        }
+
+        public String[] findRelativeRanks(int[] nums) {
+            ArrayList<Node> list = new ArrayList();
+            int n = nums.length;
+            for(int i=0; i<n; i++) list.add(new Node(nums[i], i));
+            Collections.sort(list, (a,b) -> b.val - a.val);  // sort by value
+
+            String[] ret = new String[n];
+            for(int i=0;i<n; i++){
+                ret[list.get(i).index] = (i+1) + "";
+                if(n >= 1) ret[list.get(0).index] ="Gold Medal";
+                if(n >= 2) ret[list.get(1).index] ="Silver Medal";
+                if(n >= 3) ret[list.get(2).index] ="Bronze Medal";
+            }
+            return ret;
+        }
+    }
+
+
     // custom sort with Integer[]
     // 17 / 17 test cases passed.
     // 113 ms
-    public class Solution {
+    public class Solution2 {
         public String[] findRelativeRanks(int[] nums) {
             String[] ret = new String[nums.length];
             Integer[] index = new Integer[nums.length];
