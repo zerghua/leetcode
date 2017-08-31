@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Created by HuaZ on 8/5/2016.
 
- Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x < 10n.
+ Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x < 10^n.
 
  Example:
  Given n = 2, return 91. (The answer should be the total numbers in the range of 0 ≤ x < 100,

@@ -32,19 +32,38 @@ package leetcode;
 
  https://en.wikipedia.org/wiki/Kolakoski_sequence
 
- Create an int array a and initialize the first 3 elements with 1, 2, 2.
 
- Create two pointers head and tail. head points to the number which will be used to generate new numbers.
- tail points to the next empty position to put the new number. Then keep generating new numbers until tail >= n.
 
- Need to create the array 1 element more than n to avoid overflow because the last round head might points to a number 2.
+ Algorithm:
 
- A trick to flip number back and forth between 1 and 2: num = num ^ 3
+ 1. Create an int array a and initialize the first 3 elements with 1, 2, 2.
+
+ 2. Create two pointers head and tail. head points to the number which will be used to generate new numbers.
+    tail points to the next empty position to put the new number.
+    Then keep generating new numbers until tail >= n.
+
+ 3. Need to create the array 1 element more than n to avoid overflow because
+    the last round head might points to a number 2.
+
+ 4. A trick to flip number back and forth between 1 and 2: num = num ^ 3
+
+
+
+ Another way to flip two numbers, x1 and x2:  for example, to flip 1 and 3,  x = 4 - x;  set x=1 first
+    x = x1 + x2 - x
+
+
+
+                   1 loop of size of h                      1 loop of size of h
+ init 1, 2, 2, []   -------------->    1, 2, 2, 1, 1, []     --------------->     1, 2, 2, 1, 1, 2, []
+            |  |                                |     |                                       |     |
+            h  t                                h     t                                       h     t
+
 
  */
 public class N481_MagicalString {
     // Google
-    // very tricky question
+    // use previous number to generate new numbers
     // 65 / 65 test cases passed.
     // 12 ms
     public class Solution {

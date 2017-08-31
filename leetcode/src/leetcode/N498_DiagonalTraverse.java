@@ -38,10 +38,10 @@ public class N498_DiagonalTraverse {
                 i -= d;
                 j += d;
 
-                if(i >= m){i = m-1; j += 2; d= -d;}
-                if(j >= n){j = n-1; i += 2; d= -d;}
-                if(i < 0){i = 0; d= -d;}
-                if(j < 0){j = 0; d= -d;}
+                if(i >= m){i = m-1; j += 2; d= -d;}         // exceed bottom
+                else if(j >= n){j = n-1; i += 2; d= -d;}    // exceed right
+                else if(i < 0){i = 0; d= -d;}               // exceed top
+                else if(j < 0){j = 0; d= -d;}               // exceed left
             }
             return ret;
         }
