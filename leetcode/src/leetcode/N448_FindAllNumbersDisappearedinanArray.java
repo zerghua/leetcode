@@ -29,17 +29,28 @@ import java.util.List;
  [2,1,1,2]
  [4,3,2,1]
 
+
+
+ for example:
+
+                      0  1  2  3  4  5  6  7
+                     [4, 3, 2, 7, 8, 2, 3, 1]
+ after one pass:     -4 -3 -2 -7  8  2 -3 -1
+
+
+
+
  */
 public class N448_FindAllNumbersDisappearedinanArray {
     // Google
     // 1 ms 4 / 4 test cases passed.
-    // o(1) space tricky solution.
+    // o(1) space, kind of counting sort, mark existing num to negative. all non-marked(positive are non-existing)
     // o(n) space solution use counting sort or hashtable.
     public class Solution {
         public List<Integer> findDisappearedNumbers(int[] nums) {
             for(int i=0;i<nums.length;i++){
-                int index = Math.abs(nums[i]) - 1; //Math.abs are important
-                nums[index] = nums[index] > 0 ? -nums[index] : nums[index];
+                int index = Math.abs(nums[i]) - 1;    //Math.abs are important
+                if(nums[index] > 0) nums[index] = -nums[index];
             }
 
             List<Integer> ret = new ArrayList();
