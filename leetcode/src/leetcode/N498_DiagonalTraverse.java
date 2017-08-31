@@ -25,10 +25,34 @@ package leetcode;
  */
 public class N498_DiagonalTraverse {
     // Google
+    // up(i--, j++), down(i++, j--), up, down, ...
+    // 32 / 32 test cases passed.  on 8/30/2017
+    // 8 ms
+    class Solution {
+        public int[] findDiagonalOrder(int[][] matrix) {
+            if(matrix == null || matrix.length == 0) return new int[0];
+            int m = matrix.length, n = matrix[0].length, d=1, i=0, j=0;
+            int[] ret = new int[m * n];
+            for(int k = 0; k< ret.length; k++){
+                ret[k] = matrix[i][j];
+                i -= d;
+                j += d;
+
+                if(i >= m){i = m-1; j += 2; d= -d;}
+                if(j >= n){j = n-1; i += 2; d= -d;}
+                if(i < 0){i = 0; d= -d;}
+                if(j < 0){j = 0; d= -d;}
+            }
+            return ret;
+        }
+    }
+
+
+
     // find walk pattern, need some time to figure it out.
     // 32 / 32 test cases passed.
     // 9 ms
-    public class Solution {
+    public class Solution2 {
         public int[] findDiagonalOrder(int[][] matrix) {
             if(matrix.length == 0) return new int[0];
             int row = matrix.length, col = matrix[0].length, i=0, j=0;

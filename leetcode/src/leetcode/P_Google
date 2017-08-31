@@ -1,8 +1,8 @@
 Google list sort by Frequency(198)
-	422 	Valid Word Square 	36.2% 	Easy                                        [matrix, easy, check char in diagonal]
-   *240 	Search a 2D Matrix II 	38.5% 	Medium                                  [matrix, search from top-right, of a sorted matrix(to find value if exist in matrix)]
-   *54 	    Spiral Matrix 	25.9% 	Medium                                          [matrix, 4 loops inside one loop]
-	498 	Diagonal Traverse 	46.0% 	Medium                                      [matrix, traverse in matrix. look again]
+	422 	Valid Word Square 	36.2% 	Easy                                        [matrix, easy, check char in diagonal, swapped index]
+   *240 	Search a 2D Matrix II 	38.5% 	Medium                                  [matrix, easy, search from top-right, of a sorted matrix(to find value if exist in matrix)]
+   *54 	    Spiral Matrix 	25.9% 	Medium                                          [matrix, easy, 4 loops inside one loop, 4 boundary variables]
+	498 	Diagonal Traverse 	46.0% 	Medium                                      [matrix, diagonal travel in matrix, up(i--, j++), down(i++, j--), if(i >= m){i = m-1; j += 2; d= -d;} ... ]
    *289 	Game of Life 	36.8% 	Medium                                          [bit, in place, use 2ed bit store next status]
 	397 	Integer Replacement 	30.1% 	Medium                                  [bit, if even n=/2, odd if is 3 or second last bit is 0, n--; else n++]
    *421 	Maximum XOR of Two Numbers in an Array 	45.7% 	Medium                  [bit, a^b=c, then a^c=b, b^c=a. need to look again]
