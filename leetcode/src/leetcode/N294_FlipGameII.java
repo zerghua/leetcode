@@ -19,7 +19,8 @@ package leetcode;
 
 
 
- Now let's check the time complexity: Suppose originally the board of size N contains only '+' signs, then roughly we have:
+ Now let's check the time complexity: Suppose originally the board of size N contains only '+' signs,
+ then roughly we have:
 
  T(N) = (N-2) * T(N-2) = (N-2) * (N-4) * T(N-4) ... = (N-2) * (N-4) * (N-6) * ... ~ O(N!!)
 
@@ -28,7 +29,8 @@ package leetcode;
 
  Can we even do better than that? Sure! Below I'll show the time complexity can be reduced to O(N^2)
  using Dynamic Programming, but the improved method requires some non-trivial understanding of the game theory,
- and therefore is not expected in a real interview. If you are not interested, please simply skip the rest of the article:
+ and therefore is not expected in a real interview.
+ If you are not interested, please simply skip the rest of the article:
 
  Concept 1 (Impartial Game): Given a particular arrangement of the game
  board, if either player have exactly the same set of moves should he
@@ -81,7 +83,8 @@ package leetcode;
  s2, ..., sk) equals the XOR of all its subgames s1, s2, ..., sk. e.g.
  g((s1, s2, s3)) = g(s1) XOR g(s2) XOR g(s3).
 
- With the S-G theorem, we can now compute any arbitrary g(x). If x contains only one number N (there is only one '+' subsequence), then
+ With the S-G theorem, we can now compute any arbitrary g(x).
+ If x contains only one number N (there is only one '+' subsequence), then
 
  g(x) = FMV(g(0, N-2), g(1, N-3), g(2, N-4), ... , g(N/2-1, N-N/2-2));
  = FMV(g(0)^g(N-2), g(1)^g(N-3), g(2)^g(N-4)), ... g(N/2-1, N-N/2-2));
@@ -96,7 +99,8 @@ package leetcode;
  And we must calculate from g(1) all the way to g(N). So overall, the algorithm has an O(N^2) time complexity.
 
  Naturally, the code is bit more complicated than the backtracking version.
- But it reduces the running time from ~128ms to less than 1ms. The huge improvement is definitely worth all the hassle we went through:
+ But it reduces the running time from ~128ms to less than 1ms.
+ The huge improvement is definitely worth all the hassle we went through:
 
  int firstMissingNumber(unordered_set<int> lut) {
  int m = lut.size();

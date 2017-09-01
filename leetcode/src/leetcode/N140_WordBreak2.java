@@ -32,7 +32,7 @@ public class N140_WordBreak2 {
 
             List<String> ret = new ArrayList();
             if(s.length() == 0){
-                ret.add("");
+                ret.add("");  // make sure returned list have at least one item, or loop 0-size list will error out
                 return ret;
             }
 
@@ -40,7 +40,7 @@ public class N140_WordBreak2 {
                 if(s.startsWith(word)){
                     List<String> subList = dfs(s.substring(word.length()), wordDict, map);
                     for(String str : subList)
-                        ret.add(word + (str.isEmpty() ? "" : " ") + str); // sublist has only one string
+                        ret.add(word + (str.length()==0 ? "" : " ") + str);  // str.length()==0  == str.isEmpty()
                 }
             }
             map.put(s, ret);

@@ -66,7 +66,7 @@ public class N638_ShoppingOffers {
                     if(diff < 0) break;
                     clone.add(diff);
                 }
-                if(clone.size() == needs.size())
+                if(clone.size() == needs.size())  // won't go further since cur special can't satisfy need
                     ret = Math.min(ret, list.get(list.size()-1) + dfs(price, special, clone));  // special price + dfs(remain)
             }
             return ret;
