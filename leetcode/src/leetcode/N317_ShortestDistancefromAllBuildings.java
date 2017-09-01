@@ -43,7 +43,7 @@ public class N317_ShortestDistancefromAllBuildings {
             for(int i=0; i< row; i++){
                 for(int j=0; j<col; j++){
                     if(grid[i][j] == 1) {
-                        numOfBuildings++;
+                        numOfBuildings++;  // count total number of buildings
                         bfs(i, j, dist, buildings, grid);
                     }
                 }
