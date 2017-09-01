@@ -44,10 +44,37 @@ package leetcode;
 import java.util.*;
 public class N604_DesignCompressedStringIterator {
     // Google
+    // solution from editorial
+    public class StringIterator {
+        String res;
+        int ptr = 0, num = 0;
+        char ch = ' ';
+        public StringIterator(String s) {
+            res = s;
+        }
+        public char next() {
+            if (!hasNext())
+                return ' ';
+            if (num == 0) {
+                ch = res.charAt(ptr++);
+                while (ptr < res.length() && Character.isDigit(res.charAt(ptr))) {
+                    num = num * 10 + res.charAt(ptr++) - '0';
+                }
+            }
+            num--;
+            return ch;
+        }
+        public boolean hasNext() {
+            return ptr != res.length() || num != 0;
+        }
+    }
+
+
+    // my solution
     // 169 / 169 test cases passed.
     // 134 ms
     // dynamic update list
-    public class StringIterator {
+    public class StringIterator2 {
         class Node{
             char c;
             long count;
@@ -58,7 +85,7 @@ public class N604_DesignCompressedStringIterator {
         }
 
         LinkedList<Node> list;
-        public StringIterator(String compressedString) {
+        public StringIterator2(String compressedString) {
             list = new LinkedList();
 
             // put each char of string into linkedlist
