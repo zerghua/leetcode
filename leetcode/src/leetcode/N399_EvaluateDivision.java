@@ -60,7 +60,7 @@ public class N399_EvaluateDivision {
             map.get(a).put(b, val);
         }
 
-        public Double dfs(String a, String b, HashMap<String, HashMap<String, Double>> map, HashSet<String> set){
+        public double dfs(String a, String b, HashMap<String, HashMap<String, Double>> map, HashSet<String> set){
             String key = a + ":" + b;
             if(set.contains(key) || !map.containsKey(a) || !map.containsKey(b)) return -1.0;
             if(a.equals(b)) return 1.0;

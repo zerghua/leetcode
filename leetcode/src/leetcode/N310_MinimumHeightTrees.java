@@ -62,6 +62,44 @@ import java.util.*;
  */
 public class N310_MinimumHeightTrees {
     // Google
+    // graph, BFS, remove all leaf node until remain node <=2 and return.
+    // map<node, hashset(node)>
+    // 66 / 66 test cases passed.  on 9/2/2017
+    // 71 ms
+    class Solution {
+        public List<Integer> findMinHeightTrees(int n, int[][] edges) {
+            List<Integer> ret = new ArrayList<>();
+            if(n == 1) {
+                ret.add(0);
+                return ret;
+            }
+
+            HashMap<Integer, HashSet<Integer>> map = new HashMap<>();
+            for(int i=0;i<n;i++) map.put(i, new HashSet<>());
+            for(int[] edge: edges){
+                map.get(edge[0]).add(edge[1]);
+                map.get(edge[1]).add(edge[0]);
+            }
+
+            //add all leaf node
+            for(int i=0;i<n;i++) if(map.get(i).size() == 1) ret.add(i);
+
+            // BFS from all leaf node
+            while(n>2){
+                n -= ret.size();
+                ArrayList<Integer> new_leafs= new ArrayList<>();
+                for(int leaf_node: ret){
+                    int neighbor_node = map.get(leaf_node).iterator().next();
+                    map.get(neighbor_node).remove(leaf_node);   // remove edge
+                    if(map.get(neighbor_node).size() == 1) new_leafs.add(neighbor_node);
+                }
+                ret = new_leafs;
+            }
+            return ret;
+        }
+    }
+
+
     // 45 ms
     // BFS, remove all leaf node until remain node <=2 and return.
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {

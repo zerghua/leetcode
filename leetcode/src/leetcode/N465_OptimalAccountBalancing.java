@@ -74,7 +74,7 @@ public class N465_OptimalAccountBalancing {
 
 
         public int dfs(ArrayList<Long> list, int start, int count){
-            while(start < list.size() && list.get(start) == 0) start++;
+            while(start < list.size() && list.get(start) == 0) start++;  //important, to skip some corner cases
             if(start >= list.size()) return count; // everyone are debt free
 
             int ret = Integer.MAX_VALUE;

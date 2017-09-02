@@ -48,7 +48,7 @@ public class N332_ReconstructItinerary {
     // 11 ms
     public class Solution {
         LinkedList<String> ret = new LinkedList();
-        HashMap<String, PriorityQueue<String>> map = new HashMap();
+        HashMap<String, PriorityQueue<String>> map = new HashMap(); // PriorityQueue to guarantee smallest lexical order
         public List<String> findItinerary(String[][] tickets) {
             for(String[] a: tickets){
                 if(!map.containsKey(a[0])) map.put(a[0], new PriorityQueue());
