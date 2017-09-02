@@ -49,10 +49,11 @@ public class N298_BinaryTreeLongestConsecutiveSequence {
 
         public void dfs(TreeNode node, int num, int val){
             if(node == null) return;
+
             if(val == node.val) num++;
             else num = 1;
-
             ret = Math.max(ret, num);
+
             dfs(node.left, num, node.val + 1);
             dfs(node.right, num, node.val + 1);
         }

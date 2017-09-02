@@ -39,7 +39,7 @@ public class N315_CountofSmallerNumbersAfterSelf {
             for(int i=nums.length-1; i>=0; i--){
                 root = dfs(nums[i], root, ret, i, 0);  // build BST tree.
             }
-            return Arrays.asList(ret);
+            return Arrays.asList(ret);  // Integer[] can be easily converted to List<Integer>
         }
 
         public TreeNode dfs(int num, TreeNode node, Integer[] ret, int i, int preCount){

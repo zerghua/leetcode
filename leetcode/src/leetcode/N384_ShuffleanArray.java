@@ -26,9 +26,10 @@ import java.util.Random;
 
  */
 public class N384_ShuffleanArray {
-    // no company
-    // 311 ms
-    // random ?
+    // amazon, snapchat
+    // knuth shuffle
+    // 10 / 10 test cases passed.  on 9/1/2017
+    // 266 ms
     public class Solution {
         private int[] nums;
         private Random random;
@@ -46,7 +47,7 @@ public class N384_ShuffleanArray {
         /** Returns a random shuffling of the array. */
         public int[] shuffle() {
             int[] a = nums.clone();
-            for(int i=1;i<a.length;i++){
+            for(int i=0;i<a.length;i++){
                 int j = random.nextInt(i+1);
                 swap(a, i, j);
             }
@@ -84,7 +85,7 @@ public class N384_ShuffleanArray {
         public int[] shuffle() {
             int[] a = nums.clone();
             for(int i=a.length-1; i>=1 ;i--){
-                int j = random.nextInt(i+1);
+                int j = random.nextInt(i+1); //[0, i+1), if don't want keep original sequence, random [0,i)
                 swap(a, i, j);
             }
             return a;
