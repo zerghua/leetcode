@@ -33,16 +33,16 @@ public class N361_BombEnemy {
             for(int i=0; i< row; i++){
                 for(int j=0; j< col; j++){
 
-                    // left is Wall
+                    // first col or left is Wall, search right stop until hit wall
                     if(j == 0 || grid[i][j-1] == 'W'){
                         rowHits = 0;
-                        for(int k = j; k< col && grid[i][k] != 'W'; k++) rowHits += (grid[i][k] == 'E' ? 1 : 0); // search right
+                        for(int k = j; k< col && grid[i][k] != 'W'; k++) rowHits += (grid[i][k] == 'E' ? 1 : 0);
                     }
 
-                    // top is wall
+                    // first row or top is wall, search bottom stop until hit wall
                     if(i == 0 || grid[i-1][j] == 'W'){
                         colHits[j] = 0;
-                        for(int k = i; k< row && grid[k][j] != 'W'; k++) colHits[j] += (grid[k][j] == 'E' ? 1 : 0); // search bottom
+                        for(int k = i; k< row && grid[k][j] != 'W'; k++) colHits[j] += (grid[k][j] == 'E' ? 1 : 0);
                     }
 
                     if(grid[i][j] == '0') ret = Math.max(ret, rowHits + colHits[j]);
