@@ -1,7 +1,5 @@
 package leetcode;
 
-import java.security.Policy;
-
 /**
  * Created by Hua on 5/4/2017.
 
@@ -14,7 +12,8 @@ import java.security.Policy;
  'L' : Late.
  'P' : Present.
 
- A record is regarded as rewardable if it doesn't contain more than one 'A' (absent) or more than two continuous 'L' (late).
+ A record is regarded as rewardable if it doesn't contain more than one 'A' (absent)
+ or more than two continuous 'L' (late).
 
  Example 1:
 
