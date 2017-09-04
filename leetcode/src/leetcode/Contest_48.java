@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Created by HuaZ on 9/2/2017.
  * Rank	    Name	Score	Finish Time 	Q1 (3)	    Q2 (6)	    Q3 (8)	    Q4 (9)
- 812 / 2668	zerghua	15	1:49:48	0:22:47 2	1:19:48 	0:59:02 4
+ 812 / 2668	zerghua	15	    1:49:48	        0:22:47 2	1:19:48     0:59:02 4
 
 
 
