@@ -10,7 +10,7 @@ Table of Contents(last reviewed on)
 2. Array                    10/27/2016
 3. Binary search            12/01/2016
 4. Binary Tree              10/28/2016
-5. Segment/Interval Tree
+5. Segment/Interval Tree    9/5/2017
 6. Binary Search Tree       10/28/2016
 7. Bit Manipulation         10/27/2016
 8. Design                   10/27/2016
@@ -592,17 +592,27 @@ public int sumOfLeftLeaves(TreeNode root) {
 
 
 ---------------------------------------------------
-Segment/Interval Tree
+5. Segment/Interval Tree(9/5/2017)
 ---------------------------------------------------
 307. Range Sum Query - Mutable(real question)(google)(must)
-[medium-hard] segment tree. [TODO]
-
+[medium-hard] segment tree.
+    public class SegmentTreeNode{
+        int start, end, sum;
+        SegmentTreeNode left, right;
+    }
+                                     [0,5]
+                                   /       \
+                              [0,3]        [4,5]
+                             /    \        /   \
+                        [0,1]     [2,3]  [4,4] [5,5]
+                       /    \     /    \
+                    [0,0] [1,1] [2,2]  [3,3]
 
 
 
 
 ---------------------------------------------------
-Binary Search Tree(reviewed on 9/30/2016, 10/28/2016)
+6. Binary Search Tree(reviewed on 9/30/2016, 10/28/2016)
 ---------------------------------------------------
 96. Unique Binary Search Trees(return how many unique trees.)
 [medium-hard] DP. catalan number. f(n) = f(0)*f(n-1) + f(1)*f(n-2) + ... + f(n-1)f(0)
@@ -618,7 +628,7 @@ public int numTrees(int n) {
 }
 
 
-95. Unique Binary Search Trees II(generate all unique trees)(interesting)
+*95. Unique Binary Search Trees II(generate all unique trees)(interesting)
 [medium-hard] DFS. foreach(start,n), left = (start,i-1), right=(i+1,n).
 public List<TreeNode> generateTrees(int start, int end) {
     List<TreeNode> ret = new LinkedList<>();
@@ -706,7 +716,7 @@ public int countNodes(TreeNode root) {
 
 
 ---------------------------------------------------
-Bit Manipulation(reviewed on 10/27/2016)
+7. Bit Manipulation(reviewed on 10/27/2016)
 ---------------------------------------------------
 29. Divide Two Integers
 [medium] not sure. [TODO]
