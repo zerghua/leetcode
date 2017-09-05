@@ -25,6 +25,7 @@ public class N124_BinaryTreeMaximumPathSum {
     // 92 / 92 test cases passed.
     // 2ms
     // bottom up
+    // question, does node val contains negative number?
     public class Solution {
         int global_max =Integer.MIN_VALUE;
 

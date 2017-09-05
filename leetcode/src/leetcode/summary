@@ -278,7 +278,7 @@ optimized o(klogk), put min(k, num1.length) to heap(sorted by sum increasing and
 
 
 ---------------------------------------------------
-Binary search(reviewed on 9/28/2016, 10/27/2016, 12/1/2016)
+3. Binary search(reviewed on 9/28/2016, 10/27/2016, 12/1/2016, 9/5/2017)
 (
 1. regular BS is while(left<=right), and has early return
 2. special case like find min in rotated array, while(left<right) return nums[left]; compare with right
@@ -365,7 +365,7 @@ time can also be o(mlogn) or o(nlogm)
 
 
 ---------------------------------------------------
-Binary Tree(reviewed on 9/30/2016, 10/28/2016)
+4. Binary Tree(reviewed on 9/30/2016, 10/28/2016, 9/5/2017)
 ---------------------------------------------------
 94. Binary Tree Inorder Traversal
 [easy-medium] left-root-right. iterative, use stack.
@@ -419,7 +419,7 @@ One extra line of: if(i<size-1) node.next = q.peek(); (linking the next node if 
     else return 1 + Math.min(minDepth(root.left),  minDepth(root.right));
 BFS solution works well for highly unbalanced tree.
 
-110. Balanced Binary Tree(height-balanced tree: every node's subtree diff <= 1)(real question)(interesting)
+*110. Balanced Binary Tree(height-balanced tree: every node's subtree diff <= 1)(real question)(interesting)
 [easy-medium] BF o(n^2), for each node, check left and right diff. bottom-up DFS.
 bottom-up DFS. similar to N104 max depth of binary tree.
     public int dfs(TreeNode root){
@@ -438,7 +438,7 @@ bottom-up DFS. similar to N104 max depth of binary tree.
         return dfs(root) != -1;
     }
 
-124. Binary Tree Maximum Path Sum(find max sum from any node to any node, not need to across root)(very interesting)
+*124. Binary Tree Maximum Path Sum(find max sum from any node to any node, not need to across root)(very interesting)
 [hard-medium] DFS bottom up, partial max, and global max. int = DFS(node) bottom-up DFS.
 int global_max=Integer.MIN_VALUE;
 int DFS(node){
@@ -495,8 +495,25 @@ public int dfs(TreeNode node, int sum){
 257. Binary Tree Paths(return all root to leaf path)(real question)(facebook)
 [easy-medium] DFS + backtracking. similar to N129. void = DFS(node, ret, string)
 
-114. Flatten Binary Tree to Linked List
-[medium-hard] Morris Algorithm?  [TODO]
+114. Flatten Binary Tree to Linked List(look again)
+[medium-hard] return pre-order list
+    public void flatten(TreeNode root) {
+        if (root == null) return;
+
+        TreeNode cur = root, prev;
+        while (cur != null) {
+            if (cur.left == null) cur = cur.right;
+            else {
+                prev = cur.left;
+
+                while (prev.right != null) prev = prev.right;
+
+                prev.right = cur.right;
+                cur.right = cur.left;
+                cur.left = null;
+            }
+        }
+    }
 
 222. Count Complete Tree Nodes (require o(nlogn) time) (interesting)
 [medium] binary search.  int = dfs(node)
@@ -521,16 +538,13 @@ public int countNodes(TreeNode root) {
     return countNodes(root.left) + countNodes(root.right) + 1;
 }
 
-
 226. Invert Binary Tree(swap left and right)(interesting)
 [easy-medium] node = DFS(node), bottom up.
-if(root == null) return root;
-else {
+    if(root == null) return root;
     TreeNode tmp = invertTree(root.left);
     root.left = invertTree(root.right);
     root.right = tmp;
     return root;
-}
 
 236. Lowest Common Ancestor of a Binary Tree(real question)(Google/Microsoft)
 [medium] top-bottom. kind of similar to N226.
@@ -556,8 +570,8 @@ public boolean isValidSerialization(String preorder) {
     return count == 0;
 }
 
-156. Binary Tree Upside Down(VIP)(linkedin phone)(interesting)
-[medium] bottom-up approach. return dfs(root, null);
+*156. Binary Tree Upside Down(VIP)(linkedin phone)(interesting)
+[medium] bottom-up(post-order), pass down parent. return dfs(root, null);
     public TreeNode dfs(TreeNode node, TreeNode parent){
         if(node == null) return parent; // return left-most node
         TreeNode root = dfs(node.left, node);

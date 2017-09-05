@@ -22,18 +22,22 @@ to
 
  */
 public class N226_invertTree {
-	// no company
-	//260ms 81%
-    public TreeNode invertTree(TreeNode root) {
-        if(root == null) return root;
-		else {
+	// no company, Google
+    // swap left and right recursively, post-order
+	// 68 / 68 test cases passed.  on 9/5/2017
+	// 0 ms
+	class Solution {
+		public TreeNode invertTree(TreeNode root) {
+			if(root == null) return root;
+
 			TreeNode tmp = invertTree(root.left);
 			root.left = invertTree(root.right);
 			root.right = tmp;
 			return root;
 		}
-    }
-    
+	}
+
+
     //iterative   268 ms 70%
     public TreeNode invertTree2(TreeNode root) {
     	if(root == null) return root;
