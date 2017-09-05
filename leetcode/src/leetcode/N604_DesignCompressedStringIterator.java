@@ -51,6 +51,7 @@ public class N604_DesignCompressedStringIterator {
         char ch = ' ';
         public StringIterator(String s) {
             res = s;
+            // new ArrayList(Arrays.asList(s.toCharArray())).iterator();
         }
         public char next() {
             if (!hasNext())

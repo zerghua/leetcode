@@ -1408,6 +1408,19 @@ DP cut[j] = min(cut[j], cut[i-1] + 1) inside a[i] == a[j] condition.
 
 266. Palindrome Permutation(VIP)
 267. Palindrome Permutation II(VIP)(real question)(Akamai)
+[medium] return all valid permutation string.
+backtracking, count each char to int[256], store mid char, build half of the string.
+dfs(int[] map, List<String> ret, String s, int length, String mid){
+    if(s.length() == length) return{ret.add(s + mid + reversed);}
+    for(i in [0,255]){
+        if(map[i]>0){
+            map[i]--;
+            dfs(map, ret, s+ (char)i, length, mid);
+            map[i]++;
+        }
+    }
+}
+
 
 336. Palindrome Pairs
 [hard] hashtable + divide conquer.
@@ -1576,6 +1589,23 @@ Stack/Queue(reviewed on 9/29/2016, 10/27/2016)
 71. Simplify Path
 [medium] pop if it's "..", continue if it's '.', else push
 
+84. Largest Rectangle in Histogram(return max area of an array represented histogram)(interesting.)
+[hard] stack<index_of_array>, maintain the top of stack is the max value.
+o(n) time.
+while(i<length){
+    if(stack is empty || incoming >= stack.top)push and i++;
+    else pop and updateMax(keep updating until empty or larger than top);
+}
+while(stack is not empty) updateMax;
+
+public int getIMax(int[] heights, Stack<Integer> s, int i, int max){
+    int height = heights[s.pop()];
+    int length = s.isEmpty() ? i : i - 1 - s.peek();
+    return Math.max(max, height*length);
+}
+BF o(n^2), for each i, get area from left and right, left-- or right++ until a[i] > a[left] or a[right].
+
+
 150. Evaluate Reverse Polish Notation(real question)
 [easy] if operand, pop twice and evaluate and push back, else push.
 
@@ -1606,7 +1636,6 @@ used the trick of stack's top always be the smallest until a smaller comes after
 
 456. 132 Pattern
 [medium] stack solution, require one < three < two.
-
 
 
 ---------------------------------------------------
@@ -1998,10 +2027,6 @@ minHeap.add(num); maxHeap.add(min.poll()); if (maxHeap.size > minHeap.size) minH
 41. First Missing Positive(require o(n) time and o(1) space)
 [hard] kind of inplace swap to its position. [TODO]
 
-84. Largest Rectangle in Histogram(return max area of an array represented histogram)(interesting.)
-[hard] stack to store index, maintain the top of stack is the max value.
-BF o(n^2), for each i, get area from left and right, left-- or right++ until a[i] > a[left] or a[right].
-o(n) time. while(incoming < stack.top)pop and update max; else push and i++; while stack is not empty, update max.
 
 85. Maximal Rectangle(problem similar to N221 Maximal Square, but can't use DP)
 [hard] convert matrix to n rows of histogram, and use N84 solution to find max in each row.

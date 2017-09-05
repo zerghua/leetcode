@@ -18,26 +18,30 @@ import java.util.*;
  */
 public class N84_LargestRectangleinHistogram {
     // no company
-    //25 ms, stack, o(N)
+    // stack, o(N)
     // if(h[i+1] < h[i]) pop stack and calculate area.
-    public int largestRectangleArea(int[] heights) {
-        if(heights ==null || heights.length==0) return 0;
-        Stack<Integer> s = new Stack<>();
-        int i=0, max=0;
-        while(i<heights.length){
-            if(s.isEmpty() || heights[i] >= heights[s.peek()]){
-                s.push(i);
-                i++;
-            }else max = getIMax(heights, s, i, max);
+    // 96 / 96 test cases passed.  on 9/4/2017
+    // 22 ms
+    class Solution {
+        public int largestRectangleArea(int[] heights) {
+            if(heights ==null || heights.length==0) return 0;
+            Stack<Integer> s = new Stack<>();
+            int i=0, max=0;
+            while(i<heights.length){
+                if(s.isEmpty() || heights[i] >= heights[s.peek()]){
+                    s.push(i);
+                    i++;
+                }else max = getIMax(heights, s, i, max);
+            }
+            while(!s.isEmpty()) max = getIMax(heights, s, i, max);
+            return max;
         }
-        while(!s.isEmpty()) max = getIMax(heights, s, i, max);
-        return max;
-    }
 
-    public int getIMax(int[] heights, Stack<Integer> s, int i, int max){
-        int height = heights[s.pop()];
-        int length = s.isEmpty() ? i : i - 1 - s.peek();
-        return Math.max(max, height*length);
+        public int getIMax(int[] heights, Stack<Integer> s, int i, int max){
+            int height = heights[s.pop()];
+            int length = s.isEmpty() ? i : i - 1 - s.peek();
+            return Math.max(max, height*length);
+        }
     }
 
     //brute force, o(N^2)
