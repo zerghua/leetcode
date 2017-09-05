@@ -63,6 +63,7 @@ Google list sort by Frequency(198)
 	447 	Number of Boomerangs 	45.0% 	Easy                                    [map<distance,count>, find all three points(a,b,c) which dist(a,b) == dist(b,c), use map<distance,count> in first loop, to reduce from o(n^3) to o(n^2)]
    *388 	Longest Absolute File Path 	36.4% 	Medium                              [map<level, count>, for each string{int lev = s.lastIndexOf("\t")+1, curLen = stack[lev+1] = stack[lev]+s.length()-lev+1; if(s.contains(".")) maxLen = Math.max(maxLen, curLen-1);}]
     249 	Group Shifted Strings 	41.2% 	Medium                                  [map<string, list>. offset = s.charAt(0) - 'a'; for(int i=0;i<s.length();i++)sb.append((s.charAt(i) - offset + 26) % 26 + 'a');]
+    249 	Group Shifted Strings 	41.2% 	Medium                                  [map<string, list>. offset = s.charAt(0) - 'a'; for(int i=0;i<s.length();i++)sb.append((s.charAt(i) - offset + 26) % 26 + 'a');]
    *166 	Fraction to Recurring Decimal 	17.4% 	Medium                          [map<long, index>, map.put(remainder, sb.length()), sb.insert(map.get(remainder), "("); return sb.toString().replace("(0)","")]
    *336 	Palindrome Pairs 	26.1% 	Hard                                        [map<str, index>, divide each word to two substring, if one part is Pal and the reverse other can be found in map, they would form a valid pair]
 	560 	Subarray Sum Equals K 	40.7% 	Medium                                  [map<preSum, count> + presum, return count of continuous subarray == k]
