@@ -286,17 +286,6 @@ Binary search(reviewed on 9/28/2016, 10/27/2016, 12/1/2016)
 4. special case to store middle result ret while recurse, like N69.sqrt and N278.badVersion
 )
 ---------------------------------------------------
-Real Question: given an sorted array, find all numbers which count of it larger than n/4.
-    1. at most there are 3 such numbers, if exist, they should be at n/4, 2n/4, 3n/4.
-    1 2 3 4 5 6 7 8
-        |     |
-
-    1 2 3 4 5 6 7
-      |   |   |
-
-    2. binary search on those 3 or 2 numbers, find first and last index of them, if length larger than n/4, then it qualifies.
-
-
 33. Search in Rotated Sorted Array
 [hard-medium] 4 if conditions, compare num[mid] with num[left],
 further compare target to num[left] and num[mid].
@@ -312,8 +301,18 @@ else l = mid+1; return num[l]  while(l<r)
 154. Find Minimum in Rotated Sorted Array II(duplicate is allowed)(real question)
 [hard-medium] if(num[mid] == num[r]) r--;  else are the same as 153.
 
-34. Search for a Range(interesting)(can only do recursion, because there are two recursive call in == condition)
+*34. Search for a Range(interesting)(can only do recursion, because there are two recursive call in == condition)
 [medium] more code when ==; update ret[0] and ret[1]; two direction recursion dfs(start, mid-1); dfs(mid+1,end)
+
+Real Question: given an sorted array, find all numbers which count of it larger than n/4.
+1. at most there are 3 such numbers, if exist, they should be at n/4, 2n/4, 3n/4.
+2. binary search on those 3 or 2 numbers, find first and last index of them, if length larger than n/4, then it qualifies.(N34)
+    1 2 3 4 5 6 7 8
+        |     |
+
+    1 2 3 4 5 6 7
+      |   |   |
+
 
 35. Search Insert Position(real question)
 [medium-easy] regular binary search, insertion position is the left bound; return left;
@@ -347,8 +346,16 @@ return ret;
 time can also be o(mlogn) or o(nlogm)
 
 162. Find Peak Element (tricky but interesting)
-[medium] return mid if(mid==0 || num[mid] > num[mid-1]) && ( mid= num.length-1 || num[mid] > num[mid+1])
-if(mid>0 && num[mid] < num[mid-1]) (search left) r=mid-1  , else (search right) l = mid+1
+[medium] If the middle element is smaller than the its left neighbor, then there is always a peak in left half
+    while(left<= right){
+        int mid = (right-left)/2 + left;
+        if( (mid==0 || nums[mid] > nums[mid-1]) &&
+                (mid == nums.length-1 || nums[mid] > nums[mid+1])){
+            return mid;
+        }
+        else if(mid>0 && nums[mid] < nums[mid-1]) right = mid-1;
+        else left = mid+1;
+    }
 
 278. First Bad Version(real question)
 [easy] if (mid is isBad){ret = mid; r =mid-1}; else l=mid+1;
