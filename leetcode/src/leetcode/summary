@@ -15,8 +15,8 @@ Table of Contents(last reviewed on)
 7. Bit Manipulation         10/27/2016
 8. Design                   10/27/2016
 9. DFS/backtracking or BFS  10/4/2016
-10.DP                       10/2/2016
-11.Divide and conquer
+10.Divide and conquer
+11.DP                       10/2/2016
 12.Greedy                   12/19/2016
 13.Hash Table               10/28/2016
 14.Interval                 10/27/2016
@@ -643,33 +643,6 @@ public int numTrees(int n) {
     return catalan[n];
 }
 
-
-*95. Unique Binary Search Trees II(generate all unique trees)(interesting)
-[medium-hard] DFS. foreach(start,n), left = (start,i-1), right=(i+1,n).
-public List<TreeNode> generateTrees(int start, int end) {
-    List<TreeNode> ret = new LinkedList<>();
-    if(start > end){
-        ret.add(null);
-        return ret;
-    }
-
-    for(int i=start; i<=end; i++){
-        List<TreeNode> lefts= generateTrees(start, i-1);
-        List<TreeNode> rights= generateTrees(i+1, end);
-
-        for(TreeNode left: lefts){
-            for(TreeNode right: rights){
-                TreeNode node = new TreeNode(i);
-                node.left = left;
-                node.right = right;
-                ret.add(node);
-            }
-        }
-    }
-    return ret;
-}
-
-
 98. Validate Binary Search Tree(real question)(interesting)
 [easy-medium]
 1. DFS. pass along min, max value to validate. Can pass null to Integer to avoid overflow.
@@ -799,7 +772,7 @@ for(int i=0;i<32;i++){
 
 
 ---------------------------------------------------
-Design(reviewed on 10/27/2016)
+8. Design(reviewed on 10/27/2016, 9/6/2017)
 ---------------------------------------------------
 
 ----------------------  Iterator --------------------------
@@ -846,7 +819,7 @@ if '[', add obj to stack,  if ',' || ']', add number to stack.peek() object, if 
 
 
 ---------------------------------------------------
-DFS/backtracking or BFS(better for shortest path)(reviewed on 10/3/2016 - 10/4/2016)
+9. DFS/backtracking or BFS(better for shortest path)(reviewed on 10/3/2016 - 10/4/2016, 9/6/2017)
 ---------------------------------------------------
 17. Letter Combinations of a Phone Number(return all possible letter combinations that the number could represent)
 [medium] void = DFS(ret, cur_list, digits_string, start_int, map)
@@ -862,7 +835,7 @@ two DFS in func: dfs(cur+"(", left-1, right;  dfs(cur+")", left, right-1);
 [medium] void = DFS(ret, cur_list, num_array, used_array)
 
 47. Permutations II (contains duplicates, return unique permutation, no duplicate set.)
-[medium] void = DFS(ret, cur_list, num_array, used_array)
+[medium] dfs(int[] nums, boolean[] used, List<List<Integer>> ret, LinkedList<Integer> list)
 Arrays.sort(num_array);
 if(i>0 && num[i]==num[i-1] && !used[i-1]) continue; (think about why it's !used[i-1] for like set(1,1,2))
 
@@ -870,7 +843,7 @@ if(i>0 && num[i]==num[i-1] && !used[i-1]) continue; (think about why it's !used[
 [medium] void = DFS(ret, cur_list, num_array, start_int)
 
 90. Subsets II (contains duplicates)  [1,1,2]
-[medium] void = DFS(ret, cur_list, num_array, start_int)
+[medium] dfs(List<List<Integer>> ret, int[] nums, List<Integer> cur_list, int start)
 Arrays.sort(num_array);
 if(i>start && num[i]==num[i-1]) continue;
 
@@ -882,14 +855,14 @@ subset:        [1,2,3], [2,3], [3] ...      subset remains original sequence.
 // only permutation will need that, so it need an used_array.
 
 
-39. Combination Sum(find all unique combinations in C where the candidate positive numbers sums to T) like set [2, 3, 6, 7] and target 7
-[medium] void = DFS(ret, cur_list, num_array, cur_target, start_int);
+39. Combination Sum(find all unique combinations in C where the candidate positive numbers sums to T) like set [3, 2, 6, 7] and target 7
+[medium] void = DFS(ret, cur_list, num_array, cur_target, start_int); the same number can be used multiple times
 dfs(ret, cur_list, num_array, cur_target-num_array[start_int], start_int);
 Arrays.sort(num_array);
 
-40. Combination Sum II (can use only once for each element. 39 the same number can be used multiple times.)
+40. Combination Sum II (can use only once for each element.)
 [medium] void = DFS(ret, cur_list, num_array, cur_target, start_int);
-dfs(ret, cur_list, num_arary, cur_target-num_array[start_int], start_int+1);
+dfs(ret, cur_list, num_arary, cur_target-num_array[start_int], start_int+1); //key: start_int + 1 instead of start_int
 Arrays.sort(num_array);
 
 216. Combination Sum III(given number [1,9], each can use only once, return all possible k numbers sum to n)
@@ -909,19 +882,35 @@ return when size==k. return part of the subsets problem. similar to
 
 93. Restore IP Addresses(given a string of digits, return all possible valid IP address.)
 [medium] void = DFS(ret, cur_list, word_string, start_int, level_int)
-for(int i=start+1; i<=start+3 && i<word.length;i++){}
-extra in level parameter to record which level we are in, use it for termination.
-pruning code for IP address like 00, 01, early break.
+    public void dfs(List<String> ret, String cur_string, String s, int start, int pos){
+        if(pos == 4 ){
+            if(start >= s.length()) ret.add(cur_string.substring(1));
+            return;
+        }
+        for(int i=start; i<start+3 && i<s.length(); i++){
+            String ip = s.substring(start, i+1);
+            if(Integer.valueOf(ip)<=255){
+                dfs(ret, cur_string+"."+ip, s, i+1, pos+1);
 
-127. Word Ladder(TODO)
-[medium-hard]  BFS. add all neighbor words to list, and check level by level.
+                if(Integer.valueOf(ip) == 0) break; // optimise skip something like 00, 01
+            }
+        }
+    }
 
-126. Word Ladder II(find all the path) (worth revisit)(TODO)
-[hard]  BFS + backtracking. long code.
+127. Word Ladder
+[medium]  BFS, shortest path to a word. (can be further optimized)
+
+126. Word Ladder II(find all the path) (worth revisit)
+[hard]  BFS + backtracking. extra node class to store path info.
+    class Node{
+        String word;
+        Node pre;
+    }
+
 
 130. Surrounded Regions(matrix with 'X' and 'O', set surrounded 'O' to 'X')
-[medium-hard] start from 4 sides and mark all neighbors(BFS) from 'O' to 'P',
-then set all 'O' to 'X', all 'P' to 'O'.  long code.
+[medium] BFS all edge 'O', mark all their neighbours to 'P', then reset 'O' -> 'X',  'P' -> 'O'
+
 
 133. Clone Graph(each node's label is unique)(tricky but interesting)(real question)
 [medium]  NewNode = DFS(node, map<node, newNode>), simiar to N138 clone random linked list
@@ -941,21 +930,27 @@ public UndirectedGraphNode dfs(UndirectedGraphNode node,
 [medium] void = DFS(matrix, i_int, j_int, visited_matrix)
 DFS, for each cell(if not visited, islands++), do DFS on adjacent cells, and mark them as visited.
 
-241. Different Ways to Add Parentheses(given a string of numbers and operators, return all possible results by group them differently. operators are ""+-*")(very interesting)
-[medium-hard] List = DFS(string)   (divide and conquer)!!!    example: 2*3+5
-if i is operator:  left_list = DFS(str.substring(0,i));  right_list = DFS(str.substring(i+1));
-for n in left_list: for m in right_list: ret.add(compute(n,m,operator_at_i))
-DFS and separate left and right by operator(+-*); for each of left and right, calculate their value.
+419. Battleships in a Board
+[medium-easy] DFS, the same as N200 number of islands.
 
-306. Additive Number(return if a string is additive number,  199100199 is because [1, 99, 100, 199])
-[medium-hard] boolean = DFS(num_string, left_int, right_int, first_num_int)
-complicate on how to extract 3 numbers. [TODO]
 
 310. Minimum Height Trees(given a tree-like graph, return a list of MHT root.)
-[medium-hard] BFS, remove all leaf node until remain node <=2 and return.
-map<node_int, list_of_adjacent_node>; node_int_array to store count of adjacent nodes; a list to store leaf node.
+[medium-hard] graph, BFS, remove all leaf node until remain node <=2 and return.
+map<node, hashset<node>> to store graph, BFS,
+remove leaf nodes until at most 2 nodes remains, enlist all edge==1, and bfs from them
+    while(n>2){
+        n -= ret.size();
+        ArrayList<Integer> new_leafs= new ArrayList<>();
+        for(int leaf_node: ret){
+            int neighbor_node = map.get(leaf_node).iterator().next();
+            map.get(neighbor_node).remove(leaf_node);   // remove edge
+            if(map.get(neighbor_node).size() == 1) new_leafs.add(neighbor_node);
+        }
+        ret = new_leafs;
+    }
 
-386. Lexicographical Numbers(Given an integer n, return [1,n] in lexicographical order, n=13; return [1,10,11,12,13,2,3,4,5,6,7,8,9])(interesting)
+
+*386. Lexicographical Numbers(Given an integer n, return [1,n] in lexicographical order, n=13; return [1,10,11,12,13,2,3,4,5,6,7,8,9])(interesting)
 [medium] void = DFS(pre_num_int, n_int, ret)
 public void dfs(int pre, int n, List ret){
     for(int i=0;i<=9;i++){
@@ -968,29 +963,103 @@ public void dfs(int pre, int n, List ret){
     }
 }
 
-394. Decode String(interesting)
-[medium] DFS.
-
-401. Binary Watch
-[easy-medium] DFS+backtracking or hashtable solution.
-
-417. Pacific Atlantic Water Flow
-[medium] DFS. very interesting coding detail.
-    int[][] dir = new int[][]{{0,1}, {0,-1}, {1,0}, {-1,0}};
-    for(int[] d : dir){
-        dfs(matrix, visited, matrix[x][y], x+d[0], y+d[1]);
+394. Decode String( s = "2[abc]3[cd]ef", return "abcabccdcdcdef".)(interesting)
+[medium] recursion, dfs(str, index).
+    public String dfs(String s, int start){
+        if(start >= s.length()) return "";
+        StringBuilder ret = new StringBuilder();
+        int num = 0;
+        for(i=start; i<s.length(); i++){
+            char c= s.charAt(i);
+            if(Character.isLetter(c)) ret.append(c);
+            else if(Character.isDigit(c)) num = num*10 + c-'0';
+            else if(c == '['){
+                String insideStr = dfs(s, i+1);
+                for(int j=0;j<num;j++) ret.append(insideStr);
+                num = 0;
+            }else if(c == ']') return ret.toString();
+            else throw new IllegalArgumentException("Invalid input");
+        }
+        return ret.toString();
     }
 
-419. Battleships in a Board
-[medium-easy] DFS+backtracking or a simple solution.
+401. Binary Watch
+[easy-medium] two for loops
+Integer.bitCount(i) + Integer.bitCount(j) == num or backtracking combine hour and minute to one array
 
-464. Can I Win(can't reuse number)
+
+417. Pacific Atlantic Water Flow(very interesting)
+[medium] DFS. matrix, similar to N317 Shortest distance from all buildings
+search from 4 edges and store (i,j) can be reached from both sides, need boolean[][] pacific, boolean[][] atlantic
+
+
+464. Can I Win(can't reuse number)(TODO)
 [medium-hard] DFS+backtracking+DP.
 
 
 
+
 ---------------------------------------------------
-DP(reviewed on 10/2/2016)
+10.Divide and conquer
+---------------------------------------------------
+*95. Unique Binary Search Trees II(generate all unique trees)(interesting)
+[medium-hard] DFS. foreach(start,n), left = (start,i-1), right=(i+1,n).
+public List<TreeNode> generateTrees(int start, int end) {
+    List<TreeNode> ret = new LinkedList<>();
+    if(start > end){
+        ret.add(null);
+        return ret;
+    }
+
+    for(int i=start; i<=end; i++){
+        List<TreeNode> lefts= generateTrees(start, i-1);
+        List<TreeNode> rights= generateTrees(i+1, end);
+
+        for(TreeNode left: lefts){
+            for(TreeNode right: rights){
+                TreeNode node = new TreeNode(i);
+                node.left = left;
+                node.right = right;
+                ret.add(node);
+            }
+        }
+    }
+    return ret;
+}
+
+*241. Different Ways to Add Parentheses(return all possible results by group them differently. operators are ""+-*")(very interesting)
+[medium-hard] List<Integer> = DFS(string)  (divide and conquer)  example: 2*3+5    similar to N95, unique binary search trees.
+find each operator, divide it into two half.
+    public List<Integer> diffWaysToCompute(String input) {
+        List<Integer> ret = new ArrayList<Integer>();
+        if(input ==null || input.length()==0) return ret;
+
+        for(int i=0;i<input.length();i++){
+            char c = input.charAt(i);
+            if(!isOperater(c)) continue;
+
+            List<Integer> left = diffWaysToCompute(input.substring(0,i));
+            List<Integer> right = diffWaysToCompute(input.substring(i+1));
+
+            for(int x: left){
+                for(int y: right){
+                    ret.add(getValue(x,y,c));
+                }
+            }
+        }
+        if(ret.isEmpty()) ret.add(Integer.valueOf(input));
+        return ret;
+    }
+
+395. Longest Substring with At Least K Repeating Characters(interesting)
+[medium]
+
+
+
+
+
+---------------------------------------------------
+11.DP(reviewed on 10/2/2016)
 ---------------------------------------------------
 62. Unique Paths(matrix, can only move down and right, return max unique path)(real question)
 [easy] dp[i][j] = dp[i-1][j] + dp[i][j-1];
@@ -1151,12 +1220,6 @@ for (int i = 0; i < nums.length; i++) {
 
 583. Delete Operation for Two Strings(equivalent to Longest Common SubSequence (LCS))
 [medium] dp[i][j] = (word1.charAt(i-1) == word2.charAt(j-1)) ? 1 + dp[i-1][j-1] : Math.max(dp[i-1][j], dp[i][j-1]);
-
----------------------------------------------------
-Divide and conquer
----------------------------------------------------
-395. Longest Substring with At Least K Repeating Characters(interesting)
-[medium]
 
 
 
@@ -1875,6 +1938,11 @@ public boolean isOneEditDistance(String s, String t){
     while(i<m && s.charAt(i) == t.charAt(i+diff)) i++; //insert and modify case.
     return i==m;
 }
+
+306. Additive Number(return if a string is additive number,  199100199 is because [1, 99, 100, 199])
+[medium-hard] boolean = DFS(num_string, left_int, right_int, first_num_int)
+complicate on how to extract 3 numbers. [TODO]
+
 
 434. Number of Segments in a String
 [easy] finite state machine.

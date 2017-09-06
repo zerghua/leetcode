@@ -31,6 +31,76 @@ import java.util.*;
     // then set all 'O' to 'X', all 'P' to 'O'
 public class N130_SurroundedRegions {
     // no company
+    // BFS all edge 'O', mark all their neighbours to P,
+    // then reset 'O' -> 'X',  'P' -> 'O'
+    // the following code can be improved with BFS.
+    // 60 / 60 test cases passed.  on 9/6/2017
+    // 10 ms
+    class Solution {
+        class Pair{
+            int x; int y;
+            Pair(int x, int y){this.x=x; this.y=y;}
+        }
+
+        public void solve(char[][] board) {
+            if(board == null || board.length==0) return;
+            Queue<Pair> list = new LinkedList<>();
+            bfs_along_board(board, list);
+            revertPToO(board);
+        }
+
+        private void bfs_along_board(char[][] board, Queue<Pair> list) {
+            int rows = board.length;
+            int cols = board[0].length;
+            //top and bottom
+            for(int i=0; i<cols; i++) {
+                if(board[0][i] == 'O')  bfs(board, list, 0, i);
+                if(board[rows - 1][i] == 'O') bfs(board, list, rows-1, i);
+            }
+
+            //left and right
+            for(int j=0; j< rows ; j++){
+                if(board[j][0] == 'O') bfs(board, list, j, 0);
+                if(board[j][cols - 1] == 'O') bfs(board, list, j, cols-1);
+            }
+        }
+
+        private void bfs(char[][] board, Queue<Pair> list, int i, int j){
+            updateCellToP(board, list, i, j);
+            while(!list.isEmpty()){
+                Pair p = list.poll();
+                int x= p.x;
+                int y= p.y;
+
+                updateCellToP(board, list, x+1, y);
+                updateCellToP(board, list, x-1, y);
+                updateCellToP(board, list, x, y+1);
+                updateCellToP(board, list, x, y-1);
+            }
+        }
+
+        private void updateCellToP(char[][] board, Queue<Pair> list, int i, int j){
+            int rows = board.length;
+            int cols = board[0].length;
+            if(i<0 || i>=rows || j<0 || j>=cols || board[i][j] != 'O') return;
+            board[i][j] = 'P';
+            list.add(new Pair(i,j));
+        }
+
+        private void revertPToO(char[][] board) {
+            int rows = board.length;
+            int cols = board[0].length;
+            for(int i=0; i<rows; i++){
+                for(int j=0;j<cols;j++){
+                    if(board[i][j] == 'O') board[i][j] = 'X';
+                    if(board[i][j] == 'P') board[i][j] = 'O';
+                }
+            }
+        }
+    }
+
+
+
     public static class Pair{
         int x; int y;
         Pair(int x, int y){this.x=x; this.y=y;}
@@ -115,52 +185,8 @@ public class N130_SurroundedRegions {
         }
     }
 
-    // should be faster and less code
-    // 10 ms
-    public void solve2(char[][] board) {
-        if(board == null || board.length==0) return;
-        Queue<Pair> list = new LinkedList<>();
-        bfs_along_board(board, list);
-        revertPToO(board);
-    }
 
-    private void bfs_along_board(char[][] board, Queue<Pair> list) {
-        int rows = board.length;
-        int cols = board[0].length;
-        //top and bottom
-        for(int i=0; i<cols; i++) {
-            if(board[0][i] == 'O')  bfs(board, list, 0, i);
-            if(board[rows - 1][i] == 'O') bfs(board, list, rows-1, i);
-        }
 
-        //left and right
-        for(int j=0; j< rows ; j++){
-            if(board[j][0] == 'O') bfs(board, list, j, 0);
-            if(board[j][cols - 1] == 'O') bfs(board, list, j, cols-1);
-        }
-    }
-
-    private void bfs(char[][] board, Queue<Pair> list, int i, int j){
-        updateCellToP(board, list, i, j);
-        while(!list.isEmpty()){
-            Pair p = list.poll();
-            int x= p.x;
-            int y= p.y;
-
-            updateCellToP(board, list, x+1, y);
-            updateCellToP(board, list, x-1, y);
-            updateCellToP(board, list, x, y+1);
-            updateCellToP(board, list, x, y-1);
-        }
-    }
-
-    private void updateCellToP(char[][] board, Queue<Pair> list, int i, int j){
-        int rows = board.length;
-        int cols = board[0].length;
-        if(i<0 || i>=rows || j<0 || j>=cols || board[i][j] != 'O') return;
-        board[i][j] = 'P';
-        list.add(new Pair(i,j));
-    }
 
 
 

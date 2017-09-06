@@ -1,8 +1,7 @@
 package leetcode;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+
 
 /**
  * Created by Hua on 3/25/2016.
@@ -29,6 +28,33 @@ import java.util.List;
  */
 public class N39_CombinationSum {
     // Uber, Snapchat
+    // backtracking
+    // 168 / 168 test cases passed.   9/6/2017
+    // 21 ms
+    class Solution {
+        public List<List<Integer>> combinationSum(int[] candidates, int target) {
+            List<List<Integer>> ret = new ArrayList();
+            Arrays.sort(candidates);
+            dfs(ret, new LinkedList(), candidates, target, 0);
+            return ret;
+        }
+
+        public void dfs(List<List<Integer>> ret, LinkedList<Integer> list, int[] nums, int target, int start){
+            if(target == 0){
+                ret.add(new ArrayList(list));
+                return;
+            }
+
+            for(int i=start; i<nums.length; i++){
+                if(target < nums[i]) return;  // pruning
+                list.add(nums[i]);
+                dfs(ret, list, nums, target - nums[i], i);
+                list.removeLast();
+            }
+        }
+    }
+
+
     //  7 ms
     public void combinationSum_helper(int[] candidates, int start, int last_sum, int target,
                                       LinkedList<Integer> list, List<List<Integer>> ret){
