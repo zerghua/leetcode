@@ -1,5 +1,5 @@
 package leetcode;
-
+import java.util.*;
 /**
  * Created by HuaZ on 10/17/2016.
 
@@ -46,4 +46,54 @@ public class N392_IsSubsequence {
     // follow up solution
     // put all t chars in  map<char, list of index for this char>
     // for each char in s, to see if we could find an index in t for that char is larger than t_pre_index.
+    // 14 / 14 test cases passed.
+    // 100 ms
+    public class Solution_followup_large_t {
+        public boolean isSubsequence(String s, String t) {
+            if (s == null || t == null) return false;
+
+            Map<Character, List<Integer>> map = new HashMap<>(); //<character, index>
+
+            //preprocess t
+            for (int i = 0; i < t.length(); i++) {
+                char curr = t.charAt(i);
+                if (!map.containsKey(curr)) {
+                    map.put(curr, new ArrayList<Integer>());
+                }
+                map.get(curr).add(i);
+            }
+
+            int prev = -1;  //index of previous character
+            for (int i = 0; i < s.length(); i++) {
+                char c = s.charAt(i);
+
+                if (map.get(c) == null)  {
+                    return false;
+                } else {
+                    List<Integer> list = map.get(c);
+                    prev = binarySearch(prev, list, 0, list.size() - 1);
+                    if (prev == -1) {
+                        return false;
+                    }
+                    prev++;
+                }
+            }
+
+            return true;
+        }
+
+        // find the index >= prev
+        private int binarySearch(int index, List<Integer> list, int start, int end) {
+            while (start <= end) {
+                int mid = start + (end - start) / 2;
+                if (list.get(mid) < index) {
+                    start = mid + 1;
+                } else {
+                    end = mid - 1;
+                }
+            }
+
+            return start == list.size() ? -1 : list.get(start);
+        }
+    }
 }
