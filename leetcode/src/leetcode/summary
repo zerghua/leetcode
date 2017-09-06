@@ -600,21 +600,22 @@ public int sumOfLeftLeaves(TreeNode root) {
         int start, end, sum;
         SegmentTreeNode left, right;
     }
-                                     [0,5]
-                                   /       \
-                              [0,3]        [4,5]
-                             /    \        /   \
-                        [0,1]     [2,3]  [4,4] [5,5]
-                       /    \     /    \
-                    [0,0] [1,1] [2,2]  [3,3]
+
+                     [0,5]
+                   /       \
+              [0,3]        [4,5]
+             /    \        /   \
+        [0,1]     [2,3]  [4,4] [5,5]
+       /    \     /    \
+    [0,0] [1,1] [2,2]  [3,3]
 
 
 
 
 ---------------------------------------------------
-6. Binary Search Tree(reviewed on 9/30/2016, 10/28/2016)
+6. Binary Search Tree(reviewed on 9/30/2016, 10/28/2016, 9/6/2017)
 ---------------------------------------------------
-96. Unique Binary Search Trees(return how many unique trees.)
+*96. Unique Binary Search Trees(return how many unique trees.)
 [medium-hard] DP. catalan number. f(n) = f(0)*f(n-1) + f(1)*f(n-2) + ... + f(n-1)f(0)
 public int numTrees(int n) {
     int[] catalan = new int[n+1];
@@ -657,11 +658,11 @@ public List<TreeNode> generateTrees(int start, int end) {
 98. Validate Binary Search Tree(real question)(interesting)
 [easy-medium]
 1. DFS. pass along min, max value to validate. Can pass null to Integer to avoid overflow.
-public boolean isValidBST(TreeNode node, double min, double max){
-    if(node == null) return true;
-    if(node.val >= max || node.val <= min) return false;
-    return isValidBST2(node.left, min, node.val) && isValidBST2(node.right, node.val, max);
-}
+    public boolean isValid(TreeNode node, Integer low, Integer high){
+        if(node == null) return true;
+        return (low == null || low < node.val) && (high == null || node.val < high) &&
+                isValid(node.left, low, node.val) && isValid(node.right, node.val, high);
+    }
 2. in-order traversal, compare preNode and curNode isMonotonicIncreasing, like N109 convert list to BST.
 
 
@@ -676,9 +677,9 @@ public TreeNode sortedArrayToBSTHelper2(int[] nums, int left, int right){
     return node;
 }
 
-109. Convert Sorted List to Binary Search Tree(real question)(follow up of N108)
+*109. Convert Sorted List to Binary Search Tree(real question)(follow up of N108)
 [medium] 1. convert list to array.  2. two pointers find mid point each loop.
-3. global pointer, very tricky, see 109 solution. (bottom-up)  node = dfs(node, start_int, end_int)
+3. global pointer, find length in one loop. see 109 solution. (bottom-up)  node = dfs(node, start_int, end_int)
 private ListNode node ;
 public TreeNode buildBST(int start, int end){
     if(start > end) return null;
@@ -697,21 +698,29 @@ public TreeNode buildBST(int start, int end){
 [medium] recursively count current node.
 if k == count return; else if count > k, dfs(root.left,k); else dfs(root.right, k-count);
 or iteratively in-order traversal.
-public int kthSmallest2(TreeNode root, int k) {
-    int node_rank = countNodes(root.left) + 1;
-    if (node_rank == k) return root.val;
-    else if (node_rank > k) return kthSmallest(root.left, k);
-    else return kthSmallest(root.right, k - node_rank);
-}
-
-public int countNodes(TreeNode root) {
-    if (root == null) return 0;
-    return countNodes(root.left) + countNodes(root.right) + 1;
+class Solution {
+    public int kthSmallest(TreeNode root, int k) {
+        int count = dfs(root.left) + 1;
+        if(count == k) return root.val;
+        else if(count > k) return kthSmallest(root.left, k);
+        else return kthSmallest(root.right, k - count);
+    }
+    public int dfs(TreeNode node){  // count nodes
+        if(node == null) return 0;
+        return dfs(node.left) + dfs(node.right) + 1;
+    }
 }
 
 235. Lowest Common Ancestor of a Binary Search Tree
-[easy] return if p < node.val < q. else recur left or right.
-
+[easy] return if p < node.val < q. ; else recur left or right.
+public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    while(root!=null){
+        if(root.val < p.val && root.val < q.val)       root = root.right;
+        else if(root.val > p.val && root.val > q.val)  root = root.left;
+        else return root;
+    }
+    return null;
+}
 
 
 
