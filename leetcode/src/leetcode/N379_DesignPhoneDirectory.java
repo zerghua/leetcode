@@ -40,7 +40,7 @@ import java.util.*;
 
 public class N379_DesignPhoneDirectory {
     // google
-    // hashset(maintain in use number) + linkedlist(maintain used number)
+    // hashset(maintain non-available number) + linkedlist(maintain available number)
     // 18 / 18 test cases passed.  7/21/2017
     // 557 ms
     public class PhoneDirectory {

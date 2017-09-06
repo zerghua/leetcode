@@ -303,6 +303,21 @@ else l = mid+1; return num[l]  while(l<r)
 
 *34. Search for a Range(interesting)(can only do recursion, because there are two recursive call in == condition)
 [medium] more code when ==; update ret[0] and ret[1]; two direction recursion dfs(start, mid-1); dfs(mid+1,end)
+    public void binarySearch(int[] nums, int target, int start, int end, int[] ret){
+        if(start<=end){
+            int mid = (end - start)/2 + start;
+            if(nums[mid] == target){
+                if(mid < ret[0] || ret[0] == -1) ret[0] = mid;
+                if(ret[1] < mid || ret[1] == -1) ret[1] = mid;
+
+                binarySearch(nums, target, start, mid-1, ret);
+                binarySearch(nums, target, mid+1, end, ret);
+            }else if (nums[mid] < target){
+                binarySearch(nums, target, mid+1, end, ret);
+            }else binarySearch(nums, target, start, mid-1, ret);
+        }
+    }
+
 
 Real Question: given an sorted array, find all numbers which count of it larger than n/4.
 1. at most there are 3 such numbers, if exist, they should be at n/4, 2n/4, 3n/4.
@@ -796,7 +811,7 @@ when pop, if node.right!=null, push all its left. It's o(1) time, because each e
 [medium] the key is to cache(save) next element with element and isPeeked variables.
 
 341. Flatten Nested List Iterator(interesting)(how to use polymorphism)
-[medium] store iterator in stack.
+[medium] stack<Iterator<NestedInteger>>
 ------------------------------------------------------------
 
 
@@ -811,17 +826,23 @@ if '[', add obj to stack,  if ',' || ']', add number to stack.peek() object, if 
 ----------------------  Trie --------------------------
 208. Implement Trie (Prefix Tree)
 [medium-hard] class Trie{Trie[] children; boolean isEnd;}
+    class TrieNode{
+        HashMap<Character, TrieNode> children;
+        boolean isEnd;
+    }
 
 211. Add and Search Word - Data structure design
 [medium-hard] BFS on trie of wildcard(.)
 --------------------------------------------------------
 
 379. Design Phone Directory(VIP)
-[medium]
+[medium] hashset(maintain non-available number) + linkedlist(maintain available number)
 
 380. Insert Delete GetRandom O(1)
-381. Insert Delete GetRandom O(1) - Duplicates allowed
-[hard]
+[medium] hashmap<val, index> + list<val>, swap last one with map.get(val) and remove
+
+381. Insert Delete GetRandom O(1) - Duplicates allowed(similar to N380)
+[hard] HashMap<val, set_of_index> + list<val>
 
 
 ---------------------------------------------------
