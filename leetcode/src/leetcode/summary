@@ -23,7 +23,7 @@ Table of Contents(last reviewed on)
 15.Linked List              10/27/2016
 16.Math                     10/27/2016
 17.Palindrome               12/1/2016
-18.Random                   12/1/2016
+18.Random                   9/7/2017
 19.Sliding Window           12/1/2016
 20.Sort                     12/1/2016
 21.Stack/Queue              9/7/2017
@@ -1433,7 +1433,7 @@ treemap to sort key(interval.start), value=index. cellingEntry(key) to do binary
 
 
 ---------------------------------------------------
-Linked List(reviewed on 10/27/2016)(out of box thinking, modify value in node)
+15.Linked List(reviewed on 10/27/2016)(out of box thinking, modify value in node)
 ---------------------------------------------------
 2. Add Two Numbers(real question)
 [easy-medium] carry. one list is shorter than the other. extra carry node. similar to N415.
@@ -1606,7 +1606,7 @@ F1 = F0 + sum - n*f(n-1)
 
 
 ---------------------------------------------------
-Palindrome(DFS + backtracking or DP)(reviewed on 10/1/2016, 12/1/2016)
+17.Palindrome(DFS + backtracking or DP)(reviewed on 10/1/2016, 12/1/2016)
 ---------------------------------------------------
 https://leetcode.com/articles/longest-palindromic-substring/#approach-5-manachers-algorithm-accepted    Manacher's Algorithm
 5. Longest Palindromic Substring(read question)(important)
@@ -1678,20 +1678,22 @@ split each words str1 and str2, and check if isPal(str2) and reversed(str2) in m
 [easy-medium] ret += (odd-1)
 
 ---------------------------------------------------
-Random(reviewed on 10/27/2016, 12/1/2016)
+18.Random(reviewed on 10/27/2016, 12/1/2016, 9/7/2017)
 ---------------------------------------------------
 382. Linked List Random Node
 [medium] save list to array, and call random. o(n) space
 follow up: o(1) space, o(n) time. see Reservoir Sampling. update ret when rand.nextInt(++count) == target(most likely 0)
+    public int getRandom() {
+        int ret=0, i=0;
+        ListNode cur = head;
+        while(cur != null){
+            if(rand.nextInt(++i) == 0) ret = cur.val;
+            cur = cur.next;
+        }
+        return ret;
+    }
 
-384. Shuffle an Array(shuffle a deck of card)(Amazon)
-[medium] Fisher–Yates shuffle.  https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-for(int i=a.length-1; i>=1; i--){
-    int j = random.nextInt(i+1);
-    swap(a, i, j);
-}
-
-398. Random Pick Index
+398. Random Pick Index(an array of integers with duplicates, randomly output the index of a given target number.)
 [medium] Reservoir Sampling
     int ret = 0, count=0;
     for(int i=0;i<nums.length;i++){
@@ -1701,6 +1703,14 @@ for(int i=a.length-1; i>=1; i--){
         }
     }
     return ret;
+
+384. Shuffle an Array(shuffle a deck of card)(Amazon)
+[medium] Fisher–Yates shuffle.  https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+for(int i=a.length-1; i>=1; i--){
+    int j = random.nextInt(i+1);
+    swap(a, i, j);
+}
+
 
 ---------------------------------------------------
 19.Sliding Window(reviewed on 10/27/2016, 11/14/2016, 12/1/2016)
