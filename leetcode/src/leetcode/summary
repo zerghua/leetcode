@@ -17,7 +17,7 @@ Table of Contents(last reviewed on)
 9. DFS/backtracking or BFS  9/6/2017
 10.Divide and conquer       9/7/2017
 11.DP                       10/2/2016
-12.Greedy                   12/19/2016
+12.Greedy                   9/7/2017
 13.Hash Table               10/28/2016
 14.Interval                 10/27/2016
 15.Linked List              10/27/2016
@@ -1240,7 +1240,7 @@ for (int i = 0; i < nums.length; i++) {
 
 
 ---------------------------------------------------
-Greedy(reviewed on 12/19/2016)
+12.Greedy(reviewed on 12/19/2016, 9/7/2017)
 ---------------------------------------------------
 55. Jump Game(each num means the longest distance you can jump, can you reach the end?)
 [easy] o(n). store max_jump and compare with end index.
@@ -1287,7 +1287,7 @@ reset current_sum to 0 if <0 and start=i+1; overall_sum should also >0;
 
 
 ---------------------------------------------------
-Hash Table(reviewed on 9/29/2016, 10/28/2016)
+13.Hash Table(reviewed on 9/29/2016, 10/28/2016)
 hashmap can be used as count each char/num, or store index of char/num
 hashset usually used to check if visited or not.
 ---------------------------------------------------
@@ -1375,7 +1375,7 @@ process line by line using s.split("\n"); "\t" is counted as one char.
 
 
 ---------------------------------------------------
-Interval(reviewed on 10/27/2016)
+14.Interval(reviewed on 10/27/2016)
 ---------------------------------------------------
 56. Merge Intervals
 [hard-medium] sort. Collections.sort(intervals, (Interval a, Interval b)-> a.start - b.start);
