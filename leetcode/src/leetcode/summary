@@ -6,16 +6,16 @@
 11/6/2016 all added(traced back to N300).
 
 Table of Contents(last reviewed on)
-1. Anagram                  11/30/2016
-2. Array                    10/27/2016
-3. Binary search            12/01/2016
-4. Binary Tree              10/28/2016
+1. Anagram                  9/5/2017
+2. Array                    9/5/2017
+3. Binary search            9/5/2017
+4. Binary Tree              9/5/2017
 5. Segment/Interval Tree    9/5/2017
-6. Binary Search Tree       10/28/2016
-7. Bit Manipulation         10/27/2016
-8. Design                   10/27/2016
-9. DFS/backtracking or BFS  10/4/2016
-10.Divide and conquer
+6. Binary Search Tree       9/6/2017
+7. Bit Manipulation         9/6/2017
+8. Design                   9/6/2017
+9. DFS/backtracking or BFS  9/6/2017
+10.Divide and conquer       9/7/2017
 11.DP                       10/2/2016
 12.Greedy                   12/19/2016
 13.Hash Table               10/28/2016
@@ -1000,7 +1000,7 @@ search from 4 edges and store (i,j) can be reached from both sides, need boolean
 
 
 ---------------------------------------------------
-10.Divide and conquer
+10.Divide and conquer(reviewed on 9/7/2017)
 ---------------------------------------------------
 *95. Unique Binary Search Trees II(generate all unique trees)(interesting)
 [medium-hard] DFS. foreach(start,n), left = (start,i-1), right=(i+1,n).
@@ -1051,9 +1051,24 @@ find each operator, divide it into two half.
         return ret;
     }
 
-395. Longest Substring with At Least K Repeating Characters(interesting)
-[medium]
+*395. Longest Substring with At Least K Repeating Characters(interesting)
+[medium] divide on the first char which has count < k
+    public int longestSubstring(String s, int k) {
+        if(s.length() == 0 || k > s.length()) return 0;
+        if(k==0) return s.length();
+        int[] map = new int[128];
+        char[] a = s.toCharArray();
+        for(int i=0;i<a.length;i++) map[a[i]]++;
 
+        int index =0;
+        while(index<a.length && map[a[index]]>=k) index++;
+        if(index == a.length) return a.length;  //return if all chars has at least K count
+
+        //divide
+        int left = longestSubstring(s.substring(0,index),k);
+        int right = longestSubstring(s.substring(index+1),k);
+        return Math.max(left, right);
+    }
 
 
 
