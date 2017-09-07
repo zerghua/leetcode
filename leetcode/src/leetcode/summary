@@ -1299,16 +1299,17 @@ throw new IllegalArgumentException("No solution");
 [easy-medium] hashset to check if visited.
 
 166. Fraction to Recurring Decimal
-[medium-hard] use hashtable to store visited number, and add brackets before it.
+[medium] map<long, index>
+map.put(remainder, sb.length()), sb.insert(map.get(remainder), "("); return sb.toString().replace("(0)","")
 
 187. Repeated DNA Sequences(find all repeated 10-length string)
-[easy-medium] 2 hashsets. one is for seen, if seen, add to ret set.  or count each string, output count>=2;
+[easy] map<str, count> with window length == 10
 
-202. Happy Number
-[easy] put calculated number in hashset to detect duplicate.
+202. Happy Number(recursion on sum of each digit^2)
+[easy] hashset<int> to store visited number
 
 205. Isomorphic Strings(Two strings are isomorphic if the characters in s can be replaced to get t.)case: aa and ab.
-[easy-medium] two way hashtables. return func(s,t) && func(t,s);
+[easy-medium] two way hashmaps. return func(s,t) && func(t,s);
 
 290. Word Pattern
 [easy-medium] two way hashtables, the same as N205.   map(char, String) and map(String, char)

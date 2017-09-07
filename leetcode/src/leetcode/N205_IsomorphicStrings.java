@@ -22,30 +22,35 @@ You may assume both s and t have the same length.
  */
 public class N205_IsomorphicStrings {
     // linkedin
-	//38 ms
+	// two way hashmap
     // test case:  aa and ab.
-	public boolean isIsomorphic(String s, String t){
-		return isIsomorphic_helper(s,t) && isIsomorphic_helper(t,s);
-	} 
-	
-    public static boolean isIsomorphic_helper(String s, String t) {
-        int len = s.length();
-    	if(s ==null || len==0) return true;
-    	
-    	HashMap<Character, Character> hm = new HashMap<Character, Character>();
-        for(int i=0; i<len; i++){
-        	char key = s.charAt(i);
-        	char value = t.charAt(i);
-        	if(hm.containsKey(key) && hm.get(key) != value) return false;
-        	hm.put(key, value);
+    // 30 / 30 test cases passed.
+    // 31 ms
+    class Solution {
+        public boolean isIsomorphic(String s, String t){
+            return isIsomorphic_helper(s,t) && isIsomorphic_helper(t,s);
         }
-    	return true;
+
+        public boolean isIsomorphic_helper(String s, String t) {
+            int len = s.length();
+            if(s ==null || len==0) return true;
+
+            HashMap<Character, Character> hm = new HashMap<Character, Character>();
+            for(int i=0; i<len; i++){
+                char key = s.charAt(i);
+                char value = t.charAt(i);
+                if(hm.containsKey(key) && hm.get(key) != value) return false;
+                hm.put(key, value);
+            }
+            return true;
+        }
     }
+
     
     public static void main(String[] args){
     	String s="paper", t="title";
-    	System.out.println(isIsomorphic_helper(s,t));
-    	System.out.println(isIsomorphic_helper(t,s));
+    	//System.out.println(isIsomorphic_helper(s,t));
+    	//System.out.println(isIsomorphic_helper(t,s));
     }
 
     // solution 2,3,4 added on 9/20/2016
