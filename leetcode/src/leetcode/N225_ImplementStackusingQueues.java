@@ -22,6 +22,59 @@ Notes:
 
 public class N225_ImplementStackusingQueues {
     // Bloomberg, Microsoft
+    // 1 queue cyclic operation
+    // o(1) push, o(n) top and pop
+    // 30 ms
+	class myStack1{
+		Queue<Integer> q = new LinkedList<Integer>();
+		public void push(int x) {
+			q.add(x);
+		}
+		public void pop() {
+			int size =q.size();
+			for(int i=1; i<size;i++ )q.add(q.remove());
+			q.remove();
+		}
+		public int top() {
+			int size =q.size();
+			for(int i=1; i<size;i++ )q.add(q.remove());
+			int ret = q.peek();
+			q.add(q.remove());
+			return ret;
+		}
+		public boolean empty() {
+			return q.isEmpty();
+		}
+	}
+
+	// 2 queues,stored reversed element on q1: push new element to front of q2, add all q1 to q2 and copied back
+    // o(n) push, o(1) top and pop
+    // 30 ms
+	class myStack2{
+		Queue<Integer> q1 = new LinkedList<Integer>();
+		Queue<Integer> q2 = new LinkedList<Integer>();
+		public void push(int x) {
+			q2.add(x);
+			while(!q1.isEmpty()){
+				q2.add(q1.remove());
+			}
+			Queue<Integer> tmp = q2;
+			q2=q1;
+			q1=tmp;
+		}
+		public void pop() {
+			q1.remove();
+		}
+		public int top() {
+			return q1.peek();
+		}
+		public boolean empty() {
+			return q1.isEmpty();
+		}
+	}
+
+
+
 	// 34 ms  2 queues, o(1) push, o(n) top and pop
 	Queue<Integer> q1 = new LinkedList<Integer>();
 	Queue<Integer> q2 = new LinkedList<Integer>();	
@@ -64,52 +117,6 @@ public class N225_ImplementStackusingQueues {
     }
     
     
-    // 30 ms 1 queue o(1) push, o(n) top and pop
-    class myStack1{
-    	Queue<Integer> q = new LinkedList<Integer>();
-    	public void push(int x) {
-    		q.add(x);
-    	}
-    	public void pop() {
-    		int size =q.size();
-    		for(int i=1; i<size;i++ )q.add(q.remove());
-    		q.remove();
-    	}	
-    	public int top() {
-    		int size =q.size();
-    		for(int i=1; i<size;i++ )q.add(q.remove());
-    		int ret = q.peek();
-    		q.add(q.remove());
-    		return ret;
-    	}
-    	public boolean empty() {
-    		return q.isEmpty();
-    	}
-    }
-    
-    //30 ms 2 queues, o(n) push, o(1) top and pop
-    // stored reversed element on q1, push new element to q2, add all q1 to q2 and copied back
-    class myStack2{
-    	Queue<Integer> q1 = new LinkedList<Integer>();
-    	Queue<Integer> q2 = new LinkedList<Integer>();
-    	public void push(int x) {
-    		q2.add(x);
-    		while(!q1.isEmpty()){
-    			q2.add(q1.remove());
-    		}
-    		Queue<Integer> tmp = q2;
-    		q2=q1;
-    		q1=tmp;
-    	}
-    	public void pop() {
-    		q1.remove();
-    	}
-    	public int top() {
-    		return q1.peek();
-    	}	
-    	public boolean empty() {
-    		return q1.isEmpty();
-    	}
-    }    
+
     
 }

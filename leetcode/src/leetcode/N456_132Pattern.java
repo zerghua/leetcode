@@ -41,9 +41,59 @@ import java.util.Stack;
  */
 public class N456_132Pattern {
     // no company
+    // stack solution
+    // require one < three < two, i < j < k and ai < ak < aj.
+    // 95 / 95 test cases passed.  on 9/7/2017
+    // 32 ms
+    public class Solution {
+        public boolean find132pattern(int[] nums) {
+            if(nums ==null || nums.length <3) return false;
+            Stack<Integer> stack = new Stack();
+            for(int three = Integer.MIN_VALUE, i=nums.length-1;i>=0;i--){
+                if(nums[i] < three) return true;
+                else while(!stack.isEmpty() && nums[i] > stack.peek()){
+                    three = stack.pop();
+                }
+                stack.push(nums[i]);
+            }
+            return false;
+        }
+    }
+
+    // o(n^2)
+    // 95 / 95 test cases passed.
+    // 488 ms
+    public class Solution_BF_improved {
+        public boolean find132pattern(int[] nums) {
+            int min_i = Integer.MAX_VALUE;
+            for (int j = 0; j < nums.length - 1; j++) {
+                min_i = Math.min(min_i, nums[j]);
+                for (int k = j + 1; k < nums.length; k++) {
+                    if (nums[k] < nums[j] && min_i < nums[k])
+                        return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    // o(n^3)
+    public class Solution_BF {
+        public boolean find132pattern(int[] nums) {
+            for (int i = 0; i < nums.length - 2; i++) {
+                for (int j = i + 1; j < nums.length - 1; j++) {
+                    for (int k = j + 1; k < nums.length; k++) {
+                        if (nums[k] > nums[i] && nums[j] > nums[k])
+                            return true;
+                    }
+                }
+            }
+            return false;
+        }
+    }
     // wrong result, only works for ak > ai and ak > aj,
     // but the problem requires ai < ak < aj
-    public class Solution {
+    public class Solution_wrong {
         public boolean find132pattern(int[] nums) {
 
             boolean[] isPeak = new boolean[nums.length];
@@ -63,21 +113,5 @@ public class N456_132Pattern {
     }
 
 
-    // stack solution
-    // require one < three < two
-    // 28 ms 87 / 87 test cases passed.
-    public class Solution2 {
-        public boolean find132pattern(int[] nums) {
-            if(nums ==null || nums.length <3) return false;
-            Stack<Integer> stack = new Stack();
-            for(int three = Integer.MIN_VALUE, i=nums.length-1;i>=0;i--){
-                if(nums[i] < three) return true;
-                else while(!stack.isEmpty() && nums[i] > stack.peek()){
-                    three = stack.pop();
-                }
-                stack.push(nums[i]);
-            }
-            return false;
-        }
-    }
+
 }

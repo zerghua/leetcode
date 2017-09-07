@@ -24,25 +24,28 @@ public class N227_BasicCalculator2 {
     // Airbnb
     // key note: only non-negative numbers
     // corner case: single number
+    // 109 / 109 test cases passed.  on 9/7/2017
     // 43 ms
-    // stack
-    public int calculate(String s) {
-        if(s == null || s.length() ==0) return 0;
-        int ret = 0, num = 0;
-        char sign = '+';
-        Stack<Integer> stack = new Stack<>();
-        for(int i=0;i<s.length();i++){
-            if(Character.isDigit(s.charAt(i)))  num = num*10 + s.charAt(i) - '0';
-            if(!Character.isDigit(s.charAt(i)) && s.charAt(i) != ' ' || i == s.length()-1){
-                if(sign == '+') stack.push(num);
-                else if(sign == '-') stack.push(-num);
-                else if(sign == '*') stack.push(stack.pop() * num);
-                else if(sign == '/') stack.push(stack.pop() / num);
-                sign = s.charAt(i);
-                num = 0;
+    // stack<int>
+    class Solution {
+        public int calculate(String s) {
+            if(s == null || s.length() ==0) return 0;
+            int ret = 0, num = 0;
+            char sign = '+';
+            Stack<Integer> stack = new Stack<>();
+            for(int i=0;i<s.length();i++){
+                if(Character.isDigit(s.charAt(i)))  num = num*10 + s.charAt(i) - '0';
+                if(!Character.isDigit(s.charAt(i)) && s.charAt(i) != ' ' || i == s.length()-1){ // i == s.length()-1 for single digit
+                    if(sign == '+') stack.push(num);
+                    else if(sign == '-') stack.push(-num);
+                    else if(sign == '*') stack.push(stack.pop() * num);
+                    else if(sign == '/') stack.push(stack.pop() / num);
+                    sign = s.charAt(i);
+                    num = 0;
+                }
             }
+            for(int i:stack) ret+= i;
+            return ret;
         }
-        for(int i:stack) ret+= i;
-        return ret;
     }
 }
