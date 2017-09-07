@@ -1287,7 +1287,7 @@ reset current_sum to 0 if <0 and start=i+1; overall_sum should also >0;
 
 
 ---------------------------------------------------
-13.Hash Table(reviewed on 9/29/2016, 10/28/2016)
+13.Hash Table(reviewed on 9/29/2016, 10/28/2016, 9/7/2017)
 hashmap can be used as count each char/num, or store index of char/num
 hashset usually used to check if visited or not.
 ---------------------------------------------------
@@ -1312,34 +1312,49 @@ map.put(remainder, sb.length()), sb.insert(map.get(remainder), "("); return sb.t
 [easy-medium] two way hashmaps. return func(s,t) && func(t,s);
 
 290. Word Pattern
-[easy-medium] two way hashtables, the same as N205.   map(char, String) and map(String, char)
+[easy-medium] two way hashmaps, the same as N205.   map(char, String) and map(String, char)
 
 217. Contains Duplicate(if duplicate integer exist in an array.)
 [easy] hashset.
 
 219. Contains Duplicate II(duplicate within k distance)
-[easy] hashtable, value and idnex. check distance.  map(num, its index);
+[easy] hashtable, value and idnex. check distance.  map<num, index>
 
-220. Contains Duplicate III
-[medium-hard]  treeset? [TODO]
+220. Contains Duplicate III(tricky)
+[medium-hard]  treeset, treeSet.subSet(lowerKey(inclusive), higherKey(exclusive))
+    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+        if(nums == null || nums.length <= 1 || k<0 || t<0) return false;
+        TreeSet<Long> treeSet = new TreeSet<>();
+        for(int i=0;i<nums.length;i++){
+            // check if difference of nums[i] and nums[j] is <= t
+            if(treeSet.subSet((long)nums[i]-t, (long)nums[i]+t+1).size() > 0) return true; // can't reverse sequence
 
-299. Bulls and Cows
-[easy-medium] need a counter int[] for each number.
-if(counter[secret_num]++ < 0) cow++; if(counter[guess_num]-- >0) cow++;
-int num_bull=0, num_cow=0;
-int[] nums = new int[10];
-for(int i=0;i<secret.length();i++){
-    if(secret.charAt(i) == guess.charAt(i)) num_bull++;
-    else{
-        if(nums[secret.charAt(i)-'0']++ < 0) num_cow++;
-        if(nums[guess.charAt(i)-'0']--  > 0) num_cow++;
+            treeSet.add((long)nums[i]);
+            if(i>=k) treeSet.remove((long)nums[i-k]); // maintain the window size k
+        }
+        return false;
     }
-}
-return num_bull+"A"+num_cow+"B";
 
-318. Maximum Product of Word Lengths(interesting)
+299. Bulls and Cows(both index and val match is bull, val match is cow)
+[medium] need a counter int[] for each number.
+    public String getHint(String secret, String guess) {
+        int num_bull=0, num_cow=0;
+        int[] nums = new int[10];
+        for(int i=0;i<secret.length();i++){
+            if(secret.charAt(i) == guess.charAt(i)) num_bull++;
+            else{
+                if(nums[secret.charAt(i)-'0']++ < 0) num_cow++;
+                if(nums[guess.charAt(i)-'0']--  > 0) num_cow++;
+            }
+        }
+        return num_bull+"A"+num_cow+"B";
+    }
+
+318. Maximum Product of Word Lengths(two words don't share chars)(interesting)
 [medium] 1. hashset to store chars for each word. time o(n^2), space(26*n)
 2. optimize, store each char in an int[] as bit, do "&" for each int. time o(n^2), space(n)
+bit, 1<<n(move 1 to left by n position),
+use each bit of int to represent 26 lower-case char. for(char c: chars) map[i] |= 1 << (c - 'a');
 
 347. Top K Frequent Elements(interesting)(real question)(google)
 [medium] bucket sort o(n) time but o(n) space: map(count, num). List[] buckets= new List[num.length+1];
@@ -1347,12 +1362,13 @@ heap o(nlogn) time, but o(k) space.
 
 451. Sort Characters By Frequency(google, amazon)
 [medium] counting/bucket sort.  o(n).
+counting sort + map<count, list_of_char>, list max-min by going through len in [n-0] of map
 
 349. Intersection of Two Arrays
-[easy] find intersect of two hashset.
+[easy] one hashset<val> for fast lookup.
 
-350. Intersection of Two Arrays II
-[easy-medium] find intersect of two hashtables, value on count of each num.
+350. Intersection of Two Arrays II(return duplicate as well)
+[easy] one hashmap<int, count>.
 
 383. Ransom Note(if "A" can be constructed from "B")(real question)
 [easy] hashtable, count and compare each char.
@@ -1363,15 +1379,27 @@ heap o(nlogn) time, but o(k) space.
 388.Longest Absolute File Path
 [medium] hashtable to store last level length(will be replaced by new line).
 process line by line using s.split("\n"); "\t" is counted as one char.
+    public int lengthLongestPath(String input) {
+        String[] paths = input.split("\n");
+        int[] stack = new int[paths.length+1];
+        int maxLen = 0;
+        for(String s:paths){
+            int lev = s.lastIndexOf("\t")+1, curLen = stack[lev+1] = stack[lev]+s.length()-lev+1;
+            if(s.contains(".")) maxLen = Math.max(maxLen, curLen-1);
+        }
+        return maxLen;
+    }
 
 389. Find the Difference(find one different char in two strings)
 [easy] two pass. 1st: map(char, count)  2ed: count--; return if count<0;
 
-447. Number of Boomerangs
+447. Number of Boomerangs(find all three points(a,b,c) which dist(a,b) == dist(b,c))
 [easy-medium] hashmap to store previous distance, ret += pre_dist*2; map.put(dist, pre_dist+1);
+use map<distance,count> in first loop, to reduce from o(n^3) to o(n^2)
 
-454. 4Sum II(interesting)
-[medium] hashmap on(C[i] + D[j]), check if exist in map (-1*(A[i]+B[j])). time o(n^2)
+
+454. 4Sum II(given 4 lists, compute how many tuples A[i] + B[j] + C[k] + D[l] is zero)(interesting)
+[medium] hashmap on(C[i] + D[j]), check if exist in map (-1*(A[i]+B[j])). time o(n^2), BF is(n^4)
 
 
 
