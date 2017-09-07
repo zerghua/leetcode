@@ -31,14 +31,18 @@ import java.util.Iterator;
  not just integer?
 
  */
-public class N284_PeekingIterator {
-    private boolean isPeeked ;
-    private Integer peekedElement;
-    private Iterator<Integer> iterator;
+
+
     // Google, Apple, Yahoo
     // 120 ms
     // Design: Decorator Pattern
     // cache next variable for iterator next.
+    // this solution can also handle when Integer is null issue.
+public class N284_PeekingIterator {
+    private boolean isPeeked ;
+    private Integer peekedElement;
+    private Iterator<Integer> iterator;
+
     public N284_PeekingIterator(Iterator<Integer> iterator) {
         this.iterator = iterator;
     }

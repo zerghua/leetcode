@@ -123,7 +123,7 @@ Google list sort by Frequency(198)
    *200 	Number of Islands 	34.4% 	Medium                                      [DFS, matrix, easy, from each unVisited island, mark adjacent land to be visited, until all are marked.]
 	417 	Pacific Atlantic Water Flow 	33.7% 	Medium                          [DFS, matrix, search from 4 edges and store (i,j) can be reached from both sides, need boolean[][] pacific, boolean[][] atlantic, similar to N317]
 	544 	Output Contest Matches 	72.2% 	Medium                                  [DFS, easy, simple recursion on a list until list.size() ==1]
-	394 	Decode String 	41.2% 	Medium                                          [DFS, recursion, dfs(str, index). if(c == '[') String insideStr = dfs(s, i+1);for(int j=0;j<num;j++) ret.append(insideStr); else if(c == ']') return ret.toString()]
+   *394 	Decode String 	41.2% 	Medium                                          [DFS, recursion, dfs(str, index). if(c == '[') String insideStr = dfs(s, i+1);for(int j=0;j<num;j++) ret.append(insideStr); else if(c == ']') return ret.toString()]
 	401 	Binary Watch 	44.8% 	Easy                                            [Integer.bitCount(i) + Integer.bitCount(j) == num or backtracking combine hour and minute to one array]
    *17 	    Letter Combinations of a Phone Number 	34.3% 	Medium                  [backtracking, string, easy, dfs(List<String> ret, String digits, String cur, int start, String[] map)]
    *22 	    Generate Parentheses 	44.8% 	Medium                                  [backtracking, string, pass num of left/right parentheses down, if(left >0) dfs(ret, s + "(", left-1, right); if(right>0) dfs(ret, s+")",left,right-1)]
