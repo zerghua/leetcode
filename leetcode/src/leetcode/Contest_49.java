@@ -5,6 +5,7 @@ package leetcode;
  * Rank	    Name	Score	Finish Time 	Q1 (3)	    Q2 (6)	    Q3 (8)	    Q4 (9)
  624 / 2362	zerghua	   9	0:20:04	        0:09:00 1	0:15:04
 
+ N673, N674, N675, N676
  */
 
 import leetcode.N0_data_strcture.*;
