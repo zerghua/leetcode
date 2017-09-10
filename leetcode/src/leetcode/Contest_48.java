@@ -5,7 +5,7 @@ package leetcode;
  * Rank	    Name	Score	Finish Time 	Q1 (3)	    Q2 (6)	    Q3 (8)	    Q4 (9)
  812 / 2668	zerghua	15	    1:49:48	        0:22:47 2	1:19:48     0:59:02 4
 
-
+ N669, N670, N671, N672
 
  */
 

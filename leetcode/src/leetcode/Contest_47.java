@@ -5,6 +5,7 @@ package leetcode;
  1196 / 2554	zerghua	0	0:00:00
  solved non
 
+ N665, N666, N667, N668
  */
 public class Contest_47 {
     // [3,4,2,3]  false
