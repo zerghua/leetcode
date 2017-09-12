@@ -54,7 +54,7 @@ package leetcode;
 
  */
 public class N276_PaintFence {
-    // Google
+    // Google (Premium)
     // 79 / 79 test cases passed.
     // 0 ms
     // DP, check last two can be the same color

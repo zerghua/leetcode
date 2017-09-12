@@ -23,7 +23,7 @@ package leetcode;
 
 import java.util.*;
 public class N293_FlipGame {
-    // Google
+    // Google (Premium)
     // 25 / 25 test cases passed.
     // 2 ms
     public class Solution {

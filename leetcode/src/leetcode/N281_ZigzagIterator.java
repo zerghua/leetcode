@@ -29,7 +29,7 @@ package leetcode;
  */
 import java.util.*;
 public class N281_ZigzagIterator {
-    // Google
+    // Google (Premium)
     // o(1) space which can handle k lists
     // 125 / 125 test cases passed.
     // 6 ms

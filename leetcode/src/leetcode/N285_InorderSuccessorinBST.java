@@ -24,7 +24,7 @@ package leetcode;
 
 import leetcode.N0_data_strcture.*;
 public class N285_InorderSuccessorinBST {
-    // Microsoft, Facebook
+    // Microsoft, Facebook (Premium)
     // concise code
     // 29 / 29 test cases passed.
     // 4 ms

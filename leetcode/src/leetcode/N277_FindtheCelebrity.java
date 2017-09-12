@@ -43,7 +43,7 @@ public class N277_FindtheCelebrity {
     public class Relation{
         boolean knows(int a, int b){return true;}
     }
-    // Facebook, Linkedin
+    // Facebook, Linkedin (Premium)
     // 171 / 171 test cases passed.
     // 20 ms
     public class Solution extends Relation {

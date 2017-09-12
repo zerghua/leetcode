@@ -25,7 +25,7 @@ package leetcode;
 
 import java.util.*;
 public class N265_PaintHouseII {
-    // facebook
+    // facebook (Premium)
     // a more general DP solution similar to 256. Paint House
     // 105 / 105 test cases passed.
     // 64 ms

@@ -23,7 +23,7 @@ package leetcode;
 
 import java.util.*;
 public class N291_WordPatternII {
-    // uber, dropbox
+    // uber, dropbox (Premium)
     // fair complex backtracking.
     // 22 / 22 test cases passed.
     // 116 ms

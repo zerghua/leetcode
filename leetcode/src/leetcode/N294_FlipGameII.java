@@ -141,7 +141,7 @@ package leetcode;
 
  */
 public class N294_FlipGameII {
-    // Google
+    // Google (Premium)
     // 33 / 33 test cases passed.
     // 22 ms
     // DFS + backtracking, naive solution, o(n!!) time complexity ?

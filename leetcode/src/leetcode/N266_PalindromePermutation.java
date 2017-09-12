@@ -12,7 +12,7 @@ package leetcode;
 
 import java.util.*;
 public class N266_PalindromePermutation {
-    // Google, Uber
+    // Google, Uber (Premium)
     // easy hashmap
     // 26 / 26 test cases passed.
     // 4 ms

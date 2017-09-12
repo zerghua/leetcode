@@ -47,7 +47,7 @@ package leetcode;
 
 import java.util.*;
 public class N271_EncodeandDecodeStrings {
-    // google
+    // google (Premium)
     // design, encode string with length and delimiter.
     // 316 / 316 test cases passed.
     // 15 ms

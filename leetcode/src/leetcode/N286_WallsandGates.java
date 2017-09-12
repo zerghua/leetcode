@@ -31,7 +31,7 @@ package leetcode;
  */
 import java.util.*;
 public class N286_WallsandGates {
-    // Google, Facebook
+    // Google, Facebook (Premium)
     // BFS
     // 62 / 62 test cases passed.
     // 18 ms

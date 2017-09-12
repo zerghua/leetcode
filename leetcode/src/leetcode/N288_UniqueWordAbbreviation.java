@@ -68,7 +68,7 @@ package leetcode;
 
 import java.util.*;
 public class N288_UniqueWordAbbreviation {
-    // google, tricky problem definition
+    // google, tricky problem definition (Premium)
     // BF
     // 54 / 54 test cases passed.
     // 373 ms

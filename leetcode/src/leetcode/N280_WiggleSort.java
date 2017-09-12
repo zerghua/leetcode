@@ -10,7 +10,7 @@ package leetcode;
 
  */
 public class N280_WiggleSort {
-    // Google
+    // Google (Premium)
     // 126 / 126 test cases passed.
     // 1 ms
     public class Solution {

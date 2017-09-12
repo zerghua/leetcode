@@ -20,7 +20,7 @@ import java.util.Arrays;
 
  */
 public class N259_3SumSmaller {
-    // Google
+    // Google (Premium)
     // 313 / 313 test cases passed.
     // 10 ms
     // sort + two pointers, similar to 3sums

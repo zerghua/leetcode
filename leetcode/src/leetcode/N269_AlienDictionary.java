@@ -52,7 +52,7 @@ package leetcode;
 
 import java.util.*;
 public class N269_AlienDictionary {
-    // google, facebook, airbnb
+    // google, facebook, airbnb (Premium)
     // Topological sort, directed graph, no circle.
     // 117 / 117 test cases passed.
     // 10 ms

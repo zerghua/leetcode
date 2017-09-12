@@ -23,7 +23,7 @@ import java.util.*;
 
  */
 public class N296_BestMeetingPoint {
-    // twitter
+    // twitter (Premium)
     // math + sort(median will produce the total shortest distance)
     // 57 / 57 test cases passed.
     // 12 ms
