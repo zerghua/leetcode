@@ -19,7 +19,7 @@ package leetcode;
 
 import java.util.*;
 public class N170_TwoSumIIIDatastructuredesign {
-    // Linkedin
+    // Linkedin  (Premium)
     // 16 / 16 test cases passed.
     // 248 ms
     public class TwoSum {

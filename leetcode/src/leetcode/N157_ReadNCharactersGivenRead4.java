@@ -16,7 +16,7 @@ package leetcode;
  */
 
 public class N157_ReadNCharactersGivenRead4 {
-    // Facebook
+    // Facebook (Premium)
     // borrow solution from N158
     public class Solution{
         /*

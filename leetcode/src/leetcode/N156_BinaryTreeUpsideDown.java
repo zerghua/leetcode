@@ -47,7 +47,7 @@ package leetcode;
 
 import leetcode.N0_data_strcture.*;
 public class N156_BinaryTreeUpsideDown {
-    // linkedin
+    // linkedin (Premium)
     // bottom-up approach, left-most node will be root, so recurse to it and return it.
     // 144 / 144 test cases passed.
     // 1 ms

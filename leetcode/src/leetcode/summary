@@ -83,16 +83,18 @@ right->left, find i where a[i] < a[i+1]; right->left, find a[j] > a[i], swap a[i
 [medium-easy] in-place solutions: 1.reverse each row [0,n), then swap matrix char(m[i][j] ~= m[j][i]) in diagonal;
 2. 4-way rotation.
 
-
 189. Rotate Array
 [easy] reverse 3 times. reverse(0,n-k-1); reverse(n-k,n-1); reverse(0,n-1)
 
 
-54	Spiral Matrix(return array of spiral order, outer-->inner clockwise)(real question)
+54.	Spiral Matrix(return array of spiral order, outer-->inner clockwise)(real question)
 [medium] 4 loops of top,right,bottom and left side.
 
-59, Spiral Matrix II(generate spiral n^2 matrix)
+59. Spiral Matrix II(generate spiral n^2 matrix)
 [medium] 4 loops of top,right,bottom and left side.
+
+58. Length of Last Word(return the length of last word in the string)
+[easy] scan from last find first empty char.
 
 66. Plus One(to an array of digits)(real question)
 [easy-medium]  find pattern. test case, 199, 999, 288, create new array only when like 999
@@ -774,6 +776,12 @@ for(int i=0;i<32;i++){
 ---------------------------------------------------
 8. Design(reviewed on 10/27/2016, 9/6/2017)
 ---------------------------------------------------
+157. Read N Characters Given Read4
+158. Read N Characters Given Read4 II - Call multiple times
+[medium]
+
+170. Two Sum III - Data structure design
+[medium] map<num, count> + list(num), find (target - num) in map
 
 ----------------------  Iterator --------------------------
 173. Binary Search Tree Iterator(next() return smallest in BST)(interesting)(stack)
@@ -872,7 +880,7 @@ for(int i=start;i<=9;i++){}
 377. Combination Sum IV(return number of possible results with the same proble of N216)(tricky, tailored for interview, (1,2) and (2,1) both are valid)
 [medium] DP.  dp[i+n] += dp[i] if (i+n<=target)
 
-77  Combinations(return all combinations of k numbers out of n, (1,2) and (2,1) are duplicate)
+77.  Combinations(return all combinations of k numbers out of n, (1,2) and (2,1) are duplicate)
 [medium] void = DFS(ret, cur_list, k_int, n_int, start_int)  for(int i=start;i<=n;i++)
 return when size==k. return part of the subsets problem. similar to
 
@@ -1087,7 +1095,7 @@ else if(j>0) dp[j] += dp[j-1];  //(j>0) important
 64. Minimum Path Sum(matrix, can only move down and right, return min path sum)
 [easy]  dp[j] = min(dp[j-1], dp[j]) + grid[i][j].  similar to 62, but use rolling array(o(m) space).
 
-70, climb stairs. (either 1 step or 2 steps, return distinct ways to the top)(real question)
+70. climb stairs. (either 1 step or 2 steps, return distinct ways to the top)(real question)
 [easy-medium]   dp[i] = dp[i-2] + dp[i-1].
 this is kind of fibonacci, so can be: a=b=1; i in [2,n]{c= a+b, a=b, b=c;} return b;
 
@@ -1242,6 +1250,9 @@ for (int i = 0; i < nums.length; i++) {
 ---------------------------------------------------
 12.Greedy(reviewed on 12/19/2016, 9/7/2017)
 ---------------------------------------------------
+53.	Maximum Subarray(Find the contiguous subarray which has the largest sum)
+[easy] localMax = max(n, n + localMax); globalMax = max(globalMax, localMax)
+
 55. Jump Game(each num means the longest distance you can jump, can you reach the end?)
 [easy] o(n). store max_jump and compare with end index.
 
@@ -1516,7 +1527,7 @@ while(even!=null && even.next != null) {...}
 43. Multiply Strings
 [medium] o(n^2), p1 = i+j; p2=i+j+1; sum = product + ret[p2]; ret[p1] += sum /10; ret[p2] = sum % 10;
 
-60, Permutation Sequence.
+60. Permutation Sequence.
 [medium to hard] math, k / (n-1)! for current number,  k%(n-1)! for next iteration.
 
 168. Excel Sheet Column Title(convert base 10 to base 26)
