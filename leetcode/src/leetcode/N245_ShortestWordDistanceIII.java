@@ -5,7 +5,8 @@ package leetcode;
 
  This is a follow up of Shortest Word Distance. The only difference is now word1 could be the same as word2.
 
- Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list.
+ Given a list of words and two words word1 and word2,
+ return the shortest distance between these two words in the list.
 
  word1 and word2 may be the same and they represent two individual words in the list.
 
@@ -20,7 +21,7 @@ package leetcode;
 
  */
 public class N245_ShortestWordDistanceIII {
-    // Linkedin
+    // Linkedin (Premium)
     // 39 / 39 test cases passed.
     // 4 ms
     // similar to N243 ShortestWordDistance

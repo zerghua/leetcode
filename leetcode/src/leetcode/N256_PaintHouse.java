@@ -16,7 +16,7 @@ package leetcode;
 
  */
 public class N256_PaintHouse {
-    // linkedin
+    // linkedin (Premium)
     // 101 / 101 test cases passed.
     // 1 ms
     // simple DP

@@ -14,7 +14,7 @@ Table of Contents(last reviewed on)
 6. Binary Search Tree       9/6/2017
 7. Bit Manipulation         9/6/2017
 8. Design                   9/6/2017
-9. DFS/backtracking or BFS  9/6/2017
+9. backtracking or BFS      9/6/2017
 10.Divide and conquer       9/7/2017
 11.DP                       10/2/2016
 12.Greedy                   9/7/2017
@@ -31,6 +31,7 @@ Table of Contents(last reviewed on)
 23.Two pointers             12/1/2016
 24.Topological sort(DAG)    8/19/2017
 25.hard questions
+26.Heap
 
 
 TODO: gather all dfs tree problems and have a taste of top-down and bottom-up difference.
@@ -151,6 +152,9 @@ for(int i=1;i<nums.length;i++){
 }
 return majorElement;
 
+186. Reverse Words in a String II(reverse the string word by word, separated by space)
+[medium] reverse and reverse(in place)
+
 229. Majority Element II(find out numbers exists times > n/3) Boyer_Moore_majority_vote_algorithm
 [medium-hard] 2 variables to hold number, 2 counters.
 
@@ -169,6 +173,12 @@ if num[i]-num[i-1] >1, construct list(start,i-1); start=i;  (may overflow num[i]
 238. Product of Array Except Self(can't use divide, require o(n) time) (tricky, kind of DP.)
 [medium] two pass from left and right. product of all its left and right.
 1st pass: ret[i] = num[i+1]*ret[i+1]; 2ed pass: ret[i] *= left_sum; left_sum *= nums[i];
+
+243. Shortest Word Distance(return the shortest distance between these two words in the list)
+[medium] two pointers. update and compare their distance each step.
+
+245. Shortest Word Distance III(with duplicate)
+[medium] if(word2 == word1) {p1 = p2; p2 = i;} basically p2 contains the latest, p1 has the leftover of p2.
 
 274. H-Index[TODO]
 [medium] sort o(nlogn), return i if reversed sorted a[i]<=i;
@@ -575,6 +585,9 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     return right == null? left: right;
 }
 
+250. Count Univalue Subtrees(A Uni-value subtree means all nodes of the subtree have the same value.)
+[medium] post-order traversal.
+
 331. Verify Preorder Serialization of a Binary Tree
 [medium] diff = outdegree - indegree = 1. each node count--; if not leaf, count+=2;
 public boolean isValidSerialization(String preorder) {
@@ -712,6 +725,10 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     return null;
 }
 
+255. Verify Preorder Sequence in Binary Search Tree
+[medium] stack<val>.
+simulate traversal, if incoming is smaller, then push,
+if larger, pop all smaller and keep the popped as min, the incoming should larger than min or return false.
 
 
 ---------------------------------------------------
@@ -783,18 +800,8 @@ for(int i=0;i<32;i++){
 170. Two Sum III - Data structure design
 [medium] map<num, count> + list(num), find (target - num) in map
 
-----------------------  Iterator --------------------------
-173. Binary Search Tree Iterator(next() return smallest in BST)(interesting)(stack)
-[medium] push all left node to stack until the left most.
-when pop, if node.right!=null, push all its left. It's o(1) time, because each element is visited only once.
-
-284. Peeking Iterator(existing functions are iterator.next and iterator.hasNext; add a peek function)
-[medium] the key is to cache(save) next element with element and isPeeked variables.
-
-341. Flatten Nested List Iterator(interesting)(how to use polymorphism)
-[medium] stack<Iterator<NestedInteger>>
-------------------------------------------------------------
-
+244. Shortest Word Distance II(return shortest distance between two words in list)
+[medium] map<num, list_of_index>, two pointers to get distance
 
 385. Mini Parser(interesting)(constructed NestedInteger from String)
 [medium-hard] stack to store each object.
@@ -802,6 +809,30 @@ if '[', add obj to stack,  if ',' || ']', add number to stack.peek() object, if 
 
 355. Design Twitter
 [medium-hard] [TODO] a few hashmap, hashset and priorityQueue.
+
+379. Design Phone Directory(VIP)
+[medium] hashset(maintain non-available number) + linkedlist(maintain available number)
+
+380. Insert Delete GetRandom O(1)
+[medium] hashmap<val, index> + list<val>, swap last one with map.get(val) and remove
+
+381. Insert Delete GetRandom O(1) - Duplicates allowed(similar to N380)
+[hard] HashMap<val, set_of_index> + list<val>
+
+----------------------  Iterator --------------------------
+173. Binary Search Tree Iterator(next() return smallest in BST)(interesting)(stack)
+[medium] push all left node to stack until the left most.
+when pop, if node.right!=null, push all its left. It's o(1) time, because each element is visited only once.
+
+251. Flatten 2D Vector
+[medium]
+
+284. Peeking Iterator(existing functions are iterator.next and iterator.hasNext; add a peek function)
+[medium] the key is to cache(save) next element with element and isPeeked variables.
+
+341. Flatten Nested List Iterator(interesting)(how to use polymorphism)
+[medium] stack<Iterator<NestedInteger>>
+------------------------------------------------------------
 
 
 ----------------------  Trie --------------------------
@@ -816,18 +847,10 @@ if '[', add obj to stack,  if ',' || ']', add number to stack.peek() object, if 
 [medium-hard] BFS on trie of wildcard(.)
 --------------------------------------------------------
 
-379. Design Phone Directory(VIP)
-[medium] hashset(maintain non-available number) + linkedlist(maintain available number)
-
-380. Insert Delete GetRandom O(1)
-[medium] hashmap<val, index> + list<val>, swap last one with map.get(val) and remove
-
-381. Insert Delete GetRandom O(1) - Duplicates allowed(similar to N380)
-[hard] HashMap<val, set_of_index> + list<val>
 
 
 ---------------------------------------------------
-9. DFS/backtracking or BFS(better for shortest path)(reviewed on 10/3/2016 - 10/4/2016, 9/6/2017)
+9. backtracking or BFS(better for shortest path)(reviewed on 10/3/2016 - 10/4/2016, 9/6/2017)
 ---------------------------------------------------
 17. Letter Combinations of a Phone Number(return all possible letter combinations that the number could represent)
 [medium] void = DFS(ret, cur_list, digits_string, start_int, map)
@@ -937,6 +960,20 @@ public UndirectedGraphNode dfs(UndirectedGraphNode node,
 200. Number of Islands(matrix with 1(land) and 0(water), count number of islands, assume edges are water)(interesting)
 [medium] void = DFS(matrix, i_int, j_int, visited_matrix)
 DFS, for each cell(if not visited, islands++), do DFS on adjacent cells, and mark them as visited.
+
+247. Strobogrammatic Number II(build all such number given length n)
+[medium] dfs, build string inside out.
+
+248. Strobogrammatic Number III(return count of such number in a range)
+[medium] S1, similar to N247, build all strings in given length and filter out in a range.
+S2. similar to N246, for each number in that range, decide if it's in that range.
+
+254. Factor Combinations(interesting)
+[medium] add(i, remain), remove(remain), dfs(remain), remove(i)
+12
+2*6 ->  2* dfs(6) -> 2* 2*3
+3*4
+every dfs start>= last start, made sure it's sorted.
 
 419. Battleships in a Board
 [medium-easy] DFS, the same as N200 number of islands.
@@ -1205,6 +1242,8 @@ return dp[amount] == Integer.MAX_VALUE? -1 : dp[amount];
 [medium] if matrix[i][j] == '1':  dp[i][j] = 1 + min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])
 (time o(m*n), space(m*n), space can be reduced use rolling array and one variable)
 
+256. Paint House(Find the minimum cost to paint all houses, no two adjacent houses have the same color)
+[medium]
 
 300. Longest Increasing Subsequence(return max length of increasing subsequence in array)(interesting)
 [medium] dp[i] = Math.max(dp[i], dp[j]+1)
@@ -1345,6 +1384,10 @@ map.put(remainder, sb.length()), sb.insert(map.get(remainder), "("); return sb.t
         }
         return false;
     }
+
+249. Group Shifted Strings
+[medium] map<key_string, list_of_string> hash each string to a key.
+offset = s.charAt(0) - 'a'; for(int i=0;i<s.length();i++)sb.append((s.charAt(i) - offset + 26) % 26 + 'a');]
 
 299. Bulls and Cows(both index and val match is bull, val match is cow)
 [medium] need a counter int[] for each number.
@@ -2084,6 +2127,9 @@ public boolean isOneEditDistance(String s, String t){
     return i==m;
 }
 
+246. Strobogrammatic Number(6<->9, 0<->0, 1<->1, 8<->8)
+[easy] similar to isPalindrome, two pointers
+
 306. Additive Number(return if a string is additive number,  199100199 is because [1, 99, 100, 199])
 [medium-hard] boolean = DFS(num_string, left_int, right_int, first_num_int)
 complicate on how to extract 3 numbers. [TODO]
@@ -2532,3 +2578,13 @@ tricky solution, map of map. (TODO)
 
 410. Split Array Largest Sum
 [hard] binary search, but hard to prove it's right.(TODO)
+
+
+---------------------------------------------------
+26.Heap
+---------------------------------------------------
+218. The Skyline Problem
+[hard] heap<height> descending,
+visit all points sorted by x, break tie by height(left height is negative),
+heap store global height in reversed order, add left height,
+remove end height if cur height is diff than previous, add to ret

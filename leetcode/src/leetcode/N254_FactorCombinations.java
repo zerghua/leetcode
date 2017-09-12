@@ -57,7 +57,7 @@ package leetcode;
 
 import java.util.*;
 public class N254_FactorCombinations {
-    // Linkedin, Uber
+    // Linkedin, Uber (Premium)
     // 20 / 20 test cases passed.
     // 2 ms
     // DFS + backtracking, a trick to made the list sorted, every dfs next start >= last start

@@ -13,7 +13,7 @@ import leetcode.N0_data_strcture.*;
 import java.util.Arrays;
 
 public class N252_MeetingRooms {
-    // Facebook
+    // Facebook (Premium)
     // time o(nlogn) bounded by sort, space o(1)
     // 76 / 76 test cases passed.
     // 14 ms

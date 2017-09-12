@@ -24,7 +24,7 @@ package leetcode;
 
 import java.util.*;
 public class N251_Flatten2DVector {
-    // Google, Airbnb
+    // Google, Airbnb (Premium)
     // 17 / 17 test cases passed.
     // 4 ms
     // iterator design

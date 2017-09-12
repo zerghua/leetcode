@@ -17,7 +17,7 @@ package leetcode;
 
 import java.util.*;
 public class N248_StrobogrammaticNumberIII {
-    // google
+    // google (Premium)
     // adapted from N247. Strobogrammatic Number II
     // 16 / 16 test cases passed.
     // 78 ms
@@ -30,7 +30,8 @@ public class N248_StrobogrammaticNumberIII {
 
             int ret = 0;
             for(String s : list){
-                if((s.length() == low.length() && s.compareTo(low) < 0) || (s.length() == high.length() && s.compareTo(high) > 0)) continue;
+                if((s.length() == low.length() && s.compareTo(low) < 0)
+                        || (s.length() == high.length() && s.compareTo(high) > 0)) continue;
                 ret++;
             }
             return ret;

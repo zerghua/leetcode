@@ -17,7 +17,7 @@ import leetcode.N0_data_strcture.*;
 import java.util.*;
 
 public class N253_MeetingRoomsII {
-    // Google, Facebook
+    // Google, Facebook (Premium)
     // merge interval greedily by using min heap sorted by interval.end
     // example: (1,4) (2,6) (5,9) (8,9)
     // time o(nlogn) bounded by sort

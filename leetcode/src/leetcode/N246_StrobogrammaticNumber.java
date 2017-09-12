@@ -13,7 +13,7 @@ package leetcode;
 
 import java.util.*;
 public class N246_StrobogrammaticNumber {
-    // google
+    // google (Premium)
     // similar to palindrome checking but more conditions
     // 47 / 47 test cases passed.
     // 1 ms

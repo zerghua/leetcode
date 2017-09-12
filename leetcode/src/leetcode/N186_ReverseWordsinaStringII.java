@@ -17,7 +17,7 @@ package leetcode;
 
  */
 public class N186_ReverseWordsinaStringII {
-    // facebook, uber, Microsoft
+    // facebook, uber, Microsoft  (Premium)
     // 17 / 17 test cases passed.
     // 3 ms
     // reverse and reverse

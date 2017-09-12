@@ -3,7 +3,8 @@ package leetcode;
 /**
  * Created by Hua on 7/11/2017.
 
- Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list.
+ Given a list of words and two words word1 and word2,
+ return the shortest distance between these two words in the list.
 
  For example,
  Assume that words = ["practice", "makes", "perfect", "coding", "makes"].
@@ -18,11 +19,29 @@ package leetcode;
 
 import java.util.*;
 public class N243_ShortestWordDistance {
-    // Linkedin
+    // Linkedin (Premium)
+    // o(n)
+    // 26 / 26 test cases passed.
+    // 3 ms
+    public class Solution {
+        public int shortestDistance(String[] words, String word1, String word2) {
+            int p1 = -1, p2 = -1, min = Integer.MAX_VALUE;
+
+            for (int i = 0; i < words.length; i++) {
+                if (words[i].equals(word1)) p1 = i;
+                if (words[i].equals(word2)) p2 = i;
+                if (p1 != -1 && p2 != -1) min = Math.min(min, Math.abs(p1 - p2));
+            }
+
+            return min;
+        }
+    }
+
+    // my solution
     // binary search, o(nlogn)
     // 26 / 26 test cases passed.
     // 5 ms
-    public class Solution {
+    public class Solution2 {
         public int shortestDistance(String[] words, String word1, String word2) {
             TreeSet<Integer> set = new TreeSet();
             for(int i=0; i<words.length; i++){
@@ -40,21 +59,4 @@ public class N243_ShortestWordDistance {
         }
     }
 
-
-    // o(n)
-    // 26 / 26 test cases passed.
-    // 3 ms
-    public class Solution2 {
-        public int shortestDistance(String[] words, String word1, String word2) {
-            int p1 = -1, p2 = -1, min = Integer.MAX_VALUE;
-
-            for (int i = 0; i < words.length; i++) {
-                if (words[i].equals(word1)) p1 = i;
-                if (words[i].equals(word2)) p2 = i;
-                if (p1 != -1 && p2 != -1) min = Math.min(min, Math.abs(p1 - p2));
-            }
-
-            return min;
-        }
-    }
 }

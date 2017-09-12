@@ -22,10 +22,10 @@ package leetcode;
 
 import leetcode.N0_data_strcture.*;
 public class N250_CountUnivalueSubtrees {
-    // no company
+    // no company (Premium)
     // 197 / 197 test cases passed.
     // 1 ms
-    // regular dfs
+    // post order traversal
     public class Solution {
         int ret = 0;
         public int countUnivalSubtrees(TreeNode root) {
