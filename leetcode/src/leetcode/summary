@@ -6,15 +6,15 @@
 11/6/2016 all added(traced back to N300).
 
 Table of Contents(last reviewed on)
-1. Anagram                  9/5/2017
-2. Array                    9/5/2017
-3. Binary search            9/5/2017
-4. Binary Tree              9/5/2017
-5. Augmented Tree           9/5/2017
-6. Binary Search Tree       9/6/2017
-7. Bit Manipulation         9/6/2017
-8. Design                   9/6/2017
-9. Backtracking             9/6/2017
+1.Anagram                   9/5/2017
+2.Array                     9/5/2017
+3.Binary search             9/5/2017
+4.Binary Tree               9/5/2017
+5.Augmented Tree            9/5/2017
+6.Binary Search Tree        9/6/2017
+7.Bit Manipulation          9/6/2017
+8.Design                    9/6/2017
+9.Backtracking              9/6/2017
 10.Divide and conquer       9/7/2017
 11.DP                       10/2/2016
 12.Greedy                   9/7/2017
@@ -41,7 +41,7 @@ Table of Contents(last reviewed on)
 TODO: gather all dfs tree problems and have a taste of top-down and bottom-up difference.
 
 ---------------------------------------------------
-1. Anagram(words group like: cat, act) (reviewed on 9/28/2016, 10/27/2016, 11/30/2016, 9/5/2017)
+1.Anagram(words group like: cat, act) (reviewed on 9/28/2016, 10/27/2016, 11/30/2016, 9/5/2017)
 ---------------------------------------------------
 49. Group Anagrams(important)(real question)
 [medium] hashmap<String, list>  or hashmap<int, list>.
@@ -76,7 +76,7 @@ public boolean isContainAnagram(String s, String t){
 
 
 ---------------------------------------------------
-2. Array (reviewed on 9/29/2016, 10/27/2016, 9/5/2017)
+2.Array (reviewed on 9/29/2016, 10/27/2016, 9/5/2017)
 // for array problem, if sort is not efficient enough, use hash table or two pointers/sliding window
 // if sorted or adjacent/continuous graph , it's usually binary search.
 ---------------------------------------------------
@@ -312,13 +312,18 @@ optimized o(klogk), put min(k, num1.length) to heap(sorted by sum increasing and
         if(nums[i] >0) ret.add(i+1);
     }
 
+
+457. Circular Array Loop
+[medium]
+
+
 463. Island Perimeter
 [easy-medium] island*4 - neighbour*2; only count right and down neighbours.
 
 
 
 ---------------------------------------------------
-3. Binary search(reviewed on 9/28/2016, 10/27/2016, 12/1/2016, 9/5/2017)
+3.Binary search(reviewed on 9/28/2016, 10/27/2016, 12/1/2016, 9/5/2017)
 (
 1. regular BS is while(left<=right), and has early return
 2. special case like find min in rotated array, while(left<right) return nums[left]; compare with right
@@ -423,7 +428,7 @@ time can also be o(mlogn) or o(nlogm)
 
 
 ---------------------------------------------------
-4. Binary Tree(reviewed on 9/30/2016, 10/28/2016, 9/5/2017)
+4.Binary Tree(reviewed on 9/30/2016, 10/28/2016, 9/5/2017)
 ---------------------------------------------------
 94. Binary Tree Inorder Traversal
 [easy-medium] left-root-right. iterative, use stack.
@@ -664,7 +669,7 @@ public int sumOfLeftLeaves(TreeNode root) {
 
 
 ---------------------------------------------------
-5. Augmented Tree(9/5/2017)
+5.Augmented Tree(9/5/2017)
 ---------------------------------------------------
 307. Range Sum Query - Mutable(real question)(google)(must)
 [medium-hard] segment tree.
@@ -693,9 +698,11 @@ public int sumOfLeftLeaves(TreeNode root) {
 440. Kth Smallest in Lexicographical Order
 [medium] denary tree(10-children tree)
 
+480. Sliding Window Median
+[medium] treeset ?
 
 ---------------------------------------------------
-6. Binary Search Tree(reviewed on 9/30/2016, 10/28/2016, 9/6/2017)
+6.Binary Search Tree(reviewed on 9/30/2016, 10/28/2016, 9/6/2017)
 ---------------------------------------------------
 *96. Unique Binary Search Trees(return how many unique trees.)
 [medium-hard] DP. catalan number. f(n) = f(0)*f(n-1) + f(1)*f(n-2) + ... + f(n-1)f(0)
@@ -795,8 +802,11 @@ if larger, pop all smaller and keep the popped as min, the incoming should large
 [medium]
 
 
+450. Delete Node in a BST
+[medium]
+
 ---------------------------------------------------
-7. Bit Manipulation(reviewed on 10/27/2016)
+7.Bit Manipulation(reviewed on 10/27/2016)
 ---------------------------------------------------
 29. Divide Two Integers
 [medium] not sure. [TODO]
@@ -852,10 +862,14 @@ for(int i=0;i<32;i++){
 461. Hamming Distance
 [easy] xor. return Integer.bitCount(x^y);
 
+476. Number Complement
+[easy]
 
+477. Total Hamming Distance
+[medium]
 
 ---------------------------------------------------
-8. Design(reviewed on 10/27/2016, 9/6/2017)
+8.Design(reviewed on 10/27/2016, 9/6/2017)
 ---------------------------------------------------
 157. Read N Characters Given Read4
 158. Read N Characters Given Read4 II - Call multiple times
@@ -908,6 +922,16 @@ if '[', add obj to stack,  if ',' || ']', add number to stack.peek() object, if 
 432. All O one Data Structure
 [medium]
 
+146. LRU Cache(implement get and set function for least recently used cache)
+[hard] [design] [hashtable + double linked list]
+linkedlist to represent Least recently used:
+1. current get/set element will be put at the head of linked list
+2. remove tail element when need delete.
+3. hashmap<Element, Node> to enable o(1) to get/set element and operate on the node according to 1 and 2.
+
+460. LFU Cache
+[medium]
+
 
 ----------------------  Iterator --------------------------
 173. Binary Search Tree Iterator(next() return smallest in BST)(interesting)(stack)
@@ -952,7 +976,7 @@ when pop, if node.right!=null, push all its left. It's o(1) time, because each e
 
 
 ---------------------------------------------------
-9. Backtracking or BFS(better for shortest path)(reviewed on 10/3/2016 - 10/4/2016, 9/6/2017)
+9.Backtracking or BFS(better for shortest path)(reviewed on 10/3/2016 - 10/4/2016, 9/6/2017)
 ---------------------------------------------------
 17. Letter Combinations of a Phone Number(return all possible letter combinations that the number could represent)
 [medium] void = DFS(ret, cur_list, digits_string, start_int, map)
@@ -1158,6 +1182,8 @@ search from 4 edges and store (i,j) can be reached from both sides, need boolean
 [medium-hard] DFS+backtracking+DP.
 
 
+465. OptimalAccountBalancing
+[medium] backtracking
 
 
 ---------------------------------------------------
@@ -1410,6 +1436,19 @@ for (int i = 0; i < nums.length; i++) {
 446. Arithmetic Slices II Subsequence
 [hard] DP.
 
+
+466. Count The Repetitions
+[hard] DP
+
+
+471. Encode String with Shortest Length
+[hard] DP
+
+472. Concatenated Words
+[medium] DP
+
+474. Ones and Zeroes
+[medium] DP
 
 583. Delete Operation for Two Strings(equivalent to Longest Common SubSequence (LCS))
 [medium] dp[i][j] = (word1.charAt(i-1) == word2.charAt(j-1)) ? 1 + dp[i-1][j-1] : Math.max(dp[i-1][j], dp[i][j-1]);
@@ -1822,9 +1861,17 @@ F1 = F0 + sum - n*f(n-1)
 453. Minimum Moves to Equal Array Elements
 [easy-medium] think from the opposite way, add n-1 == minus 1;  ret= sum_of_array - n*min;
 
+
+458. Poor Pigs
+[easy] math.
+
+
 462. Minimum Moves to Equal Array Elements II
 [medium] math. sort and while(i<j) ret += nums[j--] - nums[i++];
 
+
+469. Convex Polygon
+[medium] geometry.
 
 
 ---------------------------------------------------
@@ -1898,6 +1945,9 @@ split each words str1 and str2, and check if isPal(str2) and reversed(str2) in m
 
 409. Longest Palindrome(interesting)
 [easy-medium] ret += (odd-1)
+
+479. Largest Palindrome Product
+[easy]
 
 ---------------------------------------------------
 18.Random(reviewed on 10/27/2016, 12/1/2016, 9/7/2017)
@@ -2345,11 +2395,15 @@ for(int i=size/2;i>=1;i--) {
     }
 }
 
+467. Unique Substrings in Wrap around String
+[medium]
+
 
 468. Validate IP Address
 [medium] interesting. take a look.
 
-
+481. Magical String
+[medium]
 
 ---------------------------------------------------
 23.Two pointers(or Three pointers)(reviewed on 10/1/2016, 12/1/2016)
@@ -2558,13 +2612,6 @@ extra line see above
 [hard-medium] [hashtable+corner cases]time o(n^2). for each point, calculate slope for each pair and store in map<slope_double, count_int>;
 corner case of duplicate points(b.x==a.x && b.y==a.y) and vertical points (b.x==a.x)
 
-146. LRU Cache(implement get and set function for least recently used cache)
-[hard] [design] [hashtable + double linked list]
-linkedlist to represent Least recently used:
-1. current get/set element will be put at the head of linked list
-2. remove tail element when need delete.
-3. hashmap<Element, Node> to enable o(1) to get/set element and operate on the node according to 1 and 2.
-
 
 65. Valid Number
 [hard] skip white space, sign, digits, point, digits, e, reset hasNumber, skip sign, digits, space.
@@ -2728,6 +2775,10 @@ public TreeNode deserialize(LinkedList<String> list){
     return node;
 }
 
+449. Serialize and Deserialize BST
+[medium] the same as N297.
+
+
 354. Russian Doll Envelopes(return max doll you can fit in, need a.length > b.length && a.width>b.width)
 [hard] DP time o(n^2), sort, similar to longest increasing sequence.  dp[j] = max(dp[j], dp[i] + 1);
 public int maxEnvelopes(int[][] envelopes) {
@@ -2854,4 +2905,7 @@ DFS only from one node, return false if find circle. return false if not all nod
 [medium] DFS
 
 364. Nested List Weight Sum II
+[medium] DFS
+
+473. Match sticks to Square
 [medium] DFS
