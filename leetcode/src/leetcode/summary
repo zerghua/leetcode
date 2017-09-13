@@ -664,7 +664,7 @@ public int sumOfLeftLeaves(TreeNode root) {
 
 
 ---------------------------------------------------
-5. Augment Tree(9/5/2017)
+5. Augmented Tree(9/5/2017)
 ---------------------------------------------------
 307. Range Sum Query - Mutable(real question)(google)(must)
 [medium-hard] segment tree.
@@ -688,6 +688,10 @@ public int sumOfLeftLeaves(TreeNode root) {
 
 315. Count of Smaller Numbers After Self
 [medium] build BST.
+
+
+440. Kth Smallest in Lexicographical Order
+[medium] denary tree(10-children tree)
 
 
 ---------------------------------------------------
@@ -900,6 +904,11 @@ if '[', add obj to stack,  if ',' || ']', add number to stack.peek() object, if 
 381. Insert Delete GetRandom O(1) - Duplicates allowed(similar to N380)
 [hard] HashMap<val, set_of_index> + list<val>
 
+
+432. All O one Data Structure
+[medium]
+
+
 ----------------------  Iterator --------------------------
 173. Binary Search Tree Iterator(next() return smallest in BST)(interesting)(stack)
 [medium] push all left node to stack until the left most.
@@ -929,6 +938,15 @@ when pop, if node.right!=null, push all its left. It's o(1) time, because each e
 
 211. Add and Search Word - Data structure design
 [medium-hard] BFS on trie of wildcard(.)
+
+
+411. Minimum Unique Word Abbreviation
+[hard] dfs + trie
+
+
+425. Word Squares
+[hard] backtracking + trie
+
 --------------------------------------------------------
 
 
@@ -1388,6 +1406,11 @@ for (int i = 0; i < nums.length; i++) {
 416. Partition Equal Subset Sum
 [medium] find half sum of array and DP.
 
+
+446. Arithmetic Slices II Subsequence
+[hard] DP.
+
+
 583. Delete Operation for Two Strings(equivalent to Longest Common SubSequence (LCS))
 [medium] dp[i][j] = (word1.charAt(i-1) == word2.charAt(j-1)) ? 1 + dp[i-1][j-1] : Math.max(dp[i-1][j], dp[i][j-1]);
 
@@ -1436,6 +1459,10 @@ reset current_sum to 0 if <0 and start=i+1; overall_sum should also >0;
 [medium]
 
 330. Patching Array
+[medium] greedy.
+
+
+418. Sentence Screen Fitting
 [medium] greedy.
 
 
@@ -1691,6 +1718,9 @@ return merge(l1, l2);
 328. Odd Even Linked List
 [easy-medium] one pointer for odd, one pointer for even.
 while(even!=null && even.next != null) {...}
+
+445. Add Two Numbers II
+[medium] with stack
 
 
 ---------------------------------------------------
@@ -2156,6 +2186,11 @@ stored reversed element on q1: push new element to front of q2, add all q1 to q2
         return ret.toString();
     }
 
+
+439. Ternary Expression Parser
+[medium] stack.
+
+
 *456. 132 Pattern(find if exist i < j < k and ai < ak < aj.)
 [medium] stack solution is not trivia. BF(n^2) is acceptable.
     public boolean find132pattern(int[] nums) {
@@ -2281,6 +2316,10 @@ public boolean isOneEditDistance(String s, String t){
 306. Additive Number(return if a string is additive number,  199100199 is because [1, 99, 100, 199])
 [medium-hard] boolean = DFS(num_string, left_int, right_int, first_num_int)
 complicate on how to extract 3 numbers. [TODO]
+
+
+408. Valid Word Abbreviation
+[medium]
 
 
 434. Number of Segments in a String
@@ -2731,6 +2770,9 @@ tricky solution, map of map. (TODO)
 [hard] binary search, but hard to prove it's right.(TODO)
 
 
+420. Strong Password Checker
+[hard] look again.
+
 ---------------------------------------------------
 26.Heap
 ---------------------------------------------------
@@ -2759,6 +2801,9 @@ DFS only from one node, return false if find circle. return false if not all nod
 399. Evaluate Division
 [hard]
 
+444. Sequence Reconstruction
+[medium] graph.
+
 ---------------------------------------------------
 28.Union Find
 ---------------------------------------------------
@@ -2784,6 +2829,8 @@ DFS only from one node, return false if find circle. return false if not all nod
 391. Perfect Rectangle
 [hard]
 
+422. Valid Word Square
+[easy]
 
 ---------------------------------------------------
 30.BFS
@@ -2794,6 +2841,8 @@ DFS only from one node, return false if find circle. return false if not all nod
 317. Shortest Distance from All Buildings
 [medium] BFS with more variables to save information.
 
+433. Minimum Genetic Mutation
+[medium] BFS + map.
 
 ---------------------------------------------------
 31.DFS
