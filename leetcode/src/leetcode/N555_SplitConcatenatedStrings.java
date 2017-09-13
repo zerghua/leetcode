@@ -34,7 +34,7 @@ package leetcode;
 
  */
 public class N555_SplitConcatenatedStrings {
-    // Alibaba
+    // Alibaba (Premium)
     // almost like a BF solution.
     // 50 / 50 test cases passed.
     // 255 ms

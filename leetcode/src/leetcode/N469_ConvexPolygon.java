@@ -34,7 +34,7 @@ package leetcode;
 
 import java.util.*;
 public class N469_ConvexPolygon {
-    // google
+    // google (Premium)
     // math
     // 54 / 54 test cases passed.
     // 19 ms

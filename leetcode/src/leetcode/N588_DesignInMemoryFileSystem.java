@@ -45,7 +45,7 @@ package leetcode;
 
 import java.util.*;
 public class N588_DesignInMemoryFileSystem {
-    // Baidu
+    // Baidu (Premium)
     // design, similar to trie/tree structure
     // 63 / 63 test cases passed.
     // 182 ms

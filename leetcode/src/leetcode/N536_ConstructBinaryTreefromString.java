@@ -30,7 +30,7 @@ package leetcode;
 
 import leetcode.N0_data_strcture.*;
 public class N536_ConstructBinaryTreefromString {
-    // Amazon
+    // Amazon (Premium)
     // 86 / 86 test cases passed.
     // 62 ms
     // build tree(dfs) and string parsing.

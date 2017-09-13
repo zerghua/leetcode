@@ -26,7 +26,7 @@ package leetcode;
  */
 import java.util.*;
 public class N487_MaxConsecutiveOnesII {
-    // Google
+    // Google (Premium)
     // general solution to allow k zeros, sliding window
     // classic google question
     // 41 / 41 test cases passed.

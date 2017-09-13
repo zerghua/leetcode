@@ -26,6 +26,7 @@ package leetcode;
 
  */
 public class N660_Remove9 {
+    // (Premium)
     // Math, 10 base to 9 base
     // 102 / 102 test cases passed.
     // 8 ms

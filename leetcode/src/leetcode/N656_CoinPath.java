@@ -39,7 +39,7 @@ package leetcode;
 
 import java.util.*;
 public class N656_CoinPath {
-    // Google
+    // Google (Premium)
     // in order to return lexicographically small order, use next[] instead of prev[] to build path.
     // 226 / 226 test cases passed.
     // 26 ms

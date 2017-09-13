@@ -57,7 +57,7 @@ package leetcode;
 
 import java.util.*;
 public class N544_OutputContestMatches {
-    // Google
+    // Google (Premium)
     // 12 / 12 test cases passed.
     // 12 ms
     // simple recursion

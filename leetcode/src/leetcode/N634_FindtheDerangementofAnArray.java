@@ -22,7 +22,7 @@ package leetcode;
 
  */
 public class N634_FindtheDerangementofAnArray {
-    // IXL
+    // IXL (Premium)
     // math
     // 69 / 69 test cases passed.
     // 19 ms

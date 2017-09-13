@@ -72,7 +72,7 @@ BF TLE
 
  */
 public class N418_SentenceScreenFitting {
-    // google
+    // google (Premium)
     // string, greedy.
     // example:  rows = 4, cols = 5, sentence = ["I", "had", "apple", "pie"]
     // [I had apple pie ]; n =15; start = [[5], [10, 6], [11], [16,15]]

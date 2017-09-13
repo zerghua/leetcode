@@ -44,7 +44,7 @@ package leetcode;
 
  */
 public class N408_ValidWordAbbreviation {
-    // Google
+    // Google (Premium)
     // 315 / 315 test cases passed.
     // 26 ms
     public class Solution {

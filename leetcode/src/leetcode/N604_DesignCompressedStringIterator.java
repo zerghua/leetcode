@@ -43,7 +43,7 @@ package leetcode;
 
 import java.util.*;
 public class N604_DesignCompressedStringIterator {
-    // Google
+    // Google (Premium)
     // solution from editorial
     public class StringIterator {
         String res;

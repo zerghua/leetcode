@@ -30,7 +30,7 @@ package leetcode;
 
  */
 public class N616_AddBoldTaginString {
-    // Google
+    // Google (Premium)
     // 70 / 70 test cases passed.
     // 26 ms
     // key is to solve the overlap wrap.

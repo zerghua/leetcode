@@ -52,7 +52,7 @@ package leetcode;
 
 import java.util.*;
 public class N439_TernaryExpressionParser {
-    // Snapchat
+    // Snapchat (Premium)
     // stack
     // 49 / 49 test cases passed.
     // 27 ms

@@ -33,7 +33,7 @@ package leetcode;
 
  */
 public class N484_FindPermutation {
-    // Google
+    // Google (Premium)
     // 26 / 26 test cases passed.
     // 6 ms
     // greedy reverse range of array.

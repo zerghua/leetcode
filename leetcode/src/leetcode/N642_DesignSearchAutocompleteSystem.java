@@ -84,7 +84,7 @@ package leetcode;
 
 import java.util.*;
 public class N642_DesignSearchAutocompleteSystem {
-    // Microsoft, Facebook
+    // Microsoft, Facebook (Premium)
     // design, trie with extra count info.
     // 43 / 43 test cases passed.
     // 430 ms

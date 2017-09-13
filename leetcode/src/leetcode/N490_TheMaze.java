@@ -59,7 +59,7 @@ package leetcode;
  */
 import java.util.*;
 public class N490_TheMaze {
-    // Google
+    // Google (Premium)
     // BFS with a while condition to travel all the way until stop
     // 78 / 78 test cases passed.
     // 43 ms

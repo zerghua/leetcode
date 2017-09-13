@@ -34,7 +34,7 @@ package leetcode;
 
 import java.util.*;
 public class N411_MinimumUniqueWordAbbreviation {
-    // google
+    // google (Premium)
     // too complex dfs. abbrGenerator is similar to N320, but improved.
     // trie + dfs
     // 46 / 46 test cases passed.

@@ -99,7 +99,7 @@ package leetcode;
 
  */
 public class N644_MaximumAverageSubarrayII {
-    // google
+    // google (Premium)
     // tricky math and binary search.
     // 74 / 74 test cases passed.
     // 47 ms

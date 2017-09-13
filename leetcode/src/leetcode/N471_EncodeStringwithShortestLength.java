@@ -65,7 +65,7 @@ package leetcode;
 
  */
 public class N471_EncodeStringwithShortestLength {
-    // google
+    // google (Premium)
     // non-trivia dp coding.
     // 36 / 36 test cases passed.
     // 388 ms

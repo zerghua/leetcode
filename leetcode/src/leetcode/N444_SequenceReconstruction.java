@@ -66,7 +66,7 @@ package leetcode;
  */
 import java.util.*;
 public class N444_SequenceReconstruction {
-    // google
+    // google (Premium)
     // not very sure why, needs to revisit
     // 110 / 110 test cases passed.
     // 29 ms

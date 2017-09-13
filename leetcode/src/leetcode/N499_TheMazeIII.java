@@ -68,7 +68,7 @@ import java.util.LinkedList;
 
  */
 public class N499_TheMazeIII {
-    // google
+    // google (Premium)
     // advanced BFS with custom class and sequence of next visit is important
     // non-trivia BFS code
     // 64 / 64 test cases passed.

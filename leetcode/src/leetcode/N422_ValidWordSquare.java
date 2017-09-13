@@ -78,7 +78,7 @@ package leetcode;
 
 import java.util.*;
 public class N422_ValidWordSquare {
-    // Google
+    // Google (Premium)
     // 35 / 35 test cases passed.
     // 28 ms
     // compare each char in diagonal, it'd be easier with matrix[][] rather than list of words.

@@ -41,7 +41,7 @@ package leetcode;
 
 import java.util.*;
 public class N635_DesignLogStorageSystem {
-    // Snapchat
+    // Snapchat (Premium)
     // 63 / 63 test cases passed.
     // 208 ms
     public class LogSystem {

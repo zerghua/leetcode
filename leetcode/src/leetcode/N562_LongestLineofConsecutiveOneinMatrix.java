@@ -19,7 +19,7 @@ package leetcode;
 
  */
 public class N562_LongestLineofConsecutiveOneinMatrix {
-    // Google
+    // Google (Premium)
     // DP, use 3D array to store 4 directions, 0 row, 1 col, 2 diagonal, 3 anti-diagonal
     // solved with hint, hint is 3D array to store each direction.
     // 57 / 57 test cases passed.

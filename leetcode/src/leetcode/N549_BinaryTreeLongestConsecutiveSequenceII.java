@@ -33,7 +33,7 @@ package leetcode;
 
 import leetcode.N0_data_strcture.*;
 public class N549_BinaryTreeLongestConsecutiveSequenceII {
-    // Google
+    // Google (Premium)
     // concise code, return two parameters, increase and decrease count
     // 159 / 159 test cases passed.
     // 16 ms

@@ -28,7 +28,7 @@ package leetcode;
 
  */
 public class N625_MinimumFactorization {
-    // Tencent
+    // Tencent (Premium)
     // math
     // 146 / 146 test cases passed.
     // 10 ms

@@ -60,7 +60,7 @@ package leetcode;
 
  */
 public class N651_4KeysKeyboard {
-    // Microsoft, Google
+    // Microsoft, Google (Premium)
     // Math, find formula by going through examples.
     // 50 / 50 test cases passed.
     // 4 ms

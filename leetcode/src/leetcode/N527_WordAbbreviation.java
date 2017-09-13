@@ -29,7 +29,7 @@ package leetcode;
 
 import java.util.*;
 public class N527_WordAbbreviation {
-    // Google, Snapchat
+    // Google, Snapchat (Premium)
     // hashtable, string, fair complex code.
     // 78 / 78 test cases passed.
     // 64 ms

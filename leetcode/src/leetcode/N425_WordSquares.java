@@ -109,7 +109,7 @@ package leetcode;
 
 import java.util.*;
 public class N425_WordSquares {
-    // google
+    // google (Premium)
     // non-trivia backtracking + trie code
     // 16 / 16 test cases passed.
     // 134 ms

@@ -44,6 +44,7 @@ import java.util.*;
 
  */
 public class N666_PathSumIV {
+    // (Premium)
     // need to find a way to determine if node has children or not.
     // using formula:  For node xy, its left child is (x+1)(y*2-1) and right child is (x+1)(y*2)
     // better code than mine

@@ -52,6 +52,7 @@ package leetcode;
 import leetcode.N0_data_strcture.*;
 
 public class N663_EqualTreePartition {
+    // (Premium)
     // DFS bottom up, trick is figure out two equal parts means find half of the total.
     // 194 / 194 test cases passed.
     // 13 ms
