@@ -25,7 +25,7 @@ package leetcode;
  */
 import java.util.*;
 public class N325_MaximumSizeSubarraySumEqualsk {
-    // Facebook, Palantir
+    // Facebook, Palantir (Premium)
     // BF is o(n^2)
     // this is an interesting problem, find max window.
     // o(n), map<preSum, index>

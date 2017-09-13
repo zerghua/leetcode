@@ -51,7 +51,7 @@ package leetcode;
  */
 import java.util.*;
 public class N305_NumberofIslandsII {
-    // google
+    // google (Premium)
     // classic union find problem, one key is to transform 2d to 1d, using formula n*x + y
     // 158 / 158 test cases passed.
     // 25 ms(without path compression)

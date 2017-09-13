@@ -32,7 +32,7 @@ package leetcode;
 
  */
 public class N308_RangeSumQuery2D_Mutable {
-    // google
+    // google (Premium)
     // dp, o(m) + o(n) time
     // 17 / 17 test cases passed.
     // 283 ms

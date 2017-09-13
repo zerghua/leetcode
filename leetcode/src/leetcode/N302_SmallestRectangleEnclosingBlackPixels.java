@@ -22,7 +22,7 @@ package leetcode;
 
  */
 public class N302_SmallestRectangleEnclosingBlackPixels {
-    // google
+    // google (Premium)
     // 2d binary search, binary search on rows and cols multiple times, smart concise code
     // BF is searchd all black points and find out left,right,top,bottom
     // DFS is similar to BF, but start from the given point.

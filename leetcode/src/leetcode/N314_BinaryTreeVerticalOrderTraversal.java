@@ -78,7 +78,7 @@ package leetcode;
 import java.util.*;
 import leetcode.N0_data_strcture.*;
 public class N314_BinaryTreeVerticalOrderTraversal {
-    // Google, Facebook
+    // Google, Facebook (Premium)
     // VIP, I can't test now.
     public class Solution {
         class Node{

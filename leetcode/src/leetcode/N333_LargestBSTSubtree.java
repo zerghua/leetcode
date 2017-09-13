@@ -25,7 +25,7 @@ package leetcode;
  */
 import leetcode.N0_data_strcture.*;
 public class N333_LargestBSTSubtree {
-    // Microsoft
+    // Microsoft (Premium)
     // bottom up solution o(n)
     // 73 / 73 test cases passed.
     // 6 ms

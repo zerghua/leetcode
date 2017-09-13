@@ -30,7 +30,7 @@ package leetcode;
 
 import java.util.*;
 public class N317_ShortestDistancefromAllBuildings {
-    // google
+    // google (Premium)
     // BFS with extra tricks
     // 72 / 72 test cases passed.
     // 61 ms
