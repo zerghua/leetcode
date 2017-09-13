@@ -321,6 +321,11 @@ optimized o(klogk), put min(k, num1.length) to heap(sorted by sum increasing and
 [easy-medium] island*4 - neighbour*2; only count right and down neighbours.
 
 
+485. Max Consecutive Ones
+[easy]
+
+495. Teemo Attacking
+[easy]
 
 ---------------------------------------------------
 3.Binary search(reviewed on 9/28/2016, 10/27/2016, 12/1/2016, 9/5/2017)
@@ -425,6 +430,9 @@ time can also be o(mlogn) or o(nlogm)
 
 374. Guess Number Higher or Lower
 [easy] regular binary search.
+
+483. Smallest Good Base
+[medium]
 
 
 ---------------------------------------------------
@@ -805,6 +813,10 @@ if larger, pop all smaller and keep the popped as min, the incoming should large
 450. Delete Node in a BST
 [medium]
 
+501. Find Mode in Binary Search Tree
+[medium]
+
+
 ---------------------------------------------------
 7.Bit Manipulation(reviewed on 10/27/2016)
 ---------------------------------------------------
@@ -1184,6 +1196,9 @@ search from 4 edges and store (i,j) can be reached from both sides, need boolean
 
 465. OptimalAccountBalancing
 [medium] backtracking
+
+491. Increasing Subsequences
+[medium]
 
 
 ---------------------------------------------------
@@ -1654,6 +1669,9 @@ use map<distance,count> in first loop, to reduce from o(n^3) to o(n^2)
 [medium] hashmap on(C[i] + D[j]), check if exist in map (-1*(A[i]+B[j])). time o(n^2), BF is(n^4)
 
 
+500. Keyboard Row
+[medium] map.
+
 
 ---------------------------------------------------
 14.Interval(reviewed on 10/27/2016)
@@ -1874,6 +1892,9 @@ F1 = F0 + sum - n*f(n-1)
 [medium] geometry.
 
 
+492. Construct the Rectangle
+[easy]
+
 ---------------------------------------------------
 17.Palindrome(DFS + backtracking or DP)(reviewed on 10/1/2016, 12/1/2016)
 ---------------------------------------------------
@@ -2077,6 +2098,10 @@ for(int i=0;i<a.length;i++){
     return min == Integer.MAX_VALUE ? 0 : min;
 
 
+487. Max Consecutive Ones II
+[medium]
+
+
 ---------------------------------------------------
 20.Sort(reviewed on 10/10/2016, 12/1/2016)
 ---------------------------------------------------
@@ -2115,6 +2140,10 @@ for(int[] p : people){
     ret.add(p[1], p);//insert people to its position by rank
 }
 return ret.toArray(new int[people.length][]);
+
+493. Reverse Pairs
+[medium] merge sort
+
 
 ---------------------------------------------------
 21.Stack/Queue(reviewed on 9/29/2016, 10/27/2016, 9/7/2017)
@@ -2254,6 +2283,10 @@ stored reversed element on q1: push new element to front of q2, add all q1 to q2
         }
         return false;
     }
+
+
+496. Next Greater Element 1
+[medium]
 
 ---------------------------------------------------
 22.String(reviewed on 9/29/2016, 12/1/2016)
@@ -2404,6 +2437,13 @@ for(int i=size/2;i>=1;i--) {
 
 481. Magical String
 [medium]
+
+482. License Key Formatting
+[easy]
+
+484. Find Permutation
+[medium]
+
 
 ---------------------------------------------------
 23.Two pointers(or Three pointers)(reviewed on 10/1/2016, 12/1/2016)
@@ -2883,6 +2923,10 @@ DFS only from one node, return false if find circle. return false if not all nod
 422. Valid Word Square
 [easy]
 
+498. Diagonal Traverse
+[medium]
+
+
 ---------------------------------------------------
 30.BFS
 ---------------------------------------------------
@@ -2894,6 +2938,12 @@ DFS only from one node, return false if find circle. return false if not all nod
 
 433. Minimum Genetic Mutation
 [medium] BFS + map.
+
+490. The Maze
+[medium]
+
+499. The Maze III
+[medium]
 
 ---------------------------------------------------
 31.DFS
@@ -2909,3 +2959,12 @@ DFS only from one node, return false if find circle. return false if not all nod
 
 473. Match sticks to Square
 [medium] DFS
+
+486. Predict the Winner
+[hard]
+
+488. Zuma Game
+[medium]
+
+494. Target Sum
+[medium]
