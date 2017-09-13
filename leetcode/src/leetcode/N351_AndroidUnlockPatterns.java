@@ -39,7 +39,7 @@ package leetcode;
 
  */
 public class N351_AndroidUnlockPatterns {
-    // Google
+    // Google (Premium)
     // not trivia backtracking.
     // 1-8 and 2-9 need no skip, by design of android. This is a question to ask during interview
     // 24 / 24 test cases passed.

@@ -42,7 +42,7 @@ package leetcode;
 
  */
 public class N370_RangeAddition {
-    // Google
+    // Google (Premium)
     // 18 / 18 test cases passed.
     // 3 ms
     // rather than update val in range[i, j]

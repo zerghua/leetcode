@@ -21,7 +21,7 @@ package leetcode;
 
  */
 public class N361_BombEnemy {
-    // Google
+    // Google (Premium)
     // 47 / 47 test cases passed.
     // 62 ms
     // kind of dp, update col and row count when hit wall.

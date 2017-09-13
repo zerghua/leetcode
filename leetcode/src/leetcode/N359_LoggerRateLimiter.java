@@ -37,7 +37,7 @@ package leetcode;
 
 import java.util.*;
 public class N359_LoggerRateLimiter {
-    // Google
+    // Google (Premium)
     // 20 / 20 test cases passed.
     // 153 ms
     // easy hashmap

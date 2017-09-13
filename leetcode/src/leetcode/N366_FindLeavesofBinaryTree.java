@@ -42,7 +42,7 @@ package leetcode;
 import java.util.*;
 import leetcode.N0_data_strcture.*;
 public class N366_FindLeavesofBinaryTree {
-    // Linkedin
+    // Linkedin (Premium)
     // 68 / 68 test cases passed.
     // 1 ms
     // BFS, check left's children and right's children

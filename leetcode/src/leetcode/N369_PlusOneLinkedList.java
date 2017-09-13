@@ -25,7 +25,7 @@ package leetcode;
 import java.util.*;
 import leetcode.N0_data_strcture.*;
 public class N369_PlusOneLinkedList {
-    // Google
+    // Google (Premium)
     // 108 / 108 test cases passed.
     // 2 ms
     // stack + linkedlist

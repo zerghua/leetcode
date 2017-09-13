@@ -18,7 +18,7 @@ import java.util.HashSet;
  Note:
 
  The number of stones is ≥ 2 and is < 1,100.
- Each stone's position will be a non-negative integer < 231.
+ Each stone's position will be a non-negative integer < 2^31.
  The first stone's position is always 0.
 
  Example 1:
@@ -45,26 +45,6 @@ import java.util.HashSet;
  */
 public class N403_FrogJump {
     // Snapchat
-    // TLE DFS
-    public class Solution_TLE_DFS {
-        public boolean canCross(int[] stones) {
-            if(stones[1] > 1) return false;
-            return dfs(stones, 1, 1);
-        }
-
-        public boolean dfs(int[] a, int i, int step){
-            if(i == a.length-1) return true;
-            boolean ret = false;
-            for(int j = i+1; j<a.length; j++){
-                if(a[j] >= a[i] + step -1 && a[j] <= a[i] + step + 1){
-                    ret = ret || dfs(a, j, a[j] - a[i]);
-                }
-            }
-            return ret;
-        }
-    }
-
-
     // Hashtable, tricky solution, it's position NOT index. kind of DP.
     // 39 / 39 test cases passed.
     // 110 ms
@@ -93,4 +73,26 @@ public class N403_FrogJump {
             return false;
         }
     }
+
+    // TLE DFS
+    public class Solution_TLE_DFS {
+        public boolean canCross(int[] stones) {
+            if(stones[1] > 1) return false;
+            return dfs(stones, 1, 1);
+        }
+
+        public boolean dfs(int[] a, int i, int step){
+            if(i == a.length-1) return true;
+            boolean ret = false;
+            for(int j = i+1; j<a.length; j++){
+                if(a[j] >= a[i] + step -1 && a[j] <= a[i] + step + 1){
+                    ret = ret || dfs(a, j, a[j] - a[i]);
+                }
+            }
+            return ret;
+        }
+    }
+
+
+
 }

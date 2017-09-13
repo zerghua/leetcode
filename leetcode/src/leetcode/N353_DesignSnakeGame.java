@@ -63,7 +63,7 @@ import java.util.*;
 
  */
 public class N353_DesignSnakeGame {
-    // google
+    // google (Premium)
     // 539 / 539 test cases passed.
     // 329 ms
     public class SnakeGame {

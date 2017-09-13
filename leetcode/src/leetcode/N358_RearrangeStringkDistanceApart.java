@@ -53,7 +53,7 @@ package leetcode;
 
 import java.util.*;
 public class N358_RearrangeStringkDistanceApart {
-    // google
+    // google (Premium)
     // hashmap + heap + greedy
     // 57 / 57 test cases passed.
     // 155 ms

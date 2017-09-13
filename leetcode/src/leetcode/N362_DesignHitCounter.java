@@ -43,7 +43,7 @@ package leetcode;
 
 import java.util.*;
 public class N362_DesignHitCounter {
-    // Google, Dropbox
+    // Google, Dropbox (Premium)
     // 24 / 24 test cases passed.
     // 89 ms
     public class HitCounter {

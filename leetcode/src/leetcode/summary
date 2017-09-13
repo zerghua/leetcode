@@ -253,6 +253,12 @@ array, sort + swap. with duplicate;
     }
 
 
+360. Sort Transformed Array
+[medium] math.
+
+370. Range Addition
+[medium]
+
 373. Find K Pairs with Smallest Sums
 [medium] BF heap time o(n^2).
 optimized o(klogk), put min(k, num1.length) to heap(sorted by sum increasing and also num2's index)
@@ -280,6 +286,8 @@ optimized o(klogk), put min(k, num1.length) to heap(sorted by sum increasing and
             count--;
         }
     }
+
+
 
 412. Fizz Buzz
 [easy] very easy.
@@ -642,6 +650,9 @@ public boolean isValidSerialization(String preorder) {
     }
 
 
+366. Find Leaves of Binary Tree
+[medium]
+
 404. Sum of Left Leaves
 [easy-medium] DFS.
 public int sumOfLeftLeaves(TreeNode root) {
@@ -858,6 +869,21 @@ for(int i=0;i<32;i++){
 346. Moving Average from Data Stream
 [easy]
 
+348. Design Tic Tac Toe
+[medium]
+
+352. Data Stream as Disjoint Intervals
+[medium]
+
+353. Design Snake Game
+[medium]
+
+359. Logger Rate Limiter
+[easy] map
+
+362. Design Hit Counter
+[medium]
+
 385. Mini Parser(interesting)(constructed NestedInteger from String)
 [medium-hard] stack to store each object.
 if '[', add obj to stack,  if ',' || ']', add number to stack.peek() object, if ']', pop stack.
@@ -1043,6 +1069,9 @@ every dfs start>= last start, made sure it's sorted.
 
 320. Generalized Abbreviation
 [medium] backtracking
+
+351. Android Unlock Patterns
+[medium]
 
 419. Battleships in a Board
 [medium-easy] DFS, the same as N200 number of islands.
@@ -1510,6 +1539,10 @@ use each bit of int to represent 26 lower-case char. for(char c: chars) map[i] |
 [medium] bucket sort o(n) time but o(n) space: map(count, num). List[] buckets= new List[num.length+1];
 heap o(nlogn) time, but o(k) space.
 
+356. Line Reflection
+[medium]
+
+
 451. Sort Characters By Frequency(google, amazon)
 [medium] counting/bucket sort.  o(n).
 counting sort + map<count, list_of_char>, list max-min by going through len in [n-0] of map
@@ -1542,6 +1575,9 @@ process line by line using s.split("\n"); "\t" is counted as one char.
 
 389. Find the Difference(find one different char in two strings)
 [easy] two pass. 1st: map(char, count)  2ed: count--; return if count<0;
+
+403. Frog Jump
+[medium] map.
 
 447. Number of Boomerangs(find all three points(a,b,c) which dist(a,b) == dist(b,c))
 [easy-medium] hashmap to store previous distance, ret += pre_dist*2; map.put(dist, pre_dist+1);
@@ -1724,6 +1760,9 @@ while(n>0){
 367. Valid Perfect Square(9=1+3+5 ...)(interesting)
 [medium] tmp=1; while(num>0) num -= tmp; tmp+=2; return num==0;
 
+369. Plus One Linked List
+[medium] stack.
+
 372. Super Pow
 [medium-hard] stack and recursion. kind of math, a^25 = (a^2)^10 * a^5;
 
@@ -1737,6 +1776,9 @@ Sum=f0+f1+...fn
 F0 = 0*f0 + 1*f1 + n*fn
 F1 = F0 + sum - n*f(n-1)
 ...
+
+400. Nth Digit
+[medium]
 
 413. Arithmetic Slices
 [medium] math. i in [2,n){cur +=1; ret += cur;} else cur=0;
@@ -2698,7 +2740,11 @@ visit all points sorted by x, break tie by height(left height is negative),
 heap store global height in reversed order, add left height,
 remove end height if cur height is diff than previous, add to ret
 
+358. Rearrange String k Distance Apart
+[hard]
 
+407. Trapping Rain Water II
+[medium]
 
 ---------------------------------------------------
 27.Graph
@@ -2710,6 +2756,8 @@ DFS only from one node, return false if find circle. return false if not all nod
 332. Reconstruct Itinerary
 [hard] directed graph.
 
+399. Evaluate Division
+[hard]
 
 ---------------------------------------------------
 28.Union Find
@@ -2726,6 +2774,15 @@ DFS only from one node, return false if find circle. return false if not all nod
 ---------------------------------------------------
 311. Sparse Matrix Multiplication
 [medium]
+
+361. Bomb Enemy
+[medium] kind of DP.
+
+363. Max Sum of Rectangle No Larger Than K
+[hard] treemap
+
+391. Perfect Rectangle
+[hard]
 
 
 ---------------------------------------------------
@@ -2745,4 +2802,7 @@ DFS only from one node, return false if find circle. return false if not all nod
 [hard] DFS + memo
 
 339. Nested List Weight Sum
+[medium] DFS
+
+364. Nested List Weight Sum II
 [medium] DFS

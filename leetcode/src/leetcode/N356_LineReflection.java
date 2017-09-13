@@ -28,7 +28,7 @@ import java.util.HashSet;
 
  */
 public class N356_LineReflection {
-    // google
+    // google (Premium)
     // math all valid pair should == minX + maxX  and set<x + ":" + y>
     // 37 / 37 test cases passed.
     // 21 ms
