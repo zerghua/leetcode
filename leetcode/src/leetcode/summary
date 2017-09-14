@@ -11,7 +11,7 @@ Table of Contents(last reviewed on)
 3.Binary search             9/5/2017
 4.Binary Tree               9/5/2017
 5.Augmented Tree            9/5/2017
-6.Binary Search Tree        9/6/2017
+6.BST(Binary Search Tree)   9/6/2017
 7.Bit Manipulation          9/6/2017
 8.Design                    9/6/2017
 9.Backtracking              9/6/2017
@@ -339,6 +339,10 @@ optimized o(klogk), put min(k, num1.length) to heap(sorted by sum increasing and
 4. special case to store middle result ret while recurse, like N69.sqrt and N278.badVersion
 )
 ---------------------------------------------------
+540. Single Element in a Sorted Array
+[]
+
+
 33. Search in Rotated Sorted Array
 [hard-medium] 4 if conditions, compare num[mid] with num[left],
 further compare target to num[left] and num[mid].
@@ -441,6 +445,11 @@ time can also be o(mlogn) or o(nlogm)
 ---------------------------------------------------
 4.Binary Tree(reviewed on 9/30/2016, 10/28/2016, 9/5/2017)
 ---------------------------------------------------
+536. Construct Binary Tree from String
+[medium]
+
+
+
 94. Binary Tree Inorder Traversal
 [easy-medium] left-root-right. iterative, use stack.
 push p to stack if p is not null then p=p.left,  else if p==null, store stack.pop().val,
@@ -723,8 +732,13 @@ public int sumOfLeftLeaves(TreeNode root) {
 [medium] treeset ?
 
 ---------------------------------------------------
-6.Binary Search Tree(reviewed on 9/30/2016, 10/28/2016, 9/6/2017)
+6.BST(Binary Search Tree)(reviewed on 9/30/2016, 10/28/2016, 9/6/2017)
 ---------------------------------------------------
+538. Convert BST to Greater Tree
+[]
+
+
+
 *96. Unique Binary Search Trees(return how many unique trees.)
 [medium-hard] DP. catalan number. f(n) = f(0)*f(n-1) + f(1)*f(n-2) + ... + f(n-1)f(0)
 public int numTrees(int n) {
@@ -829,6 +843,8 @@ if larger, pop all smaller and keep the popped as min, the incoming should large
 501. Find Mode in Binary Search Tree
 [medium]
 
+530. Minimum Absolute Difference in BST
+[medium] in-order
 
 ---------------------------------------------------
 7.Bit Manipulation(reviewed on 10/27/2016)
@@ -896,6 +912,13 @@ for(int i=0;i<32;i++){
 ---------------------------------------------------
 8.Design(reviewed on 10/27/2016, 9/6/2017)
 ---------------------------------------------------
+534. Design Tiny URL
+[]
+
+535. Encodeand Decode Tiny URL
+[medium]
+
+
 157. Read N Characters Given Read4
 158. Read N Characters Given Read4 II - Call multiple times
 [medium]
@@ -1001,7 +1024,7 @@ when pop, if node.right!=null, push all its left. It's o(1) time, because each e
 
 
 ---------------------------------------------------
-9.Backtracking or BFS(better for shortest path)(reviewed on 10/3/2016 - 10/4/2016, 9/6/2017)
+9.Backtracking(better for shortest path)(reviewed on 10/3/2016 - 10/4/2016, 9/6/2017)
 ---------------------------------------------------
 17. Letter Combinations of a Phone Number(return all possible letter combinations that the number could represent)
 [medium] void = DFS(ret, cur_list, digits_string, start_int, map)
@@ -1213,6 +1236,8 @@ search from 4 edges and store (i,j) can be reached from both sides, need boolean
 491. Increasing Subsequences
 [medium]
 
+526. Beautiful Arrangement
+[medium]
 
 ---------------------------------------------------
 10.Divide and conquer(reviewed on 9/7/2017)
@@ -1695,6 +1720,23 @@ use map<distance,count> in first loop, to reduce from o(n^3) to o(n^2)
 500. Keyboard Row
 [medium] map.
 
+523. Continuous Subarray Sum
+[medium] map + preSum
+
+525. Contiguous Array
+[medium] map + preSum
+
+527. Word Abbreviation
+[hard]
+
+531. Lonely Pixel I
+[medium]
+
+533. Lonely Pixel II
+[medium]
+
+532. K diff Pairs in an Array
+[medium] map
 
 ---------------------------------------------------
 14.Interval(reviewed on 10/27/2016)
@@ -2174,6 +2216,8 @@ return ret.toArray(new int[people.length][]);
 493. Reverse Pairs
 [medium] merge sort
 
+539. Minimum Time Difference
+[]
 
 ---------------------------------------------------
 21.Stack/Queue(reviewed on 9/29/2016, 10/27/2016, 9/7/2017)
@@ -2324,6 +2368,13 @@ stored reversed element on q1: push new element to front of q2, add all q1 to q2
 ---------------------------------------------------
 22.String(reviewed on 9/29/2016, 12/1/2016)
 ---------------------------------------------------
+537. Complex Number Multiplication
+[medium]
+
+541. Reverse String 2
+[]
+
+
 5. Longest Palindromic Substring(interesting)(real question)[must]
 [medium-hard] BF is o(n^3).
 Manacher's Algorithm is o(n) (non-trivial, not expected at interview.)
@@ -2482,6 +2533,12 @@ for(int i=size/2;i>=1;i--) {
 
 521. Longest Uncommon Subsequence I
 [easy]
+
+522. Longest Uncommon Subsequence II
+[medium]
+
+524. Longest Word in Dictionary through Deleting
+[medium]
 
 ---------------------------------------------------
 23.Two pointers(or Three pointers)(reviewed on 10/1/2016, 12/1/2016)
@@ -3017,3 +3074,6 @@ DFS only from one node, return false if find circle. return false if not all nod
 
 504. Base7
 [easy] recursion
+
+529. Mine sweeper
+[medium]
