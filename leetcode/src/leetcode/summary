@@ -83,6 +83,12 @@ public boolean isContainAnagram(String s, String t){
 561. Array Partition I
 []
 
+565. Array Nesting
+[]
+
+611. Valid Triangle Number
+[] two pointers.
+
 31. Next Permutation(hard on find the pattern)
 [medium-hard] array, swap and reverse,
 right->left, find i where a[i] < a[i+1]; right->left, find a[j] > a[i], swap a[i] and a[j], reverse [i+1, end]
@@ -460,6 +466,17 @@ time can also be o(mlogn) or o(nlogm)
 549. Binary Tree Longest Consecutive Sequence II
 []
 
+563. Binary Tree Tilt
+[]
+
+572. Subtree of Another Tree
+[]
+
+606. Construct String from Binary Tree
+[]
+
+617. Merge Two Binary Trees
+[]
 
 94. Binary Tree Inorder Traversal
 [easy-medium] left-root-right. iterative, use stack.
@@ -929,6 +946,8 @@ for(int i=0;i<32;i++){
 535. Encodeand Decode Tiny URL
 [medium]
 
+588. Design In Memory File System
+[]
 
 157. Read N Characters Given Read4
 158. Read N Characters Given Read4 II - Call multiple times
@@ -1008,6 +1027,9 @@ when pop, if node.right!=null, push all its left. It's o(1) time, because each e
 
 341. Flatten Nested List Iterator(interesting)(how to use polymorphism)
 [medium] stack<Iterator<NestedInteger>>
+
+604. Design Compressed String Iterator
+[]
 ------------------------------------------------------------
 
 
@@ -1335,6 +1357,16 @@ find each operator, divide it into two half.
 552. Student Attendance Record 2
 [hard]
 
+562. Longest Line of Consecutive One in Matrix
+[medium] DP
+
+568. Maximum Vacation Days
+[]
+
+600. Non negative Integers without Consecutive Ones
+[]
+
+
 
 62. Unique Paths(matrix, can only move down and right, return max unique path)(real question)
 [easy] dp[i][j] = dp[i-1][j] + dp[i][j-1];
@@ -1538,6 +1570,10 @@ for (int i = 0; i < nums.length; i++) {
 ---------------------------------------------------
 12.Greedy(reviewed on 12/19/2016, 9/7/2017)
 ---------------------------------------------------
+605. Can Place Flowers
+[]
+
+
 53.	Maximum Subarray(Find the contiguous subarray which has the largest sum)
 [easy] localMax = max(n, n + localMax); globalMax = max(globalMax, localMax)
 
@@ -1606,6 +1642,22 @@ hashset usually used to check if visited or not.
 
 560. Subarray Sum Equals K
 []map + preSum
+
+567. Permutation in String
+[] map + window
+
+594. Longest Harmonious Subsequence
+[]
+
+599. Minimum Index Sum of Two Lists
+[] map
+
+609. Find Duplicate File in System
+[] map
+
+621. Task Scheduler
+[] map
+
 
 1. Two Sum(real question)(interesting)
 [easy] store (sum-num[i]) and index in hashtable.  map(sum-num[i], index)
@@ -1874,6 +1926,21 @@ while(even!=null && even.next != null) {...}
 []
 
 556. Next Greater Element 3
+[]
+
+573. Squirrel Simulation
+[]
+
+587. Erect the Fence
+[medium] convex hull
+
+592. Fraction Addition and Subtraction
+[medium]gcd
+
+593. Valid Square
+[]
+
+625. Minimum Factorization
 []
 
 
@@ -2248,6 +2315,9 @@ return ret.toArray(new int[people.length][]);
 539. Minimum Time Difference
 []
 
+581. Shortest Unsorted Continuous Subarray
+[] sort
+
 ---------------------------------------------------
 21.Stack/Queue(reviewed on 9/29/2016, 10/27/2016, 9/7/2017)
 ---------------------------------------------------
@@ -2412,6 +2482,11 @@ stored reversed element on q1: push new element to front of q2, add all q1 to q2
 557. Reverse Words In A String 3
 [easy]
 
+591. Tag Validator
+[]
+
+616. Add Bold Tag in String
+[]
 
 
 5. Longest Palindromic Substring(interesting)(real question)[must]
@@ -3064,6 +3139,14 @@ DFS only from one node, return false if find circle. return false if not all nod
 498. Diagonal Traverse
 [medium]
 
+566. Reshape the Matrix
+[medium]
+
+598. Range Addition II
+[]
+
+624. Maximum Distance in Arrays
+[]
 
 ---------------------------------------------------
 30.BFS
@@ -3088,6 +3171,12 @@ DFS only from one node, return false if find circle. return false if not all nod
 
 542. 01 Matrix
 [medium] BFS
+
+582. Kill Process
+[]
+
+623. Add One Row to Tree
+[] BFS
 
 ---------------------------------------------------
 31.DFS
@@ -3127,3 +3216,6 @@ DFS only from one node, return false if find circle. return false if not all nod
 
 547. Friend Circles
 [medium] DFS
+
+564. Find the Closest Palindrome
+[hard]
