@@ -327,6 +327,9 @@ optimized o(klogk), put min(k, num1.length) to heap(sorted by sum increasing and
 495. Teemo Attacking
 [easy]
 
+506. Relative Ranks
+[easy] sort
+
 ---------------------------------------------------
 3.Binary search(reviewed on 9/28/2016, 10/27/2016, 12/1/2016, 9/5/2017)
 (
@@ -674,6 +677,16 @@ public int sumOfLeftLeaves(TreeNode root) {
         return root.left.val + sumOfLeftLeaves(root.right);
     return sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
 }
+
+508. Most Frequent Subtree Sum
+[medium]
+
+513. Find Bottom Left Tree Value
+[medium] level-order
+
+515. Find Largest Value in Each Tree Row
+[medium] level-order
+
 
 
 ---------------------------------------------------
@@ -1465,6 +1478,16 @@ for (int i = 0; i < nums.length; i++) {
 474. Ones and Zeroes
 [medium] DP
 
+514. Freedom Trail
+[hard] DP
+
+
+516. Longest Palindromic Subsequence
+[hard] DP
+
+518. Coin Change 2
+[medium] DP
+
 583. Delete Operation for Two Strings(equivalent to Longest Common SubSequence (LCS))
 [medium] dp[i][j] = (word1.charAt(i-1) == word2.charAt(j-1)) ? 1 + dp[i-1][j-1] : Math.max(dp[i-1][j], dp[i][j-1]);
 
@@ -1895,6 +1918,13 @@ F1 = F0 + sum - n*f(n-1)
 492. Construct the Rectangle
 [easy]
 
+
+507. Perfect Number
+[easy]
+
+517. Super Washing Machines
+[hard]
+
 ---------------------------------------------------
 17.Palindrome(DFS + backtracking or DP)(reviewed on 10/1/2016, 12/1/2016)
 ---------------------------------------------------
@@ -2288,6 +2318,9 @@ stored reversed element on q1: push new element to front of q2, add all q1 to q2
 496. Next Greater Element 1
 [medium]
 
+503. Next Greater Element 2
+[medium]
+
 ---------------------------------------------------
 22.String(reviewed on 9/29/2016, 12/1/2016)
 ---------------------------------------------------
@@ -2444,6 +2477,11 @@ for(int i=size/2;i>=1;i--) {
 484. Find Permutation
 [medium]
 
+520. Detect Capital
+[medium]
+
+521. Longest Uncommon Subsequence I
+[easy]
 
 ---------------------------------------------------
 23.Two pointers(or Three pointers)(reviewed on 10/1/2016, 12/1/2016)
@@ -2879,6 +2917,10 @@ remove end height if cur height is diff than previous, add to ret
 407. Trapping Rain Water II
 [medium]
 
+502. IPO
+[medium] two heaps
+
+
 ---------------------------------------------------
 27.Graph
 ---------------------------------------------------
@@ -2945,6 +2987,10 @@ DFS only from one node, return false if find circle. return false if not all nod
 499. The Maze III
 [medium]
 
+505. The Maze II
+[medium] BFS + heap
+
+
 ---------------------------------------------------
 31.DFS
 ---------------------------------------------------
@@ -2968,3 +3014,6 @@ DFS only from one node, return false if find circle. return false if not all nod
 
 494. Target Sum
 [medium]
+
+504. Base7
+[easy] recursion

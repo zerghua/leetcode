@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.*;
+import leetcode.N0_data_strcture.*;
 
 /**
  * Created by Hua on 5/12/2017.
@@ -21,7 +22,6 @@ import java.util.*;
 
  */
 
-import leetcode.N0_data_strcture.*;
 public class N515_FindLargestValueinEachTreeRow {
     // Linkedin
     // BFS, level order traversal, use size of each level to separate.
