@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * Created by HuaZ on 8/12/2017.
@@ -61,7 +62,6 @@ import java.util.PriorityQueue;
  [1,2,3,3,4,4,5,5]
 
  */
-import java.util.*;
 public class N659_SplitArrayintoConsecutiveSubsequences {
     // map + priority queue
     // try to add next to the smallest list

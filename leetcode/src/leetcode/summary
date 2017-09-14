@@ -89,6 +89,25 @@ public boolean isContainAnagram(String s, String t){
 611. Valid Triangle Number
 [] two pointers.
 
+645. Set Mismatch
+[]
+
+656. Coin Path
+[]
+
+658. Find K Closest Elements
+[] o(n)?
+
+665. Nondecreasing Array
+[]
+
+667. Beautiful Arrangement II
+[]
+
+670. Maximum Swap
+[]
+
+
 31. Next Permutation(hard on find the pattern)
 [medium-hard] array, swap and reverse,
 right->left, find i where a[i] < a[i+1]; right->left, find a[j] > a[i], swap a[i] and a[j], reverse [i+1, end]
@@ -351,6 +370,12 @@ optimized o(klogk), put min(k, num1.length) to heap(sorted by sum increasing and
 540. Single Element in a Sorted Array
 []
 
+644. Maximum Average Subarray II
+[]
+
+668. Kth largest Number in Multiplication Table
+[]
+
 
 33. Search in Rotated Sorted Array
 [hard-medium] 4 if conditions, compare num[mid] with num[left],
@@ -477,6 +502,33 @@ time can also be o(mlogn) or o(nlogm)
 
 617. Merge Two Binary Trees
 []
+
+637. Average of Levels in Binary Tree
+[] level order
+
+652. Find Duplicate Subtrees
+[]
+
+654. Maximum Binary Tree
+[]
+
+655. Print Binary Tree
+[]
+
+662. Maximum Width of Binary Tree
+[] level order.
+
+663. Equal Tree Partition
+[]
+
+666. Path Sum IV
+[]
+
+671. Second Minimum Node In a Binary Tree
+[]
+
+
+
 
 94. Binary Tree Inorder Traversal
 [easy-medium] left-root-right. iterative, use stack.
@@ -766,6 +818,14 @@ public int sumOfLeftLeaves(TreeNode root) {
 []
 
 
+653. Two Sum IV Input is a BST
+[]
+
+
+669. Trim a Binary Search Tree
+[]
+
+
 
 *96. Unique Binary Search Trees(return how many unique trees.)
 [medium-hard] DP. catalan number. f(n) = f(0)*f(n-1) + f(1)*f(n-2) + ... + f(n-1)f(0)
@@ -949,6 +1009,16 @@ for(int i=0;i<32;i++){
 588. Design In Memory File System
 []
 
+635. Design Log Storage System
+[]
+
+642. Design Search Autocomplete System
+[]
+
+676. Implement Magic Dictionary
+[]
+
+
 157. Read N Characters Given Read4
 158. Read N Characters Given Read4 II - Call multiple times
 [medium]
@@ -1051,6 +1121,10 @@ when pop, if node.right!=null, push all its left. It's o(1) time, because each e
 
 425. Word Squares
 [hard] backtracking + trie
+
+
+648. Replace Words
+[]
 
 --------------------------------------------------------
 
@@ -1366,6 +1440,22 @@ find each operator, divide it into two half.
 600. Non negative Integers without Consecutive Ones
 []
 
+629. K Inverse Pairs Array
+[] DP
+
+
+639. Decode Ways II
+[hard]
+
+
+646. Maximum Length of Pair Chain
+[]
+
+664. Strange Printer
+[] similar to N546 Remove Boxes?
+
+673. Number of Longest Increasing Subsequence
+[]
 
 
 62. Unique Paths(matrix, can only move down and right, return max unique path)(real question)
@@ -1658,6 +1748,8 @@ hashset usually used to check if visited or not.
 621. Task Scheduler
 [] map
 
+633. Sum of Square Numbers
+[]
 
 1. Two Sum(real question)(interesting)
 [easy] store (sum-num[i]) and index in hashtable.  map(sum-num[i], index)
@@ -1943,6 +2035,25 @@ while(even!=null && even.next != null) {...}
 625. Minimum Factorization
 []
 
+628. Maximum Product of Three Numbers
+[]
+
+634. Find the Derangement of An Array
+[]
+
+650. 2 Keys Keyboard
+[]
+
+651. 4 Keys Keyboard
+[]
+
+660. Remove 9
+[]
+
+672. Bulb Switcher II
+[]
+
+
 
 7. Reverse Integer(real question)
 [easy-medium] ret = ret*10 + x%10; x/=10; overflow, negative, trailing zeros?
@@ -2177,6 +2288,14 @@ for(int i=a.length-1; i>=1; i--){
 19.Sliding Window(reviewed on 10/27/2016, 11/14/2016, 12/1/2016)
 all is compare count with k([0,n]) except N424, use window - maxRepeatingChar compare with k.
 ---------------------------------------------------
+643. Maximum Average Subarray I
+[]
+
+674. Longest Continuous Increasing Subsequence
+[]
+
+
+
 3. Longest Substring Without Repeating Characters(interesting)(real question) abcdf
 [medium] BF is o(n^2). windows contains only unique chars. ret = Math.max(ret, i-left+1);
 hashtable + sliding window with two pointers. o(n) time,  map(char, index)
@@ -2321,6 +2440,13 @@ return ret.toArray(new int[people.length][]);
 ---------------------------------------------------
 21.Stack/Queue(reviewed on 9/29/2016, 10/27/2016, 9/7/2017)
 ---------------------------------------------------
+636. Exclusive Time of Functions
+[]
+
+649. Dota2 Senate
+[] 2 queues.
+
+
 20. Valid Parentheses(real question)
 [easy] push if it's opening parenthesis like "({[", else stack.pop, return false if not matched closing parenthesis.")}]"
 
@@ -2487,6 +2613,16 @@ stored reversed element on q1: push new element to front of q2, add all q1 to q2
 
 616. Add Bold Tag in String
 []
+
+640. Solve the Equation
+[] regex?
+
+647. Palindromic Substrings
+[]
+
+657. Judge Route Circle
+[easy]
+
 
 
 5. Longest Palindromic Substring(interesting)(real question)[must]
@@ -3091,6 +3227,17 @@ remove end height if cur height is diff than previous, add to ret
 502. IPO
 [medium] two heaps
 
+630. Course Schedule III
+[]
+
+632. Smallest Range
+[]
+
+
+659. Split Array into Consecutive Subsequences
+[]
+
+
 
 ---------------------------------------------------
 27.Graph
@@ -3148,6 +3295,10 @@ DFS only from one node, return false if find circle. return false if not all nod
 624. Maximum Distance in Arrays
 []
 
+661. Image Smoother
+[]
+
+
 ---------------------------------------------------
 30.BFS
 ---------------------------------------------------
@@ -3177,6 +3328,9 @@ DFS only from one node, return false if find circle. return false if not all nod
 
 623. Add One Row to Tree
 [] BFS
+
+675. Cut Off Trees for Golf Event
+[] BFS + heap
 
 ---------------------------------------------------
 31.DFS
@@ -3219,3 +3373,6 @@ DFS only from one node, return false if find circle. return false if not all nod
 
 564. Find the Closest Palindrome
 [hard]
+
+631. Design Excel Sum Formula
+[] recursion
