@@ -37,22 +37,30 @@ public class A_ParseMyTxtFile {
 
         String line = null;
         HashSet<Integer> set = new HashSet();
+        int lineNum = 0;
+
         // add number to set
         while ((line = br.readLine()) != null) {
-            //System.out.println(line);
+            lineNum++;
+            //if(lineNum == 123) System.out.println(line);
+
             if(line!= null && !line.isEmpty() && (Character.isDigit(line.charAt(0)) || line.charAt(0) == '*')){
-                //System.out.println(line);
+                //if(lineNum == 123) System.out.println(line);
                 int i = line.charAt(0) == '*' ? 1 : 0 , j = i;
                 while(j < line.length()){
                     if(Character.isDigit(line.charAt(j))) j++;
                     else break;
                 }
-                if(line.charAt(j) == '.') {
-                    //System.out.println(line.substring(i,j));
-                    set.add(Integer.parseInt(line.substring(i,j)));
+                //if(lineNum == 123) System.out.println("j="+j);
+                if(j < line.length()-1 && line.charAt(j) == '.' && !Character.isAlphabetic(line.charAt(j+1))) {
+                    //if(lineNum == 123) System.out.println(line.substring(i,j));
+                    int num = Integer.parseInt(line.substring(i,j));
+                    //if(set.contains(num)) System.out.println("find duplicate: "+ num);
+                    set.add(num);
                 }
             }
         }
+        System.out.println("in summary :" + set.size());  // N534 is not included in algorithms
 
         // print out numbers not in summary
         int count = 0, max = 676; // there are 601 Algorithm problems on 9/11/2017, 676 total(with SQLs)
