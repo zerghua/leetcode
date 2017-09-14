@@ -80,6 +80,9 @@ public boolean isContainAnagram(String s, String t){
 // for array problem, if sort is not efficient enough, use hash table or two pointers/sliding window
 // if sorted or adjacent/continuous graph , it's usually binary search.
 ---------------------------------------------------
+561. Array Partition I
+[]
+
 31. Next Permutation(hard on find the pattern)
 [medium-hard] array, swap and reverse,
 right->left, find i where a[i] < a[i+1]; right->left, find a[j] > a[i], swap a[i] and a[j], reverse [i+1, end]
@@ -448,6 +451,14 @@ time can also be o(mlogn) or o(nlogm)
 536. Construct Binary Tree from String
 [medium]
 
+543. Diameter of Binary Tree
+[]
+
+545. Boundary of Binary Tree
+[]
+
+549. Binary Tree Longest Consecutive Sequence II
+[]
 
 
 94. Binary Tree Inorder Traversal
@@ -1314,12 +1325,17 @@ find each operator, divide it into two half.
         return Math.max(left, right);
     }
 
-
+548. Split Array with Equal Sum
+[medium]
 
 
 ---------------------------------------------------
 11.DP(reviewed on 10/2/2016)
 ---------------------------------------------------
+552. Student Attendance Record 2
+[hard]
+
+
 62. Unique Paths(matrix, can only move down and right, return max unique path)(real question)
 [easy] dp[i][j] = dp[i-1][j] + dp[i][j-1];
 
@@ -1585,6 +1601,12 @@ reset current_sum to 0 if <0 and start=i+1; overall_sum should also >0;
 hashmap can be used as count each char/num, or store index of char/num
 hashset usually used to check if visited or not.
 ---------------------------------------------------
+554. Brick Wall
+[]
+
+560. Subarray Sum Equals K
+[]map + preSum
+
 1. Two Sum(real question)(interesting)
 [easy] store (sum-num[i]) and index in hashtable.  map(sum-num[i], index)
 throw new IllegalArgumentException("No solution");
@@ -1848,6 +1870,13 @@ while(even!=null && even.next != null) {...}
 ---------------------------------------------------
 16.Math(reviewed on 10/27/2016)
 ---------------------------------------------------
+553. Optimal Division
+[]
+
+556. Next Greater Element 3
+[]
+
+
 7. Reverse Integer(real question)
 [easy-medium] ret = ret*10 + x%10; x/=10; overflow, negative, trailing zeros?
 
@@ -2373,6 +2402,16 @@ stored reversed element on q1: push new element to front of q2, add all q1 to q2
 
 541. Reverse String 2
 []
+
+551. Student Attendance Record 1
+[easy]
+
+555. Split Concatenated Strings
+[]
+
+557. Reverse Words In A String 3
+[easy]
+
 
 
 5. Longest Palindromic Substring(interesting)(real question)[must]
@@ -3047,6 +3086,8 @@ DFS only from one node, return false if find circle. return false if not all nod
 505. The Maze II
 [medium] BFS + heap
 
+542. 01 Matrix
+[medium] BFS
 
 ---------------------------------------------------
 31.DFS
@@ -3077,3 +3118,12 @@ DFS only from one node, return false if find circle. return false if not all nod
 
 529. Mine sweeper
 [medium]
+
+544. Output Contest Matches
+[medium] recursion.
+
+546. Remove Boxes
+[medium] DFS + memo
+
+547. Friend Circles
+[medium] DFS
