@@ -15,17 +15,15 @@ Table of Contents(last reviewed on)
 14.Interval                 10/27/2016
 15.Linked List              10/27/2016
 16.Math                     10/27/2016
-17.Palindrome               12/1/2016
 18.Random                   9/7/2017
 19.Sliding Window           12/1/2016
 20.Sort                     12/1/2016
 21.Stack/Queue              9/7/2017
 22.String                   12/1/2016
 23.Two pointers             12/1/2016
-24.Topological sort(DAG)    8/19/2017
 25.hard questions
 26.Heap
-27.Graph
+27.Graph(Topological sort)
 28.Union Find
 29.Matrix
 30.BFS
@@ -1339,6 +1337,74 @@ search from 4 edges and store (i,j) can be reached from both sides, need boolean
 526. Beautiful Arrangement
 [medium]
 
+
+5. Longest Palindromic Substring(read question)(important)
+[medium-hard] 1. BF is o(n^3).  2. Manacher's Algorithm is o(n). non-trivial.
+3. for each i, call isPal(i,i) and isPal(i,i+1) o(n^2)
+4. getPal(s,i,i) and getPal(s,i,i+1);  use this solution.
+    for(int i=0;i<s.length();i++){
+        String cur = isPal(s, i, i);
+        if(cur.length() > ret.length()) ret = cur;
+
+        cur = isPal(s, i, i+1);
+        if(cur.length() > ret.length()) ret = cur;
+    }
+    return ret;
+
+public String isPal(String s, int left, int right){
+    while(left>=0 && right<s.length()){
+        if(s.charAt(left) == s.charAt(right)){
+            left--; right++;
+        }else break;
+    }
+    return s.substring(left+1, right);
+}
+
+9. Palindrome Number(real question)
+[easy-medium] 1. convert to string.
+2. create div the same digits as number, use it to get left digit
+
+125. Valid Palindrome
+[easy-medium] consider case and special chars. two pointers start from left and right end.
+
+131. Palindrome Partitioning(find all possible palindrome partitioning of s)
+[medium-hard] DP+DFS+backtracking.
+DP(n^2) to store all substring isPal, DFS+backtracking on all substring. (~ o(n!))
+
+132. Palindrome Partitioning II(Return the minimum cuts needed for a palindrome partitioning of s)
+[hard] similar solution as 131 will TLE. add another DP condition in isPal[][] dp. o(n^2)
+DP cut[j] = min(cut[j], cut[i-1] + 1) inside a[i] == a[j] condition.
+
+214. Shortest Palindrome(add chars in front of string to make it palindrome)(tricky)
+[hard] String, recursive. prefix, suffix and middle. [TODO]
+
+266. Palindrome Permutation(VIP)
+267. Palindrome Permutation II(VIP)(real question)(Akamai)
+[medium] return all valid permutation string.
+backtracking, count each char to int[256], store mid char, build half of the string.
+dfs(int[] map, List<String> ret, String s, int length, String mid){
+    if(s.length() == length) return{ret.add(s + mid + reversed);}
+    for(i in [0,255]){
+        if(map[i]>0){
+            map[i]--;
+            dfs(map, ret, s+ (char)i, length, mid);
+            map[i]++;
+        }
+    }
+}
+
+
+336. Palindrome Pairs
+[hard] hashtable + divide conquer.
+split each words str1 and str2, and check if isPal(str2) and reversed(str2) in map. [TODO]
+
+409. Longest Palindrome(interesting)
+[easy-medium] ret += (odd-1)
+
+479. Largest Palindrome Product
+[easy]
+
+
 ---------------------------------------------------
 10.Divide and conquer(reviewed on 9/7/2017)
 ---------------------------------------------------
@@ -2167,75 +2233,6 @@ F1 = F0 + sum - n*f(n-1)
 517. Super Washing Machines
 [hard]
 
----------------------------------------------------
-17.Palindrome(DFS + backtracking or DP)(reviewed on 10/1/2016, 12/1/2016)
----------------------------------------------------
-https://leetcode.com/articles/longest-palindromic-substring/#approach-5-manachers-algorithm-accepted    Manacher's Algorithm
-5. Longest Palindromic Substring(read question)(important)
-[medium-hard] 1. BF is o(n^3).  2. Manacher's Algorithm is o(n). non-trivial.
-3. for each i, call isPal(i,i) and isPal(i,i+1) o(n^2)
-4. getPal(s,i,i) and getPal(s,i,i+1);  use this solution.
-    for(int i=0;i<s.length();i++){
-        String cur = isPal(s, i, i);
-        if(cur.length() > ret.length()) ret = cur;
-
-        cur = isPal(s, i, i+1);
-        if(cur.length() > ret.length()) ret = cur;
-    }
-    return ret;
-
-public String isPal(String s, int left, int right){
-    while(left>=0 && right<s.length()){
-        if(s.charAt(left) == s.charAt(right)){
-            left--; right++;
-        }else break;
-    }
-    return s.substring(left+1, right);
-}
-
-9. Palindrome Number(real question)
-[easy-medium] 1. convert to string.
-2. create div the same digits as number, use it to get left digit
-
-125. Valid Palindrome
-[easy-medium] consider case and special chars. two pointers start from left and right end.
-
-131. Palindrome Partitioning(find all possible palindrome partitioning of s)
-[medium-hard] DP+DFS+backtracking.
-DP(n^2) to store all substring isPal, DFS+backtracking on all substring. (~ o(n!))
-
-132. Palindrome Partitioning II(Return the minimum cuts needed for a palindrome partitioning of s)
-[hard] similar solution as 131 will TLE. add another DP condition in isPal[][] dp. o(n^2)
-DP cut[j] = min(cut[j], cut[i-1] + 1) inside a[i] == a[j] condition.
-
-214. Shortest Palindrome(add chars in front of string to make it palindrome)(tricky)
-[hard] String, recursive. prefix, suffix and middle. [TODO]
-
-266. Palindrome Permutation(VIP)
-267. Palindrome Permutation II(VIP)(real question)(Akamai)
-[medium] return all valid permutation string.
-backtracking, count each char to int[256], store mid char, build half of the string.
-dfs(int[] map, List<String> ret, String s, int length, String mid){
-    if(s.length() == length) return{ret.add(s + mid + reversed);}
-    for(i in [0,255]){
-        if(map[i]>0){
-            map[i]--;
-            dfs(map, ret, s+ (char)i, length, mid);
-            map[i]++;
-        }
-    }
-}
-
-
-336. Palindrome Pairs
-[hard] hashtable + divide conquer.
-split each words str1 and str2, and check if isPal(str2) and reversed(str2) in map. [TODO]
-
-409. Longest Palindrome(interesting)
-[easy-medium] ret += (odd-1)
-
-479. Largest Palindrome Product
-[easy]
 
 ---------------------------------------------------
 18.Random(reviewed on 10/27/2016, 12/1/2016, 9/7/2017)
@@ -2946,37 +2943,6 @@ public String addString(long from, long to){
 
 
 
----------------------------------------------------
-24.Topological sort(8/19/2017)
----------------------------------------------------
-207. Course Schedule (find cycle in a graph)(interesting)
-[medium-hard] boolean = canFinishDFS(node_int, map<node_int, adjacent_node_hashset_ofInt>, visitedNode_int_array)
-// visited = 1, visiting= -1
-private boolean canFinishDFS(HashMap<Integer, HashSet<Integer>> map,
-                             int[] visited, int i) {
-    if(visited[i] == -1) return false;
-    if(visited[i] == 1) return true;  //pruning, means this node has confirmed without cycle.
-
-    visited[i] = -1;
-    if(map.containsKey(i)){
-        for(int adjacent_node: map.get(i)){
-            if(!canFinishDFS(map, visited, adjacent_node)) return false;
-        }
-    }
-    visited[i] = 1;
-    // ret[index--] = i;  // for N210
-    return true;
-}
-
-210. Course Schedule II(return one possible route)
-[medium-hard] graph. similar to N207,  not sure why it's  "ret[index--]=i;" for backtracking.
-extra line see above
-
-
-269. Alien Dictionary
-[hard] graph, undirected.
-
-
 -----------------------------------------[hard]---------------------------------------------
 149. Max Points on a Line(Given n points on a 2D plane, find the maximum number of points that lie on the same straight line)
 [hard-medium] [hashtable+corner cases]time o(n^2). for each point, calculate slope for each pair and store in map<slope_double, count_int>;
@@ -3239,6 +3205,34 @@ DFS only from one node, return false if find circle. return false if not all nod
 
 444. Sequence Reconstruction
 [medium] graph.
+
+207. Course Schedule (find cycle in a graph)(interesting)
+[medium-hard] boolean = canFinishDFS(node_int, map<node_int, adjacent_node_hashset_ofInt>, visitedNode_int_array)
+// visited = 1, visiting= -1
+private boolean canFinishDFS(HashMap<Integer, HashSet<Integer>> map,
+                             int[] visited, int i) {
+    if(visited[i] == -1) return false;
+    if(visited[i] == 1) return true;  //pruning, means this node has confirmed without cycle.
+
+    visited[i] = -1;
+    if(map.containsKey(i)){
+        for(int adjacent_node: map.get(i)){
+            if(!canFinishDFS(map, visited, adjacent_node)) return false;
+        }
+    }
+    visited[i] = 1;
+    // ret[index--] = i;  // for N210
+    return true;
+}
+
+210. Course Schedule II(return one possible route)
+[medium-hard] graph. similar to N207,  not sure why it's  "ret[index--]=i;" for backtracking.
+extra line see above
+
+
+269. Alien Dictionary
+[hard] graph, undirected.
+
 
 ---------------------------------------------------
 28.Union Find
