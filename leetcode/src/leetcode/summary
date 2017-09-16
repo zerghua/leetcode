@@ -1775,9 +1775,67 @@ stored reversed element on q1: push new element to front of q2, add all q1 to q2
 [medium]
 
 
+---------------------------------------------------
+14.Heap
+---------------------------------------------------
+218. The Skyline Problem
+[hard] heap<height> descending,
+visit all points sorted by x, break tie by height(left height is negative),
+heap store global height in reversed order, add left height,
+remove end height if cur height is diff than previous, add to ret
+
+358. Rearrange String k Distance Apart
+[hard]
+
+407. Trapping Rain Water II
+[medium]
+
+502. IPO
+[medium] two heaps
+
+630. Course Schedule III
+[]
+
+632. Smallest Range
+[]
+
+
+659. Split Array into Consecutive Subsequences
+[]
+
 
 ---------------------------------------------------
-4.Binary Tree(reviewed on 9/30/2016, 10/28/2016, 9/5/2017)
+15.Interval(reviewed on 10/27/2016)
+---------------------------------------------------
+56. Merge Intervals
+[hard-medium] sort. Collections.sort(intervals, (Interval a, Interval b)-> a.start - b.start);
+two pointers, start and end. if end < next.start; add to interval(start,end) to list; update start and end;
+else if end < next.end; end = next.end;   // else when end > next.end do nothing
+
+57. Insert Interval
+[hard-medium] insert new interval to sorted list and use solution from N56 to merge.
+
+252. Meeting Rooms(VIP)(detect if there is intersect of interval)
+[easy] return false if interval[i].start < interval[i-1].end
+
+253. Meeting Rooms II(VIP)(interesting)
+[medium] using heap sorted by interval.end to merge adjacent intervals greedily.
+return heap.size();
+
+435. Non-overlapping Intervals
+[medium] similar to N452. keep track of end, remove larger end.
+
+452. Minimum Number of Arrows to Burst Balloons(interesting)
+[medium] similar to N435. keep track of end point, compare it with next start point.
+
+436. Find Right Interval(interesting)
+[medium] BF is o(n^2).
+treemap to sort key(interval.start), value=index. cellingEntry(key) to do binary search. o(nlogn)
+
+
+
+---------------------------------------------------
+16.Binary Tree(reviewed on 9/30/2016, 10/28/2016, 9/5/2017)
 ---------------------------------------------------
 536. Construct Binary Tree from String
 [medium]
@@ -2078,41 +2136,9 @@ public int sumOfLeftLeaves(TreeNode root) {
 
 
 
----------------------------------------------------
-5.Augmented Tree(9/5/2017)
----------------------------------------------------
-307. Range Sum Query - Mutable(real question)(google)(must)
-[medium-hard] segment tree.
-    public class SegmentTreeNode{
-        int start, end, sum;
-        SegmentTreeNode left, right;
-    }
-
-                     [0,5]
-                   /       \
-              [0,3]        [4,5]
-             /    \        /   \
-        [0,1]     [2,3]  [4,4] [5,5]
-       /    \     /    \
-    [0,0] [1,1] [2,2]  [3,3]
-
-
-308. Range Sum Query 2D Mutable
-[hard] fenwick tree. o(logmn)
-
-
-315. Count of Smaller Numbers After Self
-[medium] build BST.
-
-
-440. Kth Smallest in Lexicographical Order
-[medium] denary tree(10-children tree)
-
-480. Sliding Window Median
-[medium] treeset ?
 
 ---------------------------------------------------
-6.BST(Binary Search Tree)(reviewed on 9/30/2016, 10/28/2016, 9/6/2017)
+17.BST(Binary Search Tree)(reviewed on 9/30/2016, 10/28/2016, 9/6/2017)
 ---------------------------------------------------
 538. Convert BST to Greater Tree
 []
@@ -2234,204 +2260,257 @@ if larger, pop all smaller and keep the popped as min, the incoming should large
 530. Minimum Absolute Difference in BST
 [medium] in-order
 
----------------------------------------------------
-7.Bit Manipulation(reviewed on 10/27/2016)
----------------------------------------------------
-29. Divide Two Integers
-[medium] not sure. [TODO]
-
-371. Sum of Two Integers
-[easy-medium] [TODO]  not sure why.
-
-89. Gray Code(interesting)
-[medium] f(n) += reverse(f(n-1)) + 2^(n-1), use list to represent f(n)
-
-136. Single Number(one number appears once while others twice)(real question)
-[easy]
-1. map<num, count>, two passes. o(n) space
-2. hashset<num>, remove char if exist. one pass. o(n) space
-3. o(1) space and one pass. xor on all the elements.
-
-[follow up](all exists twice except two, return those two)(interesting)
-[medium] divide and conquer.
-first pass, c ^= each item in array.
-find any one bit in C that is 1 and store it, separate array to two groups(based on 0 and 1 on that bit)
-xor all item in each group will get you those two int.
-
-137. Single Number II(one number appears once while others three times)(real question)
-[medium] on every bit, the sum of each bit is 3*n + (0 or 1). each bit mod 3 is the result.
-
-260. Single Number III
-[medium] two passes. two groups divided by one bit.
-
-268. Missing Number(for [o,n] range, only one is missing, index in range [0,n-1])
-[easy-medium] xor.  a^b^b = a.  ret = n(important); for i in [0,num.length) ret = ret ^ index ^ num[index]
-
-190. Reverse Bits(unsigned integer) (follow up, hashtable to handle visited ones.)
-[easy] ret = 0;
-for(int i=0;i<32;i++){
-    ret = ret<< 1 || (n & 1); n >>= 1  // the first bit is 0, so ok.
-}
-
-191. Number of 1 Bits
-[easy] ret += (n & 1);  n >>= 1
-
-201. Bitwise AND of Numbers Range(interesting) in range [m,n]
-[easy-medium] count left common bits between m and n. return m<<count. write an example will understand.
-
-397. Integer Replacement
-[medium] matters on last two binary digits, and special case on 3.
-
-405. Convert a Number to Hexadecimal(interesting)
-[easy-medium] ret.insert(0, hex[num & 15]);
-
-421. Maximum XOR of Two Numbers in an Array
-[medium-hard] [TODO] figure out how this works.
-
-461. Hamming Distance
-[easy] xor. return Integer.bitCount(x^y);
-
-476. Number Complement
-[easy]
-
-477. Total Hamming Distance
-[medium]
 
 ---------------------------------------------------
-8.Design(reviewed on 10/27/2016, 9/6/2017)
+18.Augmented Tree(9/5/2017)
 ---------------------------------------------------
-534. Design Tiny URL
-[]
-
-535. Encodeand Decode Tiny URL
-[medium]
-
-588. Design In Memory File System
-[]
-
-635. Design Log Storage System
-[]
-
-642. Design Search Autocomplete System
-[]
-
-676. Implement Magic Dictionary
-[]
-
-
-157. Read N Characters Given Read4
-158. Read N Characters Given Read4 II - Call multiple times
-[medium]
-
-170. Two Sum III - Data structure design
-[medium] map<num, count> + list(num), find (target - num) in map
-
-244. Shortest Word Distance II(return shortest distance between two words in list)
-[medium] map<num, list_of_index>, two pointers to get distance
-
-271. Encode and Decode Strings(Design an algorithm to encode a list of strings to a string)
-[medium]
-
-346. Moving Average from Data Stream
-[easy]
-
-348. Design Tic Tac Toe
-[medium]
-
-352. Data Stream as Disjoint Intervals
-[medium]
-
-353. Design Snake Game
-[medium]
-
-359. Logger Rate Limiter
-[easy] map
-
-362. Design Hit Counter
-[medium]
-
-385. Mini Parser(interesting)(constructed NestedInteger from String)
-[medium-hard] stack to store each object.
-if '[', add obj to stack,  if ',' || ']', add number to stack.peek() object, if ']', pop stack.
-
-355. Design Twitter
-[medium-hard] [TODO] a few hashmap, hashset and priorityQueue.
-
-379. Design Phone Directory(VIP)
-[medium] hashset(maintain non-available number) + linkedlist(maintain available number)
-
-380. Insert Delete GetRandom O(1)
-[medium] hashmap<val, index> + list<val>, swap last one with map.get(val) and remove
-
-381. Insert Delete GetRandom O(1) - Duplicates allowed(similar to N380)
-[hard] HashMap<val, set_of_index> + list<val>
-
-
-432. All O one Data Structure
-[medium]
-
-146. LRU Cache(implement get and set function for least recently used cache)
-[hard] [design] [hashtable + double linked list]
-linkedlist to represent Least recently used:
-1. current get/set element will be put at the head of linked list
-2. remove tail element when need delete.
-3. hashmap<Element, Node> to enable o(1) to get/set element and operate on the node according to 1 and 2.
-
-460. LFU Cache
-[medium]
-
-
-----------------------  Iterator --------------------------
-173. Binary Search Tree Iterator(next() return smallest in BST)(interesting)(stack)
-[medium] push all left node to stack until the left most.
-when pop, if node.right!=null, push all its left. It's o(1) time, because each element is visited only once.
-
-251. Flatten 2D Vector
-[medium]
-
-281. ZigzagIterator
-[medium]
-
-284. Peeking Iterator(existing functions are iterator.next and iterator.hasNext; add a peek function)
-[medium] the key is to cache(save) next element with element and isPeeked variables.
-
-341. Flatten Nested List Iterator(interesting)(how to use polymorphism)
-[medium] stack<Iterator<NestedInteger>>
-
-604. Design Compressed String Iterator
-[]
-------------------------------------------------------------
-
-
-----------------------  Trie --------------------------
-208. Implement Trie (Prefix Tree)
-[medium-hard] class Trie{Trie[] children; boolean isEnd;}
-    class TrieNode{
-        HashMap<Character, TrieNode> children;
-        boolean isEnd;
+307. Range Sum Query - Mutable(real question)(google)(must)
+[medium-hard] segment tree.
+    public class SegmentTreeNode{
+        int start, end, sum;
+        SegmentTreeNode left, right;
     }
 
-211. Add and Search Word - Data structure design
-[medium-hard] BFS on trie of wildcard(.)
+                     [0,5]
+                   /       \
+              [0,3]        [4,5]
+             /    \        /   \
+        [0,1]     [2,3]  [4,4] [5,5]
+       /    \     /    \
+    [0,0] [1,1] [2,2]  [3,3]
 
 
-411. Minimum Unique Word Abbreviation
-[hard] dfs + trie
+308. Range Sum Query 2D Mutable
+[hard] fenwick tree. o(logmn)
 
 
-425. Word Squares
-[hard] backtracking + trie
+315. Count of Smaller Numbers After Self
+[medium] build BST.
 
 
-648. Replace Words
+440. Kth Smallest in Lexicographical Order
+[medium] denary tree(10-children tree)
+
+480. Sliding Window Median
+[medium] treeset ?
+
+---------------------------------------------------
+19.BFS
+---------------------------------------------------
+286. Walls and Gates(Fill each empty room with the distance to its nearest gate)
+[medium] BFS.
+
+317. Shortest Distance from All Buildings
+[medium] BFS with more variables to save information.
+
+433. Minimum Genetic Mutation
+[medium] BFS + map.
+
+490. The Maze
+[medium]
+
+499. The Maze III
+[medium]
+
+505. The Maze II
+[medium] BFS + heap
+
+542. 01 Matrix
+[medium] BFS
+
+582. Kill Process
 []
 
---------------------------------------------------------
+623. Add One Row to Tree
+[] BFS
+
+675. Cut Off Trees for Golf Event
+[] BFS + heap
+
+---------------------------------------------------
+20.DFS
+---------------------------------------------------
+329. Longest Increasing Path in a Matrix
+[hard] DFS + memo
+
+339. Nested List Weight Sum
+[medium] DFS
+
+364. Nested List Weight Sum II
+[medium] DFS
+
+473. Match sticks to Square
+[medium] DFS
+
+486. Predict the Winner
+[hard]
+
+488. Zuma Game
+[medium]
+
+494. Target Sum
+[medium]
+
+504. Base7
+[easy] recursion
+
+529. Mine sweeper
+[medium]
+
+544. Output Contest Matches
+[medium] recursion.
+
+546. Remove Boxes
+[medium] DFS + memo
+
+547. Friend Circles
+[medium] DFS
+
+564. Find the Closest Palindrome
+[hard]
+
+631. Design Excel Sum Formula
+[] recursion
+
+
+---------------------------------------------------
+21.Divide and conquer(reviewed on 9/7/2017)
+---------------------------------------------------
+*95. Unique Binary Search Trees II(generate all unique trees)(interesting)
+[medium-hard] DFS. foreach(start,n), left = (start,i-1), right=(i+1,n).
+public List<TreeNode> generateTrees(int start, int end) {
+    List<TreeNode> ret = new LinkedList<>();
+    if(start > end){
+        ret.add(null);
+        return ret;
+    }
+
+    for(int i=start; i<=end; i++){
+        List<TreeNode> lefts= generateTrees(start, i-1);
+        List<TreeNode> rights= generateTrees(i+1, end);
+
+        for(TreeNode left: lefts){
+            for(TreeNode right: rights){
+                TreeNode node = new TreeNode(i);
+                node.left = left;
+                node.right = right;
+                ret.add(node);
+            }
+        }
+    }
+    return ret;
+}
+
+*241. Different Ways to Add Parentheses(return all possible results by group them differently. operators are ""+-*")(very interesting)
+[medium-hard] List<Integer> = DFS(string)  (divide and conquer)  example: 2*3+5    similar to N95, unique binary search trees.
+find each operator, divide it into two half.
+    public List<Integer> diffWaysToCompute(String input) {
+        List<Integer> ret = new ArrayList<Integer>();
+        if(input ==null || input.length()==0) return ret;
+
+        for(int i=0;i<input.length();i++){
+            char c = input.charAt(i);
+            if(!isOperater(c)) continue;
+
+            List<Integer> left = diffWaysToCompute(input.substring(0,i));
+            List<Integer> right = diffWaysToCompute(input.substring(i+1));
+
+            for(int x: left){
+                for(int y: right){
+                    ret.add(getValue(x,y,c));
+                }
+            }
+        }
+        if(ret.isEmpty()) ret.add(Integer.valueOf(input));
+        return ret;
+    }
+
+
+312. Burst Balloons(Find the maximum coins you can collect by bursting the balloons wisely)
+[hard]
+
+*395. Longest Substring with At Least K Repeating Characters(interesting)
+[medium] divide on the first char which has count < k
+    public int longestSubstring(String s, int k) {
+        if(s.length() == 0 || k > s.length()) return 0;
+        if(k==0) return s.length();
+        int[] map = new int[128];
+        char[] a = s.toCharArray();
+        for(int i=0;i<a.length;i++) map[a[i]]++;
+
+        int index =0;
+        while(index<a.length && map[a[index]]>=k) index++;
+        if(index == a.length) return a.length;  //return if all chars has at least K count
+
+        //divide
+        int left = longestSubstring(s.substring(0,index),k);
+        int right = longestSubstring(s.substring(index+1),k);
+        return Math.max(left, right);
+    }
+
+548. Split Array with Equal Sum
+[medium]
 
 
 
 ---------------------------------------------------
-9.Backtracking(better for shortest path)(reviewed on 10/3/2016 - 10/4/2016, 9/6/2017)
+22.Graph
+---------------------------------------------------
+261. Graph Valid Tree(check if graph is tree)
+[medium] undirected. a valid tree means: all nodes are connected and there is no circle.
+DFS only from one node, return false if find circle. return false if not all nodes are visited.
+
+332. Reconstruct Itinerary
+[hard] directed graph.
+
+399. Evaluate Division
+[hard]
+
+444. Sequence Reconstruction
+[medium] graph.
+
+207. Course Schedule (find cycle in a graph)(interesting)
+[medium-hard] boolean = canFinishDFS(node_int, map<node_int, adjacent_node_hashset_ofInt>, visitedNode_int_array)
+// visited = 1, visiting= -1
+private boolean canFinishDFS(HashMap<Integer, HashSet<Integer>> map,
+                             int[] visited, int i) {
+    if(visited[i] == -1) return false;
+    if(visited[i] == 1) return true;  //pruning, means this node has confirmed without cycle.
+
+    visited[i] = -1;
+    if(map.containsKey(i)){
+        for(int adjacent_node: map.get(i)){
+            if(!canFinishDFS(map, visited, adjacent_node)) return false;
+        }
+    }
+    visited[i] = 1;
+    // ret[index--] = i;  // for N210
+    return true;
+}
+
+210. Course Schedule II(return one possible route)
+[medium-hard] graph. similar to N207,  not sure why it's  "ret[index--]=i;" for backtracking.
+extra line see above
+
+
+269. Alien Dictionary
+[hard] graph, undirected.
+
+
+---------------------------------------------------
+23.Union Find
+---------------------------------------------------
+305. Number of Islands II(return number of islands after add some lands)
+[medium] Union Find
+
+323. Number of Connected Components in an Undirected Graph
+[medium] Union Find.
+
+
+
+
+---------------------------------------------------
+24.Backtracking(better for shortest path)(reviewed on 10/3/2016 - 10/4/2016, 9/6/2017)
 ---------------------------------------------------
 17. Letter Combinations of a Phone Number(return all possible letter combinations that the number could represent)
 [medium] void = DFS(ret, cur_list, digits_string, start_int, map)
@@ -2714,122 +2793,145 @@ split each words str1 and str2, and check if isPal(str2) and reversed(str2) in m
 [easy]
 
 
+
 ---------------------------------------------------
-10.Divide and conquer(reviewed on 9/7/2017)
+25.Design(reviewed on 10/27/2016, 9/6/2017)
 ---------------------------------------------------
-*95. Unique Binary Search Trees II(generate all unique trees)(interesting)
-[medium-hard] DFS. foreach(start,n), left = (start,i-1), right=(i+1,n).
-public List<TreeNode> generateTrees(int start, int end) {
-    List<TreeNode> ret = new LinkedList<>();
-    if(start > end){
-        ret.add(null);
-        return ret;
-    }
+534. Design Tiny URL
+[]
 
-    for(int i=start; i<=end; i++){
-        List<TreeNode> lefts= generateTrees(start, i-1);
-        List<TreeNode> rights= generateTrees(i+1, end);
+535. Encodeand Decode Tiny URL
+[medium]
 
-        for(TreeNode left: lefts){
-            for(TreeNode right: rights){
-                TreeNode node = new TreeNode(i);
-                node.left = left;
-                node.right = right;
-                ret.add(node);
-            }
-        }
-    }
-    return ret;
-}
+588. Design In Memory File System
+[]
 
-*241. Different Ways to Add Parentheses(return all possible results by group them differently. operators are ""+-*")(very interesting)
-[medium-hard] List<Integer> = DFS(string)  (divide and conquer)  example: 2*3+5    similar to N95, unique binary search trees.
-find each operator, divide it into two half.
-    public List<Integer> diffWaysToCompute(String input) {
-        List<Integer> ret = new ArrayList<Integer>();
-        if(input ==null || input.length()==0) return ret;
+635. Design Log Storage System
+[]
 
-        for(int i=0;i<input.length();i++){
-            char c = input.charAt(i);
-            if(!isOperater(c)) continue;
+642. Design Search Autocomplete System
+[]
 
-            List<Integer> left = diffWaysToCompute(input.substring(0,i));
-            List<Integer> right = diffWaysToCompute(input.substring(i+1));
-
-            for(int x: left){
-                for(int y: right){
-                    ret.add(getValue(x,y,c));
-                }
-            }
-        }
-        if(ret.isEmpty()) ret.add(Integer.valueOf(input));
-        return ret;
-    }
+676. Implement Magic Dictionary
+[]
 
 
-312. Burst Balloons(Find the maximum coins you can collect by bursting the balloons wisely)
-[hard]
+157. Read N Characters Given Read4
+158. Read N Characters Given Read4 II - Call multiple times
+[medium]
 
-*395. Longest Substring with At Least K Repeating Characters(interesting)
-[medium] divide on the first char which has count < k
-    public int longestSubstring(String s, int k) {
-        if(s.length() == 0 || k > s.length()) return 0;
-        if(k==0) return s.length();
-        int[] map = new int[128];
-        char[] a = s.toCharArray();
-        for(int i=0;i<a.length;i++) map[a[i]]++;
+170. Two Sum III - Data structure design
+[medium] map<num, count> + list(num), find (target - num) in map
 
-        int index =0;
-        while(index<a.length && map[a[index]]>=k) index++;
-        if(index == a.length) return a.length;  //return if all chars has at least K count
+244. Shortest Word Distance II(return shortest distance between two words in list)
+[medium] map<num, list_of_index>, two pointers to get distance
 
-        //divide
-        int left = longestSubstring(s.substring(0,index),k);
-        int right = longestSubstring(s.substring(index+1),k);
-        return Math.max(left, right);
-    }
+271. Encode and Decode Strings(Design an algorithm to encode a list of strings to a string)
+[medium]
 
-548. Split Array with Equal Sum
+346. Moving Average from Data Stream
+[easy]
+
+348. Design Tic Tac Toe
+[medium]
+
+352. Data Stream as Disjoint Intervals
+[medium]
+
+353. Design Snake Game
+[medium]
+
+359. Logger Rate Limiter
+[easy] map
+
+362. Design Hit Counter
+[medium]
+
+385. Mini Parser(interesting)(constructed NestedInteger from String)
+[medium-hard] stack to store each object.
+if '[', add obj to stack,  if ',' || ']', add number to stack.peek() object, if ']', pop stack.
+
+355. Design Twitter
+[medium-hard] [TODO] a few hashmap, hashset and priorityQueue.
+
+379. Design Phone Directory(VIP)
+[medium] hashset(maintain non-available number) + linkedlist(maintain available number)
+
+380. Insert Delete GetRandom O(1)
+[medium] hashmap<val, index> + list<val>, swap last one with map.get(val) and remove
+
+381. Insert Delete GetRandom O(1) - Duplicates allowed(similar to N380)
+[hard] HashMap<val, set_of_index> + list<val>
+
+
+432. All O one Data Structure
+[medium]
+
+146. LRU Cache(implement get and set function for least recently used cache)
+[hard] [design] [hashtable + double linked list]
+linkedlist to represent Least recently used:
+1. current get/set element will be put at the head of linked list
+2. remove tail element when need delete.
+3. hashmap<Element, Node> to enable o(1) to get/set element and operate on the node according to 1 and 2.
+
+460. LFU Cache
 [medium]
 
 
+----------------------  Iterator --------------------------
+173. Binary Search Tree Iterator(next() return smallest in BST)(interesting)(stack)
+[medium] push all left node to stack until the left most.
+when pop, if node.right!=null, push all its left. It's o(1) time, because each element is visited only once.
+
+251. Flatten 2D Vector
+[medium]
+
+281. ZigzagIterator
+[medium]
+
+284. Peeking Iterator(existing functions are iterator.next and iterator.hasNext; add a peek function)
+[medium] the key is to cache(save) next element with element and isPeeked variables.
+
+341. Flatten Nested List Iterator(interesting)(how to use polymorphism)
+[medium] stack<Iterator<NestedInteger>>
+
+604. Design Compressed String Iterator
+[]
+------------------------------------------------------------
+
+
+----------------------  Trie --------------------------
+208. Implement Trie (Prefix Tree)
+[medium-hard] class Trie{Trie[] children; boolean isEnd;}
+    class TrieNode{
+        HashMap<Character, TrieNode> children;
+        boolean isEnd;
+    }
+
+211. Add and Search Word - Data structure design
+[medium-hard] BFS on trie of wildcard(.)
+
+
+411. Minimum Unique Word Abbreviation
+[hard] dfs + trie
+
+
+425. Word Squares
+[hard] backtracking + trie
+
+
+648. Replace Words
+[]
+
+--------------------------------------------------------
+
+
 
 
 
 
 ---------------------------------------------------
-14.Interval(reviewed on 10/27/2016)
----------------------------------------------------
-56. Merge Intervals
-[hard-medium] sort. Collections.sort(intervals, (Interval a, Interval b)-> a.start - b.start);
-two pointers, start and end. if end < next.start; add to interval(start,end) to list; update start and end;
-else if end < next.end; end = next.end;   // else when end > next.end do nothing
-
-57. Insert Interval
-[hard-medium] insert new interval to sorted list and use solution from N56 to merge.
-
-252. Meeting Rooms(VIP)(detect if there is intersect of interval)
-[easy] return false if interval[i].start < interval[i-1].end
-
-253. Meeting Rooms II(VIP)(interesting)
-[medium] using heap sorted by interval.end to merge adjacent intervals greedily.
-return heap.size();
-
-435. Non-overlapping Intervals
-[medium] similar to N452. keep track of end, remove larger end.
-
-452. Minimum Number of Arrows to Burst Balloons(interesting)
-[medium] similar to N435. keep track of end point, compare it with next start point.
-
-436. Find Right Interval(interesting)
-[medium] BF is o(n^2).
-treemap to sort key(interval.start), value=index. cellingEntry(key) to do binary search. o(nlogn)
-
-
-
-
----------------------------------------------------
-16.Math(reviewed on 10/27/2016)
+26.Math(reviewed on 10/27/2016)
 ---------------------------------------------------
 553. Optimal Division
 []
@@ -2992,6 +3094,70 @@ F1 = F0 + sum - n*f(n-1)
 [hard]
 
 
+
+
+---------------------------------------------------
+27.Bit Manipulation(reviewed on 10/27/2016)
+---------------------------------------------------
+29. Divide Two Integers
+[medium] not sure. [TODO]
+
+371. Sum of Two Integers
+[easy-medium] [TODO]  not sure why.
+
+89. Gray Code(interesting)
+[medium] f(n) += reverse(f(n-1)) + 2^(n-1), use list to represent f(n)
+
+136. Single Number(one number appears once while others twice)(real question)
+[easy]
+1. map<num, count>, two passes. o(n) space
+2. hashset<num>, remove char if exist. one pass. o(n) space
+3. o(1) space and one pass. xor on all the elements.
+
+[follow up](all exists twice except two, return those two)(interesting)
+[medium] divide and conquer.
+first pass, c ^= each item in array.
+find any one bit in C that is 1 and store it, separate array to two groups(based on 0 and 1 on that bit)
+xor all item in each group will get you those two int.
+
+137. Single Number II(one number appears once while others three times)(real question)
+[medium] on every bit, the sum of each bit is 3*n + (0 or 1). each bit mod 3 is the result.
+
+260. Single Number III
+[medium] two passes. two groups divided by one bit.
+
+268. Missing Number(for [o,n] range, only one is missing, index in range [0,n-1])
+[easy-medium] xor.  a^b^b = a.  ret = n(important); for i in [0,num.length) ret = ret ^ index ^ num[index]
+
+190. Reverse Bits(unsigned integer) (follow up, hashtable to handle visited ones.)
+[easy] ret = 0;
+for(int i=0;i<32;i++){
+    ret = ret<< 1 || (n & 1); n >>= 1  // the first bit is 0, so ok.
+}
+
+191. Number of 1 Bits
+[easy] ret += (n & 1);  n >>= 1
+
+201. Bitwise AND of Numbers Range(interesting) in range [m,n]
+[easy-medium] count left common bits between m and n. return m<<count. write an example will understand.
+
+397. Integer Replacement
+[medium] matters on last two binary digits, and special case on 3.
+
+405. Convert a Number to Hexadecimal(interesting)
+[easy-medium] ret.insert(0, hex[num & 15]);
+
+421. Maximum XOR of Two Numbers in an Array
+[medium-hard] [TODO] figure out how this works.
+
+461. Hamming Distance
+[easy] xor. return Integer.bitCount(x^y);
+
+476. Number Complement
+[easy]
+
+477. Total Hamming Distance
+[medium]
 
 
 
@@ -3215,166 +3381,13 @@ tricky solution, map of map. (TODO)
 420. Strong Password Checker
 [hard] look again.
 
----------------------------------------------------
-26.Heap
----------------------------------------------------
-218. The Skyline Problem
-[hard] heap<height> descending,
-visit all points sorted by x, break tie by height(left height is negative),
-heap store global height in reversed order, add left height,
-remove end height if cur height is diff than previous, add to ret
-
-358. Rearrange String k Distance Apart
-[hard]
-
-407. Trapping Rain Water II
-[medium]
-
-502. IPO
-[medium] two heaps
-
-630. Course Schedule III
-[]
-
-632. Smallest Range
-[]
-
-
-659. Split Array into Consecutive Subsequences
-[]
-
-
-
----------------------------------------------------
-27.Graph
----------------------------------------------------
-261. Graph Valid Tree(check if graph is tree)
-[medium] undirected. a valid tree means: all nodes are connected and there is no circle.
-DFS only from one node, return false if find circle. return false if not all nodes are visited.
-
-332. Reconstruct Itinerary
-[hard] directed graph.
-
-399. Evaluate Division
-[hard]
-
-444. Sequence Reconstruction
-[medium] graph.
-
-207. Course Schedule (find cycle in a graph)(interesting)
-[medium-hard] boolean = canFinishDFS(node_int, map<node_int, adjacent_node_hashset_ofInt>, visitedNode_int_array)
-// visited = 1, visiting= -1
-private boolean canFinishDFS(HashMap<Integer, HashSet<Integer>> map,
-                             int[] visited, int i) {
-    if(visited[i] == -1) return false;
-    if(visited[i] == 1) return true;  //pruning, means this node has confirmed without cycle.
-
-    visited[i] = -1;
-    if(map.containsKey(i)){
-        for(int adjacent_node: map.get(i)){
-            if(!canFinishDFS(map, visited, adjacent_node)) return false;
-        }
-    }
-    visited[i] = 1;
-    // ret[index--] = i;  // for N210
-    return true;
-}
-
-210. Course Schedule II(return one possible route)
-[medium-hard] graph. similar to N207,  not sure why it's  "ret[index--]=i;" for backtracking.
-extra line see above
-
-
-269. Alien Dictionary
-[hard] graph, undirected.
-
-
----------------------------------------------------
-28.Union Find
----------------------------------------------------
-305. Number of Islands II(return number of islands after add some lands)
-[medium] Union Find
-
-323. Number of Connected Components in an Undirected Graph
-[medium] Union Find.
 
 
 
 
----------------------------------------------------
-30.BFS
----------------------------------------------------
-286. Walls and Gates(Fill each empty room with the distance to its nearest gate)
-[medium] BFS.
 
-317. Shortest Distance from All Buildings
-[medium] BFS with more variables to save information.
 
-433. Minimum Genetic Mutation
-[medium] BFS + map.
 
-490. The Maze
-[medium]
 
-499. The Maze III
-[medium]
 
-505. The Maze II
-[medium] BFS + heap
 
-542. 01 Matrix
-[medium] BFS
-
-582. Kill Process
-[]
-
-623. Add One Row to Tree
-[] BFS
-
-675. Cut Off Trees for Golf Event
-[] BFS + heap
-
----------------------------------------------------
-31.DFS
----------------------------------------------------
-329. Longest Increasing Path in a Matrix
-[hard] DFS + memo
-
-339. Nested List Weight Sum
-[medium] DFS
-
-364. Nested List Weight Sum II
-[medium] DFS
-
-473. Match sticks to Square
-[medium] DFS
-
-486. Predict the Winner
-[hard]
-
-488. Zuma Game
-[medium]
-
-494. Target Sum
-[medium]
-
-504. Base7
-[easy] recursion
-
-529. Mine sweeper
-[medium]
-
-544. Output Contest Matches
-[medium] recursion.
-
-546. Remove Boxes
-[medium] DFS + memo
-
-547. Friend Circles
-[medium] DFS
-
-564. Find the Closest Palindrome
-[hard]
-
-631. Design Excel Sum Formula
-[] recursion
