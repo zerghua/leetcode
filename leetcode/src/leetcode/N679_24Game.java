@@ -3,87 +3,74 @@ package leetcode;
 import java.util.*;
 
 /**
- * Created by HuaZ on 9/16/2017.
- Rank	    Name	Score	 Finish Time 	Q1 (3)	    Q2 (5)	    Q3 (7)	    Q4 (9)
- 76 / 2703	zerghua	25	     1:15:58	    0:08:20 	0:13:12 	0:22:26 	1:15:58
+ * Created by HuaZ on 9/18/2017.
 
- N677, N678, N679, N680
+ You have 4 cards each containing a number from 1 to 9.
+ You need to judge whether they could operated through *, /, +, -, (, ) to get the value of 24.
+
+ Example 1:
+
+ Input: [4, 1, 8, 7]
+ Output: True
+ Explanation: (8-4) * (7-1) = 24
+
+ Example 2:
+
+ Input: [1, 2, 1, 2]
+ Output: False
+
+ Note:
+
+ The division operator / represents real division, not integer division. For example, 4 / (1 - 2/3) = 12.
+ Every operation done is between two numbers. In particular, we cannot use - as a unary operator.
+ For example, with [1, 1, 1, 1] as input, the expression -1 - 1 - 1 - 1 is not allowed.
+ You cannot concatenate numbers together. For example, if the input is [1, 2, 1, 2],
+ we cannot write this as 12 + 12.
 
 
  */
-public class Contest_50 {
-    // two pointers
+public class N679_24Game {
+    // backtracking, others concise solution
+    // generate each pair and pass down new array
+    // 70 / 70 test cases passed.
+    // 11 ms
     class Solution {
-        public boolean validPalindrome(String s) {
-            int i=0, j = s.length()-1;
-            while(i<j){
-                if(s.charAt(i) == s.charAt(j)) {
-                    i++;j--;
-                }else return isPal(s, i+1, j) || isPal(s, i, j-1);
-            }
-            return true;
+        public boolean judgePoint24(int[] nums) {
+            return dfs(new double[]{nums[0], nums[1], nums[2], nums[3]});
         }
 
-        public boolean isPal(String s, int i, int j){
-            while(i < j){
-                if(s.charAt(i) == s.charAt(j)){
-                    i++;j--;
-                }else return false;
-            }
-            return true;
-        }
-    }
+        public boolean dfs(double[] a){
+            if(a.length == 1) return Math.abs(a[0] -24) < 0.01;
 
+            // for each pair of a
+            for(int i=0; i<a.length; i++){
+                for(int j=i+1; j<a.length; j++){
 
-    // BF
-    class MapSum {
-        HashMap<String, Integer> map ;
-        /** Initialize your data structure here. */
-        public MapSum() {
-            map = new HashMap();
-        }
+                    // copy remaining to b array
+                    double[] b = new double[a.length-1];
+                    for(int k=0, l =0; k<a.length; k++) {
+                        if(k != i && k != j) b[l++] = a[k];
+                    }
 
-        public void insert(String key, int val) {
-            map.put(key, val);
-        }
-
-        public int sum(String prefix) {
-            int ret = 0;
-            for(String s: map.keySet()){
-                if(s.startsWith(prefix))  ret+= map.get(s);
-            }
-            return ret;
-        }
-    }
-
-
-    // recursion dfs
-    class Solution3 {
-        public boolean checkValidString(String s) {
-            return isValid(s, 0);
-        }
-
-        public boolean isValid(String s, int leftCount){
-            for(int i=0; i<s.length(); i++){
-                char c = s.charAt(i);
-                if(c == '(') leftCount++;
-                else if(c == ')') {
-                    if(leftCount < 1) return false;
-                    leftCount--;
-                } else{ // c =='*'
-                    return isValid(s.substring(i+1), leftCount)
-                            || isValid(s.substring(i+1), leftCount+1)
-                            || isValid(s.substring(i+1), leftCount-1);
+                    for(double d : ops(a[i], a[j])){
+                        b[a.length-2] = d;  // set end of b as result of a[i] and a[j]
+                        if(dfs(b)) return true;
+                    }
                 }
             }
-            return leftCount == 0;
+            return false;
+        }
+
+        public double[] ops(double a, double b){
+            return new double[]{a+b, a-b, b-a, a*b, a/b, b/a};
         }
     }
 
 
-
-    // backtracking, divide and conquer
-    class Solution4 {
+    // my contest 50 solution
+    // 70 / 70 test cases passed.
+    // 23 ms
+    class Solution2 {
         boolean isFound = false;
         public boolean judgePoint24(int[] nums) {
             return two(nums[0], nums[1], nums[2], nums[3])
