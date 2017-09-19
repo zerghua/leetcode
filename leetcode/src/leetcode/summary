@@ -22,15 +22,15 @@ Table of Contents(last reviewed on)
 19.BFS
 20.DFS(recursion)
 21.Divide and conquer        9/7/2017
-22.Graph(Topological sort)
-23.Union Find
-24.Backtracking              9/6/2017
+22.Backtracking              9/6/2017
+23.Graph(Topological sort)
+24.Union Find
 25.Design                    9/6/2017
 26.Math                      10/27/2016
 27.Bit Manipulation          9/6/2017
 
 
-TODO: gather all dfs tree problems and have a taste of top-down and bottom-up difference.
+TODO: sort tree problems on pre-order, post-order, level-order approach.
 
 
 
@@ -1989,6 +1989,22 @@ treemap to sort key(interval.start), value=index. cellingEntry(key) to do binary
 ---------------------------------------------------
 16.Binary Tree(reviewed on 9/30/2016, 10/28/2016, 9/5/2017)
 ---------------------------------------------------
+310. Minimum Height Trees(given a tree-like graph, return a list of MHT root.)
+[medium-hard] graph, BFS, remove all leaf node until remain node <=2 and return.
+map<node, hashset<node>> to store graph, BFS,
+remove leaf nodes until at most 2 nodes remains, enlist all edge==1, and bfs from them
+    while(n>2){
+        n -= ret.size();
+        ArrayList<Integer> new_leafs= new ArrayList<>();
+        for(int leaf_node: ret){
+            int neighbor_node = map.get(leaf_node).iterator().next();
+            map.get(neighbor_node).remove(leaf_node);   // remove edge
+            if(map.get(neighbor_node).size() == 1) new_leafs.add(neighbor_node);
+        }
+        ret = new_leafs;
+    }
+
+
 297. Serialize and Deserialize Binary Tree(very interesting)
 [hard-medium] Serialize: recursively preorder traversal node to store each node in String separated by ',';
 Deserialize: split string by ',' to a list, recursively build tree back.
@@ -2470,13 +2486,27 @@ if larger, pop all smaller and keep the popped as min, the incoming should large
 [medium] treeset ?
 
 ---------------------------------------------------
-19.BFS
+19.BFS(shortest path, minimum steps.)
 ---------------------------------------------------
-301. Remove Invalid Parentheses(return all valid results after remove invalid ones)(TODO rewrite)
-[hard-medium] BFS. remove one bracket at each pos as a batch, check if some of them are valid and gather all and return.
+127. Word Ladder
+[medium]  BFS, shortest path to a word. (can be further optimized)
+
+126. Word Ladder II(find all the path) (worth revisit)
+[hard]  BFS + backtracking. extra node class to store path info.
+    class Node{
+        String word;
+        Node pre;
+    }
+
+
+130. Surrounded Regions(matrix with 'X' and 'O', set surrounded 'O' to 'X')
+[medium] BFS all edge 'O', mark all their neighbours to 'P', then reset 'O' -> 'X',  'P' -> 'O'
 
 286. Walls and Gates(Fill each empty room with the distance to its nearest gate)
 [medium] BFS.
+
+301. Remove Invalid Parentheses(return all valid results after remove invalid ones)(TODO rewrite)
+[hard-medium] BFS. remove one bracket at each pos as a batch, check if some of them are valid and gather all and return.
 
 317. Shortest Distance from All Buildings
 [medium] BFS with more variables to save information.
@@ -2504,6 +2534,9 @@ if larger, pop all smaller and keep the popped as min, the incoming should large
 
 675. Cut Off Trees for Golf Event
 [] BFS + heap
+
+
+
 
 ---------------------------------------------------
 20.DFS(recursion)
@@ -2662,65 +2695,8 @@ find each operator, divide it into two half.
 [medium]
 
 
-
 ---------------------------------------------------
-22.Graph
----------------------------------------------------
-261. Graph Valid Tree(check if graph is tree)
-[medium] undirected. a valid tree means: all nodes are connected and there is no circle.
-DFS only from one node, return false if find circle. return false if not all nodes are visited.
-
-332. Reconstruct Itinerary
-[hard] directed graph.
-
-399. Evaluate Division
-[hard]
-
-444. Sequence Reconstruction
-[medium] graph.
-
-207. Course Schedule (find cycle in a graph)(interesting)
-[medium-hard] boolean = canFinishDFS(node_int, map<node_int, adjacent_node_hashset_ofInt>, visitedNode_int_array)
-// visited = 1, visiting= -1
-private boolean canFinishDFS(HashMap<Integer, HashSet<Integer>> map,
-                             int[] visited, int i) {
-    if(visited[i] == -1) return false;
-    if(visited[i] == 1) return true;  //pruning, means this node has confirmed without cycle.
-
-    visited[i] = -1;
-    if(map.containsKey(i)){
-        for(int adjacent_node: map.get(i)){
-            if(!canFinishDFS(map, visited, adjacent_node)) return false;
-        }
-    }
-    visited[i] = 1;
-    // ret[index--] = i;  // for N210
-    return true;
-}
-
-210. Course Schedule II(return one possible route)
-[medium-hard] graph. similar to N207,  not sure why it's  "ret[index--]=i;" for backtracking.
-extra line see above
-
-
-269. Alien Dictionary
-[hard] graph, undirected.
-
-
----------------------------------------------------
-23.Union Find
----------------------------------------------------
-305. Number of Islands II(return number of islands after add some lands)
-[medium] Union Find
-
-323. Number of Connected Components in an Undirected Graph
-[medium] Union Find.
-
-
-
-
----------------------------------------------------
-24.Backtracking(better for shortest path)(reviewed on 10/3/2016 - 10/4/2016, 9/6/2017)
+22.Backtracking(reviewed on 10/3/2016 - 10/4/2016, 9/6/2017)
 ---------------------------------------------------
 37. Sudoku Solver(solve a sodoku in matrix, assume there is only one solution)
 [hard-medium] DFS+backtracking.  void = DFS(matrix, seq_int)
@@ -2822,19 +2798,7 @@ return when size==k. return part of the subsets problem. similar to
         }
     }
 
-127. Word Ladder
-[medium]  BFS, shortest path to a word. (can be further optimized)
 
-126. Word Ladder II(find all the path) (worth revisit)
-[hard]  BFS + backtracking. extra node class to store path info.
-    class Node{
-        String word;
-        Node pre;
-    }
-
-
-130. Surrounded Regions(matrix with 'X' and 'O', set surrounded 'O' to 'X')
-[medium] BFS all edge 'O', mark all their neighbours to 'P', then reset 'O' -> 'X',  'P' -> 'O'
 
 
 133. Clone Graph(each node's label is unique)(tricky but interesting)(real question)
@@ -2885,22 +2849,6 @@ every dfs start>= last start, made sure it's sorted.
 
 419. Battleships in a Board
 [medium-easy] DFS, the same as N200 number of islands.
-
-
-310. Minimum Height Trees(given a tree-like graph, return a list of MHT root.)
-[medium-hard] graph, BFS, remove all leaf node until remain node <=2 and return.
-map<node, hashset<node>> to store graph, BFS,
-remove leaf nodes until at most 2 nodes remains, enlist all edge==1, and bfs from them
-    while(n>2){
-        n -= ret.size();
-        ArrayList<Integer> new_leafs= new ArrayList<>();
-        for(int leaf_node: ret){
-            int neighbor_node = map.get(leaf_node).iterator().next();
-            map.get(neighbor_node).remove(leaf_node);   // remove edge
-            if(map.get(neighbor_node).size() == 1) new_leafs.add(neighbor_node);
-        }
-        ret = new_leafs;
-    }
 
 
 *386. Lexicographical Numbers(Given an integer n, return [1,n] in lexicographical order, n=13; return [1,10,11,12,13,2,3,4,5,6,7,8,9])(interesting)
@@ -3025,6 +2973,62 @@ split each words str1 and str2, and check if isPal(str2) and reversed(str2) in m
 
 479. Largest Palindrome Product
 [easy]
+
+
+
+---------------------------------------------------
+23.Graph
+---------------------------------------------------
+261. Graph Valid Tree(check if graph is tree)
+[medium] undirected. a valid tree means: all nodes are connected and there is no circle.
+DFS only from one node, return false if find circle. return false if not all nodes are visited.
+
+332. Reconstruct Itinerary
+[hard] directed graph.
+
+399. Evaluate Division
+[hard]
+
+444. Sequence Reconstruction
+[medium] graph.
+
+207. Course Schedule (find cycle in a graph)(interesting)
+[medium-hard] boolean = canFinishDFS(node_int, map<node_int, adjacent_node_hashset_ofInt>, visitedNode_int_array)
+// visited = 1, visiting= -1
+private boolean canFinishDFS(HashMap<Integer, HashSet<Integer>> map,
+                             int[] visited, int i) {
+    if(visited[i] == -1) return false;
+    if(visited[i] == 1) return true;  //pruning, means this node has confirmed without cycle.
+
+    visited[i] = -1;
+    if(map.containsKey(i)){
+        for(int adjacent_node: map.get(i)){
+            if(!canFinishDFS(map, visited, adjacent_node)) return false;
+        }
+    }
+    visited[i] = 1;
+    // ret[index--] = i;  // for N210
+    return true;
+}
+
+210. Course Schedule II(return one possible route)
+[medium-hard] graph. similar to N207,  not sure why it's  "ret[index--]=i;" for backtracking.
+extra line see above
+
+
+269. Alien Dictionary
+[hard] graph, undirected.
+
+
+---------------------------------------------------
+24.Union Find
+---------------------------------------------------
+305. Number of Islands II(return number of islands after add some lands)
+[medium] Union Find
+
+323. Number of Connected Components in an Undirected Graph
+[medium] Union Find.
+
 
 
 
