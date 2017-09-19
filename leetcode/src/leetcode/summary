@@ -2693,63 +2693,37 @@ find each operator, divide it into two half.
 ---------------------------------------------------
 22.Backtracking(reviewed on 10/3/2016 - 10/4/2016, 9/6/2017)
 ---------------------------------------------------
-37. Sudoku Solver(solve a sodoku in matrix, assume there is only one solution)
-[hard-medium] DFS+backtracking.  void = DFS(matrix, seq_int)
-for each cell if empty, DFS(matrix, seq_int+1);
-
-
-51. N-Queens(return all possible matrix solution)
-[hard] similar to N52, just need to build matrix.
-
-52. N-Queens II(return number of possible solution)
-[hard-medium] void =  DFS(n_int, row_int, visited_cols_list)
-// if i and j in diagonal, ab(i_row - j_row) == ab(i_col - j_col)
-public boolean isValidPosition(int row_index, int col_index, List<Integer> visited_cols){
-    for(int i=0;i<visited_cols.size();i++){
-        if(col_index == visited_cols.get(i) || Math.abs(row_index - i) == Math.abs(col_index - visited_cols.get(i)))
-            return false;
-    }
-    return true;
-}
-
-
-212. Word Search II
-[hard] backtracking + trie.
+// difference on permutation and subset, for example [1,2,3]:
+permutation:   [1,2,3], [2,1,3] ...
+subset:        [1,2,3], [2,3], [3] ...      // [2,3] and [3,2] are the same subset? seems like it.
 
 
 17. Letter Combinations of a Phone Number(return all possible letter combinations that the number could represent)
-[medium] void = DFS(ret, cur_list, digits_string, start_int, map)
-hashmap to map number and chars. DFS on each char.
-String[] map = {"", "*", "abc", "def", "ghi", "jkl","mno", "pqrs", "tuv","wxyz"};
+[medium] backtracking. map = {"", "*", "abc", "def", "ghi", "jkl","mno", "pqrs", "tuv","wxyz"};
 
 22. Generate Parentheses(given int n, return all combinations of well-formed parentheses)(interesting)
-[medium] void = DFS(ret, cur_string, left_int, right_int)
-return if left< right; add to ret if left==0 && right==0;
-two DFS in func: dfs(cur+"(", left-1, right;  dfs(cur+")", left, right-1);
+[medium] backtracking. dfs(cur+"(", left-1, right) and  dfs(cur+")", left, right-1);
+
+37. Sudoku Solver(solve a sodoku in matrix, assume there is only one solution)
+[hard-medium] backtracking. try all possible input, return true if found one valid.
+
+51. N-Queens(return all possible matrix solution)
+[hard] backtracking. key is to check diagonal of i and j, abs(i_row - j_row) == abs(i_col - j_col)
+
+52. N-Queens II(return number of possible solution)
+[hard-medium] backtracking. similar to N51.
 
 46. Permutations(Given a distinct collection of numbers, return all possible permutations)
-[medium] void = DFS(ret, cur_list, num_array, used_array)
+[medium] backtracking. void = DFS(ret, cur_list, num_array, used_array)
 
 47. Permutations II (contains duplicates, return unique permutation, no duplicate set.)
-[medium] dfs(int[] nums, boolean[] used, List<List<Integer>> ret, LinkedList<Integer> list)
-Arrays.sort(num_array);
-if(i>0 && num[i]==num[i-1] && !used[i-1]) continue; (think about why it's !used[i-1] for like set(1,1,2))
+[medium] backtracking. if(i>0 && num[i]==num[i-1] && !used[i-1]) continue; (think about why it's !used[i-1]; set(1,1,2))
 
 78. Subsets(Given a set of distinct integers, nums, return all possible subsets)
-[medium] void = DFS(ret, cur_list, num_array, start_int)
+[medium] backtracking. void = DFS(ret, cur_list, num_array, start_int)
 
 90. Subsets II (contains duplicates)  [1,1,2]
-[medium] dfs(List<List<Integer>> ret, int[] nums, List<Integer> cur_list, int start)
-Arrays.sort(num_array);
-if(i>start && num[i]==num[i-1]) continue;
-
-// difference on permutation and subset, for example [1,2,3]:
-permutation:   [1,2,3], [2,1,3] ...
-subset:        [1,2,3], [2,3], [3] ...      subset remains original sequence.
-
-// the reason why using start+1 or start is to avoid duplicate of (1,2) and (2,1).
-// only permutation will need that, so it need an used_array.
-
+[medium] backtracking.  if(i>start && num[i]==num[i-1]) continue;
 
 39. Combination Sum(find all unique combinations in C where the candidate positive numbers sums to T) like set [3, 2, 6, 7] and target 7
 [medium] void = DFS(ret, cur_list, num_array, cur_target, start_int); the same number can be used multiple times
@@ -2768,7 +2742,7 @@ for(int i=start;i<=9;i++){}
 377. Combination Sum IV(return number of possible results with the same proble of N216)(tricky, tailored for interview, (1,2) and (2,1) both are valid)
 [medium] DP.  dp[i+n] += dp[i] if (i+n<=target)
 
-77.  Combinations(return all combinations of k numbers out of n, (1,2) and (2,1) are duplicate)
+77. Combinations(return all combinations of k numbers out of n, (1,2) and (2,1) are duplicate)
 [medium] void = DFS(ret, cur_list, k_int, n_int, start_int)  for(int i=start;i<=n;i++)
 return when size==k. return part of the subsets problem. similar to
 
@@ -2794,25 +2768,13 @@ return when size==k. return part of the subsets problem. similar to
     }
 
 
-
-
-133. Clone Graph(each node's label is unique)(tricky but interesting)(real question)
-[medium]  NewNode = DFS(node, map<node, newNode>), simiar to N138 clone random linked list
-return new_node if encountered to avoid duplicate, copy itself and copy its neighbors, recursively add its neighbors.
-public UndirectedGraphNode dfs(UndirectedGraphNode node,
-                               HashMap<Integer,UndirectedGraphNode> map){
-    if(map.containsKey(node)) return map.get(node); // return copy of node
-    UndirectedGraphNode newNode = new UndirectedGraphNode(node.label);
-    map.put(node, newNode);
-    for(UndirectedGraphNode n: node.neighbors){
-        newNode.neighbors.add(dfs(n, map));
-    }
-    return newNode;
-}
-
 200. Number of Islands(matrix with 1(land) and 0(water), count number of islands, assume edges are water)(interesting)
 [medium] void = DFS(matrix, i_int, j_int, visited_matrix)
 DFS, for each cell(if not visited, islands++), do DFS on adjacent cells, and mark them as visited.
+
+212. Word Search II
+[hard] backtracking + trie.
+
 
 247. Strobogrammatic Number II(build all such number given length n)
 [medium] dfs, build string inside out.
@@ -2974,6 +2936,22 @@ split each words str1 and str2, and check if isPal(str2) and reversed(str2) in m
 ---------------------------------------------------
 23.Graph
 ---------------------------------------------------
+
+133. Clone Graph(each node's label is unique)(tricky but interesting)(real question)
+[medium]  NewNode = DFS(node, map<node, newNode>), simiar to N138 clone random linked list
+return new_node if encountered to avoid duplicate, copy itself and copy its neighbors, recursively add its neighbors.
+public UndirectedGraphNode dfs(UndirectedGraphNode node,
+                               HashMap<Integer,UndirectedGraphNode> map){
+    if(map.containsKey(node)) return map.get(node); // return copy of node
+    UndirectedGraphNode newNode = new UndirectedGraphNode(node.label);
+    map.put(node, newNode);
+    for(UndirectedGraphNode n: node.neighbors){
+        newNode.neighbors.add(dfs(n, map));
+    }
+    return newNode;
+}
+
+
 261. Graph Valid Tree(check if graph is tree)
 [medium] undirected. a valid tree means: all nodes are connected and there is no circle.
 DFS only from one node, return false if find circle. return false if not all nodes are visited.
@@ -3013,6 +2991,8 @@ extra line see above
 
 269. Alien Dictionary
 [hard] graph, undirected.
+
+
 
 
 ---------------------------------------------------
