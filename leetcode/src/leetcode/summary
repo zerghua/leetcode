@@ -19,7 +19,7 @@ Table of Contents(last reviewed on)
 16.Binary Tree               9/5/2017
 17.BST(Binary Search Tree)   9/6/2017
 18.Augmented Tree            9/5/2017
-19.BFS
+19.BFS                       9/19/2017
 20.DFS(recursion)
 21.Divide and conquer        9/7/2017
 22.Backtracking              9/6/2017
@@ -1989,6 +1989,10 @@ treemap to sort key(interval.start), value=index. cellingEntry(key) to do binary
 ---------------------------------------------------
 16.Binary Tree(reviewed on 9/30/2016, 10/28/2016, 9/5/2017)
 ---------------------------------------------------
+623. Add One Row to Tree(Given a binary tree, add a row of nodes with value v at the given depth d)
+[medium-easy] level-order. add node at certain depth.
+
+
 310. Minimum Height Trees(given a tree-like graph, return a list of MHT root.)
 [medium-hard] graph, BFS, remove all leaf node until remain node <=2 and return.
 map<node, hashset<node>> to store graph, BFS,
@@ -2486,55 +2490,46 @@ if larger, pop all smaller and keep the popped as min, the incoming should large
 [medium] treeset ?
 
 ---------------------------------------------------
-19.BFS(shortest path, minimum steps.)
+19.BFS(shortest path, minimum steps)(mark visited node to avoid duplicate visit)
 ---------------------------------------------------
-127. Word Ladder
-[medium]  BFS, shortest path to a word. (can be further optimized)
+127. Word Ladder(return min steps to transform one word to another via path in dictionary.)
+[medium] BFS, shortest path from A to B via some path.
 
-126. Word Ladder II(find all the path) (worth revisit)
-[hard]  BFS + backtracking. extra node class to store path info.
-    class Node{
-        String word;
-        Node pre;
-    }
-
-
-130. Surrounded Regions(matrix with 'X' and 'O', set surrounded 'O' to 'X')
-[medium] BFS all edge 'O', mark all their neighbours to 'P', then reset 'O' -> 'X',  'P' -> 'O'
-
-286. Walls and Gates(Fill each empty room with the distance to its nearest gate)
+433. Minimum Genetic Mutation(identical to N127 word latter)
 [medium] BFS.
 
-301. Remove Invalid Parentheses(return all valid results after remove invalid ones)(TODO rewrite)
+126. Word Ladder II(return all such paths)
+[hard-medium] BFS + backtracking. extra node class to store pre string.
+
+130. Surrounded Regions(matrix with 'X' and 'O', set surrounded 'O' to 'X')
+[medium] BFS. search from all edge 'O', mark all their neighbours to 'P', then reset 'O' -> 'X',  'P' -> 'O'
+
+286. Walls and Gates(Fill each empty room with the distance to its nearest gate)
+[medium] BFS. search from each gate.
+
+542. 01 Matrix(find the distance of the nearest 0 for each cell)
+[medium] BFS. search from all 0's.
+
+301. Remove Invalid Parentheses(Remove the minimum number of parentheses to make the input valid, Return all results)
 [hard-medium] BFS. remove one bracket at each pos as a batch, check if some of them are valid and gather all and return.
 
-317. Shortest Distance from All Buildings
-[medium] BFS with more variables to save information.
+317. Shortest Distance from All Buildings(return total shortest distance to a list of points in a matrix with wall.)
+[medium] BFS + total_distance[][] of each cell to all buildings and num_buildings_can_reach[][] for sanity checking.
 
-433. Minimum Genetic Mutation
-[medium] BFS + map.
+490. The Maze(matrix, determine if the ball could stop at the destination, ball won't stop rolling until hit a wall)
+[medium] BFS + extra while loop to let ball roll until hit wall, and go one step back.
 
-490. The Maze
-[medium]
+505. The Maze II(return shortest distance from A to B in a matrix with walls)
+[medium] BFS + distance[][] of cell, update cur distance if rolling from prev to cur is smaller than cur itself.
 
-499. The Maze III
-[medium]
+499. The Maze III(return direction path with lexicographically smallest way by moving shortest distance)
+[hard-medium] BFS + each time travel by order of {"d", "l", "r", "u"}
 
-505. The Maze II
-[medium] BFS + heap
+582. Kill Process(given pid and ppid, return a list of PIDs of processes that will be killed in the end)
+[medium] convert input to map<parent, list_of_kids>, then BFS on one node and going down to all its children.
 
-542. 01 Matrix
-[medium] BFS
-
-582. Kill Process
-[]
-
-623. Add One Row to Tree
-[] BFS
-
-675. Cut Off Trees for Golf Event
-[] BFS + heap
-
+675. Cut Off Trees for Golf Event(return minimum steps you need to walk to cut off all the trees)
+[hard-medium] BFS(A to B in shortest path) + heap(for next cutting target)
 
 
 

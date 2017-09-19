@@ -22,8 +22,59 @@ public class N301_RemoveInvalidParentheses {
     // Facebook
     // BFS, remove chars level by level. (remove 0 ~ n chars), slower but easier to understand.
     // 125 / 125 test cases passed.
-    // 105 ms
+    // 123 ms
     public class Solution {
+        public List<String> removeInvalidParentheses(String s) {
+            List<String> ret = new ArrayList<>();
+            HashSet<String> visited = new HashSet<>(Arrays.asList(s));
+            List<String> list = new ArrayList<>(Arrays.asList(s));
+            boolean isFound = false;
+
+            while(!list.isEmpty()){
+                int size = list.size();
+                // go through each one on a level
+                for(int j=0; j<size; j++){
+                    String cur = list.remove(0);
+                    if(isValidParentheses(cur)){
+                        isFound = true;
+                        ret.add(cur);
+                    }
+
+                    // add neighbours
+                    if(!isFound) {
+                        for (int i = 0; i < cur.length(); i++) {
+                            if (cur.charAt(i) == '(' || cur.charAt(i) == ')') {
+                                String next = cur.substring(0, i) + cur.substring(i + 1);
+                                if (!visited.contains(next)) {
+                                    visited.add(next);
+                                    list.add(next);
+                                }
+                            }
+                        }
+                    }
+                }
+                if(isFound) break;
+            }
+            return ret;
+        }
+
+        public boolean isValidParentheses(String s){
+            int count = 0;
+            for(char c: s.toCharArray()){
+                if(c == '(') count++;
+                else if(c == ')') count--;
+                if(count < 0 ) return false;
+            }
+            return count == 0;
+        }
+    }
+
+
+
+
+    // 125 / 125 test cases passed.
+    // 105 ms
+    public class Solution2 {
         public List<String> removeInvalidParentheses(String s) {
             List<String> ret = new ArrayList<>();
             HashSet<String> visited = new HashSet<>(Arrays.asList(s));
@@ -70,7 +121,7 @@ public class N301_RemoveInvalidParentheses {
     // DFS
     // 125 / 125 test cases passed.
     // 3ms
-    public class Solution2 {
+    public class Solution3 {
         public List<String> removeInvalidParentheses(String s) {
             List<String> ans = new ArrayList<>();
             remove(s, ans, 0, 0, new char[]{'(', ')'});

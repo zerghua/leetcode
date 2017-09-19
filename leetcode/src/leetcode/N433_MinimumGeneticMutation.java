@@ -50,11 +50,49 @@ package leetcode;
 
 import java.util.*;
 public class N433_MinimumGeneticMutation {
+    // BFS, identical to word ladder
+    // 14 / 14 test cases passed.
+    // 2 ms
+    public class Solution {
+        public int minMutation(String start, String end, String[] bank) {
+            boolean[] isUsed = new boolean[bank.length];
+            LinkedList<String> list = new LinkedList();
+            list.add(start);
+            int ret = 0;
+
+            while(!list.isEmpty()){
+                int size = list.size();
+
+                for(int i = 0 ; i<size; i++) {
+                    String cur = list.removeFirst();
+                    if (cur.equals(end)) return ret;
+
+                    for (int j = 0; j< bank.length; j++) {
+                        if (isUsed[j]) continue;
+                        if (diff(cur, bank[j]) == 1) {
+                            list.add(bank[j]);
+                            isUsed[j] = true;
+                        }
+                    }
+                }
+                ret++;
+            }
+
+            return -1;
+        }
+
+        public int diff(String s, String t){
+            int ret = 0;
+            for(int i=0; i<s.length(); i++) if(s.charAt(i) != t.charAt(i)) ret++;
+            return ret;
+        }
+    }
+
 
     // HashMap + BFS
     // 14 / 14 test cases passed.
     // 2 ms
-    public class Solution {
+    public class Solution2 {
         public int minMutation(String start, String end, String[] bank) {
             HashMap<String, Integer> map = new HashMap();
             for(String s : bank) map.put(s, 0);
