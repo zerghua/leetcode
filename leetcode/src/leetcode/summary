@@ -1,33 +1,33 @@
 Last added N676
 
 Table of Contents(last reviewed on)
-1.Array                      9/5/2017
-2.String                     12/1/2016
+1.Array                                     9/5/2017
+2.String                                    12/1/2016
 3.Matrix
-4.Two pointers               12/1/2016
-5.Sliding Window             12/1/2016
-6.Sort                       12/1/2016
-7.Binary search              9/5/2017
-8.Greedy                     9/7/2017
-9.DP                         10/2/2016
-10.Random                    9/7/2017
-11.Linked List               10/27/2016
-12.Hashmap                   9/7/2017
-13.Stack/Queue               9/7/2017
+4.Two pointers                              12/1/2016
+5.Sliding Window                            12/1/2016
+6.Sort                                      12/1/2016
+7.Binary search                             9/5/2017
+8.Greedy                                    9/7/2017
+9.DP                                        10/2/2016
+10.Random                                   9/7/2017
+11.Linked List                              10/27/2016
+12.Hashmap                                  9/7/2017
+13.Stack/Queue                              9/7/2017
 14.Heap
-15.Interval                  10/27/2016
-16.Binary Tree               9/5/2017
-17.BST(Binary Search Tree)   9/6/2017
-18.Augmented Tree            9/5/2017
-19.BFS                       9/19/2017
+15.Interval                                 10/27/2016
+16.Binary Tree                              9/5/2017
+17.BST(Binary Search Tree)                  9/6/2017
+18.Augmented Tree                           9/5/2017
+19.BFS(shortest path, minimum steps)        9/19/2017
 20.DFS(recursion)
-21.Divide and conquer        9/7/2017
-22.Backtracking              9/6/2017
+21.Divide and conquer                       9/7/2017
+22.Backtracking                             9/6/2017
 23.Graph(Topological sort)
 24.Union Find
-25.Design                    9/6/2017
-26.Math                      10/27/2016
-27.Bit Manipulation          9/6/2017
+25.Design                                   9/6/2017
+26.Math                                     10/27/2016
+27.Bit Manipulation                         9/6/2017
 
 
 TODO: sort tree problems on pre-order, post-order, level-order approach.
