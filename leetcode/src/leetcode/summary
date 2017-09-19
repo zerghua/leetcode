@@ -1,3 +1,5 @@
+Last added N676
+
 Table of Contents(last reviewed on)
 1.Array                      9/5/2017
 2.String                     12/1/2016
@@ -18,7 +20,7 @@ Table of Contents(last reviewed on)
 17.BST(Binary Search Tree)   9/6/2017
 18.Augmented Tree            9/5/2017
 19.BFS
-20.DFS
+20.DFS(recursion)
 21.Divide and conquer        9/7/2017
 22.Graph(Topological sort)
 23.Union Find
@@ -26,7 +28,6 @@ Table of Contents(last reviewed on)
 25.Design                    9/6/2017
 26.Math                      10/27/2016
 27.Bit Manipulation          9/6/2017
-28.hard questions
 
 
 TODO: gather all dfs tree problems and have a taste of top-down and bottom-up difference.
@@ -39,6 +40,21 @@ TODO: gather all dfs tree problems and have a taste of top-down and bottom-up di
 // for array problem, if sort is not efficient enough, use hash table or two pointers/sliding window
 // if sorted or adjacent/continuous graph , it's usually binary search.
 ---------------------------------------------------
+41. First Missing Positive(require o(n) time and o(1) space)
+[hard] kind of inplace swap to its position. [TODO]
+
+
+164. Maximum Gap(return max difference between two neighbors in sorted form)(interesting)
+[hard] BF. o(nlogn) sorted array, and gap = max(gap, a[i]-a[i-1]);
+require o(n) time, bucket sort, at most (max-min)/len + 1 buckets. (TODO)
+
+
+287. Find the Duplicate Number(find the duplicate one in array with size n+1, but numbers are range [1,n])
+[hard] require o(1) space, can't modify array, running time faster than o(n^2)
+BF, time o(n^2) compare each number.
+tricky solution, map of map. (TODO)
+
+
 561. Array Partition I
 []
 
@@ -321,6 +337,27 @@ optimized o(klogk), put min(k, num1.length) to heap(sorted by sum increasing and
 ---------------------------------------------------
 2.String(reviewed on 9/29/2016, 12/1/2016)
 ---------------------------------------------------
+30. Substring with Concatenation of All Words(seem to be interesting)
+[hard] string. [2 hashtable] [TODO]
+
+
+420. Strong Password Checker
+[hard] string. look again.
+
+65. Valid Number
+[hard] String. skip white space, sign, digits, point, digits, e, reset hasNumber, skip sign, digits, space.
+return hasNumber && i==n;
+
+68. Text Justification
+[hard] [String] [TODO reduce code length]
+
+44. Wildcard Matching(string match but support '?' and '*')
+[hard] [string] time o(n). compare with N28 strstr. [TODO]
+
+273. Integer to English Words
+[hard] [String] [long code] [TODO reduce code length]
+
+
 537. Complex Number Multiplication
 [medium]
 
@@ -886,6 +923,12 @@ return ret.toArray(new int[people.length][]);
 4. special case to store middle result ret while recurse, like N69.sqrt and N278.badVersion
 )
 ---------------------------------------------------
+410. Split Array Largest Sum
+[hard] binary search, but hard to prove it's right.(TODO)
+
+4. Median of Two Sorted Arrays
+[hard] [binary search] [tricky]  [TODO]
+
 540. Single Element in a Sorted Array
 []
 
@@ -1063,6 +1106,61 @@ reset current_sum to 0 if <0 and start=i+1; overall_sum should also >0;
 ---------------------------------------------------
 9.DP(reviewed on 10/2/2016)
 ---------------------------------------------------
+174. Dungeon Game(return min number needed to reach from top left to bottom right. Matrix contains both positive and negative number, need at least 1 in each cell)
+[hard-medium] DP.
+
+
+135. Candy(higher rating kids should get more candy than its neighbors in an array, each has at least one)(interesting)
+[hard-medium] two pass DP. init set all dp[i]=1;
+1 pass left to right: dp[i] = dp[i-1]+1 if(rating[i]> rating[i-1])
+2 pass right to left: similar to first pass.
+
+85. Maximal Rectangle(problem similar to N221 Maximal Square, but can't use DP)
+[hard] DP.
+
+
+
+97. Interleaving String
+[hard] matrix DP. [TODO]
+
+72. Edit Distance(return min steps to convert str1 to str2, 3 allowed operations: add, delete, replace)
+[hard] matrix DP.  dp[0][i] = 1 and dp[i][0]=1; if c1 = c2; dp[i+1][j+1] = dp[i][j];
+else  dp[i+1][j+1] = min(dp[i][j], dp[i+1][j], dp[i][j+1]) + 1;
+
+115. Distinct Subsequences(not sure the problem. [TODO])
+[hard] 2D DP. dp[i][j] = dp[i-1][j];  if(s.charAt(i-1) == t.charAt(j-1)) dp[i][j] += dp[i-1][j-1];
+
+
+354. Russian Doll Envelopes(return max doll you can fit in, need a.length > b.length && a.width>b.width)
+[hard] DP time o(n^2), sort, similar to longest increasing sequence.  dp[j] = max(dp[j], dp[i] + 1);
+public int maxEnvelopes(int[][] envelopes) {
+    if(envelopes.length == 0) return 0;
+    Arrays.sort(envelopes, (int[] a,int[] b)->(a[0] == b[0]?a[1]-b[1]:a[0]-b[0]));
+    int[] dp = new int[envelopes.length];
+    Arrays.fill(dp,1);
+    int max = 1;
+    for(int j=1;j<envelopes.length;j++){
+        for(int i=0;i<j;i++){
+            if(envelopes[j][0]>envelopes[i][0] && envelopes[j][1] > envelopes[i][1]){
+                dp[j] = Math.max(dp[j], dp[i] + 1);
+            }
+        }
+        max = Math.max(dp[j], max);
+    }
+    return max;
+}
+[TODO] Binary search o(nlogn)?
+
+
+
+
+42. Trapping Rain Water(return how much water can be trapped in the whole array)(interesting)
+[hard-medium] 2 passes DP.
+leftMostHeight[i] = Math.max(leftMostHeight[i-1], height[i-1]);
+rightMostHeight[i] = Math.max(rightMostHeight[i+1], height[i+1]);
+ret += max(Math.min(leftMostHeight[i], rightMostHeight[i]) - height[i] , 0)
+
+
 552. Student Attendance Record 2
 [hard]
 
@@ -1294,6 +1392,12 @@ for (int i = 0; i < nums.length; i++) {
 ---------------------------------------------------
 10.Random(reviewed on 10/27/2016, 12/1/2016, 9/7/2017)
 ---------------------------------------------------
+138. Copy List with Random Pointer(return deep copy)(real question)(interesting)
+[hard-medium]
+1. o(n) space, map<node, new_node>; 1st pass to copy next node, 2ed pass to copy random node using map.
+2. o(1) space, copy each node and added to its next, as A->A'->B->B'; node.next.random = node.random.next;
+
+
 382. Linked List Random Node
 [medium] save list to array, and call random. o(n) space
 follow up: o(1) space, o(n) time. see Reservoir Sampling. update ret when rand.nextInt(++count) == target(most likely 0)
@@ -1329,6 +1433,9 @@ for(int i=a.length-1; i>=1; i--){
 ---------------------------------------------------
 11.Linked List(reviewed on 10/27/2016)(out of box thinking, modify value in node)
 ---------------------------------------------------
+25. Reverse Nodes in k-Group(reverse k linked list node at a time)
+[hard-medium] reverse part of linked list.
+
 2. Add Two Numbers(real question)
 [easy-medium] carry. one list is shorter than the other. extra carry node. similar to N415.
 
@@ -1410,6 +1517,12 @@ while(even!=null && even.next != null) {...}
 hashmap can be used as count each char/num, or store index of char/num
 hashset usually used to check if visited or not.
 ---------------------------------------------------
+149. Max Points on a Line(n points on a 2D plane, find the maximum number of points that lie on the same straight line)
+[hard-medium] o(n^2). map<slope, count> also need count of vertical and duplicate.
+
+128. Longest Consecutive Sequence(return max length of consecutive sequence in array. like 1,2,3,4 ...)(interesting and impressive)
+[hard-medium] require o(n) time. hashset<int>.
+put all num in hashset; go through each item in hashset and iterate through it's left and right, update max and remove them to prune.
 
 49. Group Anagrams(important)(real question)
 [medium] hashmap<String, list>  or hashmap<int, list>.
@@ -1624,6 +1737,33 @@ use map<distance,count> in first loop, to reduce from o(n^3) to o(n^2)
 ---------------------------------------------------
 13.Stack/Queue(reviewed on 9/29/2016, 10/27/2016, 9/7/2017)
 ---------------------------------------------------
+32. Longest Valid Parentheses(given a string contains only '(' and ')', return length of longest well-formed parentheses substring)(interesting)
+[hard] [stack to store index! ] [TODO]
+
+316. Remove Duplicate Letters(return unique lexicographical order)
+[hard] count each char and stack.  [TODO]
+
+239. Sliding Window Maximum(return an array of the max value in each k windows)(very interesting)
+[hard] BF. time o(k*(n-k)), space o(1).  Find max in each K windows for (n-k) times.
+o(n) time, but space o(k).  Deque<Integer> deque = new ArrayDeque<>();
+use keep a descending deque of [1,k] elements, get max from the first. similar to min stack problem.
+for(int i=0; i<nums.length;i++){
+    // remove the first if out of range k
+    if(!deque.isEmpty() && deque.peek() < i+1-k){
+        deque.removeFirst();
+    }
+    // pop last if less than coming in
+    while(!deque.isEmpty() && nums[deque.peekLast()] < nums[i]){
+        deque.removeLast();
+    }
+    deque.addLast(i);
+    if(i >= k-1){
+        ret[ret_index++] = nums[deque.peek()];
+    }
+}
+
+
+
 636. Exclusive Time of Functions
 []
 
@@ -1778,6 +1918,18 @@ stored reversed element on q1: push new element to front of q2, add all q1 to q2
 ---------------------------------------------------
 14.Heap
 ---------------------------------------------------
+295. Find Median from Data Stream
+[hard-medium] [2 heaps]
+Queue minHeap = new PriorityQueue<Integer>((o1,o2)-> o1-o2); maxHeap= ...(o2-o1);
+minHeap.add(num); maxHeap.add(min.poll()); if (maxHeap.size > minHeap.size) minHeap.add(maxHeap.poll);
+
+
+23. Merge k Sorted Lists(real question)
+[hard-medium] o(nlogk)
+1. o(k) space, Heap to store k node. heap = new PriorityQueue<ListNode>((o1,o2)->o1.val - o2.val);
+2. o(1) space, divide and conquer, merge 2 lists recursively.
+
+
 218. The Skyline Problem
 [hard] heap<height> descending,
 visit all points sorted by x, break tie by height(left height is negative),
@@ -1837,6 +1989,23 @@ treemap to sort key(interval.start), value=index. cellingEntry(key) to do binary
 ---------------------------------------------------
 16.Binary Tree(reviewed on 9/30/2016, 10/28/2016, 9/5/2017)
 ---------------------------------------------------
+297. Serialize and Deserialize Binary Tree(very interesting)
+[hard-medium] Serialize: recursively preorder traversal node to store each node in String separated by ',';
+Deserialize: split string by ',' to a list, recursively build tree back.
+public TreeNode deserialize(LinkedList<String> list){
+    String cur = list.removeFirst();
+    if(cur.equals("null")) return null;
+
+    TreeNode node = new TreeNode(Integer.valueOf(cur));
+    node.left = deserialize(list);
+    node.right = deserialize(list);
+    return node;
+}
+
+449. Serialize and Deserialize BST
+[medium] the same as N297.
+
+
 536. Construct Binary Tree from String
 [medium]
 
@@ -2140,6 +2309,12 @@ public int sumOfLeftLeaves(TreeNode root) {
 ---------------------------------------------------
 17.BST(Binary Search Tree)(reviewed on 9/30/2016, 10/28/2016, 9/6/2017)
 ---------------------------------------------------
+99. Recover Binary Search Tree(Two elements of a binary search tree (BST) are swapped by mistake, recover it.)
+[hard] BF is o(n) space. save node to list, and sort values and reassign to each node.
+o(1) space. morris traversal.  (TODO)
+
+
+
 538. Convert BST to Greater Tree
 []
 
@@ -2297,6 +2472,9 @@ if larger, pop all smaller and keep the popped as min, the incoming should large
 ---------------------------------------------------
 19.BFS
 ---------------------------------------------------
+301. Remove Invalid Parentheses(return all valid results after remove invalid ones)(TODO rewrite)
+[hard-medium] BFS. remove one bracket at each pos as a batch, check if some of them are valid and gather all and return.
+
 286. Walls and Gates(Fill each empty room with the distance to its nearest gate)
 [medium] BFS.
 
@@ -2328,8 +2506,11 @@ if larger, pop all smaller and keep the popped as min, the incoming should large
 [] BFS + heap
 
 ---------------------------------------------------
-20.DFS
+20.DFS(recursion)
 ---------------------------------------------------
+10. Regular Expression Matching('.' match single char, while '*' should match zero or more preceding chars.)
+[hard] [DFS recursion] (tricky to write, hard to prove correctness.) [TODO]
+
 329. Longest Increasing Path in a Matrix
 [hard] DFS + memo
 
@@ -2376,6 +2557,35 @@ if larger, pop all smaller and keep the popped as min, the incoming should large
 ---------------------------------------------------
 21.Divide and conquer(reviewed on 9/7/2017)
 ---------------------------------------------------
+87. Scramble String(test if two string are scramble of each other)
+[hard] Divide and conquer + DFS.  boolean = DFS(str1, str2)  [TODO explore DP solution]
+s1_1=s1.substring(0,i);  s1_2=s1.substring(i,n);
+s2_1=21.substring(0,i);  s2_2=s2.substring(i,n);
+if (dfs(s1_1, s2_1) && dfs(s1_2,s2_2)) return true;
+s2 from right side, s3_1 = s2.substring(n-i,n) s3_2 = s2.substring(0,n-i);
+if (dfs(s1_1, s3_1) && dfs(s1_2,s3_2)) return true;
+
+
+282. Expression Add Operators(return all possible expression with added operators(+-*) equals target)
+[hard] DFS+backtracking+Divide Conquer+Math.  void = DFS(ret, cur_str, num_string, target_int, start_int, sum_int, last_sum_int)
+public void dfs(List<String> ret, String num, int target, String path, int pos, long sum, long lastNum){
+    if(pos == num.length()){
+        if(sum == target) ret.add(path);
+        return;
+    }
+    for(int i=pos; i<num.length();i++){
+        if(num.charAt(pos) == '0' && pos != i) break; // skip corner case like 000
+        long cur = Long.parseLong(num.substring(pos,i+1));
+        if(pos == 0) dfs(ret, num, target, path + cur, i+1, cur, cur);//first num, has to be i+1
+        else{
+            dfs(ret, num, target, path + "+" + cur, i+1, sum+cur, cur);
+            dfs(ret, num, target, path + "-" + cur, i+1, sum-cur, -cur);
+            dfs(ret, num, target, path + "*" + cur, i+1, sum-lastNum + lastNum*cur, lastNum*cur);
+        }
+    }
+}
+
+
 *95. Unique Binary Search Trees II(generate all unique trees)(interesting)
 [medium-hard] DFS. foreach(start,n), left = (start,i-1), right=(i+1,n).
 public List<TreeNode> generateTrees(int start, int end) {
@@ -2512,6 +2722,30 @@ extra line see above
 ---------------------------------------------------
 24.Backtracking(better for shortest path)(reviewed on 10/3/2016 - 10/4/2016, 9/6/2017)
 ---------------------------------------------------
+37. Sudoku Solver(solve a sodoku in matrix, assume there is only one solution)
+[hard-medium] DFS+backtracking.  void = DFS(matrix, seq_int)
+for each cell if empty, DFS(matrix, seq_int+1);
+
+
+51. N-Queens(return all possible matrix solution)
+[hard] similar to N52, just need to build matrix.
+
+52. N-Queens II(return number of possible solution)
+[hard-medium] void =  DFS(n_int, row_int, visited_cols_list)
+// if i and j in diagonal, ab(i_row - j_row) == ab(i_col - j_col)
+public boolean isValidPosition(int row_index, int col_index, List<Integer> visited_cols){
+    for(int i=0;i<visited_cols.size();i++){
+        if(col_index == visited_cols.get(i) || Math.abs(row_index - i) == Math.abs(col_index - visited_cols.get(i)))
+            return false;
+    }
+    return true;
+}
+
+
+212. Word Search II
+[hard] backtracking + trie.
+
+
 17. Letter Combinations of a Phone Number(return all possible letter combinations that the number could represent)
 [medium] void = DFS(ret, cur_list, digits_string, start_int, map)
 hashmap to map number and chars. DFS on each char.
@@ -2933,6 +3167,10 @@ when pop, if node.right!=null, push all its left. It's o(1) time, because each e
 ---------------------------------------------------
 26.Math(reviewed on 10/27/2016)
 ---------------------------------------------------
+233. Number of Digit One
+[hard] [math] [TODO]
+
+
 553. Optimal Division
 []
 
@@ -3158,236 +3396,4 @@ for(int i=0;i<32;i++){
 
 477. Total Hamming Distance
 [medium]
-
-
-
-
-
-
------------------------------------------[hard]---------------------------------------------
-149. Max Points on a Line(Given n points on a 2D plane, find the maximum number of points that lie on the same straight line)
-[hard-medium] [hashtable+corner cases]time o(n^2). for each point, calculate slope for each pair and store in map<slope_double, count_int>;
-corner case of duplicate points(b.x==a.x && b.y==a.y) and vertical points (b.x==a.x)
-
-
-65. Valid Number
-[hard] skip white space, sign, digits, point, digits, e, reset hasNumber, skip sign, digits, space.
-return hasNumber && i==n;
-
-68. Text Justification
-[hard] [String] [TODO reduce code length]
-
-44. Wildcard Matching(string match but support '?' and '*')
-[hard] [string] time o(n). compare with N28 strstr. [TODO]
-
-10. Regular Expression Matching('.' match single char, while '*' should match zero or more preceding chars.)
-[hard] [DFS or DP] (tricky to write, hard to prove correctness.) [TODO]
-
-4. Median of Two Sorted Arrays
-[hard] [binary search] [tricky]  [TODO]
-
-273. Integer to English Words
-[hard] [String] [long code] [TODO reduce code length]
-
-212. Word Search II
-[hard] [TODO may need to move close to word search]
-
-30. Substring with Concatenation of All Words(seem to be interesting)
-[hard] [2 hashtable] [TODO]
-
-174. Dungeon Game(return min number needed to reach from top left to bottom right. Matrix contains both positive and negative number, need at least 1 in each cell)
-[hard-medium] Bottom-up DP.
-
-32. Longest Valid Parentheses(given a string contains only '(' and ')', return length of longest well-formed parentheses substring)(interesting)
-[hard] [stack to store index! ] [TODO]
-
-295. Find Median from Data Stream
-[hard-medium] [2 heaps]
-Queue minHeap = new PriorityQueue<Integer>((o1,o2)-> o1-o2); maxHeap= ...(o2-o1);
-minHeap.add(num); maxHeap.add(min.poll()); if (maxHeap.size > minHeap.size) minHeap.add(maxHeap.poll);
-
-135. Candy(higher rating kids should get more candy than its neighbors in an array, each has at least one)(interesting)
-[hard-medium] two pass DP. init set all dp[i]=1;
-1 pass left to right: dp[i] = dp[i-1]+1 if(rating[i]> rating[i-1])
-2 pass right to left: similar to first pass.
-
-97. Interleaving String
-[hard] matrix DP. [TODO]
-
-41. First Missing Positive(require o(n) time and o(1) space)
-[hard] kind of inplace swap to its position. [TODO]
-
-
-85. Maximal Rectangle(problem similar to N221 Maximal Square, but can't use DP)
-[hard] convert matrix to n rows of histogram, and use N84 solution to find max in each row.
-
-23. Merge k Sorted Lists(real question)
-[hard-medium] o(nlogk)
-1. o(k) space, Heap to store k node. heap = new PriorityQueue<ListNode>((o1,o2)->o1.val - o2.val);
-2. o(1) space, divide and conquer, merge 2 lists recursively.
-
-138. Copy List with Random Pointer(return deep copy)(real question)(interesting)
-[hard-medium]
-1. o(n) space, map<node, new_node>; 1st pass to copy next node, 2ed pass to copy random node using map.
-2. o(1) space, copy each node and added to its next, as A->A'->B->B'; node.next.random = node.random.next;
-
-233. Number of Digit One
-[hard] [math] [TODO]
-
-37. Sudoku Solver(solve a sodoku in matrix, assume there is only one solution)
-[hard-medium] DFS+backtracking.  void = DFS(matrix, seq_int)
-for each cell if empty, DFS(matrix, seq_int+1);
-
-282. Expression Add Operators(return all possible expression with added operators(+-*) equals target)
-[hard] DFS+backtracking+Divide Conquer+Math.  void = DFS(ret, cur_str, num_string, target_int, start_int, sum_int, last_sum_int)
-public void dfs(List<String> ret, String num, int target, String path, int pos, long sum, long lastNum){
-    if(pos == num.length()){
-        if(sum == target) ret.add(path);
-        return;
-    }
-    for(int i=pos; i<num.length();i++){
-        if(num.charAt(pos) == '0' && pos != i) break; // skip corner case like 000
-        long cur = Long.parseLong(num.substring(pos,i+1));
-        if(pos == 0) dfs(ret, num, target, path + cur, i+1, cur, cur);//first num, has to be i+1
-        else{
-            dfs(ret, num, target, path + "+" + cur, i+1, sum+cur, cur);
-            dfs(ret, num, target, path + "-" + cur, i+1, sum-cur, -cur);
-            dfs(ret, num, target, path + "*" + cur, i+1, sum-lastNum + lastNum*cur, lastNum*cur);
-        }
-    }
-}
-
-316. Remove Duplicate Letters(return unique lexicographical order)
-[hard] count each char and stack.  [TODO]
-
-87. Scramble String(test if two string are scramble of each other)
-[hard] Divide and conquer + DFS.  boolean = DFS(str1, str2)  [TODO explore DP solution]
-s1_1=s1.substring(0,i);  s1_2=s1.substring(i,n);
-s2_1=21.substring(0,i);  s2_2=s2.substring(i,n);
-if (dfs(s1_1, s2_1) && dfs(s1_2,s2_2)) return true;
-s2 from right side, s3_1 = s2.substring(n-i,n) s3_2 = s2.substring(0,n-i);
-if (dfs(s1_1, s3_1) && dfs(s1_2,s3_2)) return true;
-
-51. N-Queens(return all possible matrix solution)
-[hard] similar to N52, just need to build matrix.
-
-52. N-Queens II(return number of possible solution)
-[hard-medium] void =  DFS(n_int, row_int, visited_cols_list)
-// if i and j in diagonal, ab(i_row - j_row) == ab(i_col - j_col)
-public boolean isValidPosition(int row_index, int col_index, List<Integer> visited_cols){
-    for(int i=0;i<visited_cols.size();i++){
-        if(col_index == visited_cols.get(i) || Math.abs(row_index - i) == Math.abs(col_index - visited_cols.get(i)))
-            return false;
-    }
-    return true;
-}
-
-164. Maximum Gap(return max difference between two neighbors in sorted form)(interesting)
-[hard] BF. o(nlogn) sorted array, and gap = max(gap, a[i]-a[i-1]);
-require o(n) time, bucket sort, at most (max-min)/len + 1 buckets. (TODO)
-
-99. Recover Binary Search Tree(Two elements of a binary search tree (BST) are swapped by mistake, recover it.)
-[hard] BF is o(n) space. save node to list, and sort values and reassign to each node.
-o(1) space. morris traversal.  (TODO)
-
-25. Reverse Nodes in k-Group(reverse k linked list node at a time)
-[hard-medium] reverse part of linked list.
-
-72. Edit Distance(return min steps to convert str1 to str2, 3 allowed operations: add, delete, replace)
-[hard] matrix DP.  dp[0][i] = 1 and dp[i][0]=1; if c1 = c2; dp[i+1][j+1] = dp[i][j];
-else  dp[i+1][j+1] = min(dp[i][j], dp[i+1][j], dp[i][j+1]) + 1;
-
-239. Sliding Window Maximum(return an array of the max value in each k windows)(very interesting)
-[hard] BF. time o(k*(n-k)), space o(1).  Find max in each K windows for (n-k) times.
-o(n) time, but space o(k).  Deque<Integer> deque = new ArrayDeque<>();
-use keep a descending deque of [1,k] elements, get max from the first. similar to min stack problem.
-for(int i=0; i<nums.length;i++){
-    // remove the first if out of range k
-    if(!deque.isEmpty() && deque.peek() < i+1-k){
-        deque.removeFirst();
-    }
-    // pop last if less than coming in
-    while(!deque.isEmpty() && nums[deque.peekLast()] < nums[i]){
-        deque.removeLast();
-    }
-    deque.addLast(i);
-    if(i >= k-1){
-        ret[ret_index++] = nums[deque.peek()];
-    }
-}
-
-115. Distinct Subsequences(not sure the problem. [TODO])
-[hard] 2D DP. dp[i][j] = dp[i-1][j];  if(s.charAt(i-1) == t.charAt(j-1)) dp[i][j] += dp[i-1][j-1];
-
-297. Serialize and Deserialize Binary Tree(very interesting)
-[hard-medium] Serialize: recursively preorder traversal node to store each node in String separated by ',';
-Deserialize: split string by ',' to a list, recursively build tree back.
-public TreeNode deserialize(LinkedList<String> list){
-    String cur = list.removeFirst();
-    if(cur.equals("null")) return null;
-
-    TreeNode node = new TreeNode(Integer.valueOf(cur));
-    node.left = deserialize(list);
-    node.right = deserialize(list);
-    return node;
-}
-
-449. Serialize and Deserialize BST
-[medium] the same as N297.
-
-
-354. Russian Doll Envelopes(return max doll you can fit in, need a.length > b.length && a.width>b.width)
-[hard] DP time o(n^2), sort, similar to longest increasing sequence.  dp[j] = max(dp[j], dp[i] + 1);
-public int maxEnvelopes(int[][] envelopes) {
-    if(envelopes.length == 0) return 0;
-    Arrays.sort(envelopes, (int[] a,int[] b)->(a[0] == b[0]?a[1]-b[1]:a[0]-b[0]));
-    int[] dp = new int[envelopes.length];
-    Arrays.fill(dp,1);
-    int max = 1;
-    for(int j=1;j<envelopes.length;j++){
-        for(int i=0;i<j;i++){
-            if(envelopes[j][0]>envelopes[i][0] && envelopes[j][1] > envelopes[i][1]){
-                dp[j] = Math.max(dp[j], dp[i] + 1);
-            }
-        }
-        max = Math.max(dp[j], max);
-    }
-    return max;
-}
-[TODO] Binary search o(nlogn)?
-
-301. Remove Invalid Parentheses(return all valid results after remove invalid ones)
-[hard] DFS or BFS. (TODO)
-
-128. Longest Consecutive Sequence(return max length of consecutive sequence in array. like 1,2,3,4 ...)(interesting and impressive)
-[hard-medium] require o(n) time. hashset.
-put all num in hashset; go through each item in hashset and iterate through it's left and right, update max and remove them to prune.
-
-42. Trapping Rain Water(return how much water can be trapped in the whole array)(interesting)
-[hard-medium] 2 passes DP.
-leftMostHeight[i] = Math.max(leftMostHeight[i-1], height[i-1]);
-rightMostHeight[i] = Math.max(rightMostHeight[i+1], height[i+1]);
-ret += max(Math.min(leftMostHeight[i], rightMostHeight[i]) - height[i] , 0)
-
-287. Find the Duplicate Number(find the duplicate one in array with size n+1, but numbers are range [1,n])
-[hard] require o(1) space, can't modify array, running time faster than o(n^2)
-BF, time o(n^2) compare each number.
-tricky solution, map of map. (TODO)
-
-410. Split Array Largest Sum
-[hard] binary search, but hard to prove it's right.(TODO)
-
-
-420. Strong Password Checker
-[hard] look again.
-
-
-
-
-
-
-
-
-
-
 
