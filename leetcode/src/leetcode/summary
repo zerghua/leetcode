@@ -1106,9 +1106,12 @@ reset current_sum to 0 if <0 and start=i+1; overall_sum should also >0;
 ---------------------------------------------------
 9.DP(reviewed on 10/2/2016)
 ---------------------------------------------------
+377. Combination Sum IV(return number of possible results with the same proble of N216)(tricky, tailored for interview, (1,2) and (2,1) both are valid)
+[medium] DP.  dp[i+n] += dp[i] if (i+n<=target)
+
+
 174. Dungeon Game(return min number needed to reach from top left to bottom right. Matrix contains both positive and negative number, need at least 1 in each cell)
 [hard-medium] DP.
-
 
 135. Candy(higher rating kids should get more candy than its neighbors in an array, each has at least one)(interesting)
 [hard-medium] two pass DP. init set all dp[i]=1;
@@ -2725,29 +2728,20 @@ subset:        [1,2,3], [2,3], [3] ...      // [2,3] and [3,2] are the same subs
 90. Subsets II (contains duplicates)  [1,1,2]
 [medium] backtracking.  if(i>start && num[i]==num[i-1]) continue;
 
-39. Combination Sum(find all unique combinations in C where the candidate positive numbers sums to T) like set [3, 2, 6, 7] and target 7
-[medium] void = DFS(ret, cur_list, num_array, cur_target, start_int); the same number can be used multiple times
-dfs(ret, cur_list, num_array, cur_target-num_array[start_int], start_int);
-Arrays.sort(num_array);
+39. Combination Sum(find all unique combinations in C where the numbers sums to T) like set [3, 2, 6, 7] and target 7
+[medium] backtracking. void = DFS(ret, cur_list, num_array, cur_target, start_int); the same number can be used multiple times
 
 40. Combination Sum II (can use only once for each element.)
-[medium] void = DFS(ret, cur_list, num_array, cur_target, start_int);
-dfs(ret, cur_list, num_arary, cur_target-num_array[start_int], start_int+1); //key: start_int + 1 instead of start_int
-Arrays.sort(num_array);
+[medium] backtracking. key: i + 1 instead of i for use number only once.
 
 216. Combination Sum III(given number [1,9], each can use only once, return all possible k numbers sum to n)
-[medium] void = DFS(ret, cur_list, k_int, n_int, start_int)
-for(int i=start;i<=9;i++){}
-
-377. Combination Sum IV(return number of possible results with the same proble of N216)(tricky, tailored for interview, (1,2) and (2,1) both are valid)
-[medium] DP.  dp[i+n] += dp[i] if (i+n<=target)
+[medium] backtracking. void = DFS(ret, cur_list, k_int, n_int, start_int)  key: return when list.size() == k
 
 77. Combinations(return all combinations of k numbers out of n, (1,2) and (2,1) are duplicate)
-[medium] void = DFS(ret, cur_list, k_int, n_int, start_int)  for(int i=start;i<=n;i++)
-return when size==k. return part of the subsets problem. similar to
+[medium] backtracking. void = DFS(ret, cur_list, k_int, n_int, start_int). similar to N216
 
 79. Word Search (Is this word exists in matrix)
-[medium] boolean = DFS(matrix, word_string, start_int, i_int, j_int, visited_matrix)
+[medium] backtracking. boolean = DFS(matrix, word_string, start_int, i_int, j_int, visited_matrix)
 4 recursive calls inside one function. need visited[][] as backtrack, conditional and boundary check.
 
 93. Restore IP Addresses(given a string of digits, return all possible valid IP address.)
@@ -2761,8 +2755,7 @@ return when size==k. return part of the subsets problem. similar to
             String ip = s.substring(start, i+1);
             if(Integer.valueOf(ip)<=255){
                 dfs(ret, cur_string+"."+ip, s, i+1, pos+1);
-
-                if(Integer.valueOf(ip) == 0) break; // optimise skip something like 00, 01
+                if(Integer.valueOf(ip) == 0) break; // important, skip something like 00, 01
             }
         }
     }
@@ -2789,8 +2782,6 @@ S2. similar to N246, for each number in that range, decide if it's in that range
 2*6 ->  2* dfs(6) -> 2* 2*3
 3*4
 every dfs start>= last start, made sure it's sorted.
-
-
 
 291. Word Pattern II(Given a pattern and a string str, find if str follows the same pattern)
 [hard] backtracking?

@@ -35,7 +35,7 @@ public class N93_RestoreIPAddresses {
                 if(Integer.valueOf(ip)<=255){
                     dfs(ret, cur_string+"."+ip, s, i+1, pos+1);
 
-                    if(Integer.valueOf(ip) == 0) break; // optimise skip something like 00, 01
+                    if(Integer.valueOf(ip) == 0) break; // important, skip something like 00, 01
                 }
             }
         }

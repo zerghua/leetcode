@@ -31,6 +31,31 @@ import java.util.*;
  */
 public class N216_CombinationSum3 {
     // no company
+    // backtracking
+    // 18 / 18 test cases passed.
+    // 1 ms
+    class Solution {
+        public List<List<Integer>> combinationSum3(int k, int n) {
+            List<List<Integer>> ret = new ArrayList();
+            dfs(ret, new LinkedList(), k, 1, n);  // k in [1,9]
+            return ret;
+        }
+
+        public void dfs(List<List<Integer>> ret, LinkedList<Integer> list, int k, int start, int n){
+            if(list.size() == k){
+                if(n == 0) ret.add(new ArrayList(list));
+                return;
+            }
+            for(int i=start; i<=9; i++){
+                list.add(i);
+                dfs(ret, list, k, i+1, n-i);
+                list.removeLast();
+            }
+        }
+    }
+
+
+
     // a few notes:
     // 1. no   1,4,4
     // 2. only 1,3,5, not 1,5,3
