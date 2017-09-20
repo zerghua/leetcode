@@ -2519,6 +2519,10 @@ if larger, pop all smaller and keep the popped as min, the incoming should large
 317. Shortest Distance from All Buildings(return total shortest distance to a list of points in a matrix with wall.)
 [medium] BFS + total_distance[][] of each cell to all buildings and num_buildings_can_reach[][] for sanity checking.
 
+417. Pacific Atlantic Water Flow(Find the list of cell where water can flow to both the Pacific and Atlantic ocean)(interesting)
+[medium] BFS + DFS. matrix, similar to N317 Shortest distance from all buildings
+search from 4 edges and store (i,j) can be reached from both sides, need boolean[][] pacific, boolean[][] atlantic
+
 490. The Maze(matrix, determine if the ball could stop at the destination, ball won't stop rolling until hit a wall)
 [medium] BFS + extra while loop to let ball roll until hit wall, and go one step back.
 
@@ -2545,6 +2549,26 @@ if larger, pop all smaller and keep the popped as min, the incoming should large
 200. Number of Islands(matrix with 1(land) and 0(water), count number of islands, assume edges are water)(interesting)
 [medium] void = DFS(matrix, i_int, j_int, visited_matrix)
 DFS, for each cell(if not visited, islands++), do DFS on adjacent cells, and mark them as visited.
+
+394. Decode String( s = "2[abc]3[cd]ef", return "abcabccdcdcdef".)(interesting)
+[medium] recursion, dfs(str, index).
+    public String dfs(String s, int start){
+        if(start >= s.length()) return "";
+        StringBuilder ret = new StringBuilder();
+        int num = 0;
+        for(i=start; i<s.length(); i++){
+            char c= s.charAt(i);
+            if(Character.isLetter(c)) ret.append(c);
+            else if(Character.isDigit(c)) num = num*10 + c-'0';
+            else if(c == '['){
+                String insideStr = dfs(s, i+1);
+                for(int j=0;j<num;j++) ret.append(insideStr);
+                num = 0;
+            }else if(c == ']') return ret.toString();
+            else throw new IllegalArgumentException("Invalid input");
+        }
+        return ret.toString();
+    }
 
 419. Battleships in a Board
 [medium-easy] DFS, the same as N200 number of islands.
@@ -2810,15 +2834,61 @@ subset:        [1,2,3], [2,3], [3] ...      // [2,3] and [3,2] are the same subs
         return false;
     }
 
-320. Generalized Abbreviation
-[medium] backtracking
+464. Can I Win(Given maxChoosableInteger and desiredTotal, return if first player can force a win. can't reuse number)(TODO rewrite)
+[medium-hard] backtracking + memo.
+    public boolean dfs(int total, int[] isVisited, HashMap<String, Boolean> map){ // change to boolean[] from int[] will TLE
+        String cur = Arrays.toString(isVisited);       // memo
+        if(map.containsKey(cur)) return map.get(cur);
 
-351. Android Unlock Patterns
-[medium]
+        for(int i=0;i<isVisited.length;i++){
+            if(isVisited[i] == 0) {    // this number has not chosen
+                isVisited[i] = 1;
+                if(total <= i+1 || !dfs(total - (i+1), isVisited, map)) { // you win or the other loses
+                    isVisited[i] = 0;
+                    map.put(cur, true);
+                    return true;
+                }
+                isVisited[i] = 0; // backtrack
+            }
+        }
+        map.put(cur, false);
+        return false;
+    }
+
+320. Generalized Abbreviation(given "word", return ["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", "1o1d", "1or1", "w1r1", "1o2","2r1", "3d", "w3", "4"])
+[medium] backtracking.
+    public void dfs(List<String> ret, String word, int start, String cur, int count){
+        if(start == word.length()){
+            if(count > 0) cur += count;
+            ret.add(cur);
+            return;
+        }
+        dfs(ret, word, start + 1, cur, count + 1);                                          // skip char
+        dfs(ret ,word, start + 1, cur + (count > 0 ? count: "") + word.charAt(start), 0);   // not skip char
+    }
 
 
-*386. Lexicographical Numbers(Given an integer n, return [1,n] in lexicographical order, n=13; return [1,10,11,12,13,2,3,4,5,6,7,8,9])(interesting)
-[medium] void = DFS(pre_num_int, n_int, ret)
+351. Android Unlock Patterns(count total number of unlock patterns of Android lock screen, consist of [m,n] keys.)
+[medium] backtracking.
+    public int dfs(boolean[] isVisited, int[][] skip, int cur, int remain){
+        if(remain == 0) return 0;
+        if(remain == 1) return 1;
+
+        int ret = 0;
+        isVisited[cur] = true;
+        for(int i=1 ; i<=9; i++){
+            // only visit when i is not visited and (no need to skip or skip number visited)
+            if(!isVisited[i] && (skip[cur][i] == 0 || isVisited[skip[cur][i]])){
+                ret += dfs(isVisited, skip, i, remain-1);
+            }
+        }
+        isVisited[cur] = false;
+        return ret;
+    }
+
+
+386. Lexicographical Numbers(Given an integer n, return [1,n] in lexicographical order, n=13; return [1,10,11,12,13,2,3,4,5,6,7,8,9])(interesting)
+[medium] backtracking.
 public void dfs(int pre, int n, List ret){
     for(int i=0;i<=9;i++){
         int val = pre*10 + i;
@@ -2830,38 +2900,8 @@ public void dfs(int pre, int n, List ret){
     }
 }
 
-394. Decode String( s = "2[abc]3[cd]ef", return "abcabccdcdcdef".)(interesting)
-[medium] recursion, dfs(str, index).
-    public String dfs(String s, int start){
-        if(start >= s.length()) return "";
-        StringBuilder ret = new StringBuilder();
-        int num = 0;
-        for(i=start; i<s.length(); i++){
-            char c= s.charAt(i);
-            if(Character.isLetter(c)) ret.append(c);
-            else if(Character.isDigit(c)) num = num*10 + c-'0';
-            else if(c == '['){
-                String insideStr = dfs(s, i+1);
-                for(int j=0;j<num;j++) ret.append(insideStr);
-                num = 0;
-            }else if(c == ']') return ret.toString();
-            else throw new IllegalArgumentException("Invalid input");
-        }
-        return ret.toString();
-    }
-
-401. Binary Watch
-[easy-medium] two for loops
-Integer.bitCount(i) + Integer.bitCount(j) == num or backtracking combine hour and minute to one array
-
-
-417. Pacific Atlantic Water Flow(very interesting)
-[medium] DFS. matrix, similar to N317 Shortest distance from all buildings
-search from 4 edges and store (i,j) can be reached from both sides, need boolean[][] pacific, boolean[][] atlantic
-
-
-464. Can I Win(can't reuse number)(TODO)
-[medium-hard] DFS+backtracking+DP.
+401. Binary Watch(given integer n, return all possible times the watch could represent)
+[easy-medium] two for loops. Integer.bitCount(i) + Integer.bitCount(j) == num. can also use backtracking.
 
 
 465. OptimalAccountBalancing

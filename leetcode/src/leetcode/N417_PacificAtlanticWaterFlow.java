@@ -40,7 +40,7 @@ import java.util.*;
 public class N417_PacificAtlanticWaterFlow {
     // Google
     // 19 ms 113 / 113 test cases passed.
-    // DFS
+    // BFS
     public class Solution {
         public List<int[]> pacificAtlantic(int[][] matrix) {
             List<int[]> ret = new ArrayList();

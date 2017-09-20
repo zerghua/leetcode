@@ -39,8 +39,9 @@ package leetcode;
 import java.util.*;
 public class N464_CanIWin {
     // Linkedin
-    // 736 ms 52 / 52 test cases passed.
-    // DFS + backtracking + DP.
+    // math + backtracking + memo.
+    // 54 / 54 test cases passed.  on 9/20/2017
+    // 640 ms
     public class Solution {
         public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
             if(desiredTotal <= 0) return true;
@@ -48,18 +49,19 @@ public class N464_CanIWin {
             return dfs(desiredTotal, new int[maxChoosableInteger], new HashMap());
         }
 
-        public boolean dfs(int total, int[] state, HashMap<String, Boolean> map){
-            String cur = Arrays.toString(state);
+        public boolean dfs(int total, int[] isVisited, HashMap<String, Boolean> map){ // change to boolean[] from int[] will TLE
+            String cur = Arrays.toString(isVisited);       // memo
             if(map.containsKey(cur)) return map.get(cur);
-            for(int i=0;i<state.length;i++){
-                if(state[i] == 0) { // this number has not chosen
-                    state[i] = 1;
-                    if(total <= i+1 || !dfs(total - (i+1), state, map)) { // you win or the other loses
-                        state[i] = 0;
+
+            for(int i=0;i<isVisited.length;i++){
+                if(isVisited[i] == 0) {    // this number has not chosen
+                    isVisited[i] = 1;
+                    if(total <= i+1 || !dfs(total - (i+1), isVisited, map)) { // you win or the other loses
+                        isVisited[i] = 0;
                         map.put(cur, true);
                         return true;
                     }
-                    state[i] = 0; // backtrack
+                    isVisited[i] = 0; // backtrack
                 }
             }
             map.put(cur, false);
