@@ -23,29 +23,6 @@ import java.util.*;
  */
 public class N491_IncreasingSubsequences {
     // Yahoo
-    // correct, but TLE
-    public class Solution_first_attempt {
-        public List<List<Integer>> findSubsequences(int[] nums) {
-            List<List<Integer>> ret = new ArrayList();
-            dfs(nums, 0, ret, new ArrayList<Integer>());
-            return ret;
-        }
-
-        public void dfs(int[] nums, int start, List<List<Integer>> ret, ArrayList<Integer> list){
-            for(int i=start; i<nums.length;i++){
-                boolean isAdded = false;
-                if(list.isEmpty() || nums[i] >= list.get(list.size()-1)){
-                    isAdded = true;
-                    list.add(nums[i]);
-                }
-                if(list.size() >= 2 && !ret.contains(list))ret.add(new ArrayList(list));
-                dfs(nums, i+1, ret, list);
-                if(isAdded) list.remove(list.size()-1);
-            }
-        }
-    }
-
-
     // DFS + backtracking
     // 57 / 57 test cases passed.
     // 57 ms
@@ -69,4 +46,29 @@ public class N491_IncreasingSubsequences {
             }
         }
     }
+
+    // correct, but TLE
+    public class Solution_first_attempt {
+        public List<List<Integer>> findSubsequences(int[] nums) {
+            List<List<Integer>> ret = new ArrayList();
+            dfs(nums, 0, ret, new ArrayList<Integer>());
+            return ret;
+        }
+
+        public void dfs(int[] nums, int start, List<List<Integer>> ret, ArrayList<Integer> list){
+            for(int i=start; i<nums.length;i++){
+                boolean isAdded = false;
+                if(list.isEmpty() || nums[i] >= list.get(list.size()-1)){
+                    isAdded = true;
+                    list.add(nums[i]);
+                }
+                if(list.size() >= 2 && !ret.contains(list))ret.add(new ArrayList(list));
+                dfs(nums, i+1, ret, list);
+                if(isAdded) list.remove(list.size()-1);
+            }
+        }
+    }
+
+
+
 }

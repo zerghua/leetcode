@@ -2904,11 +2904,26 @@ public void dfs(int pre, int n, List ret){
 [easy-medium] two for loops. Integer.bitCount(i) + Integer.bitCount(j) == num. can also use backtracking.
 
 
-465. OptimalAccountBalancing
-[medium] backtracking
+465. OptimalAccountBalancing(return the minimum number of transactions required to settle the debt)
+[hard-medium] backtracking. map<person, balance>. push one's debt/credit to the next opposite person, and dfs.
+    public int dfs(ArrayList<Long> list, int start, int count){
+        while(start < list.size() && list.get(start) == 0) start++;  //important, to skip some corner cases
+        if(start >= list.size()) return count; // everyone are debt free
 
-491. Increasing Subsequences
-[medium]
+        int ret = Integer.MAX_VALUE;
+        for(int i=start+1; i<list.size(); i++){
+            if(list.get(i) * list.get(start) < 0){
+                list.set(i, list.get(i) + list.get(start));   // set start free, put all start's debt/credit to i and continue
+                ret = Math.min(ret, dfs(list, start+1, count+1));
+                list.set(i, list.get(i) - list.get(start));
+            }
+        }
+        return ret;
+    }
+
+
+491. Increasing Subsequences(find all the different possible increasing subsequences of the given array)
+[medium] backtracking. use set<list<Integer>> to remove duplicate. similar to subset problem.
 
 526. Beautiful Arrangement
 [medium]
