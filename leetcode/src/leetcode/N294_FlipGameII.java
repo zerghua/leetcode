@@ -142,11 +142,31 @@ package leetcode;
  */
 public class N294_FlipGameII {
     // Google (Premium)
-    // 33 / 33 test cases passed.
-    // 22 ms
     // DFS + backtracking, naive solution, o(n!!) time complexity ?
     // can do a memorization to further reduce complexity
+    // I think this can work, but has not tested
     public class Solution {
+        public boolean canWin(String s) {
+            char[] a = s.toCharArray();
+            return dfs(a);
+        }
+
+        public boolean dfs(char[] a){
+            for(int i=0; i<a.length - 1; i++){
+                if(a[i] == '+' && a[i+1] == '+'){
+                    a[i] = '-'; a[i+1] = '-';
+                    if(!dfs(a)) return true;
+                    a[i] = '+'; a[i+1] = '+';
+                }
+            }
+            return false;
+        }
+    }
+
+
+    // 33 / 33 test cases passed.
+    // 22 ms
+    public class Solution2 {
         public boolean canWin(String s) {
             char[] a = s.toCharArray();
             return dfs(a);

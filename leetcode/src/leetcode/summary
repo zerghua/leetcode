@@ -2542,6 +2542,20 @@ if larger, pop all smaller and keep the popped as min, the incoming should large
 10. Regular Expression Matching('.' match single char, while '*' should match zero or more preceding chars.)
 [hard] [DFS recursion] (tricky to write, hard to prove correctness.) [TODO]
 
+200. Number of Islands(matrix with 1(land) and 0(water), count number of islands, assume edges are water)(interesting)
+[medium] void = DFS(matrix, i_int, j_int, visited_matrix)
+DFS, for each cell(if not visited, islands++), do DFS on adjacent cells, and mark them as visited.
+
+419. Battleships in a Board
+[medium-easy] DFS, the same as N200 number of islands.
+
+247. Strobogrammatic Number II(build all such number given length n)
+[medium] dfs, build string inside out.
+
+248. Strobogrammatic Number III(return count of such number in a range)
+[medium] S1, similar to N247, build all strings in given length and filter out in a range.
+S2. similar to N246, for each number in that range, decide if it's in that range.
+
 329. Longest Increasing Path in a Matrix
 [hard] DFS + memo
 
@@ -2744,8 +2758,11 @@ subset:        [1,2,3], [2,3], [3] ...      // [2,3] and [3,2] are the same subs
 [medium] backtracking. boolean = DFS(matrix, word_string, start_int, i_int, j_int, visited_matrix)
 4 recursive calls inside one function. need visited[][] as backtrack, conditional and boundary check.
 
-93. Restore IP Addresses(given a string of digits, return all possible valid IP address.)
-[medium] void = DFS(ret, cur_list, word_string, start_int, level_int)
+212. Word Search II(matrix and a list of words from the dictionary, find all words in the board)(TODO, rewrite trie)
+[hard-medium] backtracking + trie(for fast search word in dictionary). mark visited as '#', reset after done.
+
+93. Restore IP Addresses(given a string of digits, return all possible valid IP address)
+[medium] backtracking. void = DFS(ret, cur_list, word_string, start_int, level_int)
     public void dfs(List<String> ret, String cur_string, String s, int start, int pos){
         if(pos == 4 ){
             if(start >= s.length()) ret.add(cur_string.substring(1));
@@ -2761,42 +2778,43 @@ subset:        [1,2,3], [2,3], [3] ...      // [2,3] and [3,2] are the same subs
     }
 
 
-200. Number of Islands(matrix with 1(land) and 0(water), count number of islands, assume edges are water)(interesting)
-[medium] void = DFS(matrix, i_int, j_int, visited_matrix)
-DFS, for each cell(if not visited, islands++), do DFS on adjacent cells, and mark them as visited.
-
-212. Word Search II
-[hard] backtracking + trie.
-
-
-247. Strobogrammatic Number II(build all such number given length n)
-[medium] dfs, build string inside out.
-
-248. Strobogrammatic Number III(return count of such number in a range)
-[medium] S1, similar to N247, build all strings in given length and filter out in a range.
-S2. similar to N246, for each number in that range, decide if it's in that range.
-
-254. Factor Combinations(interesting)
-[medium] add(i, remain), remove(remain), dfs(remain), remove(i)
-12
-2*6 ->  2* dfs(6) -> 2* 2*3
-3*4
-every dfs start>= last start, made sure it's sorted.
+254. Factor Combinations(takes an integer n and return all possible combinations of its factors)(interesting)
+[medium] backtracking.  12  == 2*6 ->  2* dfs(6) -> 2* 2*3  == 3*4
+    public void dfs(List<List<Integer>> ret, LinkedList<Integer> list, int start, int num){
+        for(int i = start; i<= Math.sqrt(num); i++){
+            int remain = num / i;
+            if(num % i == 0){
+                list.add(i);
+                list.add(remain);
+                ret.add(new LinkedList(list));
+                list.removeLast();
+                dfs(ret, list, i, remain);
+                list.removeLast();
+            }
+        }
+    }
 
 291. Word Pattern II(Given a pattern and a string str, find if str follows the same pattern)
-[hard] backtracking?
+[hard] backtracking + map<char, str> + set<str>(to skip matched str) + startsWith + greedy.
 
-294. Flip Game II(determine if the starting player can guarantee a win, by take turns to flip two consecutive "++" into "--")
-[medium] backtracking
+294. Flip Game II(return if starting player can guarantee a win, by take turns to flip two consecutive "++" into "--")
+[medium] backtracking.
+    public boolean dfs(char[] a){
+        for(int i=0; i<a.length - 1; i++){
+            if(a[i] == '+' && a[i+1] == '+'){
+                a[i] = '-'; a[i+1] = '-';
+                if(!dfs(a)) return true;
+                a[i] = '+'; a[i+1] = '+';
+            }
+        }
+        return false;
+    }
 
 320. Generalized Abbreviation
 [medium] backtracking
 
 351. Android Unlock Patterns
 [medium]
-
-419. Battleships in a Board
-[medium-easy] DFS, the same as N200 number of islands.
 
 
 *386. Lexicographical Numbers(Given an integer n, return [1,n] in lexicographical order, n=13; return [1,10,11,12,13,2,3,4,5,6,7,8,9])(interesting)
