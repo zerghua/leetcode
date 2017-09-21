@@ -346,6 +346,8 @@ optimized o(klogk), put min(k, num1.length) to heap(sorted by sum increasing and
 125. Valid Palindrome(considering only alphanumeric characters and ignoring cases)
 [easy-medium] consider case and special chars. two pointers start from left and right end.
 
+214. Shortest Palindrome(add chars in front of string to make it palindrome)(tricky)
+[hard] String, recursive. prefix, suffix and middle.
 
 30. Substring with Concatenation of All Words(seem to be interesting)
 [hard] string. [2 hashtable] [TODO]
@@ -1545,6 +1547,8 @@ put all num in hashset; go through each item in hashset and iterate through it's
 1. Arrays.sort(word.toCharArray()) and String(char[]) as key in map.   o(nlogn) time
 2. foreach char[c-'a']++; String(char[]) as key in map.  o(n) time
 
+409. Longest Palindrome(find the length of the longest palindromes that can be built on a given string)
+[easy-medium] map<char,count> ret += (odd-1)
 
 242. Valid Anagram(is valid anagram of two strings.)
 [easy] hashtable or sort string.
@@ -2721,6 +2725,11 @@ find each operator, divide it into two half.
 312. Burst Balloons(Find the maximum coins you can collect by bursting the balloons wisely)
 [hard]
 
+
+336. Palindrome Pairs(Find all pairs of distinct concatenation of the two words in a list is a palindrome)
+[hard] hashtable + divide conquer. split each words str1 and str2, and check if isPal(str2) and reversed(str2) in map.
+
+
 *395. Longest Substring with At Least K Repeating Characters(interesting)
 [medium] divide on the first char which has count < k
     public int longestSubstring(String s, int k) {
@@ -2982,35 +2991,24 @@ public void dfs(int pre, int n, List ret){
     }
 
 
-214. Shortest Palindrome(add chars in front of string to make it palindrome)(tricky)
-[hard] String, recursive. prefix, suffix and middle. [TODO]
+266. Palindrome Permutation(determine if a permutation of the string could form a palindrome)(map<char,count>)
+267. Palindrome Permutation II(return all the palindromic permutations given a string)
+[medium] backtracking. permute half of the string.
+    public void dfs(int[] map, List<String> ret, String s, int length, String mid){
+        if(s.length() == length){
+            String reverse = new StringBuilder(s).reverse().toString();
+            ret.add(s + mid + reverse);
+            return;
+        }
 
-266. Palindrome Permutation(VIP)
-267. Palindrome Permutation II(VIP)(real question)(Akamai)
-[medium] return all valid permutation string.
-backtracking, count each char to int[256], store mid char, build half of the string.
-dfs(int[] map, List<String> ret, String s, int length, String mid){
-    if(s.length() == length) return{ret.add(s + mid + reversed);}
-    for(i in [0,255]){
-        if(map[i]>0){
-            map[i]--;
-            dfs(map, ret, s+ (char)i, length, mid);
-            map[i]++;
+        for(int i=0; i<256; i++){  // very smart to avoid duplicate
+            if(map[i] > 0){
+                map[i]--;
+                dfs(map, ret, s + (char)i, length, mid);
+                map[i]++;
+            }
         }
     }
-}
-
-
-336. Palindrome Pairs
-[hard] hashtable + divide conquer.
-split each words str1 and str2, and check if isPal(str2) and reversed(str2) in map. [TODO]
-
-409. Longest Palindrome(interesting)
-[easy-medium] ret += (odd-1)
-
-479. Largest Palindrome Product
-[easy]
-
 
 
 ---------------------------------------------------
@@ -3229,6 +3227,8 @@ when pop, if node.right!=null, push all its left. It's o(1) time, because each e
 233. Number of Digit One
 [hard] [math] [TODO]
 
+479. Largest Palindrome Product(Find the largest palindrome from the product of two n-digit numbers, return it mod 1337)
+[medium] math.
 
 553. Optimal Division
 []
