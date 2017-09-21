@@ -337,6 +337,16 @@ optimized o(klogk), put min(k, num1.length) to heap(sorted by sum increasing and
 ---------------------------------------------------
 2.String(reviewed on 9/29/2016, 12/1/2016)
 ---------------------------------------------------
+5. Longest Palindromic Substring(find the longest palindromic substring in S)(important)
+[medium] string. search from each (i,i) and (i,i+1) as center.
+
+9. Palindrome Number(Determine whether an integer is a palindrome)(real question)
+[easy-medium] convert to string or create div the same digits as number, use it to get left digit
+
+125. Valid Palindrome(considering only alphanumeric characters and ignoring cases)
+[easy-medium] consider case and special chars. two pointers start from left and right end.
+
+
 30. Substring with Concatenation of All Words(seem to be interesting)
 [hard] string. [2 hashtable] [TODO]
 
@@ -1109,6 +1119,9 @@ reset current_sum to 0 if <0 and start=i+1; overall_sum should also >0;
 377. Combination Sum IV(return number of possible results with the same proble of N216)(tricky, tailored for interview, (1,2) and (2,1) both are valid)
 [medium] DP.  dp[i+n] += dp[i] if (i+n<=target)
 
+132. Palindrome Partitioning II(Return the minimum cuts needed for a palindrome partitioning of s)
+[hard-medium] DP 2D + 1D. backtracking as 131 will TLE. add another DP condition in isPal[][] dp. o(n^2)
+DP cut[j] = min(cut[j], cut[i-1] + 1) inside a[i] == a[j] condition.
 
 174. Dungeon Game(return min number needed to reach from top left to bottom right. Matrix contains both positive and negative number, need at least 1 in each cell)
 [hard-medium] DP.
@@ -2924,47 +2937,50 @@ public void dfs(int pre, int n, List ret){
 
 491. Increasing Subsequences(find all the different possible increasing subsequences of the given array)
 [medium] backtracking. use set<list<Integer>> to remove duplicate. similar to subset problem.
+    public void dfs(int[] nums, int start, Set<List<Integer>> ret, ArrayList<Integer> list){
+        if(list.size() >= 2)ret.add(new ArrayList(list));
 
-526. Beautiful Arrangement
-[medium]
-
-
-5. Longest Palindromic Substring(read question)(important)
-[medium-hard] 1. BF is o(n^3).  2. Manacher's Algorithm is o(n). non-trivial.
-3. for each i, call isPal(i,i) and isPal(i,i+1) o(n^2)
-4. getPal(s,i,i) and getPal(s,i,i+1);  use this solution.
-    for(int i=0;i<s.length();i++){
-        String cur = isPal(s, i, i);
-        if(cur.length() > ret.length()) ret = cur;
-
-        cur = isPal(s, i, i+1);
-        if(cur.length() > ret.length()) ret = cur;
+        for(int i=start; i<nums.length;i++){
+            if(list.isEmpty() || nums[i] >= list.get(list.size()-1)){
+                list.add(nums[i]);
+                dfs(nums, i+1, ret, list);
+                list.remove(list.size()-1);
+            }
+        }
     }
-    return ret;
 
-public String isPal(String s, int left, int right){
-    while(left>=0 && right<s.length()){
-        if(s.charAt(left) == s.charAt(right)){
-            left--; right++;
-        }else break;
+526. Beautiful Arrangement(return number of beautiful arrangements, The number at the ith position is divisible by i or reverse.)
+[medium] backtracking. similar to permutation, swap each two number if meet condition then dfs.
+    public void dfs(int[] nums, int k){
+        if( k == 0){
+            ret++;
+            return;
+        }
+        for(int i=k; i>0 ; i--){
+            swap(nums, i, k);
+            if(nums[k] % k == 0 || k % nums[k] == 0) dfs(nums, k-1);
+            swap(nums, i, k);
+        }
     }
-    return s.substring(left+1, right);
-}
 
-9. Palindrome Number(real question)
-[easy-medium] 1. convert to string.
-2. create div the same digits as number, use it to get left digit
-
-125. Valid Palindrome
-[easy-medium] consider case and special chars. two pointers start from left and right end.
 
 131. Palindrome Partitioning(find all possible palindrome partitioning of s)
-[medium-hard] DP+DFS+backtracking.
-DP(n^2) to store all substring isPal, DFS+backtracking on all substring. (~ o(n!))
+[medium-hard] backtracking + DP(fast decide if s(i,j) is palindrome)
+    public void dfs(List<List<String>> ret, String s, boolean[][] isPal, List<String> cur_list, int start){
+        if(start == s.length()){
+            ret.add(new ArrayList<>(cur_list));
+            return;
+        }
 
-132. Palindrome Partitioning II(Return the minimum cuts needed for a palindrome partitioning of s)
-[hard] similar solution as 131 will TLE. add another DP condition in isPal[][] dp. o(n^2)
-DP cut[j] = min(cut[j], cut[i-1] + 1) inside a[i] == a[j] condition.
+        for(int i=start; i<s.length();i++){
+            if(isPal[start][i]){
+                cur_list.add(s.substring(start,i+1));
+                dfs(ret, s, isPal, cur_list, i+1);
+                cur_list.remove(cur_list.size()-1);
+            }
+        }
+    }
+
 
 214. Shortest Palindrome(add chars in front of string to make it palindrome)(tricky)
 [hard] String, recursive. prefix, suffix and middle. [TODO]

@@ -9,31 +9,6 @@ package leetcode;
  */
 public class N5_LongestPalindromicSubstring {
     // Amazon, Microsoft and Bloomberg
-    // 38 ms, time O(n^2), space O(1)
-    public String longestPalindrome(String s) {
-        if(s==null || s.length()==1) return s;
-
-        String longest="";
-        for(int i=0;i<s.length();i++){
-            String tmp = findPalindromeAroundCenter(s,i,i);
-            if(tmp.length() > longest.length()) longest = tmp;
-
-            tmp = findPalindromeAroundCenter(s,i,i+1);
-            if(tmp.length() > longest.length()) longest = tmp;
-        }
-        return longest;
-    }
-
-    private String findPalindromeAroundCenter(String s, int start, int end) {
-        while(start>=0 && end<s.length() ){
-            if(s.charAt(start) == s.charAt(end)){
-                start--;
-                end++;
-            }else break;
-        }
-        return s.substring(start+1, end); // important
-    }
-
     // added on 10/7/2016
     // 42 ms 89 / 89 test cases passed.
     public class Solution {
@@ -59,6 +34,33 @@ public class N5_LongestPalindromicSubstring {
             return s.substring(left+1, right);
         }
     }
+
+    // 38 ms, time O(n^2), space O(1)
+    public String longestPalindrome(String s) {
+        if(s==null || s.length()==1) return s;
+
+        String longest="";
+        for(int i=0;i<s.length();i++){
+            String tmp = findPalindromeAroundCenter(s,i,i);
+            if(tmp.length() > longest.length()) longest = tmp;
+
+            tmp = findPalindromeAroundCenter(s,i,i+1);
+            if(tmp.length() > longest.length()) longest = tmp;
+        }
+        return longest;
+    }
+
+    private String findPalindromeAroundCenter(String s, int start, int end) {
+        while(start>=0 && end<s.length() ){
+            if(s.charAt(start) == s.charAt(end)){
+                start--;
+                end++;
+            }else break;
+        }
+        return s.substring(start+1, end); // important
+    }
+
+
 
 
 
