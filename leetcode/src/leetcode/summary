@@ -22,7 +22,7 @@ Table of Contents(last reviewed on)
 19.BFS(shortest path, minimum steps)        9/19/2017
 20.DFS(recursion)
 21.Divide and conquer                       9/7/2017
-22.Backtracking                             9/6/2017
+22.Backtracking                             9/21/2017
 23.Graph(Topological sort)
 24.Union Find
 25.Design                                   9/6/2017
@@ -2560,8 +2560,9 @@ search from 4 edges and store (i,j) can be reached from both sides, need boolean
 ---------------------------------------------------
 20.DFS(recursion)
 ---------------------------------------------------
-10. Regular Expression Matching('.' match single char, while '*' should match zero or more preceding chars.)
-[hard] [DFS recursion] (tricky to write, hard to prove correctness.) [TODO]
+10. Regular Expression Matching('.' match single char, while '*' should match zero or more preceding chars.)(important)
+[hard-medium] recursion. without '*' just regular one-to-one match. * can match 0 char(case 1), multiple chars(case 2).
+
 
 200. Number of Islands(matrix with 1(land) and 0(water), count number of islands, assume edges are water)(interesting)
 [medium] void = DFS(matrix, i_int, j_int, visited_matrix)
