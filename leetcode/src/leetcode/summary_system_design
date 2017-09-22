@@ -32,7 +32,13 @@
 
 
 
+8. Design Rate limiter
+https://github.com/google/guava/blob/9b94fb3965c6869b0ac47420958a4bbae0b2d54c/android/guava/src/com/google/common/util/concurrent/SmoothRateLimiter.java
 
+
+9. Design Hit Counter
+http://blog.gainlo.co/index.php/2016/09/12/dropbox-interview-design-hit-counter/?utm_source=glassdoor&utm_campaign=glassdoor&utm_medium=92116
+It starts with a simple question – if you are building a website, how do you count the number of visitors for the past 1 minute?
 
 
 
