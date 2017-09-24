@@ -46,6 +46,7 @@ public class A_calculateExponentiation {
 
 
         System.out.println((int)Math.round(4 / (1 - 2.0/3)));
+        System.out.println((char)(5 + '0'));
     }
 
 
