@@ -41,6 +41,127 @@ http://blog.gainlo.co/index.php/2016/09/12/dropbox-interview-design-hit-counter/
 It starts with a simple question – if you are building a website, how do you count the number of visitors for the past 1 minute?
 
 
+10. Design a simplified version of Twitter where people can post tweets, follow other people and favorite tweets.
+
+Q1: First of all, how many users do we expect this system to handle?
+A1: “well… to make things interesting, let’s aim for 10 million users generating around 100 million requests per day”
+
+
+Q2: how connected will these users be?(they will form a graph with the users being the nodes and the edges will represent who follows whom. )
+A2: “we expect that each user will be following 200 other users on average,
+but expect some extraordinary users with tens of thousands of followers”
+
+
+Q3: We have another dimension in the application: tweets.
+Producing new tweets and favoriting them should be the most common write operations in the application.
+But how many requests will that generate?
+A3: “Hm, that’s hard to say… we expect that there will be a maximum of 10 million tweets per day and
+each tweet will probably be favorited twice on average but again, expect some big outliers.”
+
+
+Let’s make a few very simple calculations with the information we just received.
+We will have around 10 million users. Average number of followed other users is 200.
+This means that the network of users will have about 200 * 10 million edges. This makes 2 billion edges.
+If the average number of tweets per day is 10 million the number of favorites will then be 20 million.
+
+
+As it is often the case, we can divide our architecture in two logical parts:
+1) the logic, which will handle all incoming requests to the application and
+2) the data storage that we will use to store all the data that needs to be persisted.
+If you learn enough about popular software systems, especially the ones that are accessed
+through a web browser you will notice that such a breakdown is quite popular and natural.
+
+ our application will need to handle requests for:
+
+    posting new tweets(write)
+    following a user(write)
+    favoriting a tweet(write)
+    displaying data about users and tweets(read)
+
+
+Handling user requests ?
+We know that the expected daily load is 100 million requests.
+This means that on average the app will receive around 1150 requests per second.
+
+
+
+
+Load balancing
+across multiple application instances is a commonly used technique for optimizing resource utilization,
+maximizing throughput, reducing latency, and ensuring fault-tolerant configurations.
+
+
+The following load balancing mechanisms (or methods) are supported in nginx:
+
+    round-robin — requests to the application servers are distributed in a round-robin fashion,
+    least-connected — next request is assigned to the server with the least number of active connections,
+    ip-hash — a hash-function is used to determine what server should be selected for the next request
+             (based on the client’s IP address).
+
+
+Session persistence
+
+Please note that with round-robin or least-connected load balancing, each subsequent client’s request can be
+potentially distributed to a different server. There is no guarantee that the same client will be always
+directed to the same server.
+
+If there is the need to tie a client to a particular application server — in other words, make the client’s
+session “sticky” or “persistent” in terms of always trying to select a particular server —
+the ip-hash load balancing mechanism can be used.
+
+With ip-hash, the client’s IP address is used as a hashing key to determine what server in a server group
+should be selected for the client’s requests. This method ensures that the requests from the same client
+will always be directed to the same server except when this server is unavailable.
+
+
+ There are 3 important factors used to measure a load balancer's performance :
+
+    The session rate(depends on CPU)(request goes in)
+    This factor is very important, because it directly determines when the load balancer will not be
+    able to distribute all the requests it receives. It is mostly dependant on the CPU. Sometimes,
+    you will hear about requests/s or hits/s, and they are the same as sessions/s in HTTP/1.0 or HTTP/1.1
+    with keep-alive disabled. Requests/s with keep-alive enabled is generally much higher (since it significantly
+    reduces system-side work) but is often meaningless for internet-facing deployments since clients
+    often open a large amount of connections and do not send many requests per connection on average.
+    This factor is measured with varying object sizes, the fastest results generally coming from
+    empty objects (eg: HTTP 302, 304 or 404 response codes). Session rates around 100,000 sessions/s
+    can be achieved on Xeon E5 systems in 2014.
+
+    The session concurrency(depends on memory)
+    This factor is tied to the previous one. Generally, the session rate will drop when the number of
+    concurrent sessions increases (except with the epoll or kqueue polling mechanisms). The slower the servers,
+    the higher the number of concurrent sessions for a same session rate. If a load balancer receives 10000 sessions
+    per second and the servers respond in 100 ms, then the load balancer will have 1000 concurrent sessions.
+    This number is limited by the amount of memory and the amount of file-descriptors the system can handle.
+    With 16 kB buffers, HAProxy will need about 34 kB per session, which results in around 30000 sessions
+    per GB of RAM. In practise, socket buffers in the system also need some memory and 20000 sessions per GB of RAM
+    is more reasonable. Layer 4 load balancers generally announce millions of simultaneous sessions
+    because they need to deal with the TIME_WAIT sockets that the system handles for free in a proxy.
+    Also they don't process any data so they don't need any buffer. Moreover, they are sometimes designed
+    to be used in Direct Server Return mode, in which the load balancer only sees forward traffic,
+    and which forces it to keep the sessions for a long time after their end to avoid cutting sessions
+    before they are closed.
+
+    The data forwarding rate(depend on CPU)(data going out)
+    This factor generally is at the opposite of the session rate. It is measured in Megabytes/s (MB/s),
+    or sometimes in Gigabits/s (Gbps). Highest data rates are achieved with large objects to minimise the overhead
+    caused by session setup and teardown. Large objects generally increase session concurrency, and high session
+    concurrency with high data rate requires large amounts of memory to support large windows. High data rates
+    burn a lot of CPU and bus cycles on software load balancers because the data has to be copied from the input
+    interface to memory and then back to the output device. Hardware load balancers tend to directly switch packets
+    from input port to output port for higher data rate, but cannot process them and sometimes fail to touch a header
+    or a cookie. Haproxy on a typical Xeon E5 of 2014 can forward data up to about 40 Gbps. A fanless 1.6 GHz Atom CPU
+    is slightly above 1 Gbps.
+
+
+A load balancer's performance related to these factors is generally announced for the best case (eg: empty objects
+for session rate, large objects for data rate). This is not because of lack of honesty from the vendors, but because
+it is not possible to tell exactly how it will behave in every combination. So when those 3 limits are known,
+the customer should be aware that it will generally perform below all of them. A good rule of thumb on software
+load balancers is to consider an average practical performance of half of maximal session and data rates for
+average sized objects.
+
+
 
 
 Picking the right architecture = Picking the right battles + Managing trade-offs
