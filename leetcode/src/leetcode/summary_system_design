@@ -399,6 +399,154 @@ Our desire is to not respond in more than 10 seconds to each request."
 
 
 
+Given that the library could take up to 5 seconds to respond, looks like we can allow ourselves to have
+at most 5 more seconds of additional latency in order not to go over the 10 seconds limit.
+This means that it would not be feasible to have a system in which the requests are piled up and processed later.
+The processing must be done in real-time with no significant slow down.
+
+
+
+
+However, this information is not quite enough because it would be problematic if a lot of these requests
+come in at the same time. Then our service would be overwhelmed to process all incoming requests and it would
+take a long time to respond to the ones that came last in the batch. So, it’s good to ask about this, too:
+what is the expected maximum number of simultaneous requests?
+
+For this task the answer will be like that:
+    "We have some clues, which indicate that we can expect up to 50 requests per second at times.
+     But the design should allow us to relatively easily scale up to handle more traffic in the future."
+
+
+
+Another question that comes to mind is: do you want to store the results of the processing for a longer period of time?
+
+The answer is:
+    "Yes, certainly. We want to store the incoming text articles and the summary for each one of them in order to
+     compute various statistics and also to be able to inspect the performance of our algorithms."
+
+
+
+Another important question that comes to mind is related to the user experience.
+Waiting for 10 seconds on a web site doesn’t sound right. We should clarify what is the expected way of presenting
+the results within the website and the mobile app.
+
+
+The interviewer will then explain:
+    "Good point! After our users send a text article through the website or the mobile app,
+     we want to redirect them to a screen, which indicates that the summarization is in progress and
+     update the screen with the results once they are available."
+
+
+
+
+Here is a summary of what we know so far:
+
+    The expected monthly requests are around 1 million
+
+    There should be at most 50 requests per second but the architecture should easily be expandable
+    to handle more than that, if needed
+
+    Responses should not take more than 10 second,
+    with the summarization library possibly taking 5 seconds to do its job
+
+    The summaries will be presented to the users asynchronously,
+    meaning that we will not wait for the summary to be in the HTTP response that comes after the initial HTTP request
+
+
+
+
+
+High-level Design
+It makes most sense to have one service sitting in the back-end serving requests from all possible front-end clients
+instead of having multiple services, one for each type of client. This back-end service will contain the code,
+which parses text articles and produces summaries for them by using the existing library.
+
+
+
+Now comes the question of how will the front-end clients talk to this back-end service.
+One possibility is to just have a RESTful API exposed by the summarization service, which all the front-end clients
+send HTTP requests to. This is a rather simple solution but it can have a few problems. We will look at these problems
+and discuss a better approach when we start discussing the scalability issues of our architecture.
+
+
+
+In order to decide what storage solution is good we should probably know the expected size of the text articles
+and the summaries. Hm, seems like we didn’t ask this question initially. It’s ok to come up with additional questions
+in the process of building our design. So, let’s ask that.
+
+
+The interviewer replies:
+    "We will limit the size of the text articles to be no more than 100 KB, this is our target at the moment.
+     The summaries are meant to be quite smaller than that - no more than 1KB in size."
+
+
+
+
+Low-level Issues
+
+We could make sure that we have a number of instances that are running the summarization service and put a load balancer
+in front of them. This will allow us to handle more requests and scale horizontally by adding more instances of the
+summarization service. The load balancer will route the requests to the instances that are less loaded.
+
+
+However, there is another problem with this solution. If for some reason an instance of the summarization service
+is not able to handle requests and a request is routed to it, this request will most likely be lost. Such a thing
+could happen if all allocated instances are busy with other work. Also, if a given instance is not responding
+for some reason, due to a bug in the code, or some other issue,
+we could again lose a request that was routed to it by the load balancer.
+
+
+
+
+Let’s try message queues!
+
+In short, a message queue will allow us to enqueue on it all summarization requests.
+Let’s call all such requests stored on the queue jobs. Then, if we have a set of workers running
+the summarization service, each worker could pull jobs from the queue, one at a time.
+Each job can be processed by the worker that picked it up and the results can be stored in the database.
+
+
+We will need a message queue that allows multiple consumers to pull messages from it because we will want to be able
+to start a number of instances running the summarization service. This way we can easily scale up.
+
+Imagine that suddenly the traffic increases. The queue will start to fill up with jobs because the allocated workers
+cannot handle the increased number of requests. We could have a monitoring service that would detect this situation
+and would spin up additional workers, which will also start pulling from the queue
+and will alleviate the load on the existing workers.
+
+
+Also, with this solution, we know that only properly operating workers will be pulling jobs from the queue.
+Hence, jobs will not be lost due to not responding workers.
+
+
+
+It is still possible that a worker takes a job but crashes while processing it.
+For example, if we have a bug in the summarization code and it crashes in the middle of the operation.
+This means that a job was pulled from the queue but a result was never computed.
+Does this mean that the job was lost? Not necessarily.
+
+
+We will need to make sure that our message queue requires an acknowledgement that the job was successfully processed.
+This means that each worker will have to let the queue know that the job that it pulled was processed.
+If the worker crashes it won’t notify the queue. After a given timeout passes the queue will assume that the job
+was not processed successfully and will make it available for pulling.
+This can be done a number of times until the job is discarded to some other place.
+
+
+
+
+As an example, the SQS service offered in AWS, has a default number of retries, currently set to 10.
+If a job is pulled and not acknowledged 10 times it can be moved to a special queue called dead-letter queue.
+If such a queue is set up, it can be monitored for failed jobs. It will hold such jobs a given number of days,
+so that action can be taken on them.
+
+
+
+
+The important point is that using a message queue we achieve two useful things:
+
+    We are ready to scale up easily by spinning up more summarization workers
+    We can handle unexpected problems with jobs processing without losing jobs
 
 
 
@@ -406,6 +554,15 @@ Our desire is to not respond in more than 10 seconds to each request."
 
 
 
+
+
+
+
+
+
+
+
+How to check similarities of two large file?
 
 
 
