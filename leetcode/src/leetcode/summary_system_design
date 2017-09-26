@@ -162,6 +162,252 @@ load balancers is to consider an average practical performance of half of maxima
 average sized objects.
 
 
+Storing the data
+We need to store data about our users and their tweets to make the application complete.
+
+After this quick analysis it is obvious that the tweets will take up the majority of our storage’s space.
+In general, you don’t need to make very detailed calculations especially if you don’t have much time. However,
+it is important to build a rough idea about the size of the data that you will need to handle. If you don’t figure
+that out any design decision at the higher or lower level may be inappropriate.
+
+
+We know that the expected size of the data to store is around 2.6 - 2.7 terabytes.
+Real-life examples show that famous companies like Twitter and Facebook manage to use relational databases
+for handling much bigger loads than that.
+
+
+
+Twitter's original tweet store:
+
+    Temporally sharded tweets was a good-idea-at-the-time architecture.
+
+    Temporal sharding simply means tweets from the same date range are stored together on the same shard.
+
+    The problem is tweets filled up one machine, then a second, and then a third.
+    You end up filling up one machine after another.
+
+    This is a pretty common approach and one that has some real flaws:
+        Load balancing. Most of the old machines didn't get any traffic because people are interested in
+        what is happening now, especially with Twitter.
+
+        Expensive. They filled up one machine, with all its replication slaves, every three weeks,
+        which is an expensive setup.
+
+        Logistically complicated. Building a whole new cluster every three weeks is a pain for the DBA team.
+
+
+
+In order to handle the incoming read requests we may need to use a caching solution, which stands in front of
+the database server. One such popular tool is memcached. It could save us a lot of reads directly from the database.
+
+
+For example, you just mentioned using a caching solution and imagine that the interviewer asks you:
+
+    “Sounds good, but could you tell me more about why reading from the cache would be better than
+    just reading from the database?”
+
+To answer the question asked, we could say that a database stores data on disk and it is much slower to read
+from disk than from memory. A solution like memcached stores data in memory, which provides way faster access.
+We would need to clarify further that databases usually have their own caching mechanisms but with memcached
+we have better control over what gets cached and how. For example, we could store more complex pieces of data
+like the results from popular queries.
+
+
+Going further, in order to make it possible to answer read queries fast we will definitely need to
+add the appropriate indexes. This will also be vital for executing quick queries joining tables.
+Considering the size of the data we may also think about partitioning the data in some way.
+This can improve the read and write speeds and also make administration tasks like backups faster.
+
+
+
+Database schema
+“If you’re going to use a relational database for storing all the data
+could you draft the tables and the relations between them?”
+
+
+These two entities have several types of relations between them:
+
+    users create tweets
+    users can follow users
+    users favorite tweets
+
+
+he first relation is addressed by sticking the user ID to each tweet.
+This is possible because each tweet is created by exactly one user.
+It’s a bit more complicated when it comes to following users and favoriting tweets.
+The relationship there is many-to-many.
+
+
+
+
+Table connections
+
+    ID of user that follows (follower_id)
+    ID of user that is followed (followee_id)
+    date of creation (created_at)
+
+
+
+Table favorites
+
+    ID of user that favorited (user_id)
+    ID of favorited tweet (tweet_id)
+    date of creation (created_at)
+
+
+
+Let’s assume that the queries to our data will be filtering users by their username.
+If that’s the case we will definitely want to build an index over this field to optimize the times for such queries.
+
+
+The next popular query will fetch tweets for a given user.
+The query needed for doing that will filter tweets using user_id, which every tweet has.
+It makes a lot of sense to build an index over this field in the tweets table,
+so that such queries are performed quickly.
+
+We will probably not want to fetch all tweets of a user at once. For example, if a given user has accumulated
+several thousand tweets over time, on their profile page we will start by showing the most recent 20 or something
+like that. This means that we could use a query, which not only filters by user_id but also orders by creation date
+(created_at) and limits the result. Based on that we may think about expanding our index to include the user_id column
+but to also include the created_at column. When we have an index over more than one column the order of the columns
+matters. If our index looks like that: <user_id, created_at>, making a query filtering by just user_id will
+take advantage of the index even though we are not filtering by the second column. So, such an index will allow us
+to filter either by just user_id, or by both columns. This will allow us to fetch all tweets authored by a given user
+or to isolate just the tweets created in a given time frame. Both will be useful queries for our application.
+
+
+Having discussed these base use cases, our interviewer suggests that you think about one more possible situation:
+“Do you think you could support with our database design the ability to display a page for a given user
+with their latest tweets that were favorited at least once?”
+
+
+
+Building a RESTful API
+Another thing that our interviewer could be interested in is how our front-end would “talk” to the back-end system.
+
+Probably the most popular answer nowadays would be by exposing a RESTful API on the back-end side,
+which has a few endpoints returning JSON objects as responses.
+
+
+GET /api/users/<username>
+GET /api/users/<username>/tweets
+GET /api/users/<username>/tweets?page=4
+
+GET /api/users/<username>/followers
+GET /api/users/<username>/followees
+
+Let’s look at creating new data. For example we will need an endpoint for posting a new tweet:
+POST /api/users/<username>/tweets
+POST /api/users/<username>/followers
+
+
+GET /api/users/<username>/tweets/<tweet_id>/favorites
+POST /api/users/<username>/tweets/<tweet_id>/favorites
+
+
+Of course, we will need some sort of authentication to be put in place,
+so that we make sure that not everyone can query our exposed API.
+
+
+
+
+
+Additional Considerations
+
+Increased number of read requests
+We have our implementation of the system and it handles everything perfectly.
+But what would happen if suddenly we got lucky and people started visiting our application 5 times more often
+generating 5 times more read requests caused by viewing posts and user profiles.
+What would be the first place that will most likely become a bottleneck?
+
+
+One very natural answer is our database. It could become overwhelmed with all the read requests coming to it.
+
+One typical way to handle more read requests would be to use replication. This way we could increase the number of
+database instances that hold a copy of the data and allow the application to read this data.
+Of course, this will help if the write requests are not increased dramatically.
+
+
+An alternative approach could be to shard our database and spread the data across different machines.
+This will help us if we need to write more data than before and the database cannot handle it.
+Such an approach does not come for free and it involves other complications that we would need to take care of.
+Consider getting familiar with these popular techniques for scaling a relational database.
+
+
+If we manage to stabilize our database, another point where we could expect problems is the web application itself.
+If we’ve been running it on a limited set of machines,
+which cannot handle all the load anymore this could lead to slow response times.
+One good thing about our high-level design is that it allows us to just add more machines running the application.
+
+
+This way our load balancer could become a single point of failure and a bottleneck if the number of requests is
+really high. In such cases we could start thinking about doing additional load balancing using
+DNS and directing requests for our domain to different machines, which are acting as load balancers themselves.
+
+
+
+Scaling the database
+
+One approach mentioned above is to add an in-memory cache solution in front of the database with the goal to not
+send repeated read requests to the database itself. We could use a key-value store like memcached to handle that.
+
+But this could be insufficient if our data grows too quickly.
+In such cases we may have to start thinking about partitioning this data and storing it on separate servers
+to increase availability and spread the load.
+
+
+Sharding our data could be a good and necessary approach in such cases. It must be planned and used with care
+because it will cause additional complications. But sometimes it is just required.
+It is highly recommended that you read more about this topic and all the implication it brings along.
+This will help you justify your decision to shard and to have a discussion about the possible downsides of doing it.
+
+
+
+Unexpected traffic
+In the beginning the interviewer warned us that there will be outliers in the data.
+This means that some users will have many more followers than the average.
+Also, some tweets will attract a lot of attention during a short period of time.
+In most cases such outliers will generate peaks in the number of requests that our application receives.
+
+
+As we mentioned earlier this could increase the load on our database.
+In such a situation using a caching solution could help a lot.
+The idea is that it will be able to answer the popular and repeating requests coming from the application
+and these requests will never touch the database, which will be busy replying to other queries.
+
+
+We could also experience unusual peaks in the requests hitting our application servers.
+If they are not enough to respond quickly enough to all requests this could cause timeout to occur for some of
+the users. In such situations solutions that offer auto-scaling of the available computing nodes could save the day.
+Some companies offering such services are Amazon and Heroku and they were already mentioned in this example.
+
+
+
+11. Design the summarization problem
+"In our company we already have developed a great library that can be used to summarize text articles.
+Just feed it the whole text and it will return a decent summary that is just a few sentences long.
+
+We need to put this in production and make it scalable.
+We expect that our customers will submit text articles from our mobile app and also from our website.
+
+The library currently takes between 0.1 and 5 seconds to summarize an article.
+You need to design a system that uses our existing library and allows users to submit text articles
+through the mobile app and through the website.
+
+We anticipate that this service will be used around 1 million times a month.
+Our desire is to not respond in more than 10 seconds to each request."
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Picking the right architecture = Picking the right battles + Managing trade-offs
