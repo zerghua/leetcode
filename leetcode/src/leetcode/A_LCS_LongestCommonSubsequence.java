@@ -21,6 +21,22 @@ import java.util.*;
  made to a revision-controlled collection of files.
 
 
+
+ further optimization of space:
+ 1. need 2 * min(m,n) space
+ 2. use rolling array, only requires min(m,n) + 1  space.
+
+
+
+ https://en.wikipedia.org/wiki/Longest_common_substring_problem
+ In computer science, the longest common substring problem is to find the longest string (or strings)
+ that is a substring (or are substrings) of two or more strings.
+
+ Longest_common_substring_problem is very similar to Longest_common_subsequence_problem,
+ check code below for difference.
+
+
+
  */
 public class A_LCS_LongestCommonSubsequence {
     // return max length of longest common subsequence
@@ -39,6 +55,22 @@ public class A_LCS_LongestCommonSubsequence {
     }
 
 
+
+    // return max length of longest common STRING
+    // 2D DP
+    // o(m*n)
+    public int LCString(String a, String b){
+        int m = a.length(), n = b.length(), max = 0;
+        int[][] dp = new int[m+1][n+1];
+        for(int i=0; i<=m ; i++){       // potential bug, "<="
+            for(int j=0; j<=n; j++){
+                if(i == 0 || j == 0) dp[i][j] = 0;
+                else dp[i][j] = a.charAt(i-1) == b.charAt(j-1) ? dp[i-1][j-1] + 1 : 0;
+                max = Math.max(max, dp[i][j]);
+            }
+        }
+        return max;
+    }
 
 
     // return one of the longest common subsequence string
@@ -113,6 +145,7 @@ public class A_LCS_LongestCommonSubsequence {
         System.out.println(Arrays.toString(x.LCS_all_string("abcdef", "accde").toArray()));  // [acde] use set get rid of duplicate
         System.out.println(Arrays.toString(x.LCS_all_string("abc", "acb").toArray()));  // [ab, ac]
 
+        System.out.println(x.LCString("abcdef", "accde"));  // 3  cde
     }
 
 }
