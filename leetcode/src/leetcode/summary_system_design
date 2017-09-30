@@ -900,3 +900,14 @@ because the only copy of the written data is in the cache.
 
 
 
+
+Solving system design questions could be broken down into three steps:
+
+    1. Scoping the problem: Don’t make assumptions;
+       Ask clarifying questions to understand the constraints and use cases.
+
+    2. Sketching up an abstract design Illustrating the building blocks of the system
+       and the relationships between them.
+
+    3. Identifying and addressing the bottlenecks by using the fundamental principles
+       of scalable system design.
