@@ -1349,6 +1349,11 @@ for(int i=0;i<amount;i++){
 }
 return dp[amount] == Integer.MAX_VALUE? -1 : dp[amount];
 
+
+518. Coin Change 2(return number of combinations sum to target)
+[medium] DP, similar to N322.
+
+
 221. Maximal Square(matrix with 0 and 1, find largest square with all 1 and return its area.)
 [medium] if matrix[i][j] == '1':  dp[i][j] = 1 + min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])
 (time o(m*n), space(m*n), space can be reduced use rolling array and one variable)
@@ -1412,8 +1417,7 @@ for (int i = 0; i < nums.length; i++) {
 516. Longest Palindromic Subsequence
 [hard] DP
 
-518. Coin Change 2
-[medium] DP
+
 
 583. Delete Operation for Two Strings(equivalent to Longest Common SubSequence (LCS))
 [medium] dp[i][j] = (word1.charAt(i-1) == word2.charAt(j-1)) ? 1 + dp[i-1][j-1] : Math.max(dp[i-1][j], dp[i][j-1]);

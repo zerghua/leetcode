@@ -26,6 +26,42 @@ import java.util.Arrays;
 
 public class N322_CoinChange {
     // no company
+    // DP 1D. dp[i] = Math.min(dp[i], dp[i-coin]+1), similar to N322
+    // 182 / 182 test cases passed. on 10/4/2017
+    // 24 ms
+    class Solution {
+        public int coinChange(int[] coins, int amount) {
+            int[] dp = new int[amount+1];
+            Arrays.fill(dp, Integer.MAX_VALUE);
+            dp[0] = 0;
+            for(int coin : coins){
+                for(int i=coin; i<=amount; i++){
+                    if(dp[i-coin] != Integer.MAX_VALUE) dp[i] = Math.min(dp[i], dp[i-coin] + 1);
+                }
+            }
+            return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
+        }
+    }
+
+
+    // DP  dp[i+ coin] = min(dp[i+coin], dp[i] + 1)
+    // on 9/24/2016  19 ms  181 / 181 test cases passed.
+    public int coinChange2(int[] coins, int amount) {
+        int[] dp = new int[amount+1];
+        for(int i=1;i<=amount;i++) dp[i] = Integer.MAX_VALUE; //important, init all to max except first one.
+        for(int i=0;i<amount;i++){
+            for(int coin: coins){
+                if(i+coin <= amount && dp[i] != Integer.MAX_VALUE)
+                    dp[i+coin] = Math.min(dp[i+coin], dp[i]+1);
+            }
+        }
+        return dp[amount] == Integer.MAX_VALUE? -1 : dp[amount];
+    }
+
+
+
+
+
     // backtracking, TLE
     // [176,6,366,357,484,226,1,104,160,331]
     // 5557
@@ -50,18 +86,6 @@ public class N322_CoinChange {
     }
 
 
-    // DP  dp[i+ coin] = min(dp[i+coin], dp[i] + 1)
-    // on 9/24/2016  19 ms  181 / 181 test cases passed.
-    public int coinChange2(int[] coins, int amount) {
-        int[] dp = new int[amount+1];
-        for(int i=1;i<=amount;i++) dp[i] = Integer.MAX_VALUE; //important, init all to max except first one.
-        for(int i=0;i<amount;i++){
-            for(int coin: coins){
-                if(i+coin <= amount && dp[i] != Integer.MAX_VALUE)
-                    dp[i+coin] = Math.min(dp[i+coin], dp[i]+1);
-            }
-        }
-        return dp[amount] == Integer.MAX_VALUE? -1 : dp[amount];
-    }
+
 
 }
