@@ -1079,6 +1079,8 @@ time can also be o(mlogn) or o(nlogm)
 605. Can Place Flowers
 []
 
+659. Split Array into Consecutive Subsequences
+[medium-hard] try to combine previous first, if not possible, then try to combine the next two. else return false
 
 53.	Maximum Subarray(Find the contiguous subarray which has the largest sum)
 [easy] localMax = max(n, n + localMax); globalMax = max(globalMax, localMax)
@@ -1966,17 +1968,10 @@ stored reversed element on q1: push new element to front of q2, add all q1 to q2
 ---------------------------------------------------
 14.Heap
 ---------------------------------------------------
-295. Find Median from Data Stream
-[hard-medium] [2 heaps]
-Queue minHeap = new PriorityQueue<Integer>((o1,o2)-> o1-o2); maxHeap= ...(o2-o1);
-minHeap.add(num); maxHeap.add(min.poll()); if (maxHeap.size > minHeap.size) minHeap.add(maxHeap.poll);
-
-
 23. Merge k Sorted Lists(real question)
 [hard-medium] o(nlogk)
 1. o(k) space, Heap to store k node. heap = new PriorityQueue<ListNode>((o1,o2)->o1.val - o2.val);
 2. o(1) space, divide and conquer, merge 2 lists recursively.
-
 
 218. The Skyline Problem
 [hard] heap<height> descending,
@@ -1984,24 +1979,54 @@ visit all points sorted by x, break tie by height(left height is negative),
 heap store global height in reversed order, add left height,
 remove end height if cur height is diff than previous, add to ret
 
-358. Rearrange String k Distance Apart
-[hard]
+295. Find Median from Data Stream
+[hard-medium] [2 heaps]
+Queue minHeap = new PriorityQueue<Integer>((o1,o2)-> o1-o2); maxHeap= ...(o2-o1);
+minHeap.add(num); maxHeap.add(min.poll()); if (maxHeap.size > minHeap.size) minHeap.add(maxHeap.poll);
 
-407. Trapping Rain Water II
-[medium]
+358. Rearrange String k Distance Apart(the same char at least k distance apart)
+[hard-medium] heap to mimic greedy rearrange.
 
-502. IPO
-[medium] two heaps
+502. IPO(maximize total capital after finishing at most k distinct projects)
+[medium] two heaps. min heapify capital while keeps its profits info,
+each operation of k try to max out largest profit given current W(capital).
+    public int findMaximizedCapital(int k, int W, int[] Profits, int[] Capital) {
+        PriorityQueue<int[]> heapCapital = new PriorityQueue<>((a,b) -> a[1] - b[1]);
+        for(int i=0; i<Profits.length; i++) heapCapital.add(new int[]{Profits[i], Capital[i]});
 
-630. Course Schedule III
-[]
+        PriorityQueue<Integer> maxProfit = new PriorityQueue<>((a,b) -> b-a);
+        for(int i=0; i<k ; i++){
+            while(!heapCapital.isEmpty() && W >= heapCapital.peek()[1]){
+                maxProfit.add(heapCapital.remove()[0]);
+            }
+            if(maxProfit.isEmpty())break;
+            W += maxProfit.remove();       // add max possible profit
+        }
+        return W;
+    }
 
-632. Smallest Range
-[]
+630. Course Schedule III(find the maximal number of courses that can be taken given a list of <length,end_day> pair)
+[hard-medium] sort course by deadline, heap sort by duration descending,
+enheap each course, if accumulated duration > cur_course deadline, then remove top of heap(longest course).
+    public int scheduleCourse(int[][] courses) {
+        Arrays.sort(courses, (a,b) -> a[1] - b[1]); // sort by deadline
+        int time = 0;
+        PriorityQueue<Integer> heap = new PriorityQueue<Integer>((a,b) -> b - a); // sort by duration
+        for(int[] a : courses){
+            time += a[0];
+            heap.add(a[0]);
+            if(time > a[1]) time -= heap.poll(); // remove the one has the longest duration
+        }
+        return heap.size();
+    }
 
-
-659. Split Array into Consecutive Subsequences
-[]
+632. Smallest Range(Find the smallest range that includes at least one number from each of the k lists.)
+[hard-medium] BF with minHeap and max variable to store [min,max] cur min/max and [start,end] as global min/max
+while(heap.size() == nums.size()){
+    // remove min item from heap
+    // update global min/max(start, end) if possible
+    // enheap next item in that list if possible
+}
 
 
 ---------------------------------------------------
@@ -2543,6 +2568,9 @@ if larger, pop all smaller and keep the popped as min, the incoming should large
 127. Word Ladder(return min steps to transform one word to another via path in dictionary.)
 [medium] BFS, shortest path from A to B via some path.
 
+407. Trapping Rain Water II(matrix, compute the volume of water it is able to trap after raining.)
+[medium] BFS + heap. heap as queue, BFS search from smallest in queue.
+
 433. Minimum Genetic Mutation(identical to N127 word latter)
 [medium] BFS.
 
@@ -2759,7 +2787,7 @@ find each operator, divide it into two half.
 [hard] hashtable + divide conquer. split each words str1 and str2, and check if isPal(str2) and reversed(str2) in map.
 
 
-*395. Longest Substring with At Least K Repeating Characters(interesting)
+*395. Longest Substring with At Least K Repeating Characters(return length such that every character in T appears no less than k times)(interesting)
 [medium] divide on the first char which has count < k
     public int longestSubstring(String s, int k) {
         if(s.length() == 0 || k > s.length()) return 0;

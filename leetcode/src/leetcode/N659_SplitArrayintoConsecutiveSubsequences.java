@@ -1,6 +1,4 @@
 package leetcode;
-
-import java.util.PriorityQueue;
 import java.util.*;
 
 /**
@@ -61,13 +59,51 @@ import java.util.*;
 
  [1,2,3,3,4,4,5,5]
 
+
+ We iterate through the array once to get the frequency of all the elements in the array
+
+ We iterate through the array once more and for each element we either see if it can be appended
+ to a previously constructed consecutive sequence or if it can be the start of a new consecutive sequence.
+ If neither are true, then we return false.
+
+
  */
 public class N659_SplitArrayintoConsecutiveSubsequences {
+    // hashmap + greedy
+    // o(n) solution
+    // 180 / 180 test cases passed.  on 10/5/2017
+    // 88 ms
+    public class Solution{
+        public boolean isPossible(int[] nums) {
+            Map<Integer, Integer> count = new HashMap<>(), tail = new HashMap<>();
+            for (int i : nums) count.put(i, count.getOrDefault(i,0) + 1);
+
+            for (int i : nums) {
+                if (count.get(i) == 0) continue;
+                count.put(i, count.get(i) - 1);
+
+                if (tail.getOrDefault(i,0) > 0) {   // try to previous tail first
+                    tail.put(i, tail.get(i) - 1);
+                    tail.put(i+1, tail.getOrDefault(i+1,0) + 1);
+                }
+                else if (count.getOrDefault(i+1,0) > 0 && count.getOrDefault(i+2,0) > 0) { // try to combine next two
+                    count.put(i+1, count.get(i+1) - 1);
+                    count.put(i+2, count.get(i+2) - 1);
+                    tail.put(i+3, tail.getOrDefault(i+3,0) + 1);
+                }
+                else return false;
+            }
+            return true;
+        }
+    }
+
+
     // map + priority queue
+    // important, the given array is sorted.
     // try to add next to the smallest list
     // 180 / 180 test cases passed.
     // 164 ms
-    public class Solution {
+    public class Solution2 {
         public boolean isPossible(int[] nums) {
             HashMap<Integer, PriorityQueue<Integer>> map = new HashMap();
             for(int e : nums){
@@ -79,6 +115,7 @@ public class N659_SplitArrayintoConsecutiveSubsequences {
                 if(!map.containsKey(e)) map.put(e, new PriorityQueue());
                 map.get(e).add(count);
             }
+
             for(int i : map.keySet()) {
                 if (map.get(i) != null && !map.get(i).isEmpty() && map.get(i).peek() < 3)
                     return false;
@@ -87,28 +124,5 @@ public class N659_SplitArrayintoConsecutiveSubsequences {
         }
     }
 
-    // o(n) solution
-    // 180 / 180 test cases passed.
-    // 104 ms
-    public class Solution2{
-        public boolean isPossible(int[] nums) {
-            Map<Integer, Integer> freq = new HashMap<>(), appendfreq = new HashMap<>();
-            for (int i : nums) freq.put(i, freq.getOrDefault(i,0) + 1);
-            for (int i : nums) {
-                if (freq.get(i) == 0) continue;
-                else if (appendfreq.getOrDefault(i,0) > 0) {
-                    appendfreq.put(i, appendfreq.get(i) - 1);
-                    appendfreq.put(i+1, appendfreq.getOrDefault(i+1,0) + 1);
-                }
-                else if (freq.getOrDefault(i+1,0) > 0 && freq.getOrDefault(i+2,0) > 0) {
-                    freq.put(i+1, freq.get(i+1) - 1);
-                    freq.put(i+2, freq.get(i+2) - 1);
-                    appendfreq.put(i+3, appendfreq.getOrDefault(i+3,0) + 1);
-                }
-                else return false;
-                freq.put(i, freq.get(i) - 1);
-            }
-            return true;
-        }
-    }
+
 }

@@ -38,11 +38,36 @@ import java.util.PriorityQueue;
  */
 public class N502_IPO {
     // no company
+    // greedy + heap
+    // min heapify capital while keeps its profits info,
+    // each operation of k try to max out largest profit given current W(capital).
+    // my improved solution based on below solution
+    // 31 / 31 test cases passed.
+    // 128 ms
+    public class Solution {
+        public int findMaximizedCapital(int k, int W, int[] Profits, int[] Capital) {
+            PriorityQueue<int[]> heapCapital = new PriorityQueue<>((a,b) -> a[1] - b[1]);
+            for(int i=0; i<Profits.length; i++) heapCapital.add(new int[]{Profits[i], Capital[i]});
+
+            PriorityQueue<Integer> maxProfit = new PriorityQueue<>((a,b) -> b-a);
+            for(int i=0; i<k ; i++){
+                while(!heapCapital.isEmpty() && W >= heapCapital.peek()[1]){
+                    maxProfit.add(heapCapital.remove()[0]);
+                }
+                if(maxProfit.isEmpty())break;
+                W += maxProfit.remove();       // add max possible profit
+            }
+            return W;
+        }
+    }
+
+
+
     // two heaps, one sort by capital increasing, another sort by profit decreasing.
     // very interesting
     // 31 / 31 test cases passed.
     // 141 ms
-    public class Solution {
+    public class Solution2 {
         public int findMaximizedCapital(int k, int W, int[] Profits, int[] Capital) {
             PriorityQueue<int[]> heapProfit = new PriorityQueue<>((a,b) -> b[0] - a[0]);
             PriorityQueue<int[]> heapCapital = new PriorityQueue<>((a,b) -> a[1] - b[1]);
