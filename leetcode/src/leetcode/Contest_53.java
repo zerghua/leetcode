@@ -110,7 +110,7 @@ public class Contest_53 {
             int[] t = new int[26];
             for(char c : target.toCharArray()) t[c - 'a']++;
 
-            LinkedList<int[]> list = new LinkedList(); // shorter list candidate, pruning
+            ArrayList<int[]> list = new ArrayList(); // shorter list candidate, pruning
             for(String s : stickers){
                 for(char c : s.toCharArray()) {
                     if(t[c - 'a'] != 0){
@@ -126,7 +126,7 @@ public class Contest_53 {
             return ret;
         }
 
-        public void dfs(LinkedList<int[]> list, int[] t, int start, int count){
+        public void dfs(ArrayList<int[]> list, int[] t, int start, int count){
             boolean isOK = true;
             for(int x : t) {
                 //System.out.println("x="+x);
