@@ -1,0 +1,116 @@
+Test Strategy is also known as test approach defines how testing would be carried out. Test approach has two techniques:
+
+1. Proactive - An approach in which the test design process is initiated as early as possible in order to find and fix the defects before the build is created.
+2. Reactive - An approach in which the testing is not started until after design and coding are completed.
+
+
+
+
+
+how to solve an urgent issue:
+1. short term solution.
+2. long term solution
+
+
+how to prioritize task:
+make a list, sort by importance/urgency/time, divide/categorize task and try to cover all categories.
+
+
+unit testing:
+Unit testing is, roughly speaking, testing bits of your code in isolation with test code. The immediate advantages that come to mind are:
+
+    Running the tests becomes automate-able and repeatable
+    You can test at a much more granular level than point-and-click testing via a GUI
+
+Note that if your test code writes to a file, opens a database connection or does something over the network, it's more appropriately categorized as an integration test. Integration tests are a good thing, but should not be confused with unit tests. Unit test code should be short, sweet and quick to execute.
+
+Another way to look at unit testing is that you write the tests first. This is known as Test-Driven Development (TDD for short). TDD brings additional advantages:
+
+    You don't write speculative "I might need this in the future" code -- just enough to make the tests pass
+    The code you've written is always covered by tests
+    By writing the test first, you're forced into thinking about how you want to call the code, which usually improves the design of the code in the long run.
+
+
+
+
+Testing area:
+1. behave as intended(positive)
+2. error handling(negative)
+3. code coverage(make sure all branches are tested.)
+
+
+
+
+
+memory leak
+race condition/dead lock/hang(for multiple threads)
+
+
+deterministic algorithm is easy to test, just compare with last result.
+Nondeterministic algorithm(like concurrent algorithm, probabilistic algorithm)
+
+how to test random:
+check distribution(iteratively, 5, 50, 500 ...) and completeness.
+
+
+
+How to debug:
+1. identify issue/reproducer
+2. narrow down/locate the offending code
+3. analyse it and also thinking about running environment as well.
+
+
+
+
+
+
+A Good Test＃
+1. Has a high probability of finding an error
+    每 Tester must have mental model of how software might fail
+    每 Should test classes of failure
+
+2. Is not redundant
+    每 Testing time and resources are limited
+    每 Each test should have a different purpose
+
+3. Should be ※best of breed§
+    每 Within a set of possible tests, the test with the highest likelihood of finding a class of errors should be used
+
+4. Should be neither too simple nor too complex
+    每 Reduces possibility of one error masking another
+
+5. Should test rarely used as well as common code
+    每 Code which is not executed often is more likely to have bugs
+    每 Tests for the common cases (e.g. everything normal) do not exercise
+
+6. error-handling code
+    每 We want to ensure we test rare cases as well
+
+
+
+Equivalence Partitioning
+Divide input domain into data classes
+Derive test cases from each class
+Guidelines for class formation based on input condition
+
+每 Range: define one valid and two invalid equivalence classes
+    if ((a>7) && (a<30))
+    - Valid Equivalence Class: 7<x<30
+    - Invalid Equivalence Class 1: x <= 7
+    - Invalid Equivalence Class 2: x >= 30
+
+每 Specific value: one valid and two invalid equivalence classes
+    if(a==20)
+    - Valid Equivalence Class: x == 20
+    - Invalid Equivalence Class 1: x < 20
+    - Invalid Equivalence Class 2: x > 20
+
+每 Member of a set: one valid and one invalid equivalence classes
+每 Boolean: one valid and one invalid equivalence classes
+
+
+
+
+
+
+

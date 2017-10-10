@@ -1,0 +1,373 @@
+1. Longest common subsequence(LCS):  (BDCABA,  ABCBDAB)  https://en.wikipedia.org/wiki/Longest_common_subsequence_problem
+    DP, time o(m*n), space o(m*n)
+    if(i==0 || j==0) dp[i][j] == 0
+    else if(s[i] == s[j]) dp[i][j] = dp[i-1][j-1] + 1
+    else dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+
+
+2. Longest increasing subsequence(LIS):  https://en.wikipedia.org/wiki/Longest_increasing_subsequence
+    solution 1, b = sort(a), now it's a problem of LCS(a,b)   time(n^2), space(n^2)
+
+    solution 2, DP.  dp[i] = dp[j] + 1 ( j in[0,i) && a[i] > a[j]),  time(n^2), space(n)
+
+    solution 3, DP.  time(nlogn), keep an sorted array, binary search replace a[i]>=number when number <= array[top]
+
+
+
+3. Longest common substring(similar to 1): https://en.wikipedia.org/wiki/Longest_common_substring_problem
+    DP, time o(n*m), space o(m*n)
+    if(s[i] == s[j]) dp[i][j] = dp[i-1][j-1] + 1
+    else dp[i][j] = 0;
+
+
+
+
+4. counting sort  (stable sort when last step loops from right )
+public void countingSort(int[] a){
+    int[] count = new int[a.length];
+    int[] tmp =  new int[a.length];
+    for(int i=0;i<a.length;i++) {
+        count[a[i]]++;
+    }
+
+    // to record position of each item
+    for(int i=1;i<a.length;i++) {
+        count[i] += count[i-1];
+    }
+
+    for(int i=a.length-1; i>=0;i--){
+        tmp[count[i]-1] = a[i];
+        count[i]--;
+    }
+
+    a = Arrays.copyOf(a, a.length);
+
+}
+
+
+5. Radix sort(advanced counting sort)
+public void radixSort(int[] a){
+    int maxNumber=Integer.MIN_VALUE;
+    for(int i: a) maxNumber = Math.max(maxNumber, i);
+
+    for(int digit=1; maxNumber/digit > 0; digit *=10){
+        countingSort(a, digit);
+    }
+}
+
+public void countingSort(int[] a, int digit){
+    int n = a.length;
+    int[] sorted = new int[n];
+    int[] count = new int[10];  // digit from 0-9
+
+    for(int i=0;i<n;i++){
+        count[(a[i]/digit)%10]++;
+    }
+
+    for(int i=1;i<10;i++){
+        count[i] += count[i-1];
+    }
+
+    for(int i=n-1;i>=0;i--){
+        sorted[count[(a[i]/digit)%10] - 1] = a[i];
+        count[(a[i]/digit)%10]--;
+    }
+    System.arraycopy(sorted,0,a,0,n);
+}
+
+
+
+
+6. String match(KMP) N28_ImplementstrStr
+T = AGCATGCTGCAGTCATGCTTAGGCTA
+P = GCT
+P appears three times in T
+
+A naive method takes O(mn) time
+– Initiate string comparison at every starting point
+– Each comparison takes O(m) time
+
+
+public int[] getNext(String s){
+    char[] chars = s.toCharArray();
+    int[] next = new int[chars.length];
+    int j=0, k=-1;
+    next[0] = -1;
+    while(j<chars.length -1){
+        if(k==-1 || chars[k] == chars[j]) next[++j] = ++k;
+        else k = next[k];
+    }
+    return next;
+}
+
+
+
+public int kmp(String t, String p){
+    char[] tchars = t.toCharArray();
+    char[] pchars = p.toCharArray();
+    int i=0, j=0;
+    int[] next = getNext(p);
+    while(i<tchars.length && j<pchars.length){
+        if(j== -1 || tchars[i] == pchars[j]){
+            i++;j++;
+        }else  j = next[j];
+    }
+
+    int index = -1;
+    if(j == pchars.length) index = i-j;
+    System.out.println(index);
+    return index;
+}
+
+
+
+
+
+
+
+
+Three-bit two's-complement
+integers Bits |	Unsigned value | Two's complement value
+011 	            3  	                3 
+010 	            2  	                2 
+001 	            1                  	1 
+000 	            0  	                0     ----> Two's complete is also 000 ==   111 + 1  --> 000
+111 	            7  	               -1 
+110 	            6  	               -2 
+101 	            5  	               -3 
+100 	            4  	               -4     ----> Two's complete is also 100 ==   011 + 1  --> 100
+
+
+0 1 2 3 -4 -3 -2 -1
+
+
+
+
+
+
+Data Structure:
+
+1. Stack: implementation. using array with pointer k initialize with -1.
+http://www.tutorialspoint.com/javaexamples/data_stack.htm
+
+
+
+2. Queue: need 2 pointers, head and tail
+
+
+
+3. heap(Priority Queue)  logn of insert and remove,  can use array as implementation
+parent:k,   children: 2k, 2k+1
+insert a node: h(++n) = v,  while(h(k) > h(k/2)) swap(h(k), h(k/2))  (swap parent and children if violate heap rule)
+remove root node: move last node to root, swap it with larger of two children recursively if violate heap rule.
+
+
+
+
+4. Union find?  still not sure.
+5. fenwick tree?   https://en.wikipedia.org/wiki/Fenwick_tree
+https://en.wikipedia.org/wiki/Prefix_sum
+
+
+6. Lowest Common Ancestor (LCA)
+// leetcode N236,  o(n) time
+// only works when both nodes exist in tree.
+public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    if(root == null || root == p || root == q) return root;
+    TreeNode left = lowestCommonAncestor(root.left, p, q);
+    TreeNode right = lowestCommonAncestor(root.right, p, q);
+    if(left != null && right!=null) return root;
+    return right == null? left: right;
+}
+
+
+Input: a rooted tree and a bunch of node pairs
+Output: lowest (deepest) common ancestors of the given pairs of nodes
+Goal: preprocessing the tree in O(n log n) time in order to answer each LCA query in O(log n) time
+
+
+
+
+
+
+
+Hi all,
+
+Today I interviewed Renze Wang. Recommendation: Proceed
+
+I asked the same question I always ask. Given a data structure with valid words and a string with no spaces, insert spaces into the string such that it consists of valid words separated by spaces (e.g. “helloworld”-> “hello world”).
+
+He immediately realized that it could be solved with recursion, which is the easiest way to solve it, and which other previous candidates haven’t picked up on. He seemed comfortable with C++ and its syntax. For the data structure with valid words he started with a vector but quickly changing it to an unordered_set, so that checking for containment would be more efficient. He understood the problem quickly and asked clarifying questions. As he implemented, he corrected most of his mistakes on his own, and when he was done he went through and tested it with the “helloworld” example (something that candidates sometimes forget to do). He still has a few small mistakes (like adding an extra space at the end of the returned string) but overall his solution looks good. See below for the code. When I asked about complexity he quickly said exponential just based on the fact that he was using depth first search, which is correct, but took a little while to get that it was 2^n. Actually, he said 2^n but the way he explained it didn’t really make sense and when I asked him to explain more he backtracked and said maybe it’s not 2^n. But anyway he got exponential quickly, which a lot of people don’t, and it seems like he has pretty good instincts for time complexity. He finished coding in about 30 minutes total and I spent 15 mins asking follow-up questions and then he asked me questions about Vertica things.
+
+Given that he works at leetcode I suppose we could expect that he’d be good at coding interviews, now that I think about it. I definitely say proceed.
+
+Best,
+Matthew
+
+class Solution {
+    bool dfs(unordered_set<string>& words, vector<string>& rets, string str, int left, int right) {
+        if (left == str.size()) {
+            return true;
+        }
+        if (right > str.size()) {
+            return false;
+        }
+        string cur = str.substr(left, right-left);
+        if (words.find(cur) != words.end()) {
+            rets.push_back(cur);
+            if (dfs(words, rets, str, right, right+1)) {
+                return true;
+            }
+            rets.pop_back(cur);
+        }
+        return dfs(words, rets, str, left, right+1);
+    }
+public:
+    string findWords(unordered_set<string>& words, string str) {
+        vector<string> rets;
+        string ret = "";
+        if (dfs(words, rets, str, 0, 1)) {
+            for (int i = 0; i < rets.size(); i++) {
+                ret += rets[i];
+                ret += " ";
+            }
+        } else {
+            return "";
+        }
+        ret.pop_back();
+        return ret;
+    }
+}
+
+
+
+Assume that the number of elements in A and B are both larger than k/2, and if we compare the k/2-th smallest element in A(i.e. A[k/2-1]) and the k-th smallest element in B(i.e. B[k/2 - 1]), there are three results:
+(Becasue k can be odd or even number, so we assume k is even number here for simplicy. The following is also true when k is an odd number.)
+A[k/2-1] = B[k/2-1]
+A[k/2-1] > B[k/2-1]
+A[k/2-1] < B[k/2-1]
+if A[k/2-1] < B[k/2-1], that means all the elements from A[0] to A[k/2-1](i.e. the k/2 smallest elements in A) are in the range of k smallest elements in the union of A and B. Or, in the other word, A[k/2 - 1] can never be larger than the k-th smalleset element in the union of A and B.
+
+Why?
+We can use a proof by contradiction. Since A[k/2 - 1] is larger than the k-th smallest element in the union of A and B, then we assume it is the (k+1)-th smallest one. Since it is smaller than B[k/2 - 1], then B[k/2 - 1] should be at least the (k+2)-th smallest one. So there are at most (k/2-1) elements smaller than A[k/2-1] in A, and at most (k/2 - 1) elements smaller than A[k/2-1] in B.So the total number is k/2+k/2-2, which, no matter when k is odd or even, is surly smaller than k(since A[k/2-1] is the (k+1)-th smallest element). So A[k/2-1] can never larger than the k-th smallest element in the union of A and B if A[k/2-1]<B[k/2-1];
+Since there is such an important conclusion, we can safely drop the first k/2 element in A, which are definitaly smaller than k-th element in the union of A and B. This is also true for the A[k/2-1] > B[k/2-1] condition, which we should drop the elements in B.
+When A[k/2-1] = B[k/2-1], then we have found the k-th smallest element, that is the equal element, we can call it m. There are each (k/2-1) numbers smaller than m in A and B, so m must be the k-th smallest number. So we can call a function recursively, when A[k/2-1] < B[k/2-1], we drop the elements in A, else we drop the elements in B.
+
+
+We should also consider the edge case, that is, when should we stop?
+1. When A or B is empty, we return B[k-1]( or A[k-1]), respectively;
+2. When k is 1(when A and B are both not empty), we return the smaller one of A[0] and B[0]
+3. When A[k/2-1] = B[k/2-1], we should return one of them
+
+In the code, we check if m is larger than n to garentee that the we always know the smaller array, for coding simplicy.
+
+
+
+
+// median of two sorted array.
+public class Solution {
+    public double findMedianSortedArrays(int A[], int B[]) {
+        int len = A.length + B.length;
+        if (len % 2 == 1) {
+            return findKth(A, 0, B, 0, len / 2 + 1);
+        }
+        return (
+            findKth(A, 0, B, 0, len / 2) + findKth(A, 0, B, 0, len / 2 + 1)
+        ) / 2.0;
+    }
+
+    // find kth number of two sorted array
+    public static int findKth(int[] A, int A_start,
+                              int[] B, int B_start,
+                              int k){
+		if (A_start >= A.length) {
+			return B[B_start + k - 1];
+		}
+		if (B_start >= B.length) {
+			return A[A_start + k - 1];
+		}
+
+		if (k == 1) {
+			return Math.min(A[A_start], B[B_start]);
+		}
+
+		int A_key = A_start + k / 2 - 1 < A.length
+		            ? A[A_start + k / 2 - 1]
+		            : Integer.MAX_VALUE;
+		int B_key = B_start + k / 2 - 1 < B.length
+		            ? B[B_start + k / 2 - 1]
+		            : Integer.MAX_VALUE;
+
+		if (A_key < B_key) {
+			return findKth(A, A_start + k / 2, B, B_start, k - k / 2);
+		} else {
+			return findKth(A, A_start, B, B_start + k / 2, k - k / 2);
+		}
+	}
+}
+
+
+
+
+
+1. kth order or median or 90% percentile or top K
+    1) sort  o(nlogn)
+    2) minHeap with k elements o(nlogk)
+    3) quickselect o(n)
+    int partition (int[] a, int start, int end)
+    {
+        int pivot = random(start, end)
+        swap(a[pivot], a[end])
+
+        // default use end as pivot if comment out above two lines, but performance might suffer.
+        for(int i=start; i<end, i++)
+        {
+            if (a[i] > a[end])
+                swap(a[i], a[start++]);
+        }
+        swap(a[start], a[end]);
+        return start;
+    }
+
+    //recursive
+    int quickselect(int[] a, int start, int end, int k)
+    {
+        // assume start < = end,
+        // k < end, should be handled by calling method
+
+        int p = partition(a, start, end);
+        if (p==k) return a[p];
+        else if (p<k) quickselect(a, p+1, end, k);
+        else quickselect(a, start, p-1, k);
+    }
+
+    //iterative
+    int quickselect(int[] a, int start, int end, int k)
+    {
+        while(true)
+        {
+            int p = partition(a, start, end);
+            if (p==k) return a[p];
+            else if (p<k) start= p+1;
+            else end = p-1;
+        }
+    }
+
+
+    get kth:
+    int getKth(int a, int k)
+    {
+        if k >= a.size() return -1;
+        return quickselect(a, 0, a.size()-1, k)
+    }
+
+    get median:
+    int getMedian(int[] a)
+    {
+        int m=a.size()/2;
+        if (a.size() %2 == 0 )
+        {
+            return (quickselect(a, 0, a.size()-1, m-1) + quickselect(a, 0, a.size()-1, m))/2 ;
+        }
+        return quickselect(a, 0, a.size()-1, m);
+    }
