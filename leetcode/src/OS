@@ -1,0 +1,70 @@
+UNIX is copyrighted name only big companies are allowed to use the UNIX copyright and name, so IBM AIX and Sun Solaris and HP-UX all are UNIX operating systems.
+Linux is just a kernel. All Linux distributions includes GUI system + GNU utilities (such as cp, mv, ls,date, bash etc) + installation & management tools + GNU c/c++ Compilers + Editors (vi) + and various applications (such as OpenOffice, Firefox). However, most UNIX operating systems are considered as a complete operating system as everything come from a single source or vendor.
+
+Portable Operating System Interface (POSIX)
+
+OS
+Unix
+HPUX                       Unix       HP
+AIX                        Unix       IBM
+Mac(OS X)                  Unix       Apple
+Solaris(SunOS 5)           Unix       Sun
+
+Linux Distributions
+RHEL/Fedora/Debian/Suse/Ubuntu/CentOS
+
+
+CPU architecture
+i386    The Intel 80386, IA-32, Intel Architecture, 32-bit       Intel           32-bit
+IA-64   Intel Itanium architecture                               HP,  Intel      64-bit
+x86-64  AMD64, x64, x86_64                                       AMD, Intel      64-bit
+SPARC   scalable processor architecture                          Sun             32 and 64
+
+
+Vertica ODBC driver:
+AIX               32 and 64
+Mac               32 and 64
+HPUX              32 and 64
+SPARC  with Sun   32 and 64
+
+i386   with Sun   32
+i386   with Linux 32
+x86_64 with Sun   64
+x86_64 with Linux 64
+ia64   with Linux 64
+
+
+Client Platform 	Default Encoding
+AIX 32-bit             UTF-16
+AIX 64-bit             UTF-32
+HPUX 32-bit            UTF-32
+HPUX 64-bit            UTF-32
+Linux x86 32-bit       UTF-32
+Linux x86 64-bit       UTF-32
+Linux Itanium 64-bit   UTF-32
+OS X                   UTF-32
+Solaris x86 32-bit     UTF-32
+Solaris x86 64-bit     UTF-32
+Solaris SPARC 32-bit   UTF-32
+Solaris SPARC 64-bit   UTF-32
+Windows 32-bit         UTF-16
+Windows 64-bit         UTF-16
+
+
+
+
+
+gzip -dc target.tar.gz | tar xf -
+
+
+DM=
+dd53
+dd61
+unixODBC
+iodbc
+
+on sparc:
+export LD_LIBRARY_PATH=/scratch_a/release/qa_odbc/third-party/install/${DM}/lib/
+
+
+
