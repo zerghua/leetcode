@@ -617,3 +617,313 @@ public class Elevator {
 
 
  */
+
+
+
+
+
+ Questions:
+ 1. How to extend a classes: subclass? Override? Delegation?
+ 2. Abstract Classes Vs Interfaces ?
+     Similarity
+     1). both can't be instantiated.
+     2). they may contain a mix of methods declared with or without an implementation.
+
+     Difference
+     1). However, with abstract classes, you can declare fields that are not static and final, and define public, protected, and private concrete methods. With interfaces, all fields are automatically public, static, and final, and all methods that you declare or define (as default methods) are public.
+     2). In addition, you can extend only one class, whether or not it is abstract, whereas you can implement any number of interfaces.
+
+
+ 3. Which should you use, abstract classes or interfaces?
+     Consider using abstract classes if any of these statements apply to your situation:
+         You want to share code among several closely related classes.
+         You expect that classes that extend your abstract class have many common methods or fields, or require access modifiers other than public (such as protected and private).
+         You want to declare non-static or non-final fields. This enables you to define methods that can access and modify the state of the object to which they belong.
+
+     Consider using interfaces if any of these statements apply to your situation:
+         You expect that unrelated classes would implement your interface. For example, the interfaces Comparable and Cloneable are implemented by many unrelated classes.
+         You want to specify the behavior of a particular data type, but not concerned about who implements its behavior.
+         You want to take advantage of multiple inheritance of type.
+
+
+ An example of an abstract class in the JDK is AbstractMap, which is part of the Collections Framework. Its subclasses (which include HashMap, TreeMap, and ConcurrentHashMap) share many methods (including get, put, isEmpty, containsKey, and containsValue) that AbstractMap defines.
+
+ An example of a class in the JDK that implements several interfaces is HashMap, which implements the interfaces Serializable, Cloneable, and Map<K, V>. By reading this list of interfaces, you can infer that an instance of HashMap (regardless of the developer or company who implemented the class) can be cloned, is serializable (which means that it can be converted into a byte stream; see the section Serializable Objects), and has the functionality of a map. In addition, the Map<K, V> interface has been enhanced with many default methods such as merge and forEach that older classes that have implemented this interface do not have to define.
+
+ Note that many software libraries use both abstract classes and interfaces; the HashMap class implements several interfaces and also extends the abstract class AbstractMap.
+
+
+
+ Summary of Interface:
+ 1. An interface declaration can contain method signatures, default methods, static methods and constant definitions. (public, static, and final)
+ 2. The only methods that have implementations are default and static methods. (can have implementation methods)
+ 3. A class that implements an interface must implement all the methods declared in the interface.
+ 4. An interface name can be used anywhere a type can be used.
+
+
+
+
+
+ Open/Closed Principle
+
+     Software entities (classes, modules, etc.) should be open for extension, but closed for modification.
+     In other words (in an ideal world...), you should never need to change existing code or classes: All new functionality can be added by adding new subclasses and overriding methods, or by reusing existing code through delegation.
+     This prevents you from introducing new bugs in existing code. If you never change it, you can't break it.
+
+ Liskov Substitution Principle- LSP
+
+     Derived classes must be usable through the base class interface without the need for the user to know the difference.
+     "An instance of a derived should be able to replace any instance of its superclass"
+
+ In Detail
+
+     The use of hierarchy is an important component in object-oriented design. Hierarchy allows the use of type families, in which higher level supertypes capture the behavior that all of their subtypes have in common. For this methodology to be effective, it is necessary to have a clear understanding of how subtypes and supertypes are related.
+     "objects of the subtype ought to behave the same as those of the supertype as far as anyone or any program using supertype objects can tell".
+
+ Interface Segregation Principle
+
+     Many client specific interfaces are better than one general purpose interface
+     The dependency of one class to another one should depend on the smallest possible interface
+
+
+
+ ############Object
+ An object is a real-world element in an object每oriented environment that may have a physical or a conceptual existence.
+
+ ############Class
+ A class represents a collection of objects having same characteristic properties that exhibit common behavior. Creation of an object as a member of a class is called instantiation. Thus, object is an instance of a class.
+     --class data or attributes.
+     --functions or methods.
+
+
+ ############Encapsulation (data can be only accessed through methods)
+ Encapsulation is the process of binding both attributes and methods together within a class. Through encapsulation, the internal details of a class can be hidden from outside.  It permits the elements of the class to be accessed from outside only through the interface provided by the class.
+
+ Data Hiding
+ Typically, a class is designed such that its data (attributes) can be accessed only by its class methods and insulated from direct outside access.
+
+ Message Passing ???
+ Any application requires a number of objects interacting in a harmonious manner. Objects in a system may communicate with each other using message passing.
+
+
+ ############Inheritance(Subclass)
+ Inheritance is the mechanism that permits new classes to be created out of existing classes by extending and refining its capabilities.
+ The existing classes are called the base classes/parent classes/super-classes, and the new classes are called the derived classes/child classes/subclasses.
+ The subclass can inherit or derive the attributes and methods of the super-class(es) provided that the super-class allows so. Besides, the subclass may add its own attributes and methods and may modify any of the super-class methods.
+ Inheritance defines an ※is 每 a§ relationship.
+ Example, From a class Mammal, a number of classes can be derived such as Human, Cat, Dog, Cow, etc.
+
+
+ Types of Inheritance:
+     Single Inheritance : A subclass derives from a single super-class.
+     Multiple Inheritance : A subclass derives from more than one super-classes.
+     Multilevel Inheritance : A subclass derives from a super-class which in turn is derived from another class and so on.   Animal->Mammal->Human
+     Hierarchical Inheritance : A class has a number of subclasses each of which may have subsequent subclasses, continuing for a number of levels, so as to form a tree structure.
+     Hybrid Inheritance : A combination of multiple and multilevel inheritance so as to form a lattice structure.
+
+
+ ############Polymorphism(Interface, Subclass)  aka. type substitution, helps app developer to iterate objects in it's highest level.
+ class Program {
+     public static void main(String[] args) {
+         Shape[] a = {  //Polymorphic array of shapes
+             new Shape();
+             new Rectangle(1, 10),
+             new Triangle(3, 4, 5),
+             new Circle(5)
+         };
+
+         for(Shape s : a)
+             System.out.println("The area of " + s.getClass().getName() +
+                 " is " + s.area());
+ }
+ Polymorphism is originally a Greek word that means the ability to take multiple forms. In object-oriented paradigm, polymorphism implies using operations in different ways, depending upon the instance they are operating upon.
+ Polymorphism allows objects with different internal structures to have a common external interface.
+ Polymorphism is particularly effective while implementing inheritance.
+ Example: Let us consider two classes, Circle and Square, each with a method findArea(). When an object of class Circle invokes its findArea() method, the operation finds the area of the circle without any conflict with the findArea() method of the Square class.
+
+ Benefit of Polymorphism
+ Ultimately, the purpose of polymorphism is to make our code more generic. As shown in the example above, we only have one for loop to output the area, without using any if statements to consider each shape separately.
+
+ In the Java API, you will often see methods with parameters of very generic type. This allows programmers to pass in different implementations of an algorithm to get a different behavior in the program with the same code to suit the specific need. One such example is the equals of the Object class, which takes an object of type Object.
+
+
+
+ ###########Java Abstract Class
+ In our previous article about polymorphism, we gave an example of a Shape class inherited by three subclasses, Rectangle, Triangle, and Circle. With polymorphism, a variable of type Shape can reference an object of any of the 3 subclasses.
+ However if you look at the example closely, the area() method of the Shape class (shown below) actually returns 0, because shape is a very abstract concept, and we can＊t actually compute the area, so we just wrote a placeholder method.
+ class Shape {
+     public double area() {
+         return 0;
+     }
+ }
+ However if you look at the example closely, the area() method of the Shape class (shown below) actually returns 0, because shape is a very abstract concept, and we can＊t actually compute the area, so we just wrote a placeholder method.
+ This is where the idea of abstract class comes in. An abstract class in Java is a class that cannot be instantiated, but allows programmer to define methods for subclasses. Let＊s see how this works.
+
+ An abstract class is marked with the abstract modifier, as shown below.
+ abstract class Shape {
+     public abstract double area();
+ }
+ Abstract classes usually contain abstract method, like area() above, because that is the purpose of an abstract class.
+ Also an abstract class cannot be a final class. The reason is that a final class cannot be inherited, but an abstract has to be inherited or else it cannot be instantiated and useless.
+
+ Extending Abstract Class
+ A subclass of an abstract class must override all of the parent＊s abstract methods, or it must be declared abstract. For example, the ColorShape class must be abstract because it does not override the area() method.
+ abstract class ColorShape extends Shape {
+     protected String color;
+     public String getColor() {
+         return color;
+     }
+ }
+
+
+ Polymorphism with Abstract Class
+ Abstract classes go hand-in-hand with polymorphism. As shown the previous example, we can define a very high-level concept as an abstract class, with abstract methods. We let the concrete subclasses to write the logic for these methods.
+
+ The good thing about this approach is that we do not accidentally execute some placeholder method, and Java will pick the correct method to execute based on the concrete object type.
+
+
+ Why to use interface?
+ class Main {
+     public static void main(String[] args) {
+         int[] a = {5, 1, 2, 4};
+         MyComparator myComp = new MyComparator();
+         ArrayUtil.sort(a, myComp);
+     }
+ }
+
+ class MyComparator implements Comparator {
+     //Class body here
+ }
+ Last, why would we even want to use interface parameters? Why don＊t we just always use class types as parameters? Well, since an interface defines what methods are included in a class, that is all we really need to interact with a class, and we don＊t need to know how those methods are implemented.
+
+ The beauty of this is that we can have two classes that implement an interface in two completely different ways, but as long as these classes implement the methods, they can passed to an interface parameter. Car engines don＊t have to be designed the same way, but as long as they follow certain specs, they are reusable components.
+
+
+
+ Why use interface from Oracle.
+ There are a number of situations in software engineering when it is important for disparate groups of programmers to agree to a "contract" that spells out how their software interacts. Each group should be able to write their code without any knowledge of how the other group's code is written. Generally speaking, interfaces are such contracts.
+
+
+
+
+
+
+
+
+
+ Generalization and Specialization
+ Generalization and specialization represent a hierarchy of relationships between classes, where subclasses inherit from super-classes.
+
+ Generalization
+ In the generalization process, the common characteristics of classes are combined to form a class in a higher level of hierarchy.
+ For example, ※car is a kind of land vehicle§, or ※ship is a kind of water vehicle§.
+
+ Specialization
+ Specialization is the reverse process of generalization. Here, the distinguishing features of groups of objects are used to form specialized classes from existing classes. It can be said that the subclasses are the specialized versions of the super-class.
+
+
+ Links and Association
+ Link
+ A link represents a connection through which an object collaborates with other objects.
+ A link depicts the relationship between two or more objects.
+
+ Association
+ Association is a group of links having common structure and common behavior.
+ Association depicts the relationship between objects of one or more classes. A link can be defined as an instance of an association.
+
+ Degree of an Association
+     A unary relationship connects objects of the same class.
+     A binary relationship connects objects of two classes.
+     A ternary relationship connects objects of three or more classes.
+
+
+ Aggregation or Composition (put class inside another class)
+ Aggregation or composition is a relationship among classes by which a class can be made up of any combination of objects of other classes.
+ It allows objects to be placed directly within the body of other classes.
+ Aggregation is referred as a ※part每of§ or ※has每a§ relationship, with the ability to navigate from the whole to its parts.
+ An aggregate object is an object that is composed of one or more other objects.
+ Example: In the relationship, ※a car has每a motor§, car is the whole object or the aggregate, and the motor is a ※part每of§ the car
+
+
+
+ Principles of Object-Oriented Systems
+ Major Elements : By major, it is meant that if a model does not have any one of these elements, it ceases to be object oriented. The four major elements are:
+     Abstraction
+     Encapsulation
+     Modularity
+     Hierarchy
+
+ Minor Elements : By minor, it is meant that these elements are useful, but not indispensable part of the object model. The three minor elements are:
+     Typing
+     Concurrency
+     Persistence
+
+
+ ###########Abstraction
+ Abstraction means to focus on the essential features of an element or object in OOP, ignoring its extraneous or accidental properties.
+ The essential features are relative to the context in which the object is being used.
+ Example : When a class Student is designed, the attributes enrolment_number, name, course, and address are included while characteristics like pulse_rate and size_of_shoe are eliminated, since they are irrelevant in the perspective of the educational institution.
+
+
+ Encapsulation
+ Encapsulation is the process of binding both attributes and methods together within a class.
+
+
+ Modularity
+ Modularity is the process of decomposing a problem (program) into a set of modules so as to reduce the overall complexity of the problem.
+
+
+ ###########Hierarchy
+ In Grady Booch＊s words, ※Hierarchy is the ranking or ordering of abstraction§.Through hierarchy, a system can be made up of interrelated subsystems, which can have their own subsystems and so on until the smallest level components are reached. It uses the principle of ※divide and conquer§.
+
+ The two types of hierarchies in OOA are:
+     ※IS每A§ hierarchy (Inheritance): It defines the hierarchical relationship in inheritance, whereby from a super-class, a number of subclasses may be derived which may again have subclasses and so on. For example, if we derive a class Rose from a class Flower, we can say that a rose ※is每a§ flower.
+     ※PART每OF§ hierarchy (Composition) : It defines the hierarchical relationship in aggregation by which a class may be composed of other classes. For example, a flower is composed of sepals, petals, stamens, and carpel. It can be said that a petal is a ※part每of§ flower.
+
+
+
+ Typing
+ According to the theories of abstract data type, a type is a characterization of a set of elements. In OOP, a class is visualized as a type having properties distinct from any other types. Typing is the enforcement of the notion that an object is an instance of a single class or type.
+
+ The two types of typing are:
+     Strong Typing : Here, the operation on an object is checked at the time of compilation, as in the programming language Eiffel.
+     Weak Typing : Here, messages may be sent to any class. The operation is checked only at the time of execution, as in the programming language Smalltalk.
+
+
+ Concurrency
+ Concurrency in operating systems allows performing multiple tasks or processes simultaneously.
+
+
+ Persistence
+ An object occupies a memory space and exists for a particular period of time. In traditional programming, the lifespan of an object was typically the lifespan of the execution of the program that created it. In files or databases, the object lifespan is longer than the duration of the process creating the object. This property by which an object continues to exist even after its creator ceases to exist is known as persistence.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

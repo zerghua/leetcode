@@ -1,0 +1,67 @@
+https://en.wikipedia.org/wiki/Unicode
+
+UTF-8, an 8-bit variable-width encoding which maximizes compatibility with ASCII;
+UTF-16, a 16-bit, variable-width encoding;
+UTF-32, a 32-bit, fixed-width encoding.
+
+
+1 byte = 2^8 = 256 = 'EF'(two Hexadecimals)
+4 bytes = EDEFEFEF(eight Hexadecimals)
+
+
+
+
+Assuming Python 3 (in Python 2, this difference is a little less well-defined) - a string is a sequence of characters, ie unicode codepoints; these are an abstract concept, and can't be directly stored on disk. A byte string is a sequence of, unsurprisingly, bytes - things that can be stored on disk. The mapping between them is an encoding - there are quite a lot of these (and infinitely many are possible) - and you need to know which applies in the particular case in order to do the conversion, since a different encoding may map the same bytes to a different string:
+
+>>> b'\xcf\x84o\xcf\x81\xce\xbdo\xcf\x82'.decode('utf-16')
+'蓏??澽苏'
+>>> b'\xcf\x84o\xcf\x81\xce\xbdo\xcf\x82'.decode('utf-8')
+'τoρνo?'
+
+Once you know which one to use, you can use the .decode() method of the byte string to get the right character string from it as above. For completeness, the .encode() method of a character string goes the opposite way:
+
+>>> 'τoρνo?'.encode('utf-8')
+b'\xcf\x84o\xcf\x81\xce\xbdo\xcf\x82'
+
+
+
+The only thing that a computer can store is bytes.
+
+To store anything in a computer, you must first encode it, i.e. convert it to bytes. For example:
+
+    If you want to store music, you must first encode it using MP3, WAV, etc.
+    If you want to store a picture, you must first encode it using PNG, JPEG, etc.
+    If you want to store text, you must first encode it using ASCII, UTF-8, etc.
+
+MP3, WAV, PNG, JPEG, ASCII and UTF-8 are examples of encodings. An encoding is a format to represent audio, images, text, etc in bytes.
+
+In Python, a byte string is just that: a sequence of bytes. It isn't human-readable. Under the hood, everything must be converted to a byte string before it can be stored in a computer.
+
+
+
+
+python
+>>> a="string"
+>>> a
+'string'
+>>> a[0]
+'s'
+
+>>> b="汉字"
+>>> b
+'\xe6\xb1\x89\xe5\xad\x97'
+
+>>> b[0]
+'\xe6'
+>>> b[1]
+'\xb1'
+
+>>> len(b)
+6
+>>> c=b.decode("utf-8")
+>>> c
+u'\u6c49\u5b57'
+>>> print(c)
+汉字
+>>> len(c)
+2
