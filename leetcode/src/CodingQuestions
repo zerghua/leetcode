@@ -1,0 +1,75 @@
+The question was "find maximum forward difference between two numbers in a series of numbers. The program should print out the max difference and the index location of the two elements used"
+
+
+Given a string, convert it into a palindrome with the lease number of insertions possible.
+For each string, if left char = right char, no need to insert, cut the two ends. If left != right, only no decision, insert the right char to left or insert the left char to right. Both increment the total insert by 1.
+
+int FindMinInsert(string s, int l, int r)
+{ if ( l >= r ) return 0;
+     if (s[l] == s[r]) return FindMinInsert(s, l+1, r-1);
+     int insert_left = FindMinInsert(s, l, r-1) +1;
+     int insert_right = FindMinInsert(s, l+1, r) +1;
+     return min(insert_left, insert_right);
+
+
+
+Given a list of absolute file paths, implement a function to store all the paths in a tree, and a function to retrieve all the paths
+
+
+Find the majority element of an array
+
+
+
+first one is given a array and a integer x. Find the biggest element in array which is less then x.
+
+
+The coding quesition is to find the kth in two sorted arrays
+
+
+insert a node in to sorted circular linked list.
+
+
+Invert a Map
+e.g 1: {a,b} 2: {c,d} becomes a:1 b:1 c:2 d2
+
+
+
+Given a list of integer e.g. (1,2,4,5,6,7,8...)
+Find a pair with a given sum.
+
+
+How would you determine if someone has won a game of tic-tac-toe on a board of any size?
+
+
+Implement a binary tree and explain it's function
+Design a function which returns the number of set bits in a given number, when expressed in binary
+
+
+
+1) Print all subsets of a set.
+2) Design question about a navigation app that needs take consider changing traffic - solution using Djsktra.
+3) Test question - How will you test a google product, and also how will you convince your team members to add unit tests, etc.
+4) Print matrix diagonally.
+5) Java question, need to add to the Iterator interface a method to check if the element is last.
+
+
+Find out a substring from a huge file with high performance
+
+
+Divide a string into the minimal set of palindromes that can form it.
+
+
+Find all substrings of a palindrome string.
+
+
+Serialize a string over network
+
+
+
+How do you find the cube root of a number?
+
+
+
+
+
+
