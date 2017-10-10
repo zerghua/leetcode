@@ -133,3 +133,134 @@ leaving a maximum of 1,497 or 1,492 bytes for data. The MAC layer adds a 22-byte
  (data correction) data at the end of the datagram received from the LLC layer, forming the Ethernet
  frame. Thus the maximum size of an Ethernet frame is of 1,526 bytes.
 
+
+
+
+
+HTTP, DNS, caching, TCP/IP.
+
+DNS Name Server Load Balancing(Domain Name System)
+load balancing: to spread requests across multiple hardware servers
+DNS supports this by providing a simple way to implement load balancing. Instead of specifying a single Address resource record for a name, we can create several such records, thereby associating more than one IP address with a particular DNS name.
+
+
+TCP/IP is an abbreviation for Transmission Control Protocol / Internet Protocol
+It is a set of protocols that define how two or more computers can communicate with each other and transmit data.
+
+Another related protocol is UDP (User Datagram Protocol) which also runs on top of the IP (Internet Protocol)
+
+The difference between TCP and UDP is that TCP is connection based protocol whereas UDP is connectionless. In other words when TCP is being used there is a session setup between the hosts and the transfer is guaranteed. For UDP each data packet is sent but there is no checking that it has been received, or anyway of resending within the network layers.
+
+
+A common way of comparing these is to liken TCP to the telephone system and UDP to the postal service
+
+At first it may sound that there is no reason to choose UDP over TCP after all if you can have the extra reassurance then why would you care about UDP. The reason for this is that there is a lot of overhead involved in TCP. For each data packet being sent a confirmation has to be generated and even if there is no data being sent there will often be some kind of keep alive signal. Whereas for some less important data you may just want to send and forget it with the hope it will reach the other end. It's also possible for the sesssion to be handled higher up the networking stack (but I'm getting ahead of myself here).
+
+ 	OSI model	 TCP/IP stack
+7	Application	 Application
+6	Presentation
+5	Session	     TCP or UDP(how to deliver data, connection or connectionless)
+4	Transport
+3	Network	     IP(address of source and destination)
+2	Data link	 Network interface
+1	Physical	 Physical
+
+
+IP Addressing Scheme
+
+IP Address class ranges(n is network, h is host)
+Class A	0.hhh.hhh.hhh	to	127.hhh.hhh.hhh  (network is 8 bits)
+Class B	128.nnn.hhh.hhh	to	191.nnn.hhh.hhh  (network is 16 bits)
+Class C	192.nnn.nnn.hhh	to	223.nnn.nnn.hhh  (network is 24 bits, 200 thousand possible networks each with up to 254 hosts)
+Class D	224.xxx.xxx.xxx	to	239.xxx.xxx.xxx
+Class E	240.xxx.xxx.xxx	to	255.xxx.xxx.xxx
+
+Reserved Addresses
+127.0.0.1	Refers to localhost
+All host bits binary 0s	Refer to the network
+All host bits binary 1s	Broadcast address - send to all addresses
+
+Private Address Ranges (defined in RFC 1918)
+Class A	10.0.0.0	to	10.255.255.255
+Class B	172.16.0.0	to	172.31.255.255
+Class C	192.168.0.0	to	192.168.255.255
+
+
+
+To provide Internet access for a host with a private address range the communications have to go through a NAT (Network Address Translation). This is one way that the number of available IP addresses can be preserved.
+
+
+Subnet Masks? come back
+
+
+
+
+Sockets and Port Numbers(IP is address of machine, port is which application on this machine, IP + Port == Socket, port can be used for both TCP and UDP)
+Whilst the IP address provides the connection to the correct machine, it cannot distinguish the different service that is required. The port is used to distinguish the application. It is a value from 0 to 65535. The combination of IP address, port and protocol is called a socket, and has to be unique for every service. The port numbers area available for both TCP and UDP, and when referred to in conjunction with the IP address it specifies the "socket".
+
+cat /etc/services
+
+
+
+The MAC address is usually hard coded into the ethernet card and are unique across every device made. This is achieved by allocating a block of addresses to each manufacturer of ethernet devices.
+
+To translate between IP addresses and MAC addresses on the local ethernet the Address Resolution Protocol (ARP) is used.
+
+
+
+Domain Name System (DNS)
+Hostnames have an hierarchical structure. The names read from right to left as though moving down a tree.
+
+If a computer wants to communicate with www.penguintutor.com then it will first contact its local DNS server with an nslookup for that specific site. This will normally be a DNS server provided by their own company or their ISP(for home user).
+
+To speed up the DNS process many DNS machines provide a caching feature where they can store the result of some of the lookups they perform. The names cached can either be for specific hosts (although except for popular sites they will be less likely to have a hit on the cache). Alternatively the DNS will cache the address of another DNS server allowing it to bypass some of the process (for example caching the com DNS would allow the DNS to skip the root query for subsequent .com queries).
+
+The use of a DNS cache is so significant that there are even caching-only DNS servers that do not act as a zone of authority for any domain.
+
+cat /etc/resolv.conf
+
+
+
+Handling hosts without a DNS server
+This can be implemented by adding entries to the /etc/hosts file
+
+
+
+Routing
+The devices that handle the directing of traffic are known as routers.
+These routers take an incoming packet and based upon the destination address send them through a different interface to either another router or to the end destination.
+
+
+
+IPV4 32 bit,  IPV6 128 bit.
+
+
+
+The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems.
+
+Basically, HTTP is an TCP/IP based communication protocol, which is used to deliver data (HTML files, image files, query results etc) on the World Wide Web.
+
+The default port is TCP 80, but other ports can be used. It provides a standardized way for computers to communicate with each other. HTTP specification specifies how clients request data will be constructed and sent to the server, and how servers respond to these requests.
+
+
+
+HTTP is connectionless: The HTTP client ie. browser initiates an HTTP request and after a request is made, the client disconnects from the server and waits for a response. The server process the request and re-establish the connection with the client to send response back.
+
+HTTP is media independent: This means, any type of data can be sent by HTTP as long as both the client and server know how to handle the data content. This is required for client as well as server to specify the content type using appropriate MIME-type.
+
+HTTP is stateless: As mentioned above, HTTP is a connectionless and this is a direct result that HTTP is a stateless protocol. The server and client are aware of each other only during a current request. Afterwards, both of them forget about each other. Due to this nature of the protocol, neither the client nor the browser can retain information between different request across the web pages.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
