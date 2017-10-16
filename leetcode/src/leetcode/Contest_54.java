@@ -6,7 +6,7 @@ import java.util.*;
  * Created by HuaZ on 10/14/2017.
  Rank	    Name	Score	 Finish Time 	Q1 (3)	    Q2 (5)	    Q3 (7)	    Q4 (9)
  630 / 3232	zerghua	    8	     0:34:00	0:19:28 	0:34:00
-
+ N696, N697, N698, N699
 
  */
 public class Contest_54 {
@@ -71,6 +71,8 @@ public class Contest_54 {
 
     // backtracking, BF  TLE when search from smallest to largest
     // AC when search from largest to smallest
+    // 141 / 141 test cases passed.
+    // 12 ms
     class Solution3 {
         public boolean canPartitionKSubsets(int[] nums, int k) {
             int sum = 0;
@@ -105,6 +107,8 @@ public class Contest_54 {
 
     // borrowed from others solution
     // has to backtrack from the largest number
+    // 141 / 141 test cases passed.
+    // 36 ms
     class Solution3_try_to_improve {
         public boolean canPartitionKSubsets(int[] nums, int k) {
             int sum = 0;
