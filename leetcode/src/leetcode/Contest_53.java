@@ -5,7 +5,7 @@ import java.util.*;
  * Created by HuaZ on 10/7/2017.
  Rank	    Name	Score	 Finish Time 	Q1 (3)	    Q2 (5)	    Q3 (7)	    Q4 (9)
  287 / 2932	zerghua	   15	     0:51:35	0:11:58 	0:25:52 	0:51:35
-
+ N691, N693, N694, N695
 
 
  */
